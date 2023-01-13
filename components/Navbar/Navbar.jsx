@@ -130,7 +130,7 @@ export default function Navbar() {
                 Home
               </a>
               <a
-                href="pages/shop.html"
+                href="/products"
                 className="text-gray-200 hover:text-white transition"
               >
                 Shop

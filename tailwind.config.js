@@ -9,6 +9,9 @@ module.exports = {
       colors: {
         primary: "#f7594f",
       },
+      fontFamily: {
+        'Th': ['ChakraPetch', 'system-ui'],
+      },
     },
   },
   plugins: [],

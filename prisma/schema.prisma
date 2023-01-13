@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "cockroachdb"
+  url      = env("DATABASE_URL")
+}
+
+model ProductType {
+  id         String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name       String?
+  createdAt  DateTime?  @default(now())
+  updatedAt  DateTime?
+  deleted_at DateTime?
+  products   products[]
+}
+
+model products {
+  id          String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  image       String?
+  name        String?
+  detail      String?
+  price       String?
+  type        String?      @db.Uuid
+  createdAt   DateTime?    @default(now())
+  updatedAt   DateTime?
+  deleted_at  DateTime?
+  ProductType ProductType? @relation(fields: [type], references: [id])
+}

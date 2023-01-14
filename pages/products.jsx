@@ -1,15 +1,29 @@
 import React from "react";
 import useAxios from "axios-hooks";
-
+import { useSpring, animated } from "@react-spring/web";
+import { useRouter } from "next/router";
 
 export default function ProductsPage() {
   const [{ data: ProductsData }, getProducts] = useAxios({
     url: "/api/products",
   });
+  const router = useRouter();
+  const handleClick = (e, path, param) => {
+    e.preventDefault();
+
+    if (path === "/productdetail") {
+      router.push(
+        {
+          pathname: path,
+          query: { id: param },
+        }
+      );
+    }
+  };
 
   return (
     <>
-      <button className="relative text-sm focus:outline-none group">
+      {/* <button className="relative text-sm focus:outline-none group">
         <div className="flex items-center justify-between w-full h-16 px-4 border-b border-gray-800 hover:bg-white">
           <span className="font-medium">Dropdown</span>
           <svg
@@ -36,7 +50,7 @@ export default function ProductsPage() {
             Menu Item 1
           </a>
         </div>
-      </button>
+      </button> */}
       <div className="flex flex-col min-h-screen p-10 bg-gray-100 text-gray-800">
         <h1 className="text-3xl">รายการสินค้า</h1>
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mt-6">
@@ -47,7 +61,8 @@ export default function ProductsPage() {
           {ProductsData?.map((product, index) => (
             <div
               key={index}
-              className="max-w-sm rounded-xl overflow-hidden shadow-md h-full bg-white"
+              className="max-w-sm rounded-xl overflow-hidden shadow-md h-full bg-white cursor-pointer tranform motion-safe:hover:scale-105 motion-safe:hover:border-primary border"
+              onClick={(e) => handleClick(e, "/productdetail", product?.id)}
             >
               <img className="w-full" src={product.image} alt="product" />
               <div className="px-6 py-4">

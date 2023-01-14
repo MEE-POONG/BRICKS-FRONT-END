@@ -8,14 +8,14 @@ export default function ProductsPage() {
     url: "/api/products",
   });
   const router = useRouter();
-  const handleClick = (e, path, param) => {
+  const handleClick = (e, path, id, name) => {
     e.preventDefault();
 
     if (path === "/productdetail") {
       router.push(
         {
           pathname: path,
-          query: { id: param },
+          query: { name: name, id: id },
         }
       );
     }
@@ -62,7 +62,7 @@ export default function ProductsPage() {
             <div
               key={index}
               className="max-w-sm rounded-xl overflow-hidden shadow-md h-full bg-white cursor-pointer tranform motion-safe:hover:scale-105 motion-safe:hover:border-primary border"
-              onClick={(e) => handleClick(e, "/productdetail", product?.id)}
+              onClick={(e) => handleClick(e, "/productdetail", product?.id, product?.name)}
             >
               <img className="w-full" src={product.image} alt="product" />
               <div className="px-6 py-4">

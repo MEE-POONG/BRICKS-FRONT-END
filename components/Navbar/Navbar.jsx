@@ -1,4 +1,4 @@
-import Image from "next/image";
+import useAxios from "axios-hooks";
 import Link from "next/link";
 import React from "react";
 import {
@@ -10,6 +10,15 @@ import {
 } from "react-icons/fa";
 
 export default function Navbar() {
+  const [
+    {
+      data: productTypeData,
+      loading: productTypeLoading,
+      error: productTypeError,
+    },
+    getProductType,
+  ] = useAxios({ url: "/api/productType", method: "GET" });
+
   return (
     <>
       <header className="py-2 shadow-sm bg-white">
@@ -88,47 +97,20 @@ export default function Navbar() {
               <FaBars />
             </span>
             <span className="capitalize ml-2 text-white">ประเภท อิฐ</span>
-
             <div className="absolute w-full left-0 top-full bg-white shadow-md py-3 divide-y divide-gray-300 divide-dashed opacity-0 group-hover:opacity-100 transition duration-300 invisible group-hover:visible">
-              <Link
-                href="#"
-                className="flex items-center px-6 py-3 hover:bg-gray-100 transition"
-              >
-                <span className="ml-6 text-gray-600 text-sm">อิฐ 1</span>
-              </Link>
-              <Link
-                href="#"
-                className="flex items-center px-6 py-3 hover:bg-gray-100 transition"
-              >
-                <span className="ml-6 text-gray-600 text-sm">อิฐ 2</span>
-              </Link>
-              <Link
-                href="#"
-                className="flex items-center px-6 py-3 hover:bg-gray-100 transition"
-              >
-                <span className="ml-6 text-gray-600 text-sm">อิฐ 3</span>
-              </Link>
-              <Link
-                href="#"
-                className="flex items-center px-6 py-3 hover:bg-gray-100 transition"
-              >
-                <span className="ml-6 text-gray-600 text-sm">อิฐ 4</span>
-              </Link>
-              <Link
-                href="#"
-                className="flex items-center px-6 py-3 hover:bg-gray-100 transition"
-              >
-                <span className="ml-6 text-gray-600 text-sm">อิฐ 5</span>
-              </Link>
-              <Link
-                href="#"
-                className="flex items-center px-6 py-3 hover:bg-gray-100 transition"
-              >
-                <span className="ml-6 text-gray-600 text-sm">อิฐ 6</span>
-              </Link>
+              {productTypeData?.map((type, index) => (
+                <Link
+                  key={index}
+                  href="#"
+                  className="flex items-center px-6 py-3 hover:bg-gray-100 transition"
+                >
+                  <span className="ml-6 text-gray-600 text-sm">
+                    {type.name}
+                  </span>
+                </Link>
+              ))}
             </div>
           </div>
-
           <div className="flex items-center justify-between flex-grow pl-12">
             <div className="flex items-center space-x-6 capitalize">
               <Link

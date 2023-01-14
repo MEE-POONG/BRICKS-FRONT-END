@@ -2,6 +2,7 @@ import useAxios from "axios-hooks";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
+import Loading from "./loading";
 
 export default function Productdetail() {
   const router = useRouter();
@@ -9,8 +10,10 @@ export default function Productdetail() {
     { data: productData, loading: productLoading, error: productError },
     getProduct,
   ] = useAxios({ url: `/api/products/${router.query.id}`, method: "GET" });
+
   return (
     <>
+    {productLoading ? <Loading /> :
       <div className="flex flex-col min-h-screen p-10 bg-gray-100 text-gray-800">
         <div>
           <Link href="/" className="hover:text-primary">
@@ -197,6 +200,7 @@ export default function Productdetail() {
           </div>
         </section>
       </div>
+      }
     </>
   );
 }

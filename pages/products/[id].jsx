@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
-import Loading from "../loading";
+import Loading from "../../components/Loading/Loading";
 
 export default function Productdetail() {
   const router = useRouter();
@@ -20,7 +20,7 @@ console.log(router.query.id);
       <title>{productData?.name}</title>
     </Head>
       {productLoading ? (
-        <Loading />
+        <Loading/>
       ) : (
         <div className="flex flex-col min-h-screen p-10 bg-gray-100 text-gray-800">
           <div>

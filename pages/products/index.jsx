@@ -1,10 +1,9 @@
 import React from "react";
 import useAxios from "axios-hooks";
-import { useSpring, animated } from "@react-spring/web";
 import { useRouter } from "next/router";
-import Loading from "../loading";
 import Head from "next/head";
 import Image from "next/image";
+import Loading from "../../components/Loading/Loading";
 
 export default function ProductsPage() {
   const [
@@ -30,7 +29,7 @@ export default function ProductsPage() {
         <title>สินค้าทั้งหมด</title>
       </Head>
       {productsLoading ? (
-        <Loading />
+        <Loading/>
       ) : (
         <div className="flex flex-col min-h-screen p-10 bg-gray-100 text-gray-800">
           <h1 className="text-3xl">รายการสินค้า</h1>

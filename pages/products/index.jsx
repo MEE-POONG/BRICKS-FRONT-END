@@ -4,6 +4,7 @@ import { useSpring, animated } from "@react-spring/web";
 import { useRouter } from "next/router";
 import Loading from "../loading";
 import Head from "next/head";
+import Image from "next/image";
 
 export default function ProductsPage() {
   const [
@@ -18,7 +19,7 @@ export default function ProductsPage() {
 
     if (path === "/products") {
       router.push({
-        pathname: path+`/${id}`,
+        pathname: path + `/${id}`,
       });
     }
   };
@@ -42,11 +43,15 @@ export default function ProductsPage() {
               <div
                 key={index}
                 className="max-w-sm rounded-xl overflow-hidden shadow-md h-full bg-white cursor-pointer tranform motion-safe:hover:scale-105 motion-safe:hover:border-primary border"
-                onClick={(e) =>
-                  handleClick(e, "/products", product?.id)
-                }
+                onClick={(e) => handleClick(e, "/products", product?.id)}
               >
-                <img className="w-full" src={product.image} alt="product" />
+                <Image
+                  src={product.image}
+                  alt="product"
+                  width={100}
+                  height={100}
+                  className="w-full" // just an example
+                />
                 <div className="px-6 py-4">
                   <div className="text-gray-500 text-base mb-2 font-Th">
                     {product.ProductType?.name}

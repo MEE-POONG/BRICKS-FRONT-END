@@ -1,5 +1,6 @@
 import useAxios from "axios-hooks";
 import Head from "next/head";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
@@ -34,10 +35,12 @@ console.log(router.query.id);
           <section className="text-gray-700 body-font overflow-hidden bg-white rounded-lg shadow-lg">
             <div className="container px-5 py-8 mx-auto">
               <div className="lg:w-4/5 mx-auto flex flex-wrap">
-                <img
-                  alt="ecommerce"
-                  className="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200 rounded-lg"
+                <Image
                   src={productData?.image}
+                  alt="product"
+                  width={100}
+                  height={100}
+                  className="lg:w-1/2 w-full object-cover object-center border border-gray-200 rounded-lg"
                 />
                 <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                   <h2 className="text-sm title-font text-gray-500 tracking-widest">

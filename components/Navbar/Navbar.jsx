@@ -133,7 +133,7 @@ export default function Navbar() {
               </Link>
             </div>
             <a
-              href="pages/login.html"
+              href="login"
               className="text-gray-200 hover:text-white transition"
             >
               Login

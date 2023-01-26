@@ -108,7 +108,7 @@ export default function Navbar() {
                 สินค้า
               </Link>
               <Link
-                href="/ourwork"
+                href="/portfolio"
                 className="text-gray-200 hover:text-white transition"
               >
                 ผลงานของเรา
@@ -126,6 +126,12 @@ export default function Navbar() {
                 ติดต่อเรา
               </Link>
             </div>
+            <a
+              href="login"
+              className="text-gray-200 hover:text-white transition"
+            >
+              Login
+            </a>
           </div>
         </div>
         {/* Mobile Display */}

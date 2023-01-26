@@ -1,10 +1,12 @@
 import useAxios from "axios-hooks";
 import React from "react";
-import { FacebookEmbed } from "react-social-media-embed";
+import { FacebookProvider, EmbeddedPost } from "react-facebook";
 import Loading from "../Loading/Loading";
 
+//รอเปลี่ยน เป็นของ บ.
+const AppID = "720522252954036";
 const AccessToken =
-  "EAAKPT6jwqbQBAGSKgvB6U7iM668P8emqvY6mtrxlHHZB0iNMW2DnEy2xaBMzir2lyeMw9kAtibHIdZB2T1HvRfQ3CfzYITZAvYxvgbyhmKTc3VUA5KWKtzc1oHGODkPI1d7g4NtWoHxNK5ZBJrQ87KzhxTjmptXH2quZCaON8rkOxTJTj09fcSE5XFmUNX4PlykpK6gAQHw6qsg7TRweZA";
+  "EAAKPT6jwqbQBABggpW1ervxGWEuB6RZBHqHB0IHFGVtTXKqoxHRfASng38VBQU20gfYgoIPD9vKViERZAUrvg82byDZBpV5L8HdwMioyM0d6JQvTvi30pHRfmwYxYZA8Upsdzz3q6A0hu7elZCRxDUG10zazVpG3CXidyp7UIcnuRnelVDJI0";
 const PageId = "103534424506037";
 const Limit = "12";
 
@@ -24,8 +26,7 @@ export default function FacebookPost() {
   const posts = facebookFeeds?.data
     ?.filter(
       (postType) =>
-        postType.status_type === "added_photos" ||
-        postType.status_type === "added_video"
+        postType.status_type === "added_photos"
     )
     .map((postId) => {
       return postId.id.split("_")[1];
@@ -46,10 +47,13 @@ export default function FacebookPost() {
           <>
             <div className="grid grid-cols-1 gap-x-6 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
               {posts?.map((id, index) => (
-                <div key={index} className="mx-auto">
-                  <FacebookEmbed
-                    url={`https://www.facebook.com/SpiRiTzeSport/posts/${id}`}
-                  />
+                <div key={index}>
+                  <FacebookProvider appId={AppID}>
+                    <EmbeddedPost
+                      href={`https://www.facebook.com/sn4ppy/posts/${id}`}
+                      lazy={true}
+                    />
+                  </FacebookProvider>
                 </div>
               ))}
             </div>

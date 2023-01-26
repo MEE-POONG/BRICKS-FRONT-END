@@ -8,7 +8,7 @@ import Loading from "../../components/Loading/Loading";
 
 export default function Productdetail() {
   const router = useRouter();
-console.log(router.query.id);
+  console.log(router.query.id);
   const [
     { data: productData, loading: productLoading, error: productError },
     getProduct,
@@ -16,11 +16,11 @@ console.log(router.query.id);
 
   return (
     <>
-    <Head>
-      <title>{productData?.name}</title>
-    </Head>
+      <Head>
+        <title>{productData?.name}</title>
+      </Head>
       {productLoading ? (
-        <Loading/>
+        <Loading />
       ) : (
         <div className="flex flex-col min-h-screen p-10 bg-gray-100 text-gray-800">
           <div>
@@ -167,20 +167,20 @@ console.log(router.query.id);
                             <option>ขอนแก่น</option>
                             <option>เชียงใหม่</option>
                           </select>
+                          <span className="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
+                            <svg
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              className="w-4 h-4"
+                              viewBox="0 0 24 24"
+                            >
+                              <path d="M6 9l6 6 6-6"></path>
+                            </svg>
+                          </span>
                         </div>
-                        <span className="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
-                          <svg
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            className="w-4 h-4"
-                            viewBox="0 0 24 24"
-                          >
-                            <path d="M6 9l6 6 6-6"></path>
-                          </svg>
-                        </span>
                       </div>
                     </div>
                   </div>

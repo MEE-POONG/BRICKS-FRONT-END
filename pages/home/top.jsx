@@ -7,12 +7,12 @@ import { GrAd, GrAddCircle, GrHome, GrMail } from "react-icons/gr";
 export default function HomeTop() {
   return (
     <>
-      <div className="container mx-auto font-fontTh2">
-        <h1>ร้านช่างพอง อิฐประสาน จัดสวน สร้างบ้าน ราคาโรงงาน</h1>
-        <img src="/images/p1.jpg" 
-        alt="" 
-        className="w-full"/>
-        
+      <div className="container mx-auto font-fontTh2 relative">
+        <div className="w-full h-[600px] bg-[#713f12]"/>
+        <div className="absolute bottom-10 left-10">
+        <h1 className=" font-extrabold text-[120px] text-[#0e7490]">ร้านช่างพอง </h1>
+        <p className=" font-semibold text-white text-[48px]">อิฐประสาน จัดสวน สร้างบ้าน ราคาโรงงาน</p>
+        </div>
       </div>
     </>
   );

@@ -167,7 +167,7 @@ export default function Productdetail() {
                             <option>ขอนแก่น</option>
                             <option>เชียงใหม่</option>
                           </select>
-                          <span className="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
+                          <span className="absolute right-0 top-0 mr-4 lg:mr-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
                             <svg
                               fill="none"
                               stroke="currentColor"

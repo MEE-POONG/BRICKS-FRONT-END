@@ -22,7 +22,7 @@ export default function LoginPage() {
                 <form className="space-y-4 md:space-y-6" action="#">
                   <div>
                     <label
-                      for="email"
+                      htmlFor="email"
                       className="block mb-2 text-sm font-semibold text-gray-900"
                     >
                       ชื่อผู้ใช้ หรือ อีเมล
@@ -38,7 +38,7 @@ export default function LoginPage() {
                   </div>
                   <div>
                     <label
-                      for="password"
+                      htmlFor="password"
                       className="block mb-2 text-sm font-semibold text-gray-900"
                     >
                       รหัสผ่าน
@@ -65,7 +65,7 @@ export default function LoginPage() {
                       </div>
                       <div className="ml-3 text-sm">
                         <label
-                          for="remember"
+                          htmlFor="remember"
                           className="text-gray-500"
                         >
                           Remember me

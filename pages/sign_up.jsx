@@ -23,7 +23,7 @@ export default function SignUpPage() {
                 <form className="space-y-4 md:space-y-6 " action="#">
                   <div className="flex -mx-3">
                     <div className="w-1/2 px-3">
-                      <label for="firstname" className="text-sm px-1 font-semibold">
+                      <label htmlFor="firstname" className="text-sm px-1 font-semibold">
                         ชื่อจริง
                       </label>
                       <div className="flex">
@@ -40,7 +40,7 @@ export default function SignUpPage() {
                       </div>
                     </div>
                     <div className="w-1/2 px-3">
-                      <label for="lastname" className="text-sm px-1 font-semibold">
+                      <label htmlFor="lastname" className="text-sm px-1 font-semibold">
                         นามสกุล
                       </label>
                       <div className="flex">
@@ -59,7 +59,7 @@ export default function SignUpPage() {
                   </div>
                   <div>
                     <label
-                      for="tel"
+                      htmlFor="tel"
                       className="block mb-2 text-sm font-semibold text-gray-900 "
                     >
                       เบอร์โทร
@@ -75,7 +75,7 @@ export default function SignUpPage() {
                   </div>
                   <div>
                     <label
-                      for="email"
+                      htmlFor="email"
                       className="block mb-2 text-sm font-semibold text-gray-900"
                     >
                       อีเมล
@@ -91,7 +91,7 @@ export default function SignUpPage() {
                   </div>
                   <div>
                     <label
-                      for="username"
+                      htmlFor="username"
                       className="block mb-2 text-sm font-semibold text-gray-900"
                     >
                       ชื่อผู้ใช้
@@ -107,7 +107,7 @@ export default function SignUpPage() {
                   </div>
                   <div>
                     <label
-                      for="password"
+                      htmlFor="password"
                       className="block mb-2 text-sm font-semibold text-gray-900"
                     >
                       รหัสผ่าน

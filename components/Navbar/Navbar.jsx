@@ -55,21 +55,9 @@ export default function Navbar() {
                   className="text-center text-gray-700 hover:text-primary transition relative"
                 >
                   <div className="text-lg flex justify-center lg:text-2xl">
-                    <FaRegHeart />
-                  </div>
-                  <div className="text-xs leading-3">Wishlist</div>
-                  <div className="absolute -right-0 -top-1 w-4 h-4 rounded-full flex items-center justify-center bg-primary text-white text-xs lg:w-5 lg:h-5 lg:-right-1">
-                    8
-                  </div>
-                </Link>
-                <Link
-                  href={"#"}
-                  className="text-center text-gray-700 hover:text-primary transition relative"
-                >
-                  <div className="text-lg flex justify-center lg:text-2xl">
                     <FaShoppingBasket />
                   </div>
-                  <div className="text-xs leading-3">Cart</div>
+                  <div className="text-xs leading-3">ตะกร้า</div>
                   <div className="absolute -right-2 -top-1 w-4 h-4 rounded-full flex items-center justify-center bg-primary text-white text-xs lg:w-5 lg:h-5 lg:-right-2">
                     2
                   </div>
@@ -81,7 +69,7 @@ export default function Navbar() {
                   <div className="text-lg flex justify-center lg:text-2xl">
                     <FaRegUser />
                   </div>
-                  <div className="text-xs leading-3">Account</div>
+                  <div className="text-xs leading-3">เข้าสู่ระบบ</div>
                 </Link>
               </div>
             </div>
@@ -96,7 +84,7 @@ export default function Navbar() {
             <span className="text-white">
               <FaBars />
             </span>
-            <span className="capitalize ml-2 text-white">ประเภท อิฐ</span>
+            <span className="capitalize ml-2 text-white">ประเภทสินค้า</span>
             <div className="absolute w-full left-0 top-full bg-white shadow-md py-3 divide-y divide-gray-300 divide-dashed opacity-0 group-hover:opacity-100 transition duration-300 invisible group-hover:visible">
               {productTypeData?.map((type, index) => (
                 <Link
@@ -120,20 +108,30 @@ export default function Navbar() {
                 สินค้า
               </Link>
               <Link
+<<<<<<< HEAD
                 href="/portfolio"
+=======
+                href="/ourwork"
+>>>>>>> 87fe40709b9a88ba2adf28fa19a9c9622e9ff76b
                 className="text-gray-200 hover:text-white transition"
               >
                 ผลงานของเรา
               </Link>
               <Link
-                href="#"
+                href="/about"
+                className="text-gray-200 hover:text-white transition"
+              >
+                เกี่ยวกับเรา
+              </Link>
+              <Link
+                href="/contact"
                 className="text-gray-200 hover:text-white transition"
               >
                 ติดต่อเรา
               </Link>
             </div>
             <a
-              href="pages/login.html"
+              href="login"
               className="text-gray-200 hover:text-white transition"
             >
               Login
@@ -142,7 +140,7 @@ export default function Navbar() {
         </div>
         {/* Mobile Display */}
         <div className="container flex justify-between lg:hidden">
-          <div className="px-4 py-2 bg-primary flex items-center cursor-pointer relative group">
+          <div className="px-4 py-4 bg-primary flex items-center cursor-pointer relative group">
             <span className="text-white">
               <FaBars />
             </span>
@@ -150,48 +148,47 @@ export default function Navbar() {
             <div className="absolute w-full left-0 top-full bg-white shadow-md py-3 divide-y divide-gray-300 divide-dashed opacity-0 group-hover:opacity-100 transition duration-300 invisible group-hover:visible">
               <Link
                 href="#"
-                className="flex items-center px-6 py-3 hover:bg-gray-100 transition"
+                className="flex items-center py-3 hover:bg-gray-100 transition"
               >
-                <span className="ml-6 text-gray-600 text-sm">อิฐ 1</span>
+                <span className="ml-6 text-gray-600 text-sm">อิฐประสาน</span>
               </Link>
               <Link
                 href="#"
-                className="flex items-center px-6 py-3 hover:bg-gray-100 transition"
+                className="flex items-center  py-3 hover:bg-gray-100 transition"
               >
-                <span className="ml-6 text-gray-600 text-sm">อิฐ 2</span>
+                <span className="ml-6 text-gray-600 text-sm">ตกแต่งสวน</span>
               </Link>
-              <Link
-                href="#"
-                className="flex items-center px-6 py-3 hover:bg-gray-100 transition"
-              >
-                <span className="ml-6 text-gray-600 text-sm">อิฐ 3</span>
-              </Link>
-              <Link
-                href="#"
-                className="flex items-center px-6 py-3 hover:bg-gray-100 transition"
-              >
-                <span className="ml-6 text-gray-600 text-sm">อิฐ 4</span>
-              </Link>
-              <Link
-                href="#"
-                className="flex items-center px-6 py-3 hover:bg-gray-100 transition"
-              >
-                <span className="ml-6 text-gray-600 text-sm">อิฐ 5</span>
-              </Link>
-              <Link
-                href="#"
-                className="flex items-center px-6 py-3 hover:bg-gray-100 transition"
-              >
-                <span className="ml-6 text-gray-600 text-sm">อิฐ 6</span>
-              </Link>
-            </div>
-          </div>
-          <div className="px-4 py-4 flex items-center cursor-pointer relative group">
+              </div>
+                 </div>
+                    <Link
+                  href={"#"}
+                  className="text-center text-gray-100 hover:text-primary transition relative"
+                >
+                  <div className="text-lg mt-2 flex  lg:text-2xl">
+                    <FaShoppingBasket />
+                  </div>
+                  <div className=" text-xs leading-3">ตะกร้า</div>
+                  <div className="absolute mt-2 -right-2 -top-1 w-4 h-4 rounded-full flex items-center justify-center bg-primary text-white text-xs lg:w-5 lg:h-5 lg:-right-2">
+                    2
+                  </div>
+                </Link>
+                <Link
+                  href={"#"}
+                  className="text-center text-gray-100 hover:text-primary transition relative"
+                >
+                  <div className="text-lg mt-2 flex justify-center lg:text-2xl">
+                    <FaRegUser />
+                  </div>
+                  <div className="text-xs leading-3">เข้าสู่ระบบ</div>
+                </Link>
+                </div>
+       
+          {/* <div className="px-4 py-4 flex items-center cursor-pointer relative group">
             <span className="text-white">
               <FaBars />
             </span>
-          </div>
-        </div>
+          </div> */}
+     
       </nav>
     </>
   );

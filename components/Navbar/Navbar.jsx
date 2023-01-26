@@ -120,7 +120,7 @@ export default function Navbar() {
                 สินค้า
               </Link>
               <Link
-                href="#"
+                href="/portfolio"
                 className="text-gray-200 hover:text-white transition"
               >
                 ผลงานของเรา

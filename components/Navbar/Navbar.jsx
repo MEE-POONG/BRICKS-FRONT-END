@@ -108,11 +108,7 @@ export default function Navbar() {
                 สินค้า
               </Link>
               <Link
-<<<<<<< HEAD
                 href="/portfolio"
-=======
-                href="/ourwork"
->>>>>>> 87fe40709b9a88ba2adf28fa19a9c9622e9ff76b
                 className="text-gray-200 hover:text-white transition"
               >
                 ผลงานของเรา

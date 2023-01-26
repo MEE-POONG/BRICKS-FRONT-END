@@ -10,7 +10,8 @@ module.exports = {
         primary: "#f7594f",
       },
       fontFamily: {
-        'Th': ['ChakraPetch', 'system-ui'],
+        'fontTh1': ['ChakraPetch', 'system-ui'],
+        'fontTh2' : ['NotoSansThai','sans-serif'],
       },
     },
   },

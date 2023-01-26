@@ -120,13 +120,13 @@ export default function Navbar() {
                 สินค้า
               </Link>
               <Link
-                href="#"
+                href="ourwork"
                 className="text-gray-200 hover:text-white transition"
               >
                 ผลงานของเรา
               </Link>
               <Link
-                href="#"
+                href="contact"
                 className="text-gray-200 hover:text-white transition"
               >
                 ติดต่อเรา

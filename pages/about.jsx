@@ -5,7 +5,8 @@ export default function AboutPage() {
   return (
     <>
       <Head>
-        <title>ประวัติร้านช่างพอง</title>
+        <title>เกี่ยวกับเรา</title>
+          <link rel="icon" href="/logo.png" />
       </Head>
       <div className="flex flex-col min-h-screen p-10 bg-gray-100 text-gray-800 font-fontTh2 ">
         <section className="text-gray-700 body-font overflow-hidden bg-white rounded-lg shadow-lg">
@@ -82,11 +83,11 @@ export default function AboutPage() {
                 />
               </div>
             </div>
-            <div className="mt-14 py-4">
+            <div className="mt-14 py-4 hidden lg:block">
               <h2 className="text-[20px] lg:text-[35px] text-center ">
                 วิดิโอพรีเซนต์
               </h2>
-              <video className="w-3/4 mx-auto" controls>
+              <video className="lg:w-3/4 mx-auto " controls>
                 <source src="/docs/videos/flowbite.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
@@ -111,11 +112,9 @@ export default function AboutPage() {
             <div className=" py-10 grid lg:grid grid-cols-1 lg:grid-cols-3 gap-4 text-center  ">
               <div className="max-w-sm bg-white border-2 border-primary rounded-lg shadow-lg  ">
                 <div className="p-5">
-                  <a href="#">
                     <h5 className="mb-2 text-2xl tracking-tight  ">
                       ต่อลูกค้า
                     </h5>
-                  </a>
                   <p className="mb-3 font-normal">
                     สร้างความเชื่อมั่น
                     ขจัดปัญหาเพื่อลูกค้าเกิดความคุ้มค่าและความพึงพอใจสูงสุด
@@ -124,11 +123,9 @@ export default function AboutPage() {
               </div>
               <div className="max-w-sm bg-white border-2 border-primary rounded-lg shadow-lg  ">
                 <div className="p-5">
-                  <a href="#">
                     <h5 className="mb-2 text-2xl  tracking-tight  ">
                       ต่อลูกค้า
                     </h5>
-                  </a>
                   <p className="mb-3 font-normal ">
                     ซื่อสัตย์ เป็นธรรม ส่งเสริมความก้าวหน้า
                   </p>
@@ -136,11 +133,9 @@ export default function AboutPage() {
               </div>
               <div className="max-w-sm bg-white border-2 border-primary rounded-lg shadow-lg  ">
                 <div className="p-5">
-                  <a href="#">
                     <h5 className="mb-2 text-2xl  tracking-tight  ">
                       ต่อคนในองค์กร
                     </h5>
-                  </a>
                   <p className="mb-3 font-normal ">
                     ส่งเสริมให้ทีมงานเป็นผู้เรียนรู้ ตลอดชีวิต
                     มีคุณภาพชีวิตและความมั่นคง

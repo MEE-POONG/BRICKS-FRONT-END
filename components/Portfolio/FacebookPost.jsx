@@ -39,13 +39,6 @@ export default function FacebookPost() {
 
   return (
     <>
-      <script
-        async
-        defer
-        crossorigin="anonymous"
-        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0&appId=720522252954036&autoLogAppEvents=1"
-        nonce="jkE3QTVP"
-      ></script>
       <div className="min-h-screen p-10 bg-gray-100">
         {facebookFeedsLoading ? (
           <Loading />

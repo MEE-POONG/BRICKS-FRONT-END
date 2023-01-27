@@ -35,11 +35,9 @@ export default function Productdetail() {
           <section className="text-gray-700 body-font overflow-hidden bg-white rounded-lg shadow-lg">
             <div className="container px-5 py-8 mx-auto">
               <div className="lg:w-4/5 mx-auto flex flex-wrap">
-                <Image
+                <img
                   src={productData?.image}
                   alt="product"
-                  width={100}
-                  height={100}
                   className="lg:w-1/2 w-full object-cover object-center border border-gray-200 rounded-lg"
                 />
                 <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">

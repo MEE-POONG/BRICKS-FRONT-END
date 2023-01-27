@@ -7,24 +7,35 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model ProductType {
+model Products {
+  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  image      String?
+  name       String?
+  detail     String?
+  subTypeId  String?   @db.Uuid
+  createdAt  DateTime? @default(now())
+  updatedAt  DateTime?
+  deleted_at DateTime?
+  price      Int?
+  SubType    SubType?  @relation(fields: [subTypeId], references: [id])
+}
+
+model SubType {
   id         String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   name       String?
+  TypeId     String?    @db.Uuid
   createdAt  DateTime?  @default(now())
   updatedAt  DateTime?
   deleted_at DateTime?
-  products   products[]
+  Products   Products[]
+  Type       Type?      @relation(fields: [TypeId], references: [id])
 }
 
-model products {
-  id          String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  image       String?
-  name        String?
-  detail      String?
-  price       String?
-  type        String?      @db.Uuid
-  createdAt   DateTime?    @default(now())
-  updatedAt   DateTime?
-  deleted_at  DateTime?
-  ProductType ProductType? @relation(fields: [type], references: [id])
+model Type {
+  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name       String?
+  createdAt  DateTime? @default(now())
+  updatedAt  DateTime?
+  deleted_at DateTime?
+  SubType    SubType[]
 }

@@ -1,23 +1,11 @@
 import useAxios from "axios-hooks";
 import Link from "next/link";
 import React from "react";
-import {
-  FaBars,
-  FaRegHeart,
-  FaRegUser,
-  FaShoppingBasket,
-  FaSistrix,
-} from "react-icons/fa";
+import { FaBars, FaRegUser, FaShoppingBasket, FaSistrix } from "react-icons/fa";
 
 export default function Navbar() {
-  const [
-    {
-      data: productTypeData,
-      loading: productTypeLoading,
-      error: productTypeError,
-    },
-    getProductType,
-  ] = useAxios({ url: "/api/productType", method: "GET" });
+  const [{ data: typeData, loading: typeLoading, error: typeError }, getType] =
+    useAxios({ url: "/api/type", method: "GET" });
 
   return (
     <>
@@ -86,7 +74,7 @@ export default function Navbar() {
             </span>
             <span className="capitalize ml-2 text-white">ประเภทสินค้า</span>
             <div className="absolute w-full left-0 top-full bg-white shadow-md py-3 divide-y divide-gray-300 divide-dashed opacity-0 group-hover:opacity-100 transition duration-300 invisible group-hover:visible">
-              {productTypeData?.map((type, index) => (
+              {typeData?.map((type, index) => (
                 <Link
                   key={index}
                   href="#"
@@ -154,37 +142,36 @@ export default function Navbar() {
               >
                 <span className="ml-6 text-gray-600 text-sm">ตกแต่งสวน</span>
               </Link>
-              </div>
-                 </div>
-                    <Link
-                  href={"#"}
-                  className="text-center text-gray-100 hover:text-primary transition relative"
-                >
-                  <div className="text-lg mt-2 flex  lg:text-2xl">
-                    <FaShoppingBasket />
-                  </div>
-                  <div className=" text-xs leading-3">ตะกร้า</div>
-                  <div className="absolute mt-2 -right-2 -top-1 w-4 h-4 rounded-full flex items-center justify-center bg-primary text-white text-xs lg:w-5 lg:h-5 lg:-right-2">
-                    2
-                  </div>
-                </Link>
-                <Link
-                  href={"#"}
-                  className="text-center text-gray-100 hover:text-primary transition relative"
-                >
-                  <div className="text-lg mt-2 flex justify-center lg:text-2xl">
-                    <FaRegUser />
-                  </div>
-                  <div className="text-xs leading-3">เข้าสู่ระบบ</div>
-                </Link>
-                </div>
-       
-          {/* <div className="px-4 py-4 flex items-center cursor-pointer relative group">
+            </div>
+          </div>
+          <Link
+            href={"#"}
+            className="text-center text-gray-100 hover:text-primary transition relative"
+          >
+            <div className="text-lg mt-2 flex  lg:text-2xl">
+              <FaShoppingBasket />
+            </div>
+            <div className=" text-xs leading-3">ตะกร้า</div>
+            <div className="absolute mt-2 -right-2 -top-1 w-4 h-4 rounded-full flex items-center justify-center bg-primary text-white text-xs lg:w-5 lg:h-5 lg:-right-2">
+              2
+            </div>
+          </Link>
+          <Link
+            href={"#"}
+            className="text-center text-gray-100 hover:text-primary transition relative"
+          >
+            <div className="text-lg mt-2 flex justify-center lg:text-2xl">
+              <FaRegUser />
+            </div>
+            <div className="text-xs leading-3">เข้าสู่ระบบ</div>
+          </Link>
+        </div>
+
+        {/* <div className="px-4 py-4 flex items-center cursor-pointer relative group">
             <span className="text-white">
               <FaBars />
             </span>
           </div> */}
-     
       </nav>
     </>
   );

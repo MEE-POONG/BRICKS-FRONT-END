@@ -6,13 +6,12 @@ import { useRouter } from "next/router";
 import React from "react";
 import Loading from "../../components/Loading/Loading";
 
-export default function Productdetail() {
+export default function ProductDetailPage() {
   const router = useRouter();
-  console.log(router.query.id);
   const [
     { data: productData, loading: productLoading, error: productError },
     getProduct,
-  ] = useAxios({ url: `/api/products/${router.query.id}`, method: "GET" });
+  ] = useAxios({ url: `/api/products/${router.query.name}`, method: "GET" });
 
   return (
     <>
@@ -25,11 +24,11 @@ export default function Productdetail() {
         <div className="flex flex-col min-h-screen p-10 bg-gray-100 text-gray-800">
           <div>
             <Link href="/" className="hover:text-primary">
-              รายการสินค้า
+              {productData?.SubType?.Type?.name}
             </Link>
             <span> / </span>
             <Link href="/" className="hover:text-primary">
-              ประเภท 1
+              {productData?.SubType?.name}
             </Link>
           </div>
           <section className="text-gray-700 body-font overflow-hidden bg-white rounded-lg shadow-lg">
@@ -42,7 +41,7 @@ export default function Productdetail() {
                 />
                 <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                   <h2 className="text-sm title-font text-gray-500 tracking-widest">
-                    {productData?.ProductType?.name}
+                    {productData?.Type?.name}
                   </h2>
                   <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
                     {productData?.name}

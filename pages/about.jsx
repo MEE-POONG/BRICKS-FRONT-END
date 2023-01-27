@@ -1,7 +1,15 @@
+/* eslint-disable @next/next/no-img-element */
+import useAxios from "axios-hooks";
 import Head from "next/head";
 import React, { useRef } from "react";
 
 export default function AboutPage() {
+
+  const [{ data: aboutData,loading,error }, getAbout] = useAxios({
+    url: "/api/about",
+  });
+
+  if (loading) return <p>Loading</p>
   return (
     <>
       <Head>

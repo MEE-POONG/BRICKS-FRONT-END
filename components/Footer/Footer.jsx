@@ -18,7 +18,7 @@ export default function Footer() {
               <div className="lg:mb-0 mb-6">
                 <a
                   href="https://www.facebook.com/DreamBlock9"
-                  classNameName=" flex lg:py-2 mt-1"
+                  className=" flex lg:py-2 mt-1"
                 >
                   <BsFacebook />
                 </a>

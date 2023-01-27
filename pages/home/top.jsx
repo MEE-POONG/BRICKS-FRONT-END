@@ -6,9 +6,9 @@ export default function HomeTop() {
   return (
     <>
       <div className="font-fontTh2 ">
-        <div className="relative">
+       
           <div className="w-full h-44 lg:h-[500px] bg-[#872a08d8] bg-[url('/images/brickwall.png')]"/>
-          <div className="absolute bottom-10 left-10">
+          <div className="absolute bottom-60 left-10">
             <h1 className=" font-extrabold text-[38px] md:text-[120px] text-[#1d1f23]">
               ร้านช่างพอง{" "}
             </h1>
@@ -16,7 +16,7 @@ export default function HomeTop() {
               อิฐประสาน จัดสวน สร้างบ้าน ราคาโรงงาน
             </p>
           </div>
-        </div>
+    
 
         <div className=" py-10 grid lg:grid grid-cols-1 lg:grid-cols-3 gap-4 text-center mx-5 lg:mx-40">
           <div className="max-w-sm bg-white border-2 border-primary rounded-lg shadow-lg  ">

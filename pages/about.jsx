@@ -5,9 +5,9 @@ import React, { useRef } from "react";
 
 export default function AboutPage() {
 
-  const [{ data: aboutData,loading,error }, getAbout] = useAxios({
-    url: "/api/about",
-  });
+  // const [{ data: aboutData,loading,error }, getAbout] = useAxios({
+  //   url: "/api/about",
+  // });
 
   if (loading) return <p>Loading</p>
   return (

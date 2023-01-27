@@ -9,7 +9,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="py-2 shadow-sm bg-white">
+      <header className="py-2 shadow-sm bg-white z-40">
         <div className="min-w-full">
           <div className="lg:items-center lg:justify-between lg:flex">
             <div className="flex justify-around">

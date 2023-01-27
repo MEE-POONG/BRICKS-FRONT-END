@@ -29,7 +29,7 @@ export default function ProductsPage() {
         <title>สินค้าทั้งหมด</title>
       </Head>
       {productsLoading ? (
-        <Loading/>
+        <Loading />
       ) : (
         <div className="flex flex-col min-h-screen p-10 bg-gray-100 text-gray-800">
           <h1 className="text-3xl">รายการสินค้า</h1>
@@ -44,11 +44,9 @@ export default function ProductsPage() {
                 className="max-w-sm rounded-xl overflow-hidden shadow-md h-full bg-white cursor-pointer tranform motion-safe:hover:scale-105 motion-safe:hover:border-primary border"
                 onClick={(e) => handleClick(e, "/products", product?.id)}
               >
-                <Image
+                <img
                   src={product.image}
                   alt="product"
-                  width={100}
-                  height={100}
                   className="w-full" // just an example
                 />
                 <div className="px-6 py-4">

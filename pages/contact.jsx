@@ -12,7 +12,7 @@ export default function ContactPage() {
       </Head>
       <div className="container pt-16 mx-auto font-fontTh2 p-4">
         <section className="text-gray-700 body-font overflow-hidden bg-white rounded-lg shadow-xl p-3 lg:p-10">
-          <h1 className="text-[50px] font-bold text-center text-primary ">ช่องทางติดต่อ</h1>
+          <h1 className="text-[30px] lg:text-[50px] font-bold text-center text-primary ">ติดต่อ</h1>
           <p className="text-center uppercase">contact us</p>
           <div className="my-10">
             <iframe
@@ -24,22 +24,22 @@ export default function ContactPage() {
             ></iframe>
           </div>
 
-          <div className="m-5 grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="m-5 grid grid-cols-1 lg:grid-cols-3 gap-8 lg:text-[18px]">
             <div>
-              <p className="text-[24px] ">ที่ตั้ง</p>
+              <p className="text-[24px] lg:text-[30px]">ที่ตั้ง</p>
               <hr />
-              <p className=" flex lg:py-2 ">
+              <p className=" flex lg:py-2 mt-1">
                 {" "}
                 <GrHome /> บ้านท่าอ่าง ตำบล ท่าอ่าง อำเภอโชคชัย นครราชสีมา 30190
               </p>
             </div>
             <div>
-              <p className="text-[24px]">ช่องทางติดต่อ</p>
+              <p className="text-[24px] lg:text-[30px]">ช่องทางติดต่อ</p>
               <hr />
                 {" "}
                 <a
                   href="tel:094 397 0414"
-                  className=" flex lg:py-2 text-primary hover:underline"
+                  className=" flex lg:py-2 text-primary hover:underline mt-1"
                 >
                   <BsTelephoneFill /> &nbsp; 094 397 0414
                 </a>
@@ -65,11 +65,11 @@ export default function ContactPage() {
               
             </div>
             <div>
-              <p className="text-[24px]">ติดตามข่าวสาร</p>
+              <p className="text-[24px] lg:text-[30px]">ติดตามข่าวสาร</p>
               <hr />
               <a
                 href="https://www.facebook.com/DreamBlock9"
-                className=" flex lg:py-2 text-primary hover:underline"
+                className=" flex lg:py-2 text-primary hover:underline mt-1"
               >
                 {" "}
                 <BsFacebook /> &nbsp;ร้านช่างพอง อิฐประสาน จัดสวน สร้างบ้าน

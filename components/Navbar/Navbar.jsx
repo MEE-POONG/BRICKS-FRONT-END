@@ -1,11 +1,23 @@
 import useAxios from "axios-hooks";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import { FaBars, FaRegUser, FaShoppingBasket, FaSistrix } from "react-icons/fa";
 
 export default function Navbar() {
   const [{ data: typeData, loading: typeLoading, error: typeError }, getType] =
     useAxios({ url: "/api/type", method: "GET" });
+
+  const router = useRouter();
+  const handleClick = (e, path, name) => {
+    e.preventDefault();
+
+    if (path === "/products/category") {
+      router.push({
+        pathname: path + `/${name}`,
+      });
+    }
+  };
 
   return (
     <>
@@ -67,27 +79,27 @@ export default function Navbar() {
 
       <nav className="bg-gray-800">
         {/* Full Display */}
-        <div className="container hidden lg:flex">
-          <div className="px-8 py-4 ml-24 bg-primary flex items-center cursor-pointer relative group">
+        <div className="container flex">
+          <div className="px-8 py-4 ml-10 lg:ml-24 bg-primary flex items-center cursor-pointer relative group/type">
             <span className="text-white">
               <FaBars />
             </span>
-            <span className="capitalize ml-2 text-white">ประเภทสินค้า</span>
-            <div className="absolute w-full left-0 top-full bg-white shadow-md py-3 divide-y divide-gray-300 divide-dashed opacity-0 group-hover:opacity-100 transition duration-300 invisible group-hover:visible">
+            <span className="ml-2 text-white">ประเภทสินค้า</span>
+            <div className="absolute w-full left-0 top-full bg-primary rounded-b-lg shadow-md py-3 divide-y divide-white divide-dashed opacity-0 group-hover/type:opacity-100 transition duration-300 invisible group-hover/type:visible">
               {typeData?.map((type, index) => (
-                <Link
+                <div
                   key={index}
-                  href="#"
-                  className="flex items-center px-6 py-3 hover:bg-gray-100 transition"
+                  onClick={(e) =>
+                    handleClick(e, "/products/category", type?.name)
+                  }
+                  className="flex items-center px-6 py-3 hover:bg-red-500 transition relative group/subType"
                 >
-                  <span className="ml-6 text-gray-600 text-sm">
-                    {type.name}
-                  </span>
-                </Link>
+                  <span className="ml-6 text-white text-sm">{type.name}</span>
+                </div>
               ))}
             </div>
           </div>
-          <div className="flex items-center justify-between flex-grow pl-12">
+          <div className="hidden items-center justify-between flex-grow pl-12 lg:flex">
             <div className="flex items-center space-x-6 capitalize">
               <Link
                 href="/products"
@@ -123,7 +135,7 @@ export default function Navbar() {
           </div>
         </div>
         {/* Mobile Display */}
-        <div className="container flex justify-between lg:hidden">
+        {/* <div className="container flex justify-between lg:hidden">
           <div className="px-4 py-4 bg-primary flex items-center cursor-pointer relative group">
             <span className="text-white">
               <FaBars />
@@ -165,7 +177,7 @@ export default function Navbar() {
             </div>
             <div className="text-xs leading-3">เข้าสู่ระบบ</div>
           </Link>
-        </div>
+        </div> */}
 
         {/* <div className="px-4 py-4 flex items-center cursor-pointer relative group">
             <span className="text-white">

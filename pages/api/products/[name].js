@@ -6,11 +6,17 @@ export default async function handler(req, res) {
   switch (method) {
     case "GET":
       try {
-        const data = await prisma.products.findUnique({
+        const data = await prisma.products.findFirst({
           where: {
-            id: req.query.id,
+            name: {
+              contains: req.query.name,
+            },
           },
-          include: { ProductType: true },
+          include: {
+            SubType: {
+              include: { Type: true },
+            },
+          },
         });
 
         res.status(200).json(data);

@@ -12,13 +12,15 @@ export default function ProductsPage() {
   ] = useAxios({
     url: "/api/products",
   });
+
+  
   const router = useRouter();
-  const handleClick = (e, path, id) => {
+  const handleClick = (e, path, name) => {
     e.preventDefault();
 
     if (path === "/products") {
       router.push({
-        pathname: path + `/${id}`,
+        pathname: path + `/${name}`,
       });
     }
   };
@@ -42,16 +44,16 @@ export default function ProductsPage() {
               <div
                 key={index}
                 className="max-w-sm rounded-xl overflow-hidden shadow-md h-full bg-white cursor-pointer tranform motion-safe:hover:scale-105 motion-safe:hover:border-primary border"
-                onClick={(e) => handleClick(e, "/products", product?.id)}
+                onClick={(e) => handleClick(e, "/products", product?.name)}
               >
                 <img
                   src={product.image}
                   alt="product"
-                  className="w-full" // just an example
+                  className="w-full"
                 />
                 <div className="px-6 py-4">
                   <div className="text-gray-500 text-base mb-2 font-Th">
-                    {product.ProductType?.name}
+                    {product.SubType?.name}
                   </div>
                   <p className="font-bold text-lg font-Th">{product.name}</p>
                 </div>

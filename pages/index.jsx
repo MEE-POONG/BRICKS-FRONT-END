@@ -1,6 +1,7 @@
 import Head from "next/head";
 import React, { useRef } from "react";
 import Layout from "../Layout/Layout";
+import ShowBlocks from "./home/block";
 import Showproducts from "./home/showproductype";
 import HomeTop from "./home/top";
 
@@ -17,6 +18,9 @@ export default function Home() {
       </div>
       <div>
       <Showproducts/>
+      </div>
+      <div>
+      <ShowBlocks/>
       </div>
 
     </>

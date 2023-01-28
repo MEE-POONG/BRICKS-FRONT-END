@@ -43,7 +43,7 @@ export default function ProductsPage() {
             {productsData?.map((product, index) => (
               <div
                 key={index}
-                className="max-w-sm rounded-xl overflow-hidden shadow-md h-full bg-white cursor-pointer tranform motion-safe:hover:scale-105 motion-safe:hover:border-primary border"
+                className="max-w-sm rounded-xl overflow-hidden shadow-md h-full bg-white cursor-pointer transition-transform duration-300 motion-safe:hover:scale-105 motion-safe:hover:border-primary border"
                 onClick={(e) => handleClick(e, "/products", product?.name)}
               >
                 <img

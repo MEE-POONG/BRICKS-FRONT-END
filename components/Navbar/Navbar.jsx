@@ -6,7 +6,7 @@ import { FaBars, FaRegUser, FaShoppingBasket, FaSistrix } from "react-icons/fa";
 
 export default function Navbar() {
   const [{ data: typeData, loading: typeLoading, error: typeError }, getType] =
-    useAxios({ url: "/api/type", method: "GET" });
+    useAxios({ url: "/api/category", method: "GET" });
 
   const router = useRouter();
   const handleClick = (e, path, name) => {

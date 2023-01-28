@@ -9,7 +9,7 @@ export default async function handler(req, res) {
         const data = await prisma.type.findFirst({
           where: {
             name: {
-              contains: req.query.name,
+              equals: req.query.typeName,
             },
           },
           include: {

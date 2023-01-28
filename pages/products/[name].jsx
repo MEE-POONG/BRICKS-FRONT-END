@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import Loading from "../../components/Loading/Loading";
+import MapComponent from "../../components/Map/MapComponent";
 
 export default function ProductDetailPage() {
   const router = useRouter();
@@ -66,28 +67,11 @@ export default function ProductDetailPage() {
                     <div className="flex ml-6 items-center">
                       <div className="lg:flex">
                         <span className="my-auto mr-3 text-xl font-bold">
-                          จัดส่งไปยัง จังหวัด
+                          จัดส่งไปยัง
                         </span>
-                        <div className="relative">
-                          <select className="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-red-500 text-base pl-3 pr-10">
-                            <option>นครราชสีมา</option>
-                            <option>กรุงเทพมหานคร</option>
-                            <option>ขอนแก่น</option>
-                            <option>เชียงใหม่</option>
-                          </select>
-                          <span className="absolute right-0 top-0 mr-4 lg:mr-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
-                            <svg
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              className="w-4 h-4"
-                              viewBox="0 0 24 24"
-                            >
-                              <path d="M6 9l6 6 6-6"></path>
-                            </svg>
-                          </span>
+                        <div>
+                          GOOGLE MAP ICON
+                          <MapComponent/>
                         </div>
                       </div>
                     </div>

@@ -19,11 +19,23 @@ export default function HowToOrder() {
             <i className=" text-blue-400">
               ***หมายเหตุ : กรูณาอ่านรายละเอียดการสั่งซื้อ และเงื่อนไขการสั่งซื้อ
             </i>
+            <img src="/images/howtoorder.png" alt="" className="w-full mx-auto" />
 
             <div className="mt-10 text-[16px] lg:text-[18px] text-left font-semibold">
               <h3>ขั้นตอนที่ 1</h3>
-              <p></p>
+              <p>สมัครสมาชิก และเข้าสู่ระบบ</p>
             </div>
+
+            <div className="mt-10 text-[16px] lg:text-[18px] text-left font-semibold">
+              <h3>ขั้นตอนที่ 2</h3>
+              <p>สมัครสมาชิก และเข้าสู่ระบบ</p>
+            </div>
+
+            <div className="mt-10 text-[16px] lg:text-[18px] text-left font-semibold">
+              <h3>ขั้นตอนที่ 3</h3>
+              <p>สมัครสมาชิก และเข้าสู่ระบบ</p>
+            </div>
+
           </div>
       </section>
 

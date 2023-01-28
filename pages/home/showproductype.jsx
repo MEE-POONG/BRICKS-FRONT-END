@@ -15,14 +15,14 @@ export default function Showproducts() {
           <div className="flex justify-center">
             <div className="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
               <img
-                className=" w-full h-96 md:h-auto object-contain md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
+                className=" w-full h-auto object-contain md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
                 src="/images/bw2.png"
                 alt=""
               />
               <div className="p-6 flex flex-col justify-center">
-                <h5 className="text-gray-900 text-xl font-medium mb-2">
+                <a href="#" className="text-black text-xl font-semibold mb-2 hover:text-primary">
                   อิฐช่องลม
-                </h5>
+                </a>
                 <p className="text-gray-700 text-base">
                   Bent Brick
                 </p>
@@ -32,14 +32,14 @@ export default function Showproducts() {
           <div className="flex justify-center">
             <div className="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
               <img
-                className=" w-full h-96 md:h-auto object-contain md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
+                className=" w-full h-auto object-contain md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
                 src="/images/bw.png"
                 alt=""
               />
               <div className="p-6 flex flex-col justify-center">
-                <h5 className="text-gray-900 text-xl font-medium mb-2">
+                <a href="#" className="text-black text-xl font-semibold mb-2 hover:text-primary">
                   อิฐทางเท้า
-                </h5>
+                </a>
                 <p className="text-gray-700 text-base">
                   Pavement Brick
                 </p>
@@ -49,14 +49,14 @@ export default function Showproducts() {
           <div className="flex justify-center">
             <div className="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
               <img
-                className=" w-full h-96 md:h-auto object-contain md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
+                className=" w-fullh-auto object-contain md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
                 src="/images/bw3.jpg"
                 alt=""
               />
               <div className="p-6 flex flex-col justify-center">
-                <h5 className="text-gray-900 text-xl font-medium mb-2">
+                <a href="#" className="text-black font-semibold text-xl mb-2 hover:text-primary">
                   หินตกแต่งสวน
-                </h5>
+                </a>
                 <p className="text-gray-700 text-base">
                  Garden Stone
                 </p>

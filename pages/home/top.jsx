@@ -8,11 +8,11 @@ export default function HomeTop() {
       <div className="font-fontTh2 ">
        
           <div className="w-full h-44 lg:h-[500px] bg-[#872a08d8] bg-[url('/images/brickwall.png')]"/>
-          <div className="absolute bottom-60 left-10">
+          <div className="absolute  top-52 left-10 md:bottom-60 ">
             <h1 className=" font-extrabold text-[38px] md:text-[120px] text-[#1d1f23]">
               ร้านช่างพอง{" "}
             </h1>
-            <p className=" font-semibold text-white text-[18px] md:text-[48px]">
+            <p className=" font-semibold text-white text-[16px] md:text-[48px]">
               อิฐประสาน จัดสวน สร้างบ้าน ราคาโรงงาน
             </p>
           </div>

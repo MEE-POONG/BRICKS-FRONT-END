@@ -131,7 +131,7 @@ export default function SignUpPage() {
                   <p className="text-sm font-light text-gray-500 ">
                     คุณมีบัญชีแล้วใช่หรือไม่?{" "}
                     <a
-                      href="/login"
+                      href="../login"
                       className="font-semibold text-blue-600 hover:underline "
                     >
                       Sign in

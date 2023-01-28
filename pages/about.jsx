@@ -22,9 +22,9 @@ export default function AboutPage() {
         <section className="text-gray-700 body-font overflow-hidden bg-white rounded-lg shadow-lg">
           {aboutData?.map((about,index) =>(
           <div key={index} className="container p-16 mx-auto">
-            <h2 className=" text-[30px]  lg:text-[50px] text-center text-primary font-semibold">
+            <h1 className=" text-[30px]  lg:text-[50px] text-center text-primary font-semibold">
               {about.headtitle}
-            </h2>
+            </h1>
             <h2 className=" text-[12px]  lg:text-[20px] text-center ">About</h2>
             <h4 className=" mt-4 text-[16px]  lg:text-[35px] text-left font-semibold">
               {about.history}
@@ -95,7 +95,7 @@ export default function AboutPage() {
             </div>
             {policyData?.map((policy,index) => (
             <div key={index} className=" py-3 grid lg:grid grid-cols-1 lg:grid-cols-3 gap-4 text-center  ">
-              <div className="max-w-sm bg-white border-2 border-primary rounded-lg shadow-lg  ">
+              <div className=" max-w-sm bg-white border-2 border-primary rounded-lg shadow-lg  ">
                 <div className="p-5">
                     <h5 className="mb-2 text-[18px] lg:text-[25px]  tracking-tight  ">
                       {policy.headpolicy}

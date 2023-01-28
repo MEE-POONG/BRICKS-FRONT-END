@@ -12,8 +12,18 @@ export default function HowToOrder() {
       <h1 className="text-[30px] lg:text-[50px] font-bold text-center text-primary ">วิธีการสั่งซื้อสินค้า</h1>
           <p className="text-center uppercase">How to Order</p>
 
-          <div>
-            
+          <div className=" mt-16 mx-2">
+            <h2 className="text-[16px] lg:text-[24px] text-left font-semibold mb-5">
+              วิธีการสั่งซื้อสินค้าผ่านเว็บไซต์
+            </h2>
+            <i className=" text-blue-400">
+              ***หมายเหตุ : กรูณาอ่านรายละเอียดการสั่งซื้อ และเงื่อนไขการสั่งซื้อ
+            </i>
+
+            <div className="mt-10 text-[16px] lg:text-[18px] text-left font-semibold">
+              <h3>ขั้นตอนที่ 1</h3>
+              <p></p>
+            </div>
           </div>
       </section>
 

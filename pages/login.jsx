@@ -88,7 +88,7 @@ export default function LoginPage() {
                   <p className="text-sm font-light text-gray-500 ">
                     ยังไม่มีบัญชีใช่หรือไม่?{" "}
                     <a
-                      href="/sign_up"
+                      href="../sign_up"
                       className="font-semibold text-blue-600 hover:underline "
                     >
                       Sign up

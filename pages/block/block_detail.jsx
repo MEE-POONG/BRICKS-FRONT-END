@@ -5,7 +5,7 @@ export default function BlockDetail() {
   return (
     <>
       <div className="container pt-16 mx-auto font-fontTh2 p-4">
-        <div className="px-6 pb-2 mb-10 md:mb-24 ">
+        {/* <div className="px-6 pb-2 mb-10 md:mb-24 ">
           <a
             href="../"
             className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-primary hover:underline  "
@@ -25,8 +25,9 @@ export default function BlockDetail() {
             </svg>
             Back
           </a>
-        </div>
-        {/* <section className="text-gray-700 body-font overflow-hidden bg-white rounded-lg shadow-xl p-3 lg:p-10"> */}
+        </div> */}
+
+        {/* detail */}
         <img
           src="/images/bw3.jpg"
           className="w-auto h-auto lg:h-96 rounded-md mx-auto"

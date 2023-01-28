@@ -9,13 +9,14 @@ export default async function handler(req, res) {
         const data = await prisma.type.findMany({
           include: { SubType: true },
         });
+
         res.status(200).json(data);
       } catch (error) {
         res.status(400).json({ success: false });
       }
       break;
     default:
-      res.setHeader("Allow", ["GET"]);
+      res.setHeader("Allow", ["GET", "POST"]);
       res.status(405).end(`Method ${method} Not Allowed`);
   }
 }

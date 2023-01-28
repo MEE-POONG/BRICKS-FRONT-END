@@ -6,29 +6,23 @@ export default async function handler(req, res) {
   switch (method) {
     case "GET":
       try {
-        const data = await prisma.products.findFirst({
+        const data = await prisma.type.findFirst({
           where: {
             name: {
-              equals: req.query.name,
+              equals: req.query.typeName,
             },
           },
           include: {
             SubType: {
-              include: { Type: true },
+              where: {
+                name: {
+                  equals: req.query.subTypeName,
+                },
+              },
+              include: {
+                Products: true,
+              },
             },
-          },
-        });
-
-        res.status(200).json(data);
-      } catch (error) {
-        res.status(400).json({ success: false });
-      }
-      break;
-    case "DELETE":
-      try {
-        const data = await prisma.duty.delete({
-          where: {
-            id: req.query.id,
           },
         });
 

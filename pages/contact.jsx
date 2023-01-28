@@ -63,10 +63,10 @@ export default function ContactPage() {
               
                 {" "}
                 <a
-                  href="mailto:apichart.pli@gmail.com"
+                  href="mailto:"
                   className=" flex lg:py-2 text-primary hover:underline"
                 >
-                  <GrMail /> &nbsp;apichart.pli@gmail.com
+                  <GrMail /> &nbsp;{contact.email}
                 </a>
               
               

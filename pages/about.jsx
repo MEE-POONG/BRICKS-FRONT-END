@@ -9,7 +9,6 @@ export default function AboutPage() {
   //   url: "/api/about",
   // });
 
-  if (loading) return <p>Loading</p>
   return (
     <>
       <Head>

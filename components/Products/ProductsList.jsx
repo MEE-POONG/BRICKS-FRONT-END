@@ -4,7 +4,7 @@ import React from "react";
 export default function ProductsList({ CategoryData }) {
   const router = useRouter();
 
-  const handleClick = (e, path, name) => {
+  const handleClick = (e, path, name, id) => {
     e.preventDefault();
 
     if (path === "/products") {
@@ -13,6 +13,7 @@ export default function ProductsList({ CategoryData }) {
       });
     }
   };
+
   return (
     <>
       <div className="grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-x-6 gap-y-12 w-full mt-6">

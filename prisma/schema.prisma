@@ -28,16 +28,17 @@ model SubType {
 }
 
 model Products {
-  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  id         String      @id @default(auto()) @map("_id") @db.ObjectId
   image      String?
   name       String?
   detail     String?
-  subTypeId  String?   @db.ObjectId
-  createdAt  DateTime? @default(now())
-  updatedAt  DateTime? @updatedAt
-  deleted_at DateTime? @map("deleted_at")
+  subTypeId  String?     @db.ObjectId
+  createdAt  DateTime?   @default(now())
+  updatedAt  DateTime?   @updatedAt
+  deleted_at DateTime?   @map("deleted_at")
   price      Int?
-  subType    SubType?  @relation(fields: [subTypeId], references: [id])
+  subType    SubType?    @relation(fields: [subTypeId], references: [id])
+  addOnRate  AddOnRate[]
 }
 
 model Contact {
@@ -84,6 +85,17 @@ model HomeTop {
   id         String    @id @default(auto()) @map("_id") @db.ObjectId
   title      String?
   subTitle   String?
+  createdAt  DateTime? @default(now())
+  updatedAt  DateTime? @updatedAt
+  deleted_at DateTime? @map("deleted_at")
+}
+
+model AddOnRate {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  length     Int?
+  addOn      Int?
+  productId  String?   @db.ObjectId
+  products   Products? @relation(fields: [productId], references: [id])
   createdAt  DateTime? @default(now())
   updatedAt  DateTime? @updatedAt
   deleted_at DateTime? @map("deleted_at")

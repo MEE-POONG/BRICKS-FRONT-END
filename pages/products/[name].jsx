@@ -3,17 +3,25 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
 import Loading from "../../components/Loading/Loading";
 import MapComponent from "../../components/Map/MapComponent";
 
 export default function ProductDetailPage() {
   const router = useRouter();
+  let [isOpen, setIsOpen] = useState(false);
+  
   const [
     { data: productData, loading: productLoading, error: productError },
     getProduct,
   ] = useAxios({ url: `/api/products/${router.query.name}`, method: "GET" });
 
+  const [
+    { data: addOnRateData, loading: addOnRateLoading, error: addOnRateError },
+    getAddOnRate,
+  ] = useState({ url: `/api/addOnRate?productId=${productData}`, method: "GET" });
+
+  console.log("productResponse",)
   return (
     <>
       <Head>
@@ -72,8 +80,10 @@ export default function ProductDetailPage() {
                           จัดส่งไปยัง
                         </span>
                         <div>
-                          GOOGLE MAP ICON
-                          <MapComponent />
+                          <span onClick={() => setIsOpen(true)}>
+                            GOOGLE MAP ICON
+                          </span>
+                          <MapComponent isOpen={isOpen} setIsOpen={setIsOpen} />
                         </div>
                       </div>
                     </div>
@@ -89,9 +99,9 @@ export default function ProductDetailPage() {
                       <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                         <svg
                           fill="currentColor"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
                           className="w-5 h-5"
                           viewBox="0 0 24 24"
                         >

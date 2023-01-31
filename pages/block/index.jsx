@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -30,7 +31,7 @@ export default function ShowBlocks() {
             }}
           >
             <SwiperSlide>
-              <div className="max-w-sm rounded overflow-hidden shadow-xl border">
+              <div className=" max-w-sm rounded overflow-hidden shadow-xl border">
                 <img
                   className="w-full"
                   src="/images/bw3.jpg"

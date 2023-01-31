@@ -16,8 +16,8 @@ export default function ProductsList({ CategoryData }) {
   return (
     <>
       <div className="grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-x-6 gap-y-12 w-full mt-6">
-        {CategoryData?.SubType?.map((subTypes) =>
-          subTypes?.Products?.map((product, index) => (
+        {CategoryData?.subType?.map((subTypes) =>
+          subTypes?.products?.map((product, index) => (
             <div
               key={index}
               className="max-w-sm rounded-xl overflow-hidden shadow-md h-full bg-white cursor-pointer transition-transform duration-300 motion-safe:hover:scale-105 motion-safe:hover:border-primary border"

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   DistanceMatrixService,
   GoogleMap,
@@ -21,6 +21,8 @@ function Map() {
   const [destinationPosition, setDestinationPosition] = useState([]);
   const [distance, setDistance] = useState([]);
 
+  useEffect(() => {}, [markers]);
+
   const onMapClick = (e) => {
     setMarkers({
       lat: e.latLng.lat(),
@@ -36,14 +38,14 @@ function Map() {
     width: "400px",
     height: "400px",
   };
-  const center = { lat: 14.829494277866198, lng: 102.19258206357422 };
+
   const originPosition = { lat: 14.829494277866198, lng: 102.19258206357422 };
 
   return (
     <>
       <GoogleMap
         zoom={14}
-        center={center}
+        center={originPosition}
         mapContainerStyle={containerStyle}
         onClick={onMapClick}
       >

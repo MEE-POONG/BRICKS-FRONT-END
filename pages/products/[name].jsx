@@ -25,17 +25,17 @@ export default function ProductDetailPage() {
         <div className="flex flex-col min-h-screen p-10 bg-gray-100 text-gray-800">
           <div>
             <Link
-              href={`/products/category/${productData?.SubType?.Type?.name}`}
+              href={`/products/category/${productData?.subType?.type?.name}`}
               className="hover:text-primary"
             >
-              {productData?.SubType?.Type?.name}
+              {productData?.subType?.type?.name}
             </Link>
             <span> / </span>
             <Link
-              href={`/products/category/${productData?.SubType?.Type?.name}/${productData?.SubType?.name}`}
+              href={`/products/category/${productData?.subType?.type?.name}/${productData?.subType?.name}`}
               className="hover:text-primary"
             >
-              {productData?.SubType?.name}
+              {productData?.subType?.name}
             </Link>
           </div>
           <section className="text-gray-700 body-font overflow-hidden bg-white rounded-lg shadow-lg">
@@ -55,7 +55,9 @@ export default function ProductDetailPage() {
                   </h1>
                   <div className="flex mb-4">
                     <span className="flex items-center">
-                      <span className="text-gray-600 ml-3">รายละเอียดสินค้า</span>
+                      <span className="text-gray-600 ml-3">
+                        รายละเอียดสินค้า
+                      </span>
                     </span>
                   </div>
                   <p className="leading-relaxed">
@@ -71,7 +73,7 @@ export default function ProductDetailPage() {
                         </span>
                         <div>
                           GOOGLE MAP ICON
-                          <MapComponent/>
+                          <MapComponent />
                         </div>
                       </div>
                     </div>

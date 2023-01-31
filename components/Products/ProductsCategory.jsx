@@ -50,7 +50,7 @@ export default function ProductsCategory({ typeName }) {
       >
         <span className="text-lg">ทั้งหมด</span>
       </div>
-      {categoryData?.SubType.map((subTypeData, index) => (
+      {categoryData?.subType.map((subTypeData, index) => (
         <div
           key={index}
           className={`${UrlCheck(

@@ -8,8 +8,8 @@ export default async function handler(req, res) {
       try {
         const data = await prisma.products.findMany({
           include: {
-            SubType: {
-              include: { Type: true },
+            subType: {
+              include: { type: true },
             },
           },
         });

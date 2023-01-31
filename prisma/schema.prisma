@@ -3,45 +3,45 @@ generator client {
 }
 
 datasource db {
-  provider = "cockroachdb"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
-model Products {
-  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  image      String?
+model Type {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
   name       String?
-  detail     String?
-  subTypeId  String?   @db.Uuid
   createdAt  DateTime? @default(now())
-  updatedAt  DateTime?
-  deleted_at DateTime?
-  price      Int?
-  SubType    SubType?  @relation(fields: [subTypeId], references: [id])
+  updatedAt  DateTime? @updatedAt
+  deleted_at DateTime? @map("deleted_at")
+  subType    SubType[]
 }
 
 model SubType {
-  id         String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id         String     @id @default(auto()) @map("_id") @db.ObjectId
   name       String?
-  TypeId     String?    @db.Uuid
+  TypeId     String?    @db.ObjectId
   createdAt  DateTime?  @default(now())
-  updatedAt  DateTime?
-  deleted_at DateTime?
-  Products   Products[]
-  Type       Type?      @relation(fields: [TypeId], references: [id])
+  updatedAt  DateTime?  @updatedAt
+  deleted_at DateTime?  @map("deleted_at")
+  products   Products[]
+  type       Type?      @relation(fields: [TypeId], references: [id])
 }
 
-model Type {
-  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+model Products {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  image      String?
   name       String?
+  detail     String?
+  subTypeId  String?   @db.ObjectId
   createdAt  DateTime? @default(now())
-  updatedAt  DateTime?
-  deleted_at DateTime?
-  SubType    SubType[]
+  updatedAt  DateTime? @updatedAt
+  deleted_at DateTime? @map("deleted_at")
+  price      Int?
+  subType    SubType?  @relation(fields: [subTypeId], references: [id])
 }
 
 model Contact {
-  id           String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id           String    @id @default(auto()) @map("_id") @db.ObjectId
   address      String?
   tel          String?
   email        String?
@@ -51,12 +51,12 @@ model Contact {
   line         String?
   linkLine     String?
   createdAt    DateTime? @default(now())
-  updatedAt    DateTime?
-  deleted_at   DateTime?
+  updatedAt    DateTime? @updatedAt
+  deleted_at   DateTime? @map("deleted_at")
 }
 
 model About {
-  id           String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id           String    @id @default(auto()) @map("_id") @db.ObjectId
   headtitle    String?
   history      String?
   subhistory   String?
@@ -64,33 +64,27 @@ model About {
   subportfolio String?
   videotitle   String?
   video        String?
-  createdAt    DateTime? @default(now())
-  updatedAt    DateTime?
-  deleted_at   DateTime?
   headpolicy   String?
   subpolicy    String?
+  createdAt    DateTime? @default(now())
+  updatedAt    DateTime? @updatedAt
+  deleted_at   DateTime? @map("deleted_at")
 }
 
 model Policy {
-  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
   headpolicy String?
   subpolicy  String?
   createdAt  DateTime? @default(now())
-  updatedAt  DateTime?
-  deleted_at DateTime?
+  updatedAt  DateTime? @updatedAt
+  deleted_at DateTime? @map("deleted_at")
 }
 
-model Block {
-  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+model HomeTop {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
   title      String?
-  subtitle   String?
-  detail     String?
-  subdetail  String?
-  sourcename String?
-  sourcelink String?
-  imgtitle   String?
-  imgdetail  String?
+  subTitle   String?
   createdAt  DateTime? @default(now())
-  updatedAt  DateTime?
-  deleted_at DateTime?
+  updatedAt  DateTime? @updatedAt
+  deleted_at DateTime? @map("deleted_at")
 }

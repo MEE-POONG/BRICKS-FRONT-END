@@ -7,7 +7,7 @@ export default async function handler(req, res) {
     case "GET":
       try {
         const data = await prisma.type.findMany({
-          include: { SubType: true },
+          include: { subType: true },
         });
 
         res.status(200).json(data);

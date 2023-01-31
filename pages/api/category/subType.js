@@ -13,7 +13,7 @@ export default async function handler(req, res) {
             },
           },
           include: {
-            SubType: {
+            subType: {
               where: {
                 name: {
                   equals: req.query.subTypeName,

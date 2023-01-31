@@ -16,11 +16,6 @@ export default function ProductDetailPage() {
     getProduct,
   ] = useAxios({ url: `/api/products/${router.query.name}`, method: "GET" });
 
-  const [
-    { data: addOnRateData, loading: addOnRateLoading, error: addOnRateError },
-    getAddOnRate,
-  ] = useState({ url: `/api/addOnRate?productId=${productData}`, method: "GET" });
-
   console.log("productResponse",)
   return (
     <>

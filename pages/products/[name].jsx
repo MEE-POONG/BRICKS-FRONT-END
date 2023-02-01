@@ -4,19 +4,44 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import Loading from "../../components/Loading/Loading";
 import MapComponent from "../../components/Map/MapComponent";
 
 export default function ProductDetailPage() {
   const router = useRouter();
   let [isOpen, setIsOpen] = useState(false);
-  
+  const [productQty, setProductQty] = useState(1);
   const [
     { data: productData, loading: productLoading, error: productError },
     getProduct,
   ] = useAxios({ url: `/api/products/${router.query.name}`, method: "GET" });
+  const { mapStore } = useSelector((state) => state);
 
-  console.log("productResponse",)
+  //เช็คระยะทางเพื่อบวกราคา
+  const priceRule = (distance, constPrice, qty) => {
+    if (distance !== 0) {
+      const addOnArr = productData?.addOnRate.map((addOnArr) => addOnArr); // map array
+      const addSort = addOnArr.sort((a, b) => a.length - b.length); //sort array
+      const findDistance = addSort
+        .map((lengthArr) => lengthArr.length)
+        .find((length) => length > distance);
+      const findAddOn = addSort
+        .map((lengthArr) => lengthArr)
+        .find((lengthArr) => lengthArr.length === findDistance);
+
+      if (findDistance === undefined) {
+        return "ขออภัยไม่อยู่ในพื้นที่จัดส่ง";
+      }
+      return (
+        ((constPrice + findAddOn?.addOn) * qty).toLocaleString("en-US") +
+        " " +
+        "บาท"
+      );
+    }
+    return "กรุณาเลือกพื้นที่จัดส่ง";
+  };
+
   return (
     <>
       <Head>
@@ -72,36 +97,60 @@ export default function ProductDetailPage() {
                     <div className="flex ml-6 items-center">
                       <div className="lg:flex">
                         <span className="my-auto mr-3 text-xl font-bold">
-                          จัดส่งไปยัง
+                          เลือกพื้นที่จัดส่ง
                         </span>
                         <div>
-                          <span onClick={() => setIsOpen(true)}>
-                            GOOGLE MAP ICON
-                          </span>
+                          <button type="button" onClick={() => setIsOpen(true)}>
+                            <img className="w-14" src="/gmapLogo.png" />
+                          </button>
                           <MapComponent isOpen={isOpen} setIsOpen={setIsOpen} />
                         </div>
                       </div>
                     </div>
                   </div>
                   <div className="block text-center lg:text-left">
+                    <span className="title-font font-medium text-2xl text-gray-900 block">
+                      ระยะทาง {mapStore?.distance / 1000} กิโลเมตร
+                    </span>
                     <span className="title-font font-medium text-2xl text-gray-900">
-                      ราคา {productData?.price} บาท / ชื้น
+                      {priceRule(
+                        mapStore?.distance / 1000,
+                        productData?.price,
+                        productQty
+                      )}
                     </span>
                     <div className="flex mt-4 justify-center lg:justify-start">
+                      <div className="flex justify-center w-1/4">
+                        <svg
+                          className="fill-current w-3 text-gray-600 hover:text-secondary cursor-pointer"
+                          viewBox="0 0 448 512"
+                          onClick={() => {
+                            if (productQty > 1) {
+                              setProductQty(productQty - 1);
+                            }
+                          }}
+                        >
+                          <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+                        </svg>
+
+                        <input
+                          className="mx-2 border text-center w-12 rounded-md"
+                          type="text"
+                          value={productQty.toLocaleString("en-US")}
+                          onChange={(e) =>
+                            setProductQty(parseInt(e.target.value))
+                          }
+                        />
+                        <svg
+                          className="fill-current w-3 text-gray-600e hover:text-secondary cursor-pointer"
+                          viewBox="0 0 448 512"
+                          onClick={() => setProductQty(productQty + 1)}
+                        >
+                          <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+                        </svg>
+                      </div>
                       <button className="flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
                         เพิ่มไปยังตะกร้า
-                      </button>
-                      <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
-                        <svg
-                          fill="currentColor"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          className="w-5 h-5"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
-                        </svg>
                       </button>
                     </div>
                   </div>

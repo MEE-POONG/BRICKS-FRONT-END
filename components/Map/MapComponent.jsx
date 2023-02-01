@@ -6,6 +6,8 @@ import {
   useLoadScript,
 } from "@react-google-maps/api";
 import { Dialog, Transition } from "@headlessui/react";
+import { useDispatch, useSelector } from "react-redux";
+import { setDistance, setLatLng } from "../../store/map/mapSlice";
 
 export default function MapComponent({ isOpen, setIsOpen }) {
   const { isLoaded } = useLoadScript({
@@ -58,12 +60,13 @@ export default function MapComponent({ isOpen, setIsOpen }) {
 }
 
 function Map() {
+  //Redux
+  const dispatch = useDispatch();
+  const { mapStore } = useSelector((state) => state);
+
   /// CLICK TO GET LAT LNG
   const [destinationPosition, setDestinationPosition] = useState();
-  const [distance, setDistance] = useState();
   const originPosition = { lat: 14.829494277866198, lng: 102.19258206357422 };
-
-  console.log(destinationPosition);
 
   const containerStyle = {
     width: "80vw",
@@ -75,36 +78,38 @@ function Map() {
       <GoogleMap
         zoom={6}
         center={useMemo(() => originPosition, [])}
+        options={{ streetViewControl: false }}
         mapContainerStyle={containerStyle}
-        onClick={(e) =>
-          setDestinationPosition({
-            lat: e.latLng.lat(),
-            lng: e.latLng.lng(),
-          })
-        }
+        onClick={(e) => {
+          dispatch(
+            setLatLng({
+              lat: e.latLng.lat(),
+              lng: e.latLng.lng(),
+            })
+          );
+        }}
       >
         <MarkerF
           position={{
-            lat: parseFloat(destinationPosition?.lat),
-            lng: parseFloat(destinationPosition?.lng),
+            lat: parseFloat(mapStore?.lat),
+            lng: parseFloat(mapStore?.lng),
           }}
         />
         <DistanceMatrixService
           options={{
-            destinations: [destinationPosition],
+            destinations: [{ lat: mapStore.lat, lng: mapStore.lng }],
             origins: [originPosition],
             travelMode: "DRIVING",
           }}
           callback={(res) => {
-            setDistance(res?.rows[0]?.elements[0]?.distance?.text);
+            dispatch(
+              setDistance({
+                distance: res?.rows[0]?.elements[0]?.distance?.value,
+              })
+            );
           }}
         />
       </GoogleMap>
-      <div>
-        <div>
-          <span>ระยะทางคือ {distance}</span>
-        </div>
-      </div>
     </>
   );
 }

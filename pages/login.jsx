@@ -11,7 +11,7 @@ export default function LoginPage() {
               href="#"
               className="flex items-center mb-6 text-2xl font-semibold text-gray-900"
             >
-              <img className="w-8 h-8 mr-2" src="/logo.png" alt="logo" />
+              <img className="w-8 h-8 mr-2" src="/logo1.png" alt="logo" />
               Welcome :)
             </a>
             <div className="w-full bg-white rounded-lg shadow-lg  md:mt-0 sm:max-w-md xl:p-0">

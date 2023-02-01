@@ -27,7 +27,7 @@ export default function Navbar() {
             <div className="flex justify-around">
               <Link href={"/"} className="lg:mx-10">
                 <img
-                  src="/logo.png"
+                  src="/logo2.png"
                   className="flex h-auto mx-auto w-12 lg:w-20"
                   alt="logo"
                 />

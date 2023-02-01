@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <Head>
         <title>ช่างพองอิฐประสาน</title>
-          <link rel="icon" href="/logo.png" />
+          <link rel="icon" href="/logo1.png" />
       </Head>
       <div>
         <HomeTop/>

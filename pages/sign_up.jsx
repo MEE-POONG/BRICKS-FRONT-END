@@ -12,7 +12,7 @@ export default function SignUpPage() {
               href="#"
               className="flex items-center mb-6 text-2xl text-gray-900 dark:text-white"
             >
-              <img className="w-8 h-8 mr-2" src="/logo.png" alt="logo" />
+              <img className="w-8 h-8 mr-2" src="/logo1.png" alt="logo" />
               Welcome :)
             </a>
             <div className=" bg-white rounded-lg shadow-lg md:mt-0 min-w-screen ">

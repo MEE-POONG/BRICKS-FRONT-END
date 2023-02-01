@@ -16,7 +16,7 @@ export default function AboutPage() {
     <>
       <Head>
         <title>เกี่ยวกับเรา</title>
-          <link rel="icon" href="/logo.png" />
+          <link rel="icon" href="/logo1.png" />
       </Head>
       <div className="flex flex-col min-h-screen p-10 bg-gray-100 text-gray-800 font-fontTh2 ">
         <section className="text-gray-700 body-font overflow-hidden bg-white rounded-lg shadow-lg">

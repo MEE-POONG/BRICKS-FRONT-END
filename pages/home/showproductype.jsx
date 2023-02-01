@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 
 export default function Showproducts() {
@@ -15,7 +16,7 @@ export default function Showproducts() {
           <div className="flex justify-center">
             <div className="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
               <img
-                className=" w-full h-auto object-contain md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
+                className=" w-full h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
                 src="/images/bw2.png"
                 alt=""
               />
@@ -32,7 +33,7 @@ export default function Showproducts() {
           <div className="flex justify-center">
             <div className="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
               <img
-                className=" w-full h-auto object-contain md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
+                className=" w-full h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
                 src="/images/bw.png"
                 alt=""
               />
@@ -49,7 +50,7 @@ export default function Showproducts() {
           <div className="flex justify-center">
             <div className="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
               <img
-                className=" w-fullh-auto object-contain md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
+                className=" w-fullh-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
                 src="/images/bw3.jpg"
                 alt=""
               />

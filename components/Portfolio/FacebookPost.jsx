@@ -6,7 +6,7 @@ import Loading from "../Loading/Loading";
 //รอเปลี่ยน เป็นของ บ.
 const AppID = "720522252954036";
 const AccessToken =
-  "EAAKPT6jwqbQBAP94Uxb0jl9Pkvu8ZCLMBu4A5GEspA34WnFM58tdOs7Egnf6oGsPYbz8b5gn8pisAmB29xZBiX2fYR7qzDtcPvkXqO0nUYP6g9kNeFP3HZCYfxgZBjOGqNKhWW6GWJX0EBALBECRZAMxERqd8fM1ZA3xmQJw2DidZB6aUZBKZAuIx";
+  "";
 const PageId = "103534424506037";
 const Limit = "12";
 

@@ -30,14 +30,17 @@ export default function ProductDetailPage() {
         .map((lengthArr) => lengthArr)
         .find((lengthArr) => lengthArr.length === findDistance);
 
-      if (findDistance === undefined) {
-        return "ขออภัยไม่อยู่ในพื้นที่จัดส่ง";
+      if (productData?.addOnRate.length !== 0) {
+        if (findDistance === undefined) {
+          return "ขออภัยไม่อยู่ในพื้นที่จัดส่ง";
+        }
+        return (
+          ((constPrice + findAddOn?.addOn) * qty).toLocaleString("en-US") +
+          " " +
+          "บาท"
+        );
       }
-      return (
-        ((constPrice + findAddOn?.addOn) * qty).toLocaleString("en-US") +
-        " " +
-        "บาท"
-      );
+      return (constPrice * qty).toLocaleString("en-US") + " " + "บาท";
     }
     return "กรุณาเลือกพื้นที่จัดส่ง";
   };
@@ -94,12 +97,12 @@ export default function ProductDetailPage() {
                     />
                   </p>
                   <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5 justify-center lg:justify-start">
-                    <div className="flex ml-6 items-center">
+                    <div className="flex items-center">
                       <div className="lg:flex">
-                        <span className="my-auto mr-3 text-xl font-bold">
+                        <span className="my-auto text-xl font-bold lg:mr-4">
                           เลือกพื้นที่จัดส่ง
                         </span>
-                        <div>
+                        <div className="flex justify-center my-2">
                           <button type="button" onClick={() => setIsOpen(true)}>
                             <img className="w-14" src="/gmapLogo.png" />
                           </button>
@@ -109,47 +112,53 @@ export default function ProductDetailPage() {
                     </div>
                   </div>
                   <div className="block text-center lg:text-left">
-                    <span className="title-font font-medium text-2xl text-gray-900 block">
+                    {/* <span className="font-medium text-2xl text-gray-900 block">
                       ระยะทาง {mapStore?.distance / 1000} กิโลเมตร
-                    </span>
-                    <span className="title-font font-medium text-2xl text-gray-900">
+                    </span> */}
+                    <span className="font-medium text-2xl text-gray-900">
                       {priceRule(
                         mapStore?.distance / 1000,
                         productData?.price,
                         productQty
                       )}
                     </span>
-                    <div className="flex mt-4 justify-center lg:justify-start">
-                      <div className="flex justify-center w-1/4">
-                        <svg
-                          className="fill-current w-3 text-gray-600 hover:text-secondary cursor-pointer"
-                          viewBox="0 0 448 512"
-                          onClick={() => {
-                            if (productQty > 1) {
-                              setProductQty(productQty - 1);
-                            }
-                          }}
-                        >
-                          <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                        </svg>
+                    <div className="my-4">
+                      <div className="block lg:flex">
+                        <span className="font-medium text-lg text-gray-800 my-auto lg:mr-4">
+                          จำนวนสินค้า
+                        </span>
+                        <div className="flex justify-center my-4 lg:justify-start">
+                          <svg
+                            className="fill-current w-3 text-gray-900 hover:text-primary cursor-pointer"
+                            viewBox="0 0 448 512"
+                            onClick={() => {
+                              if (productQty > 1) {
+                                setProductQty(productQty - 1);
+                              }
+                            }}
+                          >
+                            <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+                          </svg>
 
-                        <input
-                          className="mx-2 border text-center w-12 rounded-md"
-                          type="text"
-                          value={productQty.toLocaleString("en-US")}
-                          onChange={(e) =>
-                            setProductQty(parseInt(e.target.value))
-                          }
-                        />
-                        <svg
-                          className="fill-current w-3 text-gray-600e hover:text-secondary cursor-pointer"
-                          viewBox="0 0 448 512"
-                          onClick={() => setProductQty(productQty + 1)}
-                        >
-                          <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                        </svg>
+                          <input
+                            className="mx-2 border text-center w-12 rounded-md text-gray-900"
+                            type="text"
+                            value={productQty.toLocaleString("en-US")}
+                            onChange={(e) =>
+                              setProductQty(parseInt(e.target.value))
+                            }
+                          />
+                          <svg
+                            className="fill-current w-3 text-gray-900 hover:text-primary cursor-pointer"
+                            viewBox="0 0 448 512"
+                            onClick={() => setProductQty(productQty + 1)}
+                          >
+                            <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+                          </svg>
+                        </div>
                       </div>
-                      <button className="flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
+
+                      <button className="text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
                         เพิ่มไปยังตะกร้า
                       </button>
                     </div>

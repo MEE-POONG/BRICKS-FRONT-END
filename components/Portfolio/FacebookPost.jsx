@@ -6,7 +6,7 @@ import Loading from "../Loading/Loading";
 //รอเปลี่ยน เป็นของ บ.
 const AppID = "720522252954036";
 const AccessToken =
-  "";
+  "EAAKPT6jwqbQBAGF96HHNQZAxe0nSdTCmFVvZBe6HZA3ZCl5fItdyLtTRvQlwyQPiQu2EiMpgtL61ZCL4pDhqGOKkpq1IOSsZBJhZBQZCqTU09ZB6Q0o10zmhtdpGQngqAS33tbwZCqWl4tA0flZAXypeOxkIz3rjAyojSWtV5yie79sDtIAtvlHZAhS7";
 const PageId = "103534424506037";
 const Limit = "12";
 
@@ -24,10 +24,7 @@ export default function FacebookPost() {
   });
 
   const posts = facebookFeeds?.data
-    ?.filter(
-      (postType) =>
-        postType.status_type === "added_photos"
-    )
+    ?.filter((postType) => postType.status_type === "added_photos")
     .map((postId) => {
       return postId.id.split("_")[1];
     });

@@ -2,8 +2,9 @@
 import useAxios from "axios-hooks";
 import Head from "next/head";
 import React, { useRef } from "react";
-import { BsTelephoneFill, BsFacebook, BsLine } from "react-icons/bs";
-import { GrAd, GrAddCircle, GrHome, GrMail } from "react-icons/gr";
+import { BsTelephoneFill, BsFacebook, BsLine  } from "react-icons/bs";
+import { FaHome } from "react-icons/fa";
+import { GrAd, GrAddCircle, GrMail } from "react-icons/gr";
 
 export default function ContactPage() {
 
@@ -33,11 +34,11 @@ export default function ContactPage() {
 
           <div className="m-5 grid grid-cols-1 lg:grid-cols-3 gap-8 lg:text-[18px]">
             <div>
-              <p className="text-[24px] lg:text-[30px]">ที่ตั้ง</p>
+              <p className="text-[24px] lg:text-[30px] ">ที่ตั้ง</p>
               <hr />
-              <p className=" flex lg:py-2 mt-1">
+              <p className=" flex lg:py-2 mt-1 text-primary">
                 {" "}
-                <GrHome /> {contact.address}
+                <FaHome /> &nbsp; {contact.address}
               </p>
             </div>
             <div>

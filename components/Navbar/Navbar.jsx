@@ -63,7 +63,7 @@ export default function Navbar() {
                   </div>
                 </Link>
                 <Link
-                  href={"#"}
+                  href={"/login"}
                   className="text-center text-gray-700 hover:text-primary transition relative"
                 >
                   <div className="text-lg flex justify-center lg:text-2xl">
@@ -126,12 +126,6 @@ export default function Navbar() {
                 ติดต่อเรา
               </Link>
             </div>
-            <a
-              href="login"
-              className="text-gray-200 hover:text-white transition"
-            >
-              Login
-            </a>
           </div>
         </div>
       </nav>

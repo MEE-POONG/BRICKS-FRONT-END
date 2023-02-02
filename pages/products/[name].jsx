@@ -53,7 +53,7 @@ export default function ProductDetailPage() {
       {productLoading ? (
         <Loading />
       ) : (
-        <div className="flex flex-col min-h-screen p-10 bg-gray-100 text-gray-800">
+        <div className="flex flex-col min-h-screen bg-gray-100 text-gray-800 lg:p-10">
           <div>
             <Link
               href={`/products/category/${productData?.subType?.type?.name}`}

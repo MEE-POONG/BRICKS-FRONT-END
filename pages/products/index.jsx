@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import Image from "next/image";
 import Loading from "../../components/Loading/Loading";
+import Pagination from "../../components/Pagination/Pagination";
 
 export default function ProductsPage() {
   const [
@@ -12,7 +13,6 @@ export default function ProductsPage() {
   ] = useAxios({
     url: "/api/products",
   });
-  console.log("productsData", productsData);
 
   const router = useRouter();
   const handleClick = (e, path, name) => {
@@ -25,6 +25,10 @@ export default function ProductsPage() {
     }
   };
 
+  const handleSelectPage = (pageValue) => {
+    getProducts({ url: `/api/products?page=${pageValue}` }, { manual: true });
+  };
+
   return (
     <>
       <Head>
@@ -33,16 +37,16 @@ export default function ProductsPage() {
       {productsLoading ? (
         <Loading />
       ) : (
-        <div className="flex flex-col min-h-screen p-10 bg-gray-100 text-gray-800">
-          <div className="grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-x-12 gap-y-12 w-full mt-6">
-            {productsData?.map((product, index) => (
+        <div className="flex flex-col p-1 bg-gray-100 text-gray-800 lg:p-10">
+          <div className="grid grid-cols-2 gap-x-4  gap-y-12 w-full mt-6 lg:grid-cols-5 lg:gap-x-12">
+            {productsData?.data.map((product, index) => (
               <div
                 key={index}
                 className="w-full cursor-pointer"
                 onClick={(e) => handleClick(e, "/products", product?.name)}
               >
-                <div className="block bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-transform duration-300">
-                  <div className="relative py-48">
+                <div className="block bg-white h-full shadow-md rounded-lg overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-transform duration-300">
+                  <div className="relative py-32">
                     <img
                       className="absolute mx-auto inset-0 h-full w-fit object-center object-cover lg:w-full"
                       src={product.image}
@@ -65,6 +69,13 @@ export default function ProductsPage() {
           </div>
         </div>
       )}
+      <div className="py-10 bg-gray-100">
+        <Pagination
+          page={productsData?.page}
+          totalPage={productsData?.totalPage}
+          handleSelectPage={handleSelectPage}
+        />
+      </div>
     </>
   );
 }

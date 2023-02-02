@@ -6,16 +6,22 @@ export default async function handler(req, res) {
   switch (method) {
     case "GET":
       try {
-        const data = await prisma.products.findMany({
-          take:8,
-          skip:1,
-          include: {
-            subType: {
-              include: { type: true },
+        let page = +req.query.page || 1;
+        let pageSize = 10;
+        const data = await prisma.$transaction([
+          prisma.products.count(),
+          prisma.products.findMany({
+            include: {
+              subType: {
+                include: { type: true },
+              },
             },
-          },
-        });
-        res.status(200).json(data);
+            skip: (page - 1) * pageSize,
+            take: pageSize,
+          }),
+        ]);
+        const totalPage = Math.ceil(data[0] / pageSize);
+        res.status(200).json({ data: data[1], page, pageSize, totalPage });
       } catch (error) {
         res.status(400).json({ success: false });
       }

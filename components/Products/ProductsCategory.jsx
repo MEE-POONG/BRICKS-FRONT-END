@@ -6,13 +6,13 @@ export default function ProductsCategory({ typeName }) {
   const router = useRouter();
   const [
     {
-      data: categoryData,
+      data: categoryListData,
       loading: categoryDataLoading,
       error: categoryDataError,
     },
     getType,
   ] = useAxios({
-    url: `/api/category/type?typeName=${typeName}`,
+    url: `/api/category/typeList?typeName=${typeName}`,
     method: "GET",
   });
 
@@ -27,10 +27,9 @@ export default function ProductsCategory({ typeName }) {
   };
 
   const UrlCheck = (pathType) => {
-
     const deCodeAsPath = decodeURI(router.asPath); // แปลง url ภาษาต่างดาว เป็น ไทย
-    const pathSplit = deCodeAsPath.split('/');  // ตัดคำจาก / แล้วแยกเป็นอาเรย์
-    const LastArray = pathSplit[pathSplit.length - 1]  // เอาอาเรย์ตัวสุดท้าย
+    const pathSplit = deCodeAsPath.split("/"); // ตัดคำจาก / แล้วแยกเป็นอาเรย์
+    const LastArray = pathSplit[pathSplit.length - 1]; // เอาอาเรย์ตัวสุดท้าย
 
     if (LastArray === pathType) {
       return "bg-primary text-white";
@@ -41,7 +40,9 @@ export default function ProductsCategory({ typeName }) {
   return (
     <>
       <div
-        className={`${UrlCheck(typeName)} rounded-3xl p-1 px-4 shadow-md cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-transform duration-300`}
+        className={`${UrlCheck(
+          typeName
+        )} rounded-3xl p-1 px-4 shadow-md cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-transform duration-300`}
         onClick={() =>
           router.push({
             pathname: `/products/category/${typeName}`,
@@ -50,7 +51,7 @@ export default function ProductsCategory({ typeName }) {
       >
         <span className="text-lg">ทั้งหมด</span>
       </div>
-      {categoryData?.subType.map((subTypeData, index) => (
+      {categoryListData?.subType.map((subTypeData, index) => (
         <div
           key={index}
           className={`${UrlCheck(

@@ -6,35 +6,39 @@ export default async function handler(req, res) {
   switch (method) {
     case "GET":
       try {
-        const data = await prisma.type.findFirst({
-          where: {
-            name: {
-              equals: req.query.typeName,
-            },
-          },
-          include: {
-            subType: {
-              include: {
-                products: true
+        let page = +req.query.page || 1;
+        let pageSize = 10;
+        const data = await prisma.$transaction([
+          prisma.products.count({
+            where: {
+              subType: {
+                type: {
+                  name: {
+                    equals: req.query.typeName,
+                  },
+                },
               },
             },
-          },
-        });
-
-        res.status(200).json(data);
-      } catch (error) {
-        res.status(400).json({ success: false });
-      }
-      break;
-    case "DELETE":
-      try {
-        const data = await prisma.duty.delete({
-          where: {
-            id: req.query.id,
-          },
-        });
-
-        res.status(200).json(data);
+          }),
+          prisma.type.findFirst({
+            where: {
+              name: {
+                equals: req.query.typeName,
+              },
+            },
+            include: {
+              subType: {
+                include: {
+                  products: true,
+                },
+              },
+            },
+            skip: (page - 1) * pageSize,
+            take: pageSize,
+          }),
+        ]);
+        const totalPage = Math.ceil(data[0] / pageSize);
+        res.status(200).json({ data: data[1], page, pageSize, totalPage });
       } catch (error) {
         res.status(400).json({ success: false });
       }

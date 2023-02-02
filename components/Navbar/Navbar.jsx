@@ -21,7 +21,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="py-2 shadow-sm bg-white z-40">
+      <header className="py-2 shadow-sm bg-white z-40 font-fontTh2">
         <div className="min-w-full">
           <div className="lg:items-center lg:justify-between lg:flex">
             <div className="flex justify-around">
@@ -79,7 +79,7 @@ export default function Navbar() {
 
       <nav className="bg-gray-800">
         {/* Full Display */}
-        <div className="container flex">
+        <div className="container flex font-fontTh2">
           <div className="px-8 py-4 ml-10 lg:ml-24 bg-primary flex items-center cursor-pointer relative group/type">
             <span className="text-white">
               <FaBars />

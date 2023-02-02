@@ -33,6 +33,7 @@ export default function ProductsPage() {
     <>
       <Head>
         <title>สินค้าทั้งหมด</title>
+        <link rel="icon" href="/logo1.png" />
       </Head>
       {productsLoading ? (
         <Loading />

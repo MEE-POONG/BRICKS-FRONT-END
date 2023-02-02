@@ -49,6 +49,7 @@ export default function ProductDetailPage() {
     <>
       <Head>
         <title>{productData?.name}</title>
+        <link rel="icon" href="/logo1.png" />
       </Head>
       {productLoading ? (
         <Loading />

@@ -24,6 +24,7 @@ export default function CategoryPage() {
     <>
       <Head>
         <title>สินค้าทั้งหมด</title>
+        <link rel="icon" href="/logo1.png" />
       </Head>
       {CategoryDataLoading ? (
         <Loading />

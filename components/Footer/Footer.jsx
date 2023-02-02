@@ -15,14 +15,6 @@ export default function Footer() {
               <h5 className="text-lg mt-0 mb-2 text-blueGray-600">
                 อิฐประสาน จัดสวน สร้างบ้าน ราคาโรงงาน
               </h5>
-              <div className="lg:mb-0 mb-6">
-                <a
-                  href="https://www.facebook.com/DreamBlock9"
-                  className=" flex lg:py-2 mt-1"
-                >
-                  <BsFacebook />
-                </a>
-              </div>
             </div>
             <div className="w-full lg:w-6/12 px-4">
               <div className="flex flex-wrap items-top mb-6">
@@ -31,6 +23,22 @@ export default function Footer() {
                     pages
                   </span>
                   <ul className="list-unstyled">
+                    <li>
+                      <a
+                        className="font-semibold block pb-2 text-sm hover:underline"
+                        href="../products"
+                      >
+                        สินค้า
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="font-semibold block pb-2 text-sm hover:underline"
+                        href="../portfolio"
+                      >
+                        ผลงานของเรา
+                      </a>
+                    </li>
                     <li>
                       <a
                         className="font-semibold block pb-2 text-sm hover:underline"
@@ -45,22 +53,6 @@ export default function Footer() {
                         href="../contact"
                       >
                         ช่องทางติดต่อ
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="font-semibold block pb-2 text-sm hover:underline"
-                        href="../portfolio"
-                      >
-                        ผลงานของเรา
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="font-semibold block pb-2 text-sm hover:underline"
-                        href="../products"
-                      >
-                        สินค้า
                       </a>
                     </li>
                   </ul>
@@ -78,7 +70,14 @@ export default function Footer() {
                         <BsTelephoneFill /> &nbsp; 094 397 0414
                       </a>
                     </li>
-
+                    <li>
+                      <a
+                        className=" flex font-semibold block pb-2 text-sm hover:underline"
+                        href="https://www.facebook.com/DreamBlock9"
+                      >
+                        <BsFacebook /> &nbsp; ร้านช่างพอง อิฐประสาน 
+                      </a>
+                    </li>
                     <li>
                       <a
                         className="flex font-semibold block pb-2 text-sm hover:underline"
@@ -111,16 +110,16 @@ export default function Footer() {
           </div> */}
           <div className="grid grid-cols-1 md:grid-cols-2 text-primary text-center">
             <div className="text-sm md:text-left">
-                Copyright 2023 © All rights Reserved.
+              Copyright 2023 © All rights Reserved.
             </div>
             <div className=" md:text-right text-sm">
-            Design by &nbsp;
-                  <a
-                    href="https://www.meepoong.com/?fbclid=IwAR3oOETDbweOk5D86c_Io3rq733SroxhxbsQbfiX7dv1E8YT3cKGqLeBlRE"
-                    className="text-blueGray-500 hover:underline"
-                  >
-                    ME PROMT TECHNOLOGY Co.,Ltd.
-                  </a> 
+              Design by &nbsp;
+              <a
+                href="https://www.meepoong.com/?fbclid=IwAR3oOETDbweOk5D86c_Io3rq733SroxhxbsQbfiX7dv1E8YT3cKGqLeBlRE"
+                className="text-blueGray-500 hover:underline"
+              >
+                ME PROMT TECHNOLOGY Co.,Ltd.
+              </a>
             </div>
           </div>
         </div>

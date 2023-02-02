@@ -12,9 +12,9 @@ export default function Showproducts() {
           <span className="text-gray-400 "> |  Categories{" "}</span> 
         </h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 ">
           <div className="flex justify-center">
-            <div className="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
+            <div className="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg motion-safe:hover:scale-105">
               <img
                 className=" w-full h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
                 src="/images/bw2.png"
@@ -31,7 +31,7 @@ export default function Showproducts() {
             </div>
           </div>
           <div className="flex justify-center">
-            <div className="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
+            <div className="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg motion-safe:hover:scale-105">
               <img
                 className=" w-full h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
                 src="/images/bw.png"
@@ -48,7 +48,7 @@ export default function Showproducts() {
             </div>
           </div>
           <div className="flex justify-center">
-            <div className="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg">
+            <div className="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg motion-safe:hover:scale-105">
               <img
                 className=" w-fullh-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
                 src="/images/bw3.jpg"

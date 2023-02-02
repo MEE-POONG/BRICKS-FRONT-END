@@ -13,7 +13,6 @@ export default function ProductsPage() {
     url: "/api/products",
   });
 
-  
   const router = useRouter();
   const handleClick = (e, path, name) => {
     e.preventDefault();
@@ -46,11 +45,7 @@ export default function ProductsPage() {
                 className="max-w-sm rounded-xl overflow-hidden shadow-md h-full bg-white cursor-pointer transition-transform duration-300 motion-safe:hover:scale-105 motion-safe:hover:border-primary border"
                 onClick={(e) => handleClick(e, "/products", product?.name)}
               >
-                <img
-                  src={product.image}
-                  alt="product"
-                  className="w-full"
-                />
+                <img src={product.image} alt="product" className="w-full" />
                 <div className="px-6 py-4">
                   <div className="text-gray-500 text-base mb-2 font-Th">
                     {product.SubType?.name}

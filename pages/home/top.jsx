@@ -6,17 +6,8 @@ export default function HomeTop() {
   return (
     <>
       <div className="font-fontTh2 ">
-         <div className="relative w-full h-48 lg:h-[500px]  bg-[url('/images/brickwall.png')] -z-50"/>
-          <div className=" absolute flex top-48 md:top-64 left-5 md:left-10 md:bottom-60 -z-50">
-            <img src="/logo2.png" alt="" className=" w-24 md:w-[350px] md:px-3 mr-6" />
-            <h1 className=" font-extrabold text-[38px] md:text-[40px] lg:text-[70px] text-[#a05a40]">
-              ร้านช่างพอง{" "}
-            <p className=" font-semibold text-[#1f2937] text-[16px] md:text-[24px] lg:text-[40px]">
-                อิฐประสาน จัดสวน สร้างบ้าน ราคาโรงงาน
-            </p>
-            </h1>
-             
-          </div>
+      <div class="bg-local " style="background-image: url('/images/brickwall.png')"></div>
+       
     
 
         <div className=" py-10 grid lg:grid grid-cols-1 lg:grid-cols-3 gap-4 text-center mx-5 lg:mx-40">

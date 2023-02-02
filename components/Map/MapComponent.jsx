@@ -1,4 +1,4 @@
-import React, { useState, useMemo, Fragment } from "react";
+import React, { useMemo, Fragment } from "react";
 import {
   DistanceMatrixService,
   GoogleMap,
@@ -65,14 +65,12 @@ function Map() {
   const { mapStore } = useSelector((state) => state);
 
   /// CLICK TO GET LAT LNG
-  const [destinationPosition, setDestinationPosition] = useState();
-  const originPosition = { lat: 14.829494277866198, lng: 102.19258206357422 };
-
+  const originPosition = { lat: 14.8425959800221, lng: 102.18779271165197 };
   const containerStyle = {
     width: "80vw",
     height: "80vh",
   };
-
+  console.log(mapStore);
   return (
     <>
       <GoogleMap

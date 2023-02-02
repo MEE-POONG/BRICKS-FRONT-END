@@ -41,10 +41,23 @@ export default function ProductsPage() {
                 className="w-full cursor-pointer"
                 onClick={(e) => handleClick(e, "/products", product?.name)}
               >
-                <img src={product.image} alt="product" className="w-full" />
-                <div className="px-6 py-4">
-                  <div className="text-gray-500 text-base mb-2 font-Th">
-                    {product.SubType?.name}
+                <div className="block bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-transform duration-300">
+                  <div className="relative py-48">
+                    <img
+                      className="absolute mx-auto inset-0 h-full w-fit object-center object-cover lg:w-full"
+                      src={product.image}
+                      alt="productImage"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <div className="bg-primary rounded-xl p-1 px-2 w-fit">
+                      <span className="block text-sm text-white font-semibold">
+                        {product.subType?.name}
+                      </span>
+                    </div>
+                    <span className="block text-xl font-semibold mt-2">
+                      {product.name}
+                    </span>
                   </div>
                 </div>
               </div>

@@ -21,8 +21,8 @@ export default function Showproducts() {
                 src="/images/bw.png"
                 alt=""
               />
-              <div className=" flex flex-col justify-center">
-                <a href="#" className="text-black text-xl font-semibold mb-2 hover:text-primary">
+              <div className=" flex flex-col justify-center lg:pr-4">
+                <a href="#" className="text-black text-xl font-semibold mb-2 hover:text-primary ">
                   อิฐทางเท้า
                 </a>
                 <p className="text-gray-700 text-base">
@@ -39,8 +39,8 @@ export default function Showproducts() {
                 src="/images/16.jpg"
                 alt=""
               />
-              <div className=" flex flex-col justify-center">
-                <a href="#" className="text-black text-xl font-semibold mb-2 hover:text-primary">
+              <div className=" flex flex-col justify-center lg:pr-4">
+                <a href="#" className="text-black text-xl font-semibold mb-2 hover:text-primary ">
                   ช่องลม
                 </a>
                 <p className="text-gray-700 text-base">
@@ -57,8 +57,8 @@ export default function Showproducts() {
                 src="/images/36.jpg"
                 alt=""
               />
-              <div className=" flex flex-col justify-center">
-                <a href="#" className="text-black text-xl font-semibold mb-2 hover:text-primary">
+              <div className=" flex flex-col justify-center lg:pr-4">
+                <a href="#" className="text-black text-xl font-semibold mb-2 hover:text-primary ">
                   อิฐตรง
                 </a>
                 <p className="text-gray-700 text-base">

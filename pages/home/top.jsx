@@ -1,8 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 
+import useAxios from "axios-hooks";
 import React, { useRef } from "react";
 
 export default function HomeTop() {
+  const [{ data: hometopData,loading,error }, getHomeTop] = useAxios({
+    url: "/api/hometop",
+  });
   return (
     <>
       <div className="font-fontTh2 ">

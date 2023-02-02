@@ -116,9 +116,9 @@ export default function Footer() {
               Design by &nbsp;
               <a
                 href="https://www.meepoong.com/?fbclid=IwAR3oOETDbweOk5D86c_Io3rq733SroxhxbsQbfiX7dv1E8YT3cKGqLeBlRE"
-                className="text-blueGray-500 hover:underline"
+                className="text-blueGray-500 hover:underline uppercase"
               >
-                ME PROMT TECHNOLOGY Co.,Ltd.
+                me promt technology company limited
               </a>
             </div>
           </div>

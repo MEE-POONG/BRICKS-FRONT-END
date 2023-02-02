@@ -7,6 +7,8 @@ export default async function handler(req, res) {
     case "GET":
       try {
         const data = await prisma.products.findMany({
+          take:8,
+          skip:1,
           include: {
             subType: {
               include: { type: true },

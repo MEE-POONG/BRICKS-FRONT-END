@@ -41,7 +41,7 @@ export default function ProductsCategory({ typeName }) {
   return (
     <>
       <div
-        className={`${UrlCheck(typeName)} rounded-3xl p-1 px-4 shadow-lg cursor-pointer hover:-translate-y-1 transition-transform duration-300`}
+        className={`${UrlCheck(typeName)} rounded-3xl p-1 px-4 shadow-md cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-transform duration-300`}
         onClick={() =>
           router.push({
             pathname: `/products/category/${typeName}`,
@@ -55,7 +55,7 @@ export default function ProductsCategory({ typeName }) {
           key={index}
           className={`${UrlCheck(
             subTypeData.name
-          )} rounded-3xl p-1 px-4 shadow-lg cursor-pointer hover:-translate-y-1 transition-transform duration-300`}
+          )} rounded-3xl p-1 px-4 shadow-md cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-transform duration-300`}
           onClick={(e) =>
             handleClick(
               e,

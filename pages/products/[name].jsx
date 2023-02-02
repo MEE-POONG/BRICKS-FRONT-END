@@ -141,8 +141,9 @@ export default function ProductDetailPage() {
                           </svg>
 
                           <input
-                            className="mx-2 border text-center w-12 rounded-md text-gray-900"
-                            type="text"
+                            className="mx-2 border text-center w-12 rounded-md text-gray-900 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
+                            type="number"
+                            min={1}
                             value={productQty.toLocaleString("en-US")}
                             onChange={(e) =>
                               setProductQty(parseInt(e.target.value))

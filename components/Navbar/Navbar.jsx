@@ -85,7 +85,7 @@ export default function Navbar() {
               <FaBars />
             </span>
             <span className="ml-2 text-white">ประเภทสินค้า</span>
-            <div className="absolute w-full left-0 top-full bg-primary rounded-b-lg shadow-md py-3 divide-y divide-white divide-dashed opacity-0 group-hover/type:opacity-100 transition duration-300 invisible group-hover/type:visible">
+            <div className="absolute w-full z-40 left-0 top-full bg-primary rounded-b-lg shadow-md py-3 divide-y divide-white divide-dashed opacity-0 group-hover/type:opacity-100 transition duration-300 invisible group-hover/type:visible">
               {typeData?.map((type, index) => (
                 <div
                   key={index}
@@ -128,56 +128,6 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-        {/* Mobile Display */}
-        {/* <div className="container flex justify-between lg:hidden">
-          <div className="px-4 py-4 bg-primary flex items-center cursor-pointer relative group">
-            <span className="text-white">
-              <FaBars />
-            </span>
-            <span className="capitalize ml-2 text-white">ประเภท อิฐ</span>
-            <div className="absolute w-full left-0 top-full bg-white shadow-md py-3 divide-y divide-gray-300 divide-dashed opacity-0 group-hover:opacity-100 transition duration-300 invisible group-hover:visible">
-              <Link
-                href="#"
-                className="flex items-center py-3 hover:bg-gray-100 transition"
-              >
-                <span className="ml-6 text-gray-600 text-sm">อิฐประสาน</span>
-              </Link>
-              <Link
-                href="#"
-                className="flex items-center  py-3 hover:bg-gray-100 transition"
-              >
-                <span className="ml-6 text-gray-600 text-sm">ตกแต่งสวน</span>
-              </Link>
-            </div>
-          </div>
-          <Link
-            href={"#"}
-            className="text-center text-gray-100 hover:text-primary transition relative"
-          >
-            <div className="text-lg mt-2 flex  lg:text-2xl">
-              <FaShoppingBasket />
-            </div>
-            <div className=" text-xs leading-3">ตะกร้า</div>
-            <div className="absolute mt-2 -right-2 -top-1 w-4 h-4 rounded-full flex items-center justify-center bg-primary text-white text-xs lg:w-5 lg:h-5 lg:-right-2">
-              2
-            </div>
-          </Link>
-          <Link
-            href={"#"}
-            className="text-center text-gray-100 hover:text-primary transition relative"
-          >
-            <div className="text-lg mt-2 flex justify-center lg:text-2xl">
-              <FaRegUser />
-            </div>
-            <div className="text-xs leading-3">เข้าสู่ระบบ</div>
-          </Link>
-        </div> */}
-
-        {/* <div className="px-4 py-4 flex items-center cursor-pointer relative group">
-            <span className="text-white">
-              <FaBars />
-            </span>
-          </div> */}
       </nav>
     </>
   );

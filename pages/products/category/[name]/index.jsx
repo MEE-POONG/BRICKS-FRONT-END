@@ -39,7 +39,7 @@ export default function CategoryPage() {
       {categoryDataLoading ? (
         <Loading />
       ) : (
-        <div className="flex flex-col min-h-screen p-5 md:p-10 bg-gray-100 text-gray-800">
+        <div className="flex flex-col min-h-screen p-3 md:p-10 bg-gray-100 text-gray-800">
           <h1 className="text-3xl my-6">{categoryData?.data.name}</h1>
           <div className="flex gap-4 mb-2">
             <ProductsCategory typeName={categoryData?.data.name} />

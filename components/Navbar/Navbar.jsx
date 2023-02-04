@@ -125,6 +125,12 @@ export default function Navbar() {
               >
                 ติดต่อเรา
               </Link>
+              <Link
+                href="/howtoOrder"
+                className="text-gray-200 hover:text-white transition"
+              >
+                วิธีการสั่งซื้อ
+              </Link>
               {/* <Link
                 href="/article"
                 className="text-gray-200 hover:text-white transition"

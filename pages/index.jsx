@@ -1,9 +1,10 @@
 import Head from "next/head";
 import React, { useRef } from "react";
+import PortfolioShowIndex from "../components/Portfolio/portfolio_showindex";
 import Layout from "../Layout/Layout";
-import ShowBlocks from "./article/block_showindex";
-import Showproducts from "./home/showproductype";
-import HomeTop from "./home/top";
+// import ShowBlocks from "../components/article/block_showindex";
+import Showproducts from "../components/home/showproductype";
+import HomeTop from "../components/home/top";
 
 export default function Home() {
 
@@ -20,7 +21,8 @@ export default function Home() {
       <Showproducts/>
       </div>
       <div>
-      <ShowBlocks/>
+      {/* <ShowBlocks/> */}
+      <PortfolioShowIndex/>
       </div>
 
     </>

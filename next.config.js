@@ -5,9 +5,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'itdang2009.com',
-        port: '',
-        pathname: '/wp-content/uploads/**',
+        hostname: 'imagedelivery.net',
       },
     ],
   },

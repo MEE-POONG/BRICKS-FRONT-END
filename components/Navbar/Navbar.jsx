@@ -125,6 +125,12 @@ export default function Navbar() {
               >
                 ติดต่อเรา
               </Link>
+              {/* <Link
+                href="/article"
+                className="text-gray-200 hover:text-white transition"
+              >
+                แหล่งความรู้
+              </Link> */}
             </div>
           </div>
         </div>

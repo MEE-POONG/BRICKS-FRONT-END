@@ -1,7 +1,7 @@
 import Head from "next/head";
 import React, { useRef } from "react";
 import Layout from "../Layout/Layout";
-import ShowBlocks from "./block";
+import ShowBlocks from "./article/block_showindex";
 import Showproducts from "./home/showproductype";
 import HomeTop from "./home/top";
 

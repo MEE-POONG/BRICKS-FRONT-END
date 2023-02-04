@@ -42,7 +42,7 @@ export default function ShowBlocks() {
                   </div>
                 <div className="px-6 pb-2 ">
                   <a
-                    href="/block/block_detail"
+                    href="/article/block_detail"
                     className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-primary hover:underline  "
                   >
                     Read more
@@ -64,6 +64,9 @@ export default function ShowBlocks() {
               </div>
             </SwiperSlide>
           </Swiper>
+          <p className="text-right text-red-500 hover:underline">
+            <a href="/article" >เพิ่มเติม</a>
+          </p> 
         </div>
       </div>
     </>

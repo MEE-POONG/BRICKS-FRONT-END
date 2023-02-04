@@ -5,7 +5,7 @@ import { FaFacebook } from "react-icons/fa";
 export default function Footer() {
   return (
     <>
-      <footer className="relative bg-[#1f2937] pt-8 pb-6 font-fontTh2">
+      <footer className="relative bg-[#1f2937] mt-24 pt-8 pb-6 font-fontTh2">
         <div className="container mx-auto px-4 text-white">
           <div className="flex flex-wrap text-left lg:text-left">
             <div className="w-full lg:w-6/12 px-4">

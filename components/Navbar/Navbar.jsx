@@ -51,7 +51,7 @@ export default function Navbar() {
             <div className="lg:mx-10">
               <div className="space-x-8 justify-evenly flex mt-3">
                 <Link
-                  href={"#"}
+                  href={"/checkuot"}
                   className="text-center text-gray-700 hover:text-primary transition relative"
                 >
                   <div className="text-lg flex justify-center lg:text-2xl">

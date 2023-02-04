@@ -22,28 +22,31 @@ export default function ProductDetailPage() {
   const priceRule = (distance, constPrice, qty) => {
     if (distance !== 0) {
       const qtyArr = productData?.qtyRate.map((qtyArr) => qtyArr); // map array
-      const qtySort = qtyArr.sort((a, b) => b.qtyCheck - a.qtyCheck); //sort array
+      const qtySort = qtyArr?.sort((a, b) => b.qtyCheck - a.qtyCheck); //sort array
       const findQty = qtySort
-        .map((qtyArrSort) => qtyArrSort)
+        ?.map((qtyArrSort) => qtyArrSort)
         .find((q) => qty >= q.qtyCheck);
+      console.log("findQty",findQty)
+      const addOnArr = findQty?.addOnRate.map((addOnArr) => addOnArr); // map array
+      const addSort = addOnArr?.sort((a, b) => a.length - b.length); //sort array
+      const findDistance = addSort
+        ?.map((lengthArr) => lengthArr.length)
+        .find((length) => length > distance);
+      const findAddOn = addSort
+        ?.map((lengthArr) => lengthArr)
+        .find((lengthArr) => lengthArr.length === findDistance);
 
-      console.log("findQty", findQty);
-
-      // const findAddOn = qtySort
-      //   .map((lengthArr) => lengthArr)
-      //   .find((lengthArr) => lengthArr.qtyCheck === findDistance);
-
-      // if (productData?.addOnRate.length !== 0) {
-      //   if (findDistance === undefined) {
-      //     return "ขออภัยไม่อยู่ในพื้นที่จัดส่ง";
-      //   }
-      //   return (
-      //     ((constPrice + findAddOn?.addOn) * qty).toLocaleString("en-US") +
-      //     " " +
-      //     "บาท"
-      //   );
-      // }
-      // return (constPrice * qty).toLocaleString("en-US") + " " + "บาท";
+      if (productData?.qtyRate.length !== 0) {
+        if (findDistance === undefined) {
+          return "ขออภัยไม่อยู่ในพื้นที่จัดส่ง";
+        }
+        return (
+          ((constPrice + findAddOn?.addOn) * qty).toLocaleString("en-US") +
+          " " +
+          "บาท"
+        );
+      }
+      return (constPrice * qty).toLocaleString("en-US") + " " + "บาท";
     }
     return "กรุณาเลือกพื้นที่จัดส่ง";
   };

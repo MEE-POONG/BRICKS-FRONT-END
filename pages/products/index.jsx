@@ -28,7 +28,6 @@ export default function ProductsPage() {
   const handleSelectPage = (pageValue) => {
     getProducts({ url: `/api/products?page=${pageValue}` }, { manual: true });
   };
-
   return (
     <>
       <Head>
@@ -49,11 +48,17 @@ export default function ProductsPage() {
                 >
                   <div className="block bg-white h-full shadow-md rounded-lg overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-transform duration-300">
                     <div className="relative py-32">
-                      <img
-                        className="absolute mx-auto inset-0 h-full w-fit object-center object-cover lg:w-full"
-                        src={product.image}
-                        alt="productImage"
-                      />
+                      <div className="absolute mx-auto inset-0 object-center lg:w-full">
+                        <Image
+                          fill
+                          sizes="100vw"
+                          style={{
+                            objectFit: "contain",
+                          }}
+                          src={product.image}
+                          alt="productImage"
+                        />
+                      </div>
                     </div>
                     <div className="p-4">
                       <div className="bg-primary rounded-xl p-1 px-2 w-fit">

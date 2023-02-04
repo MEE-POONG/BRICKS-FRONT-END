@@ -73,11 +73,17 @@ export default function ProductDetailPage() {
           <section className="text-gray-700 body-font overflow-hidden bg-white rounded-lg shadow-lg">
             <div className="container px-5 py-8 mx-auto">
               <div className="lg:w-4/5 mx-auto flex flex-wrap">
-                <img
-                  src={productData?.image}
-                  alt="product"
-                  className="lg:w-1/2 w-full object-cover object-center border border-gray-200 rounded-lg"
-                />
+                <div className="relative w-screen h-80 object-center border border-gray-200 rounded-lg lg:w-1/2 lg:h-auto">
+                  <Image
+                    fill
+                    sizes="100vw"
+                    style={{
+                      objectFit: "contain",
+                    }}
+                    src={productData?.image}
+                    alt="productImage"
+                  />
+                </div>
                 <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                   <h2 className="text-sm title-font text-gray-500 tracking-widest">
                     {productData?.Type?.name}

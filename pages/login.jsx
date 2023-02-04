@@ -64,10 +64,7 @@ export default function LoginPage() {
                         />
                       </div>
                       <div className="ml-3 text-sm">
-                        <label
-                          htmlFor="remember"
-                          className="text-gray-500"
-                        >
+                        <label htmlFor="remember" className="text-gray-500">
                           Remember me
                         </label>
                       </div>
@@ -84,6 +81,15 @@ export default function LoginPage() {
                     className="w-full text-white bg-blue-600 hover:bg-sky-600 font-semibold rounded-lg text-sm px-5 py-2.5 text-center"
                   >
                     Sign in
+                  </button>
+
+                  <div className="border t bborder-b-2 border-gray-200"></div>
+
+                  <button
+                    type="submit"
+                    className="w-full text-white bg-red-600 hover:bg-red-700 font-semibold rounded-lg text-sm px-5 py-2.5 text-center"
+                  >
+                    Google
                   </button>
                   <p className="text-sm font-light text-gray-500 ">
                     ยังไม่มีบัญชีใช่หรือไม่?{" "}

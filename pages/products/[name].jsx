@@ -21,26 +21,29 @@ export default function ProductDetailPage() {
   //เช็คระยะทางเพื่อบวกราคา
   const priceRule = (distance, constPrice, qty) => {
     if (distance !== 0) {
-      const addOnArr = productData?.addOnRate.map((addOnArr) => addOnArr); // map array
-      const addSort = addOnArr.sort((a, b) => a.length - b.length); //sort array
-      const findDistance = addSort
-        .map((lengthArr) => lengthArr.length)
-        .find((length) => length > distance);
-      const findAddOn = addSort
-        .map((lengthArr) => lengthArr)
-        .find((lengthArr) => lengthArr.length === findDistance);
+      const qtyArr = productData?.qtyRate.map((qtyArr) => qtyArr); // map array
+      const qtySort = qtyArr.sort((a, b) => b.qtyCheck - a.qtyCheck); //sort array
+      const findQty = qtySort
+        .map((qtyArrSort) => qtyArrSort)
+        .find((q) => qty >= q.qtyCheck);
 
-      if (productData?.addOnRate.length !== 0) {
-        if (findDistance === undefined) {
-          return "ขออภัยไม่อยู่ในพื้นที่จัดส่ง";
-        }
-        return (
-          ((constPrice + findAddOn?.addOn) * qty).toLocaleString("en-US") +
-          " " +
-          "บาท"
-        );
-      }
-      return (constPrice * qty).toLocaleString("en-US") + " " + "บาท";
+      console.log("findQty", findQty);
+
+      // const findAddOn = qtySort
+      //   .map((lengthArr) => lengthArr)
+      //   .find((lengthArr) => lengthArr.qtyCheck === findDistance);
+
+      // if (productData?.addOnRate.length !== 0) {
+      //   if (findDistance === undefined) {
+      //     return "ขออภัยไม่อยู่ในพื้นที่จัดส่ง";
+      //   }
+      //   return (
+      //     ((constPrice + findAddOn?.addOn) * qty).toLocaleString("en-US") +
+      //     " " +
+      //     "บาท"
+      //   );
+      // }
+      // return (constPrice * qty).toLocaleString("en-US") + " " + "บาท";
     }
     return "กรุณาเลือกพื้นที่จัดส่ง";
   };
@@ -119,14 +122,14 @@ export default function ProductDetailPage() {
                     </div>
                   </div>
                   <div className="block text-center lg:text-left">
-                    {/* <span className="font-medium text-2xl text-gray-900 block">
+                    <span className="font-medium text-2xl text-gray-900 block">
                       ระยะทาง {mapStore?.distance / 1000} กิโลเมตร
-                    </span> */}
+                    </span>
                     <span className="font-medium text-2xl text-gray-900">
                       {priceRule(
                         mapStore?.distance / 1000,
                         productData?.price,
-                        productQty
+                        +productQty
                       )}
                     </span>
                     <div className="my-4">
@@ -148,10 +151,10 @@ export default function ProductDetailPage() {
                           </svg>
 
                           <input
-                            className="mx-2 border text-center w-12 rounded-md text-gray-900 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
+                            className="mx-2 border text-center w-16 rounded-md text-gray-900 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
                             type="number"
                             min={1}
-                            value={productQty.toLocaleString("en-US")}
+                            value={parseInt(productQty)}
                             onChange={(e) =>
                               setProductQty(parseInt(e.target.value))
                             }

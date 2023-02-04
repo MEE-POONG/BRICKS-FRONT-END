@@ -16,7 +16,9 @@ export default async function handler(req, res) {
             subType: {
               include: { type: true },
             },
-            addOnRate: true,
+            qtyRate: {
+              include: { addOnRate : true },
+            }
           },
         });
 

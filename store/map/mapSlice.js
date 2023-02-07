@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const mapInitialState = {
-  lat: 0,
-  lng: 0,
-  distance: 0,
+  lat: null,
+  lng: null,
+  distance: null,
 };
 
 export const mapSlice = createSlice({

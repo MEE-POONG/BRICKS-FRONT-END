@@ -5,6 +5,7 @@ import Layout from "../Layout/Layout";
 // import ShowBlocks from "../components/article/block_showindex";
 import Showproducts from "../components/home/showproductype";
 import HomeTop from "../components/home/top";
+import ShowBlocks from "../components/article/showBlocks";
 
 export default function Home() {
 
@@ -21,7 +22,7 @@ export default function Home() {
       <Showproducts/>
       </div>
       <div>
-      {/* <ShowBlocks/> */}
+      <ShowBlocks/>
       <PortfolioShowIndex/>
       </div>
 

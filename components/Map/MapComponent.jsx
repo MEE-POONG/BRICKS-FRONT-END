@@ -11,7 +11,7 @@ import { setDistance, setLatLng } from "../../store/map/mapSlice";
 
 export default function MapComponent({ isOpen, setIsOpen }) {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: "AIzaSyApGRzrEzFntpIWBZXBglCJN8spNT_bRWE",
     language: "thailand",
     region: "thailand",
   });

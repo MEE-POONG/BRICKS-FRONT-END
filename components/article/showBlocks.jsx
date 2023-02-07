@@ -2,6 +2,8 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper";
+import "swiper/css/autoplay";
 
 // Import Swiper styles
 import "swiper/css";
@@ -17,7 +19,34 @@ export default function ShowBlocks() {
           <span className="text-gray-400"> | Blocks </span>
         </h3>
         <div className="mx-2">
-          <Swiper
+        <Swiper
+                  className=""
+                  modules={[Autoplay]}
+                  autoplay={{ delay: 3000 }}
+                >
+                 <SwiperSlide className=" max-w-sm rounded overflow-hidden shadow-xl border" >
+                  <img className="w-full"
+                  src="/images/bw3.jpg"
+                  alt="Sunset in the mountains"/>
+                    </SwiperSlide>
+                    <SwiperSlide className=" max-w-sm rounded overflow-hidden shadow-xl border" >
+                  <img className="w-full"
+                  src="/images/bw3.jpg"
+                  alt="Sunset in the mountains"/>
+                    </SwiperSlide>
+                    <SwiperSlide className=" max-w-sm rounded overflow-hidden shadow-xl border" >
+                  <img className="w-full"
+                  src="/images/bw3.jpg"
+                  alt="Sunset in the mountains"/>
+                    </SwiperSlide>
+                    <SwiperSlide className=" max-w-sm rounded overflow-hidden shadow-xl border" >
+                  <img className="w-full"
+                  src="/images/bw3.jpg"
+                  alt="Sunset in the mountains"/>
+                    </SwiperSlide>
+           </Swiper>
+           
+          {/* <Swiper
             spaceBetween={30}
             slidesPerView={3}
             onSlideChange={() => console.log("slide change")}
@@ -63,7 +92,9 @@ export default function ShowBlocks() {
                 </div>
               </div>
             </SwiperSlide>
-          </Swiper>
+          </Swiper> */}
+
+
           <p className="text-right text-red-500 hover:underline">
             <a href="/article" >เพิ่มเติม</a>
           </p> 

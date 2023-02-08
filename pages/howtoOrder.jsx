@@ -23,45 +23,41 @@ export default function HowToOrder() {
               และเงื่อนไขการสั่งซื้อ
             </i>
 
-            <div className="grid grid-cols-1 py-10  ">
+            <div className="  grid grid-cols-1 lg:grid-cols-3   py-10  ">
               <img
                 src="/1.png"
                 alt=""
-                width={"30%"}
-                height={"30%"}
-                className=" mx-auto rounded-lg bg-white shadow-lg motion-safe:hover:scale-105 focus:hover: "
+                width={"55%"}
+                height={"55%"}
+                className=" lg:w-96 mx-auto my-3 rounded-lg  bg-white shadow-lg motion-safe:hover:scale-105 focus:hover: "
               />
-            </div>
-            <div className="grid grid-cols-2 py-10  ">
               <img
                 src="/2.png"
                 alt=""
                 width={"55%"}
                 height={"55%"}
-                className=" mx-auto rounded-lg bg-white shadow-lg motion-safe:hover:scale-105 "
+                className=" lg:w-96 mx-auto rounded-lg my-3  bg-white shadow-lg motion-safe:hover:scale-105 "
               />
               <img
                 src="/4.png"
                 alt=""
                 width={"55%"}
                 height={"55%"}
-                className=" mx-auto rounded-lg bg-white shadow-lg motion-safe:hover:scale-105 "
+                className=" lg:w-96 mx-auto rounded-lg my-3  bg-white shadow-lg motion-safe:hover:scale-105 "
               />
-            </div>
-            <div className="grid grid-cols-2 py-10  ">
               <img
                 src="/3.png"
                 alt=""
                 width={"55%"}
                 height={"55%"}
-                className=" mx-auto rounded-lg bg-white shadow-lg motion-safe:hover:scale-105 "
+                className=" lg:w-96  mx-auto rounded-lg my-3  bg-white shadow-lg motion-safe:hover:scale-105 "
               />
               <img
                 src="/5.png"
                 alt=""
                 width={"55%"}
                 height={"55%"}
-                className=" mx-auto rounded-lg bg-white shadow-lg motion-safe:hover:scale-105 "
+                className=" lg:w-96 mx-auto rounded-lg bg-white shadow-lg motion-safe:hover:scale-105 "
               />
             </div>
             <div className="mt-10 text-[16px] lg:text-[18px] text-left font-semibold bg-white ">

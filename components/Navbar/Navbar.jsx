@@ -21,10 +21,10 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="py-2 shadow-sm bg-white z-40 font-fontTh2">
-        <div className="min-w-full">
+      <header className=" sticky top-0 shadow-sm mt-2 bg-white z-40 font-fontTh2">
+        <div className="min-w-full  z-20 relative">
           <div className="lg:items-center lg:justify-between lg:flex">
-            <div className="flex justify-around">
+            <div className=" flex justify-around">
               <Link href={"/"} className="lg:mx-10">
                 <img
                   src="/logo2.png"
@@ -75,17 +75,17 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-      </header>
+     
 
-      <nav className="bg-gray-800">
+      <nav className="  mt-2 bg-gray-800">
         {/* Full Display */}
-        <div className="container flex font-fontTh2">
+        <div className=" container flex font-fontTh2">
           <div className="px-8 py-4 ml-10 lg:ml-24 bg-primary flex items-center cursor-pointer relative group/type">
             <span className="text-white">
               <FaBars />
             </span>
             <span className="ml-2 text-white">ประเภทสินค้า</span>
-            <div className="absolute w-full z-40 left-0 top-full bg-primary rounded-b-lg shadow-md py-3 divide-y divide-white divide-dashed opacity-0 group-hover/type:opacity-100 transition duration-300 invisible group-hover/type:visible">
+            <div className="absolute w-full z-40 left-0 top-full bg-primary rounded-b-lg shadow-md py-3 divide-y divide-white divide-solid  opacity-0 group-hover/type:opacity-100 transition duration-300 invisible group-hover/type:visible">
               {typeData?.map((type, index) => (
                 <div
                   key={index}
@@ -141,6 +141,7 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
+      </header>
     </>
   );
 }

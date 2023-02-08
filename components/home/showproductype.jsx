@@ -9,12 +9,14 @@ export default function Showproducts() {
         <h3 className="text-[24px] md:text-[30px] text-primary">
           {" "}
           สินค้าของเรา
-          <span className="text-gray-400 "> | Categories </span>
-        </h3>
-
+          </h3>
+          <h2 className=" text-[12px]  lg:text-[20px] text-center text-gray-400">
+          Categories
+          </h2>
+   
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-5">
           <div className="flex justify-center">
-            <div className="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white shadow-lg motion-safe:hover:scale-105">
+            <div className="flex flex-col md:flex-row md:max-w-xl rounded-lg bg-white  shadow-lg motion-safe:hover:scale-105">
               <img
                 className=" w-full h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg"
                 src="/images/36.jpg"

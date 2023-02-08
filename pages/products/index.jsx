@@ -7,14 +7,15 @@ import Loading from "../../components/Loading/Loading";
 import Pagination from "../../components/Pagination/Pagination";
 
 export default function ProductsPage() {
+  const router = useRouter();
+
   const [
     { data: productsData, loading: productsLoading, error: productsError },
     getProducts,
   ] = useAxios({
-    url: "/api/products",
+    url: `/api/products?page=${router.query.page}`,
   });
 
-  const router = useRouter();
   const handleClick = (e, path, name) => {
     e.preventDefault();
 
@@ -26,7 +27,16 @@ export default function ProductsPage() {
   };
 
   const handleSelectPage = (pageValue) => {
-    getProducts({ url: `/api/products?page=${pageValue}` }, { manual: true });
+    if (pageValue !== 1) {
+      router.push({
+        pathname: "/products",
+        query: { page: pageValue },
+      });
+    } else {
+      router.push({
+        pathname: "/products",
+      });
+    }
   };
   return (
     <>

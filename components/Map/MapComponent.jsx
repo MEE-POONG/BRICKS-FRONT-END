@@ -109,7 +109,7 @@ function Map() {
       <Autocomplete onPlaceChanged={onPlaceChanged} onLoad={onLoad}>
         <div className="w-full mx-auto mb-3 lg:max-w-md">
           <div className="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-white">
-            <div className="grid place-items-center h-full w-12 text-gray-800 rounded-l-lg border-y border-l border-primary">
+            <div className="grid place-items-center h-full w-12 text-gray-800 rounded-l-lg border-y-2 border-l-2 border-primary">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -127,7 +127,7 @@ function Map() {
             </div>
 
             <input
-              className="peer h-full w-full outline-none rounded-r-lg text-sm text-gray-700 px-2 border-y border-r border-primary"
+              className="peer h-full w-full outline-none rounded-r-lg text-sm text-gray-700 px-2 border-y-2 border-r-2 border-primary"
               type="text"
               id="search"
               placeholder="ค้นหาสถานที่"

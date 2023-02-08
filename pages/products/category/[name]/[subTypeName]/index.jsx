@@ -17,17 +17,21 @@ export default function CategoryPage() {
     },
     getSubCategory,
   ] = useAxios({
-    url: `/api/category/subType?typeName=${router.query.name}&subTypeName=${router.query.subTypeName}`,
+    url: `/api/category/subType?typeName=${router.query.name}&subTypeName=${router.query.subTypeName}&page=${router.query.page}`,
     method: "GET",
   });
 
   const handleSelectPage = (pageValue) => {
-    getSubCategory(
-      {
-        url: `/api/category/subType?typeName=${router.query.name}&subTypeName=${router.query.subTypeName}&page=${pageValue}`,
-      },
-      { manual: true }
-    );
+    if (pageValue !== 1) {
+      router.push({
+        pathname: `/products/category/${router.query.name}/${router.query.subTypeName}`,
+        query: { page: pageValue },
+      });
+    } else {
+      router.push({
+        pathname: `/products/category/${router.query.name}/${router.query.subTypeName}`,
+      });
+    }
   };
 
   return (

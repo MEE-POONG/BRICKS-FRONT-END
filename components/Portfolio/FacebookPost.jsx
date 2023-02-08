@@ -28,15 +28,15 @@ export default function FacebookPost() {
     .map((postId) => {
       return postId.id.split("_")[1];
     });
-
   // return dataPosts.id.split("_")[1];
-  console.log(posts);
+  console.log("facebookpostID", posts);
   if (facebookFeedsError) {
     <div>error</div>;
   }
 
   return (
     <>
+      <meta property="fb:app_id" content={`&#123;${AppID}&#125;`} />
       <div className="min-h-screen p-10 bg-gray-100">
         {facebookFeedsLoading ? (
           <Loading />

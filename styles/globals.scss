@@ -3,15 +3,21 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: ChakraPetch ;
-    src: url('fonts/ChakraPetch.ttf');
+  font-family: ChakraPetch;
+  src: url("fonts/ChakraPetch.ttf");
 }
 
 @font-face {
-    font-family: NotoSansThai ;
-    src: url('fonts/NotoSansThai.ttf');
+  font-family: NotoSansThai;
+  src: url("fonts/NotoSansThai.ttf");
 }
 
 body {
-    background-color: #f8f9f9;
+  background-color: #f8f9f9;
+}
+
+@layer base {
+  html {
+    font-family: fontTh2, NotoSansThai, sans-serif;
+  }
 }

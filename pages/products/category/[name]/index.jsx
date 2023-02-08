@@ -17,19 +17,22 @@ export default function CategoryPage() {
     },
     getCategoryData,
   ] = useAxios({
-    url: `/api/category/type?typeName=${router.query.name}`,
+    url: `/api/category/type?typeName=${router.query.name}&page=${router.query.page}`,
     method: "GET",
   });
 
   const handleSelectPage = (pageValue) => {
-    getCategoryData(
-      {
-        url: `/api/category/type?typeName=${router.query.name}&page=${pageValue}`,
-      },
-      { manual: true }
-    );
+    if (pageValue !== 1) {
+      router.push({
+        pathname: `/products/category/${router.query.name}`,
+        query: { page: pageValue },
+      });
+    } else {
+      router.push({
+        pathname: `/products/category/${router.query.name}`,
+      });
+    }
   };
-  console.log(categoryData?.data);
   return (
     <>
       <Head>

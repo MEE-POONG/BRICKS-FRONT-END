@@ -49,7 +49,10 @@ export default function PortfolioShowIndex() {
       <h3 className="text-[24px] md:text-[30px] text-primary mb-5">
         {" "}
         ผลงานของเรา
-        <span className="text-gray-400"> | Portfolio</span>
+        </h3>
+        <h2 className=" text-[12px]  lg:text-[20px] text-center text-gray-400">
+        Portfolio
+          </h2>
         <div className="px-6 pb-2  text-right">
           <Link href="/portfolio "  
           className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-primary hover:underline  ">
@@ -70,7 +73,7 @@ export default function PortfolioShowIndex() {
             </svg>
             </Link>
         </div>
-      </h3>
+ 
 
       <div className="mx-2">
         <Swiper

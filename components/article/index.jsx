@@ -24,7 +24,7 @@ export default function ArticlePage() {
             <img src="/images/bw3.jpg" alt="" />
             <div className="px-6 py-4">
               <div className="font-bold text-xl mb-2">สาระน่ารู้</div>
-              <p class="text-gray-700 text-base">
+              <p className="text-gray-700 text-base">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Voluptatibus quia, nulla! Maiores et perferendis eaque,
                 exercitationem praesentium nihil.
@@ -57,7 +57,7 @@ export default function ArticlePage() {
             <img src="/images/bw3.jpg" alt="" />
             <div className="px-6 py-4">
               <div className="font-bold text-xl mb-2">สาระน่ารู้</div>
-              <p class="text-gray-700 text-base">
+              <p className="text-gray-700 text-base">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Voluptatibus quia, nulla! Maiores et perferendis eaque,
                 exercitationem praesentium nihil.
@@ -90,7 +90,7 @@ export default function ArticlePage() {
             <img src="/images/bw3.jpg" alt="" />
             <div className="px-6 py-4">
               <div className="font-bold text-xl mb-2">สาระน่ารู้</div>
-              <p class="text-gray-700 text-base">
+              <p className="text-gray-700 text-base">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Voluptatibus quia, nulla! Maiores et perferendis eaque,
                 exercitationem praesentium nihil.

@@ -1,4 +1,5 @@
 import useAxios from "axios-hooks";
+import _ from "lodash";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
@@ -18,6 +19,10 @@ export default function Navbar() {
       });
     }
   };
+
+  //sort arr ชื่อ "อื่นๆ" ให้เอาไปไว้ท้ายสุด
+  const arrSortTypeName = _.sortBy(typeData, ({name})=> name === 'อื่นๆ')
+
 
   return (
     <>
@@ -75,72 +80,71 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-     
 
-      <nav className="  mt-2 bg-gray-800">
-        {/* Full Display */}
-        <div className=" container flex font-fontTh2">
-          <div className="px-8 py-4 ml-10 lg:ml-24 bg-primary flex items-center cursor-pointer relative group/type">
-            <span className="text-white">
-              <FaBars />
-            </span>
-            <span className="ml-2 text-white">ประเภทสินค้า</span>
-            <div className="absolute w-full z-40 left-0 top-full bg-primary rounded-b-lg shadow-md py-3 divide-y divide-white divide-solid  opacity-0 group-hover/type:opacity-100 transition duration-300 invisible group-hover/type:visible">
-              {typeData?.map((type, index) => (
-                <div
-                  key={index}
-                  onClick={(e) =>
-                    handleClick(e, "/products/category", type?.name)
-                  }
-                  className="flex items-center px-6 py-3 hover:bg-red-500 transition relative group/subType"
-                >
-                  <span className="ml-6 text-white text-sm">{type.name}</span>
-                </div>
-              ))}
+        <nav className="  mt-2 bg-gray-800">
+          {/* Full Display */}
+          <div className=" container flex font-fontTh2">
+            <div className="px-8 py-4 ml-10 lg:ml-24 bg-primary flex items-center cursor-pointer relative group/type">
+              <span className="text-white">
+                <FaBars />
+              </span>
+              <span className="ml-2 text-white">ประเภทสินค้า</span>
+              <div className="absolute w-full z-40 left-0 top-full bg-primary rounded-b-lg shadow-md py-3 divide-y divide-white divide-solid  opacity-0 group-hover/type:opacity-100 transition duration-300 invisible group-hover/type:visible">
+                {arrSortTypeName?.map((type, index) => (
+                  <div
+                    key={index}
+                    onClick={(e) =>
+                      handleClick(e, "/products/category", type?.name)
+                    }
+                    className="flex items-center px-6 py-3 hover:bg-red-500 transition relative group/subType"
+                  >
+                    <span className="ml-6 text-white text-sm">{type.name}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-          <div className="hidden items-center justify-between flex-grow pl-12 lg:flex">
-            <div className="flex items-center space-x-6 capitalize">
-              <Link
-                href="/products"
-                className="text-gray-200 hover:text-white transition"
-              >
-                สินค้า
-              </Link>
-              <Link
-                href="/portfolio"
-                className="text-gray-200 hover:text-white transition"
-              >
-                ผลงานของเรา
-              </Link>
-              <Link
-                href="/about"
-                className="text-gray-200 hover:text-white transition"
-              >
-                เกี่ยวกับเรา
-              </Link>
-              <Link
-                href="/contact"
-                className="text-gray-200 hover:text-white transition"
-              >
-                ติดต่อเรา
-              </Link>
-              <Link
-                href="/howtoOrder"
-                className="text-gray-200 hover:text-white transition"
-              >
-                วิธีการสั่งซื้อ
-              </Link>
-              {/* <Link
+            <div className="hidden items-center justify-between flex-grow pl-12 lg:flex">
+              <div className="flex items-center space-x-6 capitalize">
+                <Link
+                  href="/products"
+                  className="text-gray-200 hover:text-white transition"
+                >
+                  สินค้า
+                </Link>
+                <Link
+                  href="/portfolio"
+                  className="text-gray-200 hover:text-white transition"
+                >
+                  ผลงานของเรา
+                </Link>
+                <Link
+                  href="/about"
+                  className="text-gray-200 hover:text-white transition"
+                >
+                  เกี่ยวกับเรา
+                </Link>
+                <Link
+                  href="/contact"
+                  className="text-gray-200 hover:text-white transition"
+                >
+                  ติดต่อเรา
+                </Link>
+                <Link
+                  href="/howtoOrder"
+                  className="text-gray-200 hover:text-white transition"
+                >
+                  วิธีการสั่งซื้อ
+                </Link>
+                {/* <Link
                 href="/article"
                 className="text-gray-200 hover:text-white transition"
               >
                 แหล่งความรู้
               </Link> */}
+              </div>
             </div>
           </div>
-        </div>
-      </nav>
+        </nav>
       </header>
     </>
   );

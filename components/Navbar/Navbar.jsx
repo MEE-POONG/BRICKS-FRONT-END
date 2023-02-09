@@ -1,3 +1,4 @@
+import { useSession, signOut } from "next-auth/react"
 import useAxios from "axios-hooks";
 import _ from "lodash";
 import Link from "next/link";
@@ -6,6 +7,10 @@ import React from "react";
 import { FaBars, FaRegUser, FaShoppingBasket, FaSistrix } from "react-icons/fa";
 
 export default function Navbar() {
+
+  const { data: session } = useSession()
+  console.log("session",session)
+
   const [{ data: typeData, loading: typeLoading, error: typeError }, getType] =
     useAxios({ url: "/api/category", method: "GET" });
 

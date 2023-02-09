@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import {  signIn } from "next-auth/react";
 import React, { useRef } from "react";
 
 export default function LoginPage() {
@@ -86,8 +87,13 @@ export default function LoginPage() {
                   <div className="border t bborder-b-2 border-gray-200"></div>
 
                   <button
-                    type="submit"
+                    type="button"
                     className="w-full text-white bg-red-600 hover:bg-red-700 font-semibold rounded-lg text-sm px-5 py-2.5 text-center"
+                    onClick={() =>
+                      signIn("google", {
+                        callbackUrl: "http://localhost:3000/",
+                      })
+                    }
                   >
                     Google
                   </button>

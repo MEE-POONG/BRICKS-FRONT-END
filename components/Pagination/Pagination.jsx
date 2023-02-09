@@ -1,19 +1,6 @@
 import React from "react";
 
 export default function Pagination({ page, totalPage, handleSelectPage }) {
-  const pageNumber = () => {
-    for (let index = 0; index < totalPage; index++) {
-      return (
-        <button
-          key={index}
-          type="button"
-          className="inline-flex border items-center justify-center w-10 h-10 text-lg rounded shadow-md hover:bg-primary hover:text-white"
-        >
-          {index + 1}
-        </button>
-      );
-    }
-  };
 
   return (
     <div className="flex justify-center space-x-1">

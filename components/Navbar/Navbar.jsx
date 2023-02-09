@@ -26,10 +26,10 @@ export default function Navbar() {
 
   return (
     <>
-      <header className=" sticky top-0 shadow-sm mt-2 bg-white z-40 font-fontTh2">
-        <div className="min-w-full  z-20 relative">
+      <header className="sticky top-0 shadow-sm bg-white z-40">
+        <div className="min-w-full relative">
           <div className="lg:items-center lg:justify-between lg:flex">
-            <div className=" flex justify-around">
+            <div className="flex justify-around space-y-2">
               <Link href={"/"} className="lg:mx-10">
                 <img
                   src="/logo2.png"
@@ -81,7 +81,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        <nav className="  mt-2 bg-gray-800">
+        <nav className="mt-2 bg-gray-800">
           {/* Full Display */}
           <div className=" container flex font-fontTh2">
             <div className="px-8 py-4 ml-10 lg:ml-24 bg-primary flex items-center cursor-pointer relative group/type">

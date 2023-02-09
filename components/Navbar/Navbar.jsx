@@ -1,15 +1,15 @@
-import { useSession, signOut } from "next-auth/react"
+import { useSession, signOut } from "next-auth/react";
 import useAxios from "axios-hooks";
 import _ from "lodash";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import { FaBars, FaRegUser, FaShoppingBasket, FaSistrix } from "react-icons/fa";
 
 export default function Navbar() {
-
-  const { data: session } = useSession()
-  console.log("session",session)
+  const { data: session } = useSession();
+  console.log("session", session);
 
   const [{ data: typeData, loading: typeLoading, error: typeError }, getType] =
     useAxios({ url: "/api/category", method: "GET" });
@@ -26,8 +26,13 @@ export default function Navbar() {
   };
 
   //sort arr ชื่อ "อื่นๆ" ให้เอาไปไว้ท้ายสุด
-  const arrSortTypeName = _.sortBy(typeData, ({name})=> name === 'อื่นๆ')
+  const arrSortTypeName = _.sortBy(typeData, ({ name }) => name === "อื่นๆ");
 
+  const handleSignOut = async () => {
+    await signOut({
+      callbackUrl: "http://localhost:3000/",
+    });
+  };
 
   return (
     <>
@@ -72,15 +77,32 @@ export default function Navbar() {
                     2
                   </div>
                 </Link>
-                <Link
-                  href={"/login"}
-                  className="text-center text-gray-700 hover:text-primary transition relative"
-                >
-                  <div className="text-lg flex justify-center lg:text-2xl">
-                    <FaRegUser />
+
+                {session ? (
+                  <div className="space-x-2 flex items-center">
+                    <img
+                      className="w-8 h-8 rounded-full mx-auto"
+                      src={session?.user.image}
+                    />
+                    <span>{session?.user.name}</span>
+                    <button
+                      onClick={handleSignOut}
+                      className="p-2 bg-primary rounded-md text-white"
+                    >
+                      logout
+                    </button>
                   </div>
-                  <div className="text-xs leading-3">เข้าสู่ระบบ</div>
-                </Link>
+                ) : (
+                  <Link
+                    href={"/login"}
+                    className="text-center text-gray-700 hover:text-primary transition relative"
+                  >
+                    <div className="text-lg flex justify-center lg:text-2xl">
+                      <FaRegUser />
+                    </div>
+                    <div className="text-xs leading-3">เข้าสู่ระบบ</div>
+                  </Link>
+                )}
               </div>
             </div>
           </div>

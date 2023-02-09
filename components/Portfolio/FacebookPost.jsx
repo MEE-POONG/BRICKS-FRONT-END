@@ -4,10 +4,9 @@ import Loading from "../Loading/Loading";
 
 export default function FacebookPost() {
   //รอเปลี่ยน เป็นของ บ.
-  const AppID = "720522252954036";
-  const AccessToken =
-    "EAAKPT6jwqbQBAGF96HHNQZAxe0nSdTCmFVvZBe6HZA3ZCl5fItdyLtTRvQlwyQPiQu2EiMpgtL61ZCL4pDhqGOKkpq1IOSsZBJhZBQZCqTU09ZB6Q0o10zmhtdpGQngqAS33tbwZCqWl4tA0flZAXypeOxkIz3rjAyojSWtV5yie79sDtIAtvlHZAhS7";
-  const PageId = "103534424506037";
+  const AppID = process.env.NEXT_PUBLIC_FB_APP_ID;
+  const AccessToken = process.env.NEXT_PUBLIC_FB_ACCESS_TOKEN;
+  const PageId = process.env.NEXT_PUBLIC_FB_PAGE_ID;
   const Limit = "12";
 
   const [

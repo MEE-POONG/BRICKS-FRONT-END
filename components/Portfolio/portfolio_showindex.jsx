@@ -13,10 +13,9 @@ import "swiper/css/pagination";
 import Link from "next/link";
 
 //รอเปลี่ยน เป็นของ บ.
-const AppID = "720522252954036";
-const AccessToken =
-  "EAAKPT6jwqbQBAGF96HHNQZAxe0nSdTCmFVvZBe6HZA3ZCl5fItdyLtTRvQlwyQPiQu2EiMpgtL61ZCL4pDhqGOKkpq1IOSsZBJhZBQZCqTU09ZB6Q0o10zmhtdpGQngqAS33tbwZCqWl4tA0flZAXypeOxkIz3rjAyojSWtV5yie79sDtIAtvlHZAhS7";
-const PageId = "103534424506037";
+const AppID = process.env.NEXT_PUBLIC_FB_APP_ID;
+const AccessToken = process.env.NEXT_PUBLIC_FB_ACCESS_TOKEN;
+const PageId = process.env.NEXT_PUBLIC_FB_PAGE_ID;
 const Limit = "12";
 
 export default function PortfolioShowIndex() {
@@ -49,31 +48,31 @@ export default function PortfolioShowIndex() {
       <h3 className="text-[24px] md:text-[30px] text-primary mb-5">
         {" "}
         ผลงานของเรา
-        </h3>
-        <h2 className=" text-[12px]  lg:text-[20px] text-center text-gray-400">
+      </h3>
+      <h2 className=" text-[12px]  lg:text-[20px] text-center text-gray-400">
         Portfolio
-          </h2>
-        <div className="px-6 pb-2  text-right">
-          <Link href="/portfolio "  
-          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-primary hover:underline  ">
-            อ่านเพิ่มเติม
-          
-            <svg
-              aria-hidden="true"
-              className="w-4 h-4 ml-2 -mr-1"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              ></path>
-            </svg>
-            </Link>
-        </div>
- 
+      </h2>
+      <div className="px-6 pb-2  text-right">
+        <Link
+          href="/portfolio "
+          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-primary hover:underline  "
+        >
+          อ่านเพิ่มเติม
+          <svg
+            aria-hidden="true"
+            className="w-4 h-4 ml-2 -mr-1"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fillRule="evenodd"
+              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+              clipRule="evenodd"
+            ></path>
+          </svg>
+        </Link>
+      </div>
 
       <div className="mx-2">
         <Swiper

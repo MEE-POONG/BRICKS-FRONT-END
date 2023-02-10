@@ -10,15 +10,24 @@ import MapComponent from "../../components/Map/MapComponent";
 
 export default function ProductDetailPage() {
   const router = useRouter();
-
+  const { mapStore } = useSelector((state) => state);
   let [isOpen, setIsOpen] = useState(false);
   const [productQty, setProductQty] = useState(1);
   const [productSumPrice, setProductSumPrice] = useState(0);
+
   const [
     { data: productData, loading: productLoading, error: productError },
     getProduct,
   ] = useAxios({ url: `/api/products/${router.query.name}`, method: "GET" });
-  const { mapStore } = useSelector((state) => state);
+
+  //ADD CART ITEMS
+  const [
+    { data: addCartData, loading: addCartLoading, error: addCartError },
+    addCart,
+  ] = useAxios({
+    url: "/api/cart/",
+    method: "POST",
+  });
 
   //เช็คระยะทางเพื่อบวกราคา
   const priceRule = (distance, constPrice, qty) => {
@@ -49,9 +58,25 @@ export default function ProductDetailPage() {
           "บาท"
         );
       }
+      setProductSumPrice(constPrice * qty);
       return (constPrice * qty).toLocaleString("en-US") + " " + "บาท";
     }
     return "กรุณาเลือกพื้นที่จัดส่ง";
+  };
+
+  //SUBMIT DATA
+  const handleAddToCart = async () => {
+    await addCart({
+      data: {
+        qty: productQty,
+        price: productSumPrice,
+        lat: mapStore?.lat,
+        lng: mapStore?.lng,
+        distance: mapStore?.distance,
+        productId: productData?.id,
+        cartId: "63e5f5d559e70449fcbed857",
+      },
+    });
   };
 
   return (
@@ -175,7 +200,10 @@ export default function ProductDetailPage() {
                         </div>
                       </div>
 
-                      <button className="text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
+                      <button
+                        className="text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded"
+                        onClick={handleAddToCart}
+                      >
                         เพิ่มไปยังตะกร้า
                       </button>
                     </div>

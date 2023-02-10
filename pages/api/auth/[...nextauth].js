@@ -29,12 +29,6 @@ export default NextAuth({
     encryption: true,
   },
   callbacks: {
-    async session({ session, token, user }) {
-      if (session?.user) {
-        session.user.id = token.uid;
-      }
-      return session;
-    },
     async jwt({ token, user, account, profile, isNewUser }) {
       if (isNewUser) {
         await prisma.cart.create({
@@ -45,6 +39,17 @@ export default NextAuth({
         token.uid = user.id;
       }
       return token;
+    },
+    async session({ session, token, user }) {
+      const data = await prisma.cart.findUnique({
+        where: {
+          userId: token.uid,
+        },
+      });
+      if (session?.user) {
+        (session.user.id = token.uid)
+      }
+      return session;
     },
   },
 });

@@ -1,9 +1,7 @@
 import { PrismaClient } from "@prisma/client";
-
 const prisma = new PrismaClient();
 
 export default async function handler(req, res) {
-
   const { method } = req;
   switch (method) {
     case "GET":
@@ -16,8 +14,16 @@ export default async function handler(req, res) {
       break;
     case "POST":
       try {
-        const data = await prisma.cart.create({
-          data: { userId: req.body.userId },
+        const data = await prisma.cartItems.create({
+          data: {
+            qty: req.body.qty,
+            price: req.body.price,
+            lat: req.body.lat,
+            lng: req.body.lng,
+            distance: req.body.distance,
+            productId: req.body.productId,
+            cartId: req.body.cartId,
+          },
         });
         res.status(200).json(data);
       } catch (error) {

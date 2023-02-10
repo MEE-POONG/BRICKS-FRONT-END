@@ -74,7 +74,7 @@ export default function Navbar() {
                   </div>
                   <div className="text-xs leading-3">ตะกร้า</div>
                   <div className="absolute -right-2 -top-1 w-4 h-4 rounded-full flex items-center justify-center bg-primary text-white text-xs lg:w-5 lg:h-5 lg:-right-2">
-                    2
+                    0
                   </div>
                 </Link>
 

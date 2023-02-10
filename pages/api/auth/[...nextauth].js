@@ -6,6 +6,7 @@ import NextAuth from "next-auth/next";
 const prisma = new PrismaClient();
 
 export default NextAuth({
+  secret: process.env.NEXT_PUBLIC_NEXT_AUTH_SECRET,
   adapter: PrismaAdapter(prisma),
   providers: [
     GoogleProvider({
@@ -20,4 +21,30 @@ export default NextAuth({
       },
     }),
   ],
+  session: {
+    strategy: "jwt",
+  },
+  jwt: {
+    secret: process.env.NEXT_PUBLIC_NEXT_AUTH_SECRET,
+    encryption: true,
+  },
+  callbacks: {
+    async session({ session, token, user }) {
+      if (session?.user) {
+        session.user.id = token.uid;
+      }
+      return session;
+    },
+    async jwt({ token, user, account, profile, isNewUser }) {
+      if (isNewUser) {
+        await prisma.cart.create({
+          data: { userId: user.id },
+        });
+      }
+      if (user) {
+        token.uid = user.id;
+      }
+      return token;
+    },
+  },
 });

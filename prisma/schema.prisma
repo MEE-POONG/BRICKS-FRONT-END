@@ -39,8 +39,9 @@ model Products {
   deleted_at  DateTime?     @map("deleted_at")
   price       Int?
   subType     SubType?      @relation(fields: [subTypeId], references: [id])
-  OrderDetail OrderDetail[]
+  crderDetail OrderDetail[]
   qtyRate     QtyRate[]
+  CartItems   CartItems[]
 }
 
 model QtyRate {
@@ -164,6 +165,26 @@ model TeamType {
   Team       Team[]
 }
 
+model Cart {
+  id        String      @id @default(auto()) @map("_id") @db.ObjectId
+  lat       String?
+  lng       String?
+  distance  String?
+  userId    String?     @db.ObjectId @unique
+  user      User?       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  CartItems CartItems[]
+}
+
+model CartItems {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  qty       Int?
+  price     Float?
+  productId String?   @db.ObjectId
+  cartId    String?   @db.ObjectId
+  products  Products? @relation(fields: [productId], references: [id])
+  cart      Cart?     @relation(fields: [cartId], references: [id])
+}
+
 model Account {
   id                String  @id @default(auto()) @map("_id") @db.ObjectId
   userId            String
@@ -199,6 +220,7 @@ model User {
   tel           String?
   email         String?   @unique
   emailVerified DateTime?
+  password      String?
   image         String?
   createdAt     DateTime? @default(now())
   deleted_at    DateTime? @map("deleted_at")
@@ -206,6 +228,7 @@ model User {
   accounts      Account[]
   sessions      Session[]
   orders        Orders[]
+  cart          Cart[]
 }
 
 model VerificationToken {

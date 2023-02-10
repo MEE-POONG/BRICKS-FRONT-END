@@ -1,11 +1,16 @@
+import { useSession, signOut } from "next-auth/react";
 import useAxios from "axios-hooks";
 import _ from "lodash";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import { FaBars, FaRegUser, FaShoppingBasket, FaSistrix } from "react-icons/fa";
 
 export default function Navbar() {
+  const { data: session } = useSession();
+  console.log("session", session);
+
   const [{ data: typeData, loading: typeLoading, error: typeError }, getType] =
     useAxios({ url: "/api/category", method: "GET" });
 
@@ -21,15 +26,20 @@ export default function Navbar() {
   };
 
   //sort arr ชื่อ "อื่นๆ" ให้เอาไปไว้ท้ายสุด
-  const arrSortTypeName = _.sortBy(typeData, ({name})=> name === 'อื่นๆ')
+  const arrSortTypeName = _.sortBy(typeData, ({ name }) => name === "อื่นๆ");
 
+  const handleSignOut = async () => {
+    await signOut({
+      callbackUrl: "http://localhost:3000/",
+    });
+  };
 
   return (
     <>
-      <header className=" sticky top-0 shadow-sm mt-2 bg-white z-40 font-fontTh2">
-        <div className="min-w-full  z-20 relative">
+      <header className="sticky top-0 shadow-sm bg-white z-40">
+        <div className="min-w-full relative">
           <div className="lg:items-center lg:justify-between lg:flex">
-            <div className=" flex justify-around">
+            <div className="flex justify-around space-y-2">
               <Link href={"/"} className="lg:mx-10">
                 <img
                   src="/logo2.png"
@@ -64,24 +74,41 @@ export default function Navbar() {
                   </div>
                   <div className="text-xs leading-3">ตะกร้า</div>
                   <div className="absolute -right-2 -top-1 w-4 h-4 rounded-full flex items-center justify-center bg-primary text-white text-xs lg:w-5 lg:h-5 lg:-right-2">
-                    2
+                    0
                   </div>
                 </Link>
-                <Link
-                  href={"/login"}
-                  className="text-center text-gray-700 hover:text-primary transition relative"
-                >
-                  <div className="text-lg flex justify-center lg:text-2xl">
-                    <FaRegUser />
+
+                {session ? (
+                  <div className="space-x-2 flex items-center">
+                    <img
+                      className="w-8 h-8 rounded-full mx-auto"
+                      src={session?.user.image}
+                    />
+                    <span>{session?.user.name}</span>
+                    <button
+                      onClick={handleSignOut}
+                      className="p-2 bg-primary rounded-md text-white"
+                    >
+                      logout
+                    </button>
                   </div>
-                  <div className="text-xs leading-3">เข้าสู่ระบบ</div>
-                </Link>
+                ) : (
+                  <Link
+                    href={"/login"}
+                    className="text-center text-gray-700 hover:text-primary transition relative"
+                  >
+                    <div className="text-lg flex justify-center lg:text-2xl">
+                      <FaRegUser />
+                    </div>
+                    <div className="text-xs leading-3">เข้าสู่ระบบ</div>
+                  </Link>
+                )}
               </div>
             </div>
           </div>
         </div>
 
-        <nav className="  mt-2 bg-gray-800">
+        <nav className="mt-2 bg-gray-800">
           {/* Full Display */}
           <div className=" container flex font-fontTh2">
             <div className="px-8 py-4 ml-10 lg:ml-24 bg-primary flex items-center cursor-pointer relative group/type">

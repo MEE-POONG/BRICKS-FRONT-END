@@ -10,8 +10,10 @@ import MapComponent from "../../components/Map/MapComponent";
 
 export default function ProductDetailPage() {
   const router = useRouter();
+
   let [isOpen, setIsOpen] = useState(false);
   const [productQty, setProductQty] = useState(1);
+  const [productSumPrice, setProductSumPrice] = useState(0);
   const [
     { data: productData, loading: productLoading, error: productError },
     getProduct,
@@ -26,7 +28,7 @@ export default function ProductDetailPage() {
       const findQty = qtySort
         ?.map((qtyArrSort) => qtyArrSort)
         .find((q) => qty >= q.qtyCheck);
-      console.log("findQty",findQty)
+      console.log("findQty", findQty);
       const addOnArr = findQty?.addOnRate.map((addOnArr) => addOnArr); // map array
       const addSort = addOnArr?.sort((a, b) => a.length - b.length); //sort array
       const findDistance = addSort
@@ -40,6 +42,7 @@ export default function ProductDetailPage() {
         if (findDistance === undefined) {
           return "ขออภัยไม่อยู่ในพื้นที่จัดส่ง";
         }
+        setProductSumPrice((constPrice + findAddOn?.addOn) * qty);
         return (
           ((constPrice + findAddOn?.addOn) * qty).toLocaleString("en-US") +
           " " +

@@ -39,14 +39,8 @@ model Products {
   deleted_at  DateTime?     @map("deleted_at")
   price       Int?
   subType     SubType?      @relation(fields: [subTypeId], references: [id])
-<<<<<<< HEAD
   OrderDetail OrderDetail[]
   QtyRate     QtyRate[]
-=======
-  crderDetail OrderDetail[]
-  qtyRate     QtyRate[]
-  CartItems   CartItems[]
->>>>>>> 486bb288e3f68f8bb91be020fda2788f9194741e
 }
 
 model QtyRate {
@@ -127,13 +121,8 @@ model Orders {
   latitude    Float?
   totalPrice  Int?
   status      String?
-<<<<<<< HEAD
   userId      String?       @db.ObjectId
   // user        User?         @relation(fields: [userId], references: [id])
-=======
-  User        User?         @relation(fields: [userId], references: [id])
-  userId      String?       @db.ObjectId
->>>>>>> 486bb288e3f68f8bb91be020fda2788f9194741e
   createdAt   DateTime?     @default(now())
   deleted_at  DateTime?     @map("deleted_at")
   updatedAt   DateTime?     @updatedAt
@@ -233,10 +222,6 @@ model User {
   tel           String?
   email         String?   @unique
   emailVerified DateTime?
-<<<<<<< HEAD
-=======
-  password      String?
->>>>>>> 486bb288e3f68f8bb91be020fda2788f9194741e
   image         String?
   createdAt     DateTime? @default(now())
   deleted_at    DateTime? @map("deleted_at")
@@ -244,10 +229,6 @@ model User {
   accounts      Account[]
   sessions      Session[]
   orders        Orders[]
-<<<<<<< HEAD
-=======
-  cart          Cart[]
->>>>>>> 486bb288e3f68f8bb91be020fda2788f9194741e
 }
 
 model VerificationToken {

@@ -157,7 +157,7 @@ export default function Navbar() {
                   ติดต่อเรา
                 </Link>
                 <Link
-                  href="/howtoOrder"
+                  href="/howtoplaceOder"
                   className="text-gray-200 hover:text-white transition"
                 >
                   วิธีการสั่งซื้อ

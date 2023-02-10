@@ -70,10 +70,10 @@ function Map() {
   const { mapStore } = useSelector((state) => state);
 
   const [searchResult, setSearchResult] = useState();
-  const [mapCenter, setMapCenter] = useState({
+  const mapCenter = {
     lat: 13.736717,
     lng: 100.523186,
-  });
+  };
 
   /// CLICK TO GET LAT LNG
   const originPosition = { lat: 14.8425959800221, lng: 102.18779271165197 }; //ร้านช่างพอง

@@ -187,17 +187,6 @@ model Summary {
   orders     Orders[]
 }
 
-model HowtoplaceOder {
-  id        String    @id @default(auto()) @map("_id") @db.ObjectId
-  headtitle String?
-  title     String?
-  steps     String?
-  substeps  String?
-  image     String?
-  createdAt DateTime? @default(now())
-  updatedAt DateTime? @updatedAt
-}
-
 model Account {
   id                String  @id @default(auto()) @map("_id") @db.ObjectId
   userId            String

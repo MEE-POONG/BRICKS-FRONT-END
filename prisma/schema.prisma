@@ -40,7 +40,7 @@ model Products {
   price       Int?
   subType     SubType?      @relation(fields: [subTypeId], references: [id])
   OrderDetail OrderDetail[]
-  qtyRate     QtyRate[]
+  QtyRate     QtyRate[]
 }
 
 model QtyRate {
@@ -51,7 +51,7 @@ model QtyRate {
   createdAt  DateTime?   @default(now())
   updatedAt  DateTime?   @updatedAt
   deleted_at DateTime?   @map("deleted_at")
-  addOnRate  AddOnRate[]
+  AddOnRate  AddOnRate[]
 }
 
 model AddOnRate {
@@ -114,20 +114,6 @@ model HomeTop {
   deleted_at DateTime? @map("deleted_at")
 }
 
-model Users {
-  id         String    @id @default(auto()) @map("_id") @db.ObjectId
-  fname      String?
-  lname      String?
-  tel        String?
-  username   String?
-  email      String?
-  password   String?
-  createdAt  DateTime? @default(now())
-  deleted_at DateTime? @map("deleted_at")
-  updatedAt  DateTime? @updatedAt
-  orders     Orders[]
-}
-
 model Orders {
   id          String        @id @default(auto()) @map("_id") @db.ObjectId
   orderCode   String?
@@ -135,12 +121,15 @@ model Orders {
   latitude    Float?
   totalPrice  Int?
   status      String?
-  usersId     String?       @db.ObjectId
-  users       Users?        @relation(fields: [usersId], references: [id])
+  userId      String?       @db.ObjectId
+  // user        User?         @relation(fields: [userId], references: [id])
   createdAt   DateTime?     @default(now())
   deleted_at  DateTime?     @map("deleted_at")
   updatedAt   DateTime?     @updatedAt
   orderDetail OrderDetail[]
+  summary     Summary?      @relation(fields: [summaryId], references: [id])
+  summaryId   String?       @db.ObjectId
+  User        User?         @relation(fields: [userId], references: [id])
 }
 
 model OrderDetail {
@@ -176,4 +165,77 @@ model TeamType {
   updatedAt  DateTime? @updatedAt
   deleted_at DateTime? @map("deleted_at")
   Team       Team[]
+}
+
+model Summary {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  createdAt  DateTime? @default(now())
+  updatedAt  DateTime? @updatedAt
+  deleted_at DateTime? @map("deleted_at")
+  orders     Orders[]
+}
+
+model HowtoplaceOder {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  headtitle String?
+  title     String?
+  steps     String?
+  substeps  String?
+  image     String?
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
+}
+
+model Account {
+  id                String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.String
+  access_token      String? @db.String
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.String
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  name          String?
+  firstName     String?
+  lastName      String?
+  tel           String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  createdAt     DateTime? @default(now())
+  deleted_at    DateTime? @map("deleted_at")
+  updatedAt     DateTime? @updatedAt
+  accounts      Account[]
+  sessions      Session[]
+  orders        Orders[]
+}
+
+model VerificationToken {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
 }

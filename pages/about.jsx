@@ -79,10 +79,16 @@ export default function AboutPage() {
                 <h2 className="text-[20px] lg:text-[35px] text-center ">
                   {about.videotitle}
                 </h2>
-                <video className="lg:w-3/4 mx-auto " controls>
-                  <source src={about.video} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+                <iframe
+                                src={about?.video}
+                                allowFullScreen=""
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                className=" mx-auto"
+                                height="500px"
+                                width="1000px"
+                ></iframe>
+              
               </div>
               <h4 className=" mt-4 lg:mt-10 text-[16px]  lg:text-[35px] text-left font-semibold">
                 {about.headpolicy}

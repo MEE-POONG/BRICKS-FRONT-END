@@ -47,7 +47,7 @@ export default NextAuth({
         },
       });
       if (session?.user) {
-        (session.user.id = token.uid)
+        (session.user.id = token.uid), (session.user.cartId = data?.id);
       }
       return session;
     },

@@ -13,7 +13,7 @@ export default function ProductDetailPage() {
 
   let [isOpen, setIsOpen] = useState(false);
   const [productQty, setProductQty] = useState(1);
-  const [productSumPrice, setProductSumPrice] = useState(0)
+  const [productSumPrice, setProductSumPrice] = useState(0);
   const [
     { data: productData, loading: productLoading, error: productError },
     getProduct,
@@ -42,6 +42,7 @@ export default function ProductDetailPage() {
         if (findDistance === undefined) {
           return "ขออภัยไม่อยู่ในพื้นที่จัดส่ง";
         }
+        setProductSumPrice((constPrice + findAddOn?.addOn) * qty);
         return (
           ((constPrice + findAddOn?.addOn) * qty).toLocaleString("en-US") +
           " " +
@@ -174,10 +175,7 @@ export default function ProductDetailPage() {
                         </div>
                       </div>
 
-                      <button
-                        className="text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded"
-                      onClick={()=> fetch('/api/cart', { method: "POST" })}
-                      >
+                      <button className="text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
                         เพิ่มไปยังตะกร้า
                       </button>
                     </div>

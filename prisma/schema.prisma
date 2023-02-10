@@ -167,10 +167,7 @@ model TeamType {
 
 model Cart {
   id        String      @id @default(auto()) @map("_id") @db.ObjectId
-  lat       String?
-  lng       String?
-  distance  String?
-  userId    String?     @db.ObjectId @unique
+  userId    String?     @unique @db.ObjectId
   user      User?       @relation(fields: [userId], references: [id], onDelete: Cascade)
   CartItems CartItems[]
 }
@@ -179,6 +176,9 @@ model CartItems {
   id        String    @id @default(auto()) @map("_id") @db.ObjectId
   qty       Int?
   price     Float?
+  lat       Float?
+  lng       Float?
+  distance  Float?
   productId String?   @db.ObjectId
   cartId    String?   @db.ObjectId
   products  Products? @relation(fields: [productId], references: [id])

@@ -1,4 +1,5 @@
 import useAxios from "axios-hooks";
+import { useSession } from "next-auth/react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,6 +11,7 @@ import MapComponent from "../../components/Map/MapComponent";
 
 export default function ProductDetailPage() {
   const router = useRouter();
+  const { data: session } = useSession();
   const { mapStore } = useSelector((state) => state);
   let [isOpen, setIsOpen] = useState(false);
   const [productQty, setProductQty] = useState(1);
@@ -74,7 +76,7 @@ export default function ProductDetailPage() {
         lng: mapStore?.lng,
         distance: mapStore?.distance,
         productId: productData?.id,
-        cartId: "63e5f5d559e70449fcbed857",
+        cartId: session?.cartId,
       },
     });
   };

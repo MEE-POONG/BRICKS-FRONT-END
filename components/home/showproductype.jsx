@@ -26,7 +26,7 @@ export default function Showproducts() {
              <Link href="/products/category/ของตกแต่งบ้าน ">
             <button
               type="button"
-              className=" svg-icon animate-bounce  text-white bg-primary hover:bg-red-700 focus:ring-primary rounded-full  px-4 lg:px-4 py-2 mt-4 text-center mr-2 mb-2  ml-16"
+              className=" svg-icon animate-bounce  text-white bg-primary hover:bg-red-700 focus:ring-primary rounded-full  px-16 lg:px-16 py-2 mt-4 text-center mr-2 mb-2  ml-6"
             >
               ช็อปเลย
             </button>

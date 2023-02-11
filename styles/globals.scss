@@ -21,3 +21,73 @@ body {
     font-family: fontTh2, NotoSansThai, sans-serif;
   }
 }
+.cardp {
+  width: 250px;
+  height: 300px;
+  padding: .8em;
+  background: #f5f5f5;
+  position: relative;
+  overflow: visible;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  margin-top: 10%;
+  margin-left: 60px;
+
+ }
+
+
+ .cardp-img {
+  background-color: #f7594f;
+  height: 60%;
+  width: 100%;
+  border-radius: .5rem;
+  transition: .3s ease;
+ }
+ 
+ .cardp-info {
+  // padding-top: 10%;
+ }
+ 
+ svg {
+  width: 20px;
+  height: 20px;
+ }
+ 
+ .cardp-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #ddd;
+ }
+ 
+ /*Text*/
+ .text-title {
+  font-weight: 900;
+  font-size: 1.2em;
+  line-height: 1.5;
+ }
+ 
+ .text-body {
+  font-size: .9em;
+  padding-bottom: 10px;
+ }
+ 
+ /*Button*/
+//  .cardp-button {
+//   border: 1px solid #252525;
+//   display: flex;
+//   padding: .3em;
+//   cursor: pointer;
+//   border-radius: 50px;
+//   transition: .3s ease-in-out;
+//  }
+ 
+ /*Hover*/
+ .cardp-img{
+  transform: translateY(-25%);
+  box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px, rgba(180, 71, 71, 0.3) 0px 8px 16px -8px;
+  
+ }
+ 
+
+ 

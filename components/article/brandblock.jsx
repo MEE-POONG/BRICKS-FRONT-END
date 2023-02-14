@@ -3,6 +3,7 @@
 import useAxios from "axios-hooks";
 import Head from "next/head";
 import React, { useRef } from "react";
+import Image from "next/image";
 
 export default function Brandblock() {
   const [{ data: pichomeTopData, loading, error }, getPichomeTop] = useAxios({
@@ -21,14 +22,13 @@ export default function Brandblock() {
             <div className="grid grid-cols-2 gap-8 text-gray-500 sm:gap-12 md:grid-cols-3 lg:grid-cols-5 dark:text-gray-400">
               {pichomeTopData?.map((pichomeTop, index) => (
                 <div key={index}>
-                  <a href="#" className="flex justify-center items-center">
-                    <img
-                      className="w-full"
-                      src={pichomeTop.image}
-                      alt="logo"
-                      width={"200px"}
-                    />
-                  </a>
+                  <Image
+                  fill
+                  sizes="100vw"
+                  src={pichomeTop.image}
+                  alt="productImage"
+                  className=" rounded-xl"
+                />
                 </div>
               ))}
             </div>

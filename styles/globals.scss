@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: ChakraPetch;
-  src: url("fonts/ChakraPetch.ttf");
+  font-family: RSU;
+  src: url("fonts/RSU.ttf");
 }
 
 @font-face {
@@ -17,8 +17,8 @@ body {
 }
 
 @layer base {
-  html {
-    font-family: fontTh2, NotoSansThai, sans-serif;
+  html,* {
+    font-family: fontTh1, RSU, sans-serif;
   }
 }
 .cardp {
@@ -68,7 +68,7 @@ body {
  /*Text*/
  .text-title {
   font-weight: 900;
-  font-size: 1.2em;
+  // font-size: 20px;
   line-height: 1.5;
  }
  

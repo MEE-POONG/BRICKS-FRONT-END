@@ -11,7 +11,7 @@ export default function Showproducts() {
 
   return (
     <>
-      <div className=" container mx-auto text-center font-fontTh2 mt-10">
+      <div className=" container mx-auto text-center font-fontTh1 mt-10 ">
         <h3 className="text-[24px] md:text-[30px] text-primary">
           {" "}
           สินค้าของเรา
@@ -20,7 +20,7 @@ export default function Showproducts() {
           Categories
         </h2>
 
-      <div className="flex">
+      <div className="grid grid-cols-1 lg:grid-cols-5 mt-10">
         {showproData?.map((productsHome, index) => (
          <div key={index}>
 
@@ -35,8 +35,8 @@ export default function Showproducts() {
                 />
           </div>
           <div className="cardp-info">
-            <p className="text-title font-fontTh2">{productsHome.name}</p>
-            <p className="text-body  font-fontTh2">
+            <p className="text-title text-xl font-fontTh1">{productsHome.name}</p>
+            <p className="text-body  font-fontTh1">
               ใช้สำหรับก่องานโครงสร้าง หรือตกแต่งทำเป็นกำแพงในสวน
             </p>
           </div>

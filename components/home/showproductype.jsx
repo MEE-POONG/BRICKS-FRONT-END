@@ -1,9 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
+import useAxios from "axios-hooks";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Showproducts() {
+  const [{ data: showproData, loading, error }, getProductsHome] = useAxios({
+    url: "/api/productsHome",
+  });
+
   return (
     <>
       <div className=" container mx-auto text-center font-fontTh2 mt-10">
@@ -14,21 +19,26 @@ export default function Showproducts() {
         <h2 className=" text-[12px]  lg:text-[20px] text-center text-gray-400 ">
           Categories
         </h2>
+
+      <div className="flex">
+        {showproData?.map((productsHome, index) => (
+         <div key={index}>
+
         <div className="cardp mt-10">
           <div className="cardp-img ">
-                 <Image
-                        fill
-                        sizes="100vw"
-                        src="/showpd.png"
-                        alt="productImage"
-                        className=" rounded-xl"
-                      />
+                <Image
+                  fill
+                  sizes="100vw"
+                  src={productsHome.products.image}
+                  alt="productImage"
+                  className=" rounded-xl"
+                />
           </div>
           <div className="cardp-info">
-            <p className="text-title font-fontTh2">
-               อิฐประสานเรียบตรง
+            <p className="text-title font-fontTh2">{productsHome.name}</p>
+            <p className="text-body  font-fontTh2">
+              ใช้สำหรับก่องานโครงสร้าง หรือตกแต่งทำเป็นกำแพงในสวน
             </p>
-            <p className="text-body  font-fontTh2">ใช้สำหรับก่องานโครงสร้าง หรือตกแต่งทำเป็นกำแพงในสวน</p>
           </div>
           <div className="cardp-footer">
             <Link href="/products/category/ของตกแต่งบ้าน ">
@@ -41,6 +51,9 @@ export default function Showproducts() {
             </Link>
           </div>
         </div>
+        </div>
+            ))}
+            </div>
       </div>
     </>
   );

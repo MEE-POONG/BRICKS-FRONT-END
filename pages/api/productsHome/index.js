@@ -10,7 +10,7 @@ export default async function handler(req, res) {
                     where: {
                         id: req.query.id
                     },
-                    include:{ products : true,type: true },
+                    include:{ products : {take: 1} ,type: true },
                 });
 
                 res.status(200).json(data)

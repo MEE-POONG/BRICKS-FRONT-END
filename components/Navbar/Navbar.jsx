@@ -36,7 +36,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 shadow-sm bg-white z-40">
+      <header className="sticky top-0 shadow-sm bg-white z-40 text-2xl">
         <div className="min-w-full relative">
           <div className="lg:items-center lg:justify-between lg:flex">
             <div className="flex justify-around space-y-2">
@@ -102,7 +102,7 @@ export default function Navbar() {
                       <div className="text-lg flex justify-center lg:text-2xl">
                         <FaRegUser />
                       </div>
-                      <div className="text-xs leading-3">เข้าสู่ระบบ</div>
+                      <div className=" leading-3 text-2xl">เข้าสู่ระบบ</div>
                     </Link>
                   )}
                 </div>

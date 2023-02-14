@@ -40,7 +40,7 @@ export default function Showproducts() {
             </p>
           </div>
           <div className="cardp-footer">
-            <Link href="/products/category/ของตกแต่งบ้าน ">
+            <Link href={`/products/category/${productsHome.type.name}` }>
               <button
                 type="button"
                 className=" svg-icon animate-bounce  text-white bg-primary hover:bg-red-700 focus:ring-primary rounded-full  px-16 lg:px-16 py-2 mt-4 text-center mr-2 mb-2  ml-8"

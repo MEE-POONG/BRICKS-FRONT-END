@@ -19,8 +19,9 @@ export default function Showproducts() {
                  <Image
                         fill
                         sizes="100vw"
-                        src="/images/36.jpg"
+                        src="/showpd.png"
                         alt="productImage"
+                        className=" rounded-xl"
                       />
           </div>
           <div className="cardp-info">

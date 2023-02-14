@@ -72,41 +72,44 @@ export default function Navbar() {
                   <div className="text-lg flex justify-center lg:text-2xl">
                     <FaShoppingBasket />
                   </div>
-                  <div className="text-xs leading-3">ตะกร้า</div>
+                  <div className="text-l leading-3">ตะกร้า</div>
                   <div className="absolute -right-2 -top-1 w-4 h-4 rounded-full flex items-center justify-center bg-primary text-white text-xs lg:w-5 lg:h-5 lg:-right-2">
                     0
                   </div>
                 </Link>
-
-                {session ? (
-                  <div className="space-x-2 flex items-center">
-                    <img
-                      className="w-8 h-8 rounded-full mx-auto"
-                      src={session?.user.image}
-                    />
-                    <span>{session?.user.name}</span>
-                    <button
-                      onClick={handleSignOut}
-                      className="p-2 bg-primary rounded-md text-white"
-                    >
-                      logout
-                    </button>
-                  </div>
-                ) : (
-                  <Link
-                    href={"/login"}
-                    className="text-center text-gray-700 hover:text-primary transition relative"
-                  >
-                    <div className="text-lg flex justify-center lg:text-2xl">
-                      <FaRegUser />
+                
+                  {session ? (
+                    <div className="space-x-2 flex items-center">
+                      <img
+                        className="w-8 h-8 rounded-full mx-auto cursor-pointer"
+                        src={session?.user.image}
+                      />
+                      <span className="cursor-pointer">
+                        {session?.user.name}
+                      </span>
+                      <button
+                        onClick={handleSignOut}
+                        className="p-2 bg-primary rounded-md text-white "
+                      >
+                        logout
+                      </button>
                     </div>
-                    <div className="text-xs leading-3">เข้าสู่ระบบ</div>
-                  </Link>
-                )}
+                  ) : (
+                    <Link
+                      href={"/login"}
+                      className="text-center text-gray-700 hover:text-primary transition relative"
+                    >
+                      <div className="text-lg flex justify-center lg:text-2xl">
+                        <FaRegUser />
+                      </div>
+                      <div className="text-xs leading-3">เข้าสู่ระบบ</div>
+                    </Link>
+                  )}
+                </div>
               </div>
             </div>
           </div>
-        </div>
+
 
         <nav className="mt-2 bg-gray-800">
           {/* Full Display */}

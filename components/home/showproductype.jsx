@@ -23,13 +23,12 @@ export default function Showproducts() {
       <div className="flex">
         {showproData?.map((productsHome, index) => (
          <div key={index}>
-
         <div className="cardp mt-10">
           <div className="cardp-img ">
                 <Image
                   fill
                   sizes="100vw"
-                  src={productsHome.products.image}
+                  src={productsHome.products[0]?.image}
                   alt="productImage"
                   className=" rounded-xl"
                 />

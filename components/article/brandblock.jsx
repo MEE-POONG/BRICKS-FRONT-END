@@ -15,15 +15,15 @@ export default function Brandblock() {
       <SectionComponent title="ลูกค้าของเรา" detail="Our Clients​">
         <section className="">
           <div className="py-8 lg:py-16 mx-auto max-w-screen-xl px-4">
-            <div className="grid grid-cols-2 gap-8 text-gray-500 sm:gap-12 md:grid-cols-3 lg:grid-cols-5 dark:text-gray-400">
+            <div className="grid gap-8 text-gray-500 grid-cols-2 sm:gap-12 md:grid-cols-3 lg:grid-cols-5 dark:text-gray-400">
               {pichomeTopData?.map((pichomeTop, index) => (
                 <div key={index}>
                   <Image
-                  width={"200"}
-                  height={"200"}
+                  width={"300"}
+                  height={"250"}
                     src={pichomeTop.image}
                     alt="productImage"
-                    className=" rounded-xl object-cover"
+                    className=" rounded-xl object-scale-down  lg:h-52 lg:w-full h-44 w-44 "
                   />
                 </div>
               ))}

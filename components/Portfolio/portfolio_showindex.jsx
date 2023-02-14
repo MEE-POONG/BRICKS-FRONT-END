@@ -11,6 +11,7 @@ import "swiper/css/autoplay";
 import "swiper/css";
 import "swiper/css/pagination";
 import Link from "next/link";
+import SectionComponent from "../headtop";
 
 //รอเปลี่ยน เป็นของ บ.
 const AppID = process.env.NEXT_PUBLIC_FB_APP_ID;
@@ -44,14 +45,8 @@ export default function PortfolioShowIndex() {
   }
 
   return (
-    <div className=" container mx-auto text-center font-fontTh2 mt-10">
-      <h3 className="text-[24px] md:text-[30px] text-primary mb-5">
-        {" "}
-        ผลงานของเรา
-      </h3>
-      <h2 className=" text-[12px]  lg:text-[20px] text-center text-gray-400">
-        Portfolio
-      </h2>
+
+    <SectionComponent title="ผลงานของเรา" detail="Portfolio​">
       <div className="px-6 pb-2  text-right">
         <Link
           href="/portfolio "
@@ -115,6 +110,6 @@ export default function PortfolioShowIndex() {
           </div>
         </Swiper>
       </div>
-    </div>
+    </SectionComponent>
   );
 }

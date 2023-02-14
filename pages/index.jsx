@@ -29,7 +29,7 @@ export default function Home() {
         <Prebrick/>
       </div>
       <div>
-      {/* <Brandblock/> */}
+      <Brandblock/>
       </div>
 
     </>

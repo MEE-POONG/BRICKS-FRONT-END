@@ -11,28 +11,34 @@ export default function Showproducts() {
           {" "}
           สินค้าของเรา
         </h3>
-        <h2 className=" text-[12px]  lg:text-[20px] text-center text-gray-400">
+        <h2 className=" text-[12px]  lg:text-[20px] text-center text-gray-400 ">
           Categories
         </h2>
-        <div className="cardp">
+        <div className="cardp mt-10">
           <div className="cardp-img ">
-
+                 <Image
+                        fill
+                        sizes="100vw"
+                        src="/images/36.jpg"
+                        alt="productImage"
+                      />
           </div>
           <div className="cardp-info">
-            <p className="text-title font-fontTh2">อิฐแดง </p>
-            <p className="text-body  font-fontTh2">อิฐแดงงงงงงงงงงงงงงงงงง</p>
+            <p className="text-title font-fontTh2">
+               อิฐประสานเรียบตรง
+            </p>
+            <p className="text-body  font-fontTh2">ใช้สำหรับก่องานโครงสร้าง หรือตกแต่งทำเป็นกำแพงในสวน</p>
           </div>
           <div className="cardp-footer">
-             <Link href="/products/category/ของตกแต่งบ้าน ">
-            <button
-              type="button"
-              className=" svg-icon animate-bounce  text-white bg-primary hover:bg-red-700 focus:ring-primary rounded-full  px-16 lg:px-16 py-2 mt-4 text-center mr-2 mb-2  ml-6"
-            >
-              ช็อปเลย
-            </button>
-          </Link>
+            <Link href="/products/category/ของตกแต่งบ้าน ">
+              <button
+                type="button"
+                className=" svg-icon animate-bounce  text-white bg-primary hover:bg-red-700 focus:ring-primary rounded-full  px-16 lg:px-16 py-2 mt-4 text-center mr-2 mb-2  ml-8"
+              >
+                ช็อปเลย
+              </button>
+            </Link>
           </div>
-         
         </div>
       </div>
     </>

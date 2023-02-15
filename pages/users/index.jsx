@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import SectionComponent from "../../components/headtop";
 import PurchaseHistory from "../../components/Users/PurchaseHistory";
 import UserEditProFile from "../../components/Users/UserEditProFile";
 
@@ -59,7 +58,7 @@ const Tabs = ({ color }) => {
             </li>
           </ul>
           <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded p-2 lg:p-8">
-            <div className="px-4 py-5 flex-auto">
+            <div className="px-4 flex-auto">
               <div className="tab-content tab-space">
                 <div className={openTab === 1 ? "block" : "hidden"} id="link1">
                   <UserEditProFile />
@@ -79,9 +78,9 @@ const Tabs = ({ color }) => {
 export default function UserProFile() {
   return (
     <>
-      <SectionComponent title="ข้อมูลของฉัน" detail="My Profile">
+     
         <Tabs />;
-      </SectionComponent>
+   
     </>
   );
 }

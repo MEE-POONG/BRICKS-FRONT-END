@@ -9,23 +9,23 @@ export default function Footer() {
         <div className="container mx-auto px-4 text-white">
           <div className="flex flex-wrap text-left lg:text-left">
             <div className="w-full lg:w-6/12 px-4">
-              <h4 className="text-5xl text-primary font-semibold ">
+              <h4 className="text-3xl lg:text-5xl text-primary font-semibold ">
                 ช่างพอง อิฐประสาน
               </h4>
-              <h5 className="text-3xl mt-0 mb-2 text-blueGray-600">
+              <h5 className="text-2xl lg:text-3xl mt-0 mb-2 text-blueGray-600">
                 อิฐประสาน จัดสวน สร้างบ้าน ราคาโรงงาน
               </h5>
             </div>
-            <div className="w-full lg:w-6/12 px-4">
+            <div className="w-full lg:w-6/12 px-4 text-2xl lg:text-3xl ">
               <div className="flex flex-wrap items-top mb-6">
                 <div className="w-full lg:w-4/12 px-4 ml-auto">
-                  <span className="block uppercase text-3xl font-semibold mb-2 text-primary">
+                  <span className="block uppercase font-semibold mb-2 text-primary">
                     pages
                   </span>
                   <ul className="list-unstyled">
                     <li>
                       <a
-                        className="font-semibold block pb-2 text-3xl hover:underline"
+                        className="font-semibold block pb-2  hover:underline"
                         href="../products"
                       >
                         สินค้า
@@ -33,7 +33,7 @@ export default function Footer() {
                     </li>
                     <li>
                       <a
-                        className="font-semibold block pb-2 text-3xl hover:underline"
+                        className="font-semibold block pb-2  hover:underline"
                         href="../portfolio"
                       >
                         ผลงานของเรา
@@ -41,7 +41,7 @@ export default function Footer() {
                     </li>
                     <li>
                       <a
-                        className="font-semibold block pb-2 text-3xl hover:underline"
+                        className="font-semibold block pb-2  hover:underline"
                         href="../about"
                       >
                         เกี่ยวกับเรา
@@ -49,7 +49,7 @@ export default function Footer() {
                     </li>
                     <li>
                       <a
-                        className=" font-semibold block pb-2 text-3xl hover:underline"
+                        className=" font-semibold block pb-2  hover:underline"
                         href="../contact"
                       >
                         ช่องทางติดต่อ
@@ -57,14 +57,14 @@ export default function Footer() {
                     </li>
                   </ul>
                 </div>
-                <div className="w-full lg:w-4/12 px-4">
-                  <span className="block uppercase text-3xl font-semibold mb-2 text-primary">
+                <div className="w-full lg:w-4/12 px-4 text-2xl lg:text-3xl">
+                  <span className="block uppercase  font-semibold mb-2 text-primary">
                     ติดต่อด่วน
                   </span>
                   <ul className="list-unstyled">
                     <li>
                       <a
-                        className="flex font-semibold  pb-2 text-3xl hover:underline"
+                        className="flex font-semibold  pb-2  hover:underline"
                         href="tel:094 397 0414"
                       >
                         <BsTelephoneFill /> &nbsp; 094 397 0414
@@ -72,7 +72,7 @@ export default function Footer() {
                     </li>
                     <li>
                       <a
-                        className=" flex font-semibold  pb-2 text-3xl hover:underline"
+                        className=" flex font-semibold  pb-2  hover:underline"
                         href="https://www.facebook.com/DreamBlock9"
                       >
                         <BsFacebook /> &nbsp; ร้านช่างพอง อิฐประสาน 
@@ -80,7 +80,7 @@ export default function Footer() {
                     </li>
                     <li>
                       <a
-                        className="flex font-semibold  pb-2 text-3xl hover:underline"
+                        className="flex font-semibold  pb-2  hover:underline"
                         href="https://creative-tim.com/privacy?ref=njs-profile"
                       >
                         <BsLine /> &nbsp; plingkratoke
@@ -109,10 +109,10 @@ export default function Footer() {
             </div>
           </div> */}
           <div className="grid grid-cols-1 md:grid-cols-2 text-primary text-center">
-            <div className="text-3xl md:text-left">
+            <div className="text-xl lg:text-3xl md:text-left">
               Copyright 2023 © All rights Reserved.
             </div>
-            <div className=" md:text-right text-3xl">
+            <div className=" md:text-right text-xl lg:text-3x">
               Design by &nbsp;
               <a
                 href="https://www.meepoong.com/?fbclid=IwAR3oOETDbweOk5D86c_Io3rq733SroxhxbsQbfiX7dv1E8YT3cKGqLeBlRE"

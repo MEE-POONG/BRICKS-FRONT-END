@@ -13,12 +13,13 @@ export default async function handler(req, res) {
             },
           },
           include: {
+            imageProduct: true,
             subType: {
               include: { type: true },
             },
             qtyRate: {
-              include: { addOnRate : true },
-            }
+              include: { addOnRate: true },
+            },
           },
         });
 

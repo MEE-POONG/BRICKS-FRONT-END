@@ -72,11 +72,11 @@ export default function ProductsPage() {
                     </div>
                     <div className="p-4">
                       <div className="bg-primary rounded-xl p-1 px-2 w-fit">
-                        <span className="block text-sm text-white font-semibold">
+                        <span className="block text-xl text-white font-semibold">
                           {product.subType?.name}
                         </span>
                       </div>
-                      <span className="block text-xl font-semibold mt-2">
+                      <span className="block text-[26px] font-semibold mt-2">
                         {product.name}
                       </span>
                     </div>

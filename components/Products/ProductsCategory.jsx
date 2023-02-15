@@ -49,7 +49,7 @@ export default function ProductsCategory({ typeName }) {
           })
         }
       >
-        <span className="text-lg">ทั้งหมด</span>
+        <span className="text-[26px]">ทั้งหมด</span>
       </div>
       {categoryListData?.subType.map((subTypeData, index) => (
         <div
@@ -66,7 +66,7 @@ export default function ProductsCategory({ typeName }) {
             )
           }
         >
-          <span className="text-lg">{subTypeData.name}</span>
+          <span className="text-[26px]">{subTypeData.name}</span>
         </div>
       ))}
     </>

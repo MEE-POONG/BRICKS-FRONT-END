@@ -94,14 +94,14 @@ export default function ProductDetailPage() {
           <div>
             <Link
               href={`/products/category/${productData?.subType?.type?.name}`}
-              className="hover:text-primary"
+              className="hover:text-primary text-[26px]"
             >
               {productData?.subType?.type?.name}
             </Link>
             <span> / </span>
             <Link
               href={`/products/category/${productData?.subType?.type?.name}/${productData?.subType?.name}`}
-              className="hover:text-primary"
+              className="hover:text-primary text-[26px]"
             >
               {productData?.subType?.name}
             </Link>
@@ -120,21 +120,21 @@ export default function ProductDetailPage() {
                     alt="productImage"
                   />
                 </div>
-                <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-                  <h2 className="text-sm title-font text-gray-500 tracking-widest">
+                <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0 font-se">
+                  <h2 className="text-xl title-font text-gray-500 tracking-widest">
                     {productData?.Type?.name}
                   </h2>
-                  <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
+                  <h1 className="text-gray-900 text-4xl title-font font-bold mb-3">
                     {productData?.name}
                   </h1>
-                  <div className="flex mb-4">
-                    <span className="flex items-center">
+                  <div className="flex mb-2">
+                    <span className="flex items-center text-3xl">
                       <span className="text-gray-600 ml-3">
                         รายละเอียดสินค้า
                       </span>
                     </span>
                   </div>
-                  <p className="leading-relaxed">
+                  <p className="leading-relaxed text-2xl ml-5">
                     <div
                       dangerouslySetInnerHTML={{ __html: productData?.detail }}
                     />
@@ -142,7 +142,7 @@ export default function ProductDetailPage() {
                   <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5 justify-center lg:justify-start">
                     <div className="flex items-center">
                       <div className="lg:flex">
-                        <span className="my-auto text-xl font-bold lg:mr-4">
+                        <span className="my-auto text-2xl font-bold lg:mr-4">
                           เลือกพื้นที่จัดส่ง
                         </span>
                         <div className="flex justify-center my-2">
@@ -155,10 +155,10 @@ export default function ProductDetailPage() {
                     </div>
                   </div>
                   <div className="block text-center lg:text-left">
-                    <span className="font-medium text-2xl text-gray-900 block">
+                    <span className="font-medium text-3xl text-gray-900 block">
                       ระยะทาง {mapStore?.distance / 1000} กิโลเมตร
                     </span>
-                    <span className="font-medium text-2xl text-gray-900">
+                    <span className="font-medium text-3xl text-gray-900">
                       {priceRule(
                         mapStore?.distance / 1000,
                         productData?.price,
@@ -167,7 +167,7 @@ export default function ProductDetailPage() {
                     </span>
                     <div className="my-4">
                       <div className="block lg:flex">
-                        <span className="font-medium text-lg text-gray-800 my-auto lg:mr-4">
+                        <span className="font-medium text-2xl text-gray-800 my-auto lg:mr-4">
                           จำนวนสินค้า
                         </span>
                         <div className="flex justify-center my-4 lg:justify-start">
@@ -203,7 +203,7 @@ export default function ProductDetailPage() {
                       </div>
 
                       <button
-                        className="text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded"
+                        className="text-white text-2xl bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded"
                         onClick={handleAddToCart}
                       >
                         เพิ่มไปยังตะกร้า

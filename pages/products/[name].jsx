@@ -134,11 +134,11 @@ export default function ProductDetailPage() {
                       </span>
                     </span>
                   </div>
-                  <p className="leading-relaxed text-2xl ml-5">
-                    <div
+                  <div className="leading-relaxed text-2xl ml-5">
+                    <p
                       dangerouslySetInnerHTML={{ __html: productData?.detail }}
                     />
-                  </p>
+                  </div>
                   <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5 justify-center lg:justify-start">
                     <div className="flex items-center">
                       <div className="lg:flex">
@@ -167,12 +167,12 @@ export default function ProductDetailPage() {
                     </span>
                     <div className="my-4">
                       <div className="block lg:flex">
-                        <span className="font-medium text-2xl text-gray-800 my-auto lg:mr-4">
+                        <span className="font-semibold text-2xl text-gray-800 my-auto lg:mr-4">
                           จำนวนสินค้า
                         </span>
-                        <div className="flex justify-center my-4 lg:justify-start">
+                        <div className="flex justify-center my-4 lg:justify-start ">
                           <svg
-                            className="fill-current w-3 text-gray-900 hover:text-primary cursor-pointer"
+                            className="fill-current w-3 text-gray-900 hover:text-primary cursor-pointer "
                             viewBox="0 0 448 512"
                             onClick={() => {
                               if (productQty > 1) {
@@ -184,7 +184,7 @@ export default function ProductDetailPage() {
                           </svg>
 
                           <input
-                            className="mx-2 border text-center w-16 rounded-md text-gray-900 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
+                            className="mx-2 border text-2xl text-center w-16 rounded-md text-gray-900 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
                             type="number"
                             min={1}
                             value={parseInt(productQty)}

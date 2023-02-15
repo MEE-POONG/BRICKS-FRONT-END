@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
+import SectionComponent from "../../components/headtop";
 import PurchaseHistory from "../../components/Users/PurchaseHistory";
 import UserEditProFile from "../../components/Users/UserEditProFile";
 
@@ -7,11 +8,13 @@ const Tabs = ({ color }) => {
   const [openTab, setOpenTab] = React.useState(1);
   return (
     <>
-    <div className="container px-5 py-24 mx-auto flex flex-col">
-      <div className="flex flex-col items-center text-center justify-center">
-      <img src="/logo.png" alt="" className=" rounded-2xl w-24" />
-      <h2 className=" font-bold mt-1 text-gray-900 text-4xl">ชื่อจริง นามสกุล</h2>
-        <div className="w-12 h-1 bg-red-500 rounded mt-2 mb-4"></div>
+      <div className="container px-5 py-24 mx-auto flex flex-col">
+        <div className="flex flex-col items-center text-center justify-center">
+          <img src="/logo.png" alt="" className=" rounded-2xl w-24" />
+          <h2 className=" font-bold mt-1 text-gray-900 text-4xl">
+            ชื่อจริง นามสกุล
+          </h2>
+          <div className="w-12 h-1 bg-red-500 rounded mt-2 mb-4"></div>
           <ul
             className="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row"
             role="tablist"
@@ -24,7 +27,7 @@ const Tabs = ({ color }) => {
                     ? "text-white bg-red-500"
                     : "text-red-500" + " bg-white")
                 }
-                onClick={e => {
+                onClick={(e) => {
                   e.preventDefault();
                   setOpenTab(1);
                 }}
@@ -43,7 +46,7 @@ const Tabs = ({ color }) => {
                     ? "text-white bg-red-500"
                     : "text-red-500" + " bg-white")
                 }
-                onClick={e => {
+                onClick={(e) => {
                   e.preventDefault();
                   setOpenTab(2);
                 }}
@@ -51,7 +54,7 @@ const Tabs = ({ color }) => {
                 href="#link2"
                 role="tablist"
               >
-                 การซื้อของฉัน
+                การซื้อของฉัน
               </a>
             </li>
           </ul>
@@ -59,16 +62,15 @@ const Tabs = ({ color }) => {
             <div className="px-4 py-5 flex-auto">
               <div className="tab-content tab-space">
                 <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                    <UserEditProFile/>
+                  <UserEditProFile />
                 </div>
                 <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                  <PurchaseHistory/>
+                  <PurchaseHistory />
                 </div>
               </div>
             </div>
           </div>
- 
-      </div>
+        </div>
       </div>
     </>
   );
@@ -77,7 +79,9 @@ const Tabs = ({ color }) => {
 export default function UserProFile() {
   return (
     <>
-      <Tabs />;
+      <SectionComponent title="ข้อมูลของฉัน" detail="My Profile">
+        <Tabs />;
+      </SectionComponent>
     </>
   );
 }

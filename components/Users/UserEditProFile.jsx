@@ -1,22 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
+import SectionComponent from "../headtop";
 
 export default function UserEditProFile() {
   return (
     <>
       <div className="text-left">
-        <h2 className="text-[30px] font-bold ">ข้อมูลของฉัน</h2>
+        <h2 className="text-[30px] font-bold ">จัดการข้อมูลของฉัน</h2>
         <i className="text-[24px]">จัดการข้อมูลส่วนตัวของคุณ</i>
       </div>
       <hr className="w-full bg-red-500 rounded mt-2 "></hr>
 
-        <div className="py-24 mx-auto flex flex-col">
-          <div className="lg:w-4/6 mx-auto">
+        <div className="py-10 mx-auto flex flex-col">
+          <div className="lg:w-3/4 mx-auto">
             <div className="flex flex-col sm:flex-row">
 
               {/* Image */}
-              
-              <form className="sm:w-1/3 text-center sm:pr-8 sm:py-8">
+              <form className="sm:w-1/3  text-center py-3">
                 <div className="w-20 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
                   <img
                     src="/logo.png"
@@ -47,15 +47,15 @@ export default function UserEditProFile() {
               </form>
 
               {/* Detail */}
-              <form className=" font-semibold text-3xl sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-left">
+              <form className=" font-semibold text-3xl sm:w-2/4 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-left">
                   <div className="">
                     <label htmlFor="">ชื่อ : 
-                    <input type="text" id="" class="block rounded-t-lg px-2.5 w-full text-gray-900 bg-gray-50 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-red-600 peer" placeholder=" " />
+                    <input type="text" id="" className="block rounded-t-lg px-2.5 w-full text-gray-900 bg-gray-50 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-red-600 peer" placeholder=" " />
                     </label>
                   </div>
                   <div className="py-3">
                     <label htmlFor="">เบอร์โทร : &nbsp;</label>
-                    <input type="text" id="" class="block rounded-t-lg px-2.5 w-full text-gray-900 bg-gray-50 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-red-600 peer" placeholder=" " />
+                    <input type="text" id="" className="block rounded-t-lg px-2.5 w-full text-gray-900 bg-gray-50 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-red-600 peer" placeholder=" " />
                   </div>
                   <div className="">
                     <label htmlFor="">อีเมล : &nbsp;</label>

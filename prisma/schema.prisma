@@ -39,10 +39,10 @@ model Products {
   deleted_at   DateTime?      @map("deleted_at")
   price        Int?
   subType      SubType?       @relation(fields: [subTypeId], references: [id])
-  OrderDetail  OrderDetail[]
-  QtyRate      QtyRate[]
-  ImageProduct ImageProduct[]
-  CartItems    CartItems[]
+  orderDetail  OrderDetail[]
+  qtyRate      QtyRate[]
+  imageProduct ImageProduct[]
+  cartItems    CartItems[]
 }
 
 model ImageProduct {

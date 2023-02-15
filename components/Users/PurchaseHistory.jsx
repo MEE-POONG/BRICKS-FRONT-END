@@ -14,7 +14,7 @@ export default function PurchaseHistory() {
         <main>
           <section>
             <div className="bg-gray-100 sm:grid grid-cols-5 grid-rows-2 px-4 py-6 min-h-full lg:min-h-screen space-y-4 sm:space-y-0 sm:gap-4">
-              <div className="h-40 col-span-4 flex items-center container mx-auto sm:-mx-8  sm:px-8 text-2xl ">
+              <div className="h-56 col-span-4 flex items-center container mx-auto sm:-mx-8  sm:px-8 text-2xl ">
                 <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
                   <table className="min-w-full leading-normal px-5 border-b-2 border-gray-200 bg-[#1f2937] text-center  font-semibold text-white uppercase tracking-wider ">
                     <thead >

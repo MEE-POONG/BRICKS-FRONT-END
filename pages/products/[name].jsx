@@ -4,8 +4,9 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { toast, Toaster } from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
 import Loading from "../../components/Loading/Loading";
 import MapComponent from "../../components/Map/MapComponent";
 
@@ -15,74 +16,106 @@ export default function ProductDetailPage() {
   const { mapStore } = useSelector((state) => state);
   let [isOpen, setIsOpen] = useState(false);
   const [productQty, setProductQty] = useState(1);
-  const [productSumPrice, setProductSumPrice] = useState(0);
-
+  const [productSumPrice, setProductSumPrice] = useState("");
+  const dispatch = useDispatch();
   const [
     { data: productData, loading: productLoading, error: productError },
     getProduct,
   ] = useAxios({ url: `/api/products/${router.query.name}`, method: "GET" });
 
   //ADD CART ITEMS
-  const [
-    { data: addCartData, loading: addCartLoading, error: addCartError },
-    addCart,
-  ] = useAxios({
-    url: "/api/cart/",
-    method: "POST",
-  });
+  const [{ loading: addCartLoading, error: addCartError }, addCart] = useAxios(
+    {
+      url: "/api/cart",
+      method: "POST",
+    },
+    { manual: true }
+  );
 
   //เช็คระยะทางเพื่อบวกราคา
-  const priceRule = (distance, constPrice, qty) => {
-    if (distance !== 0) {
-      const qtyArr = productData?.qtyRate.map((qtyArr) => qtyArr); // map array
-      const qtySort = qtyArr?.sort((a, b) => b.qtyCheck - a.qtyCheck); //sort array
-      const findQty = qtySort
-        ?.map((qtyArrSort) => qtyArrSort)
-        .find((q) => qty >= q.qtyCheck);
-      console.log("findQty", findQty);
-      const addOnArr = findQty?.addOnRate.map((addOnArr) => addOnArr); // map array
-      const addSort = addOnArr?.sort((a, b) => a.length - b.length); //sort array
-      const findDistance = addSort
-        ?.map((lengthArr) => lengthArr.length)
-        .find((length) => length > distance);
-      const findAddOn = addSort
-        ?.map((lengthArr) => lengthArr)
-        .find((lengthArr) => lengthArr.length === findDistance);
+  const priceRule = (distance = 0, constPrice = 0, qty = 1) => {
+    const distanceKM = distance / 1000;
+    if (productData?.qtyRate.length !== 0) {
+      if (distanceKM !== 0) {
+        //QTY RATE
+        const qtyArr = productData?.qtyRate.map((qtyArr) => qtyArr); // map array
+        const qtySort = qtyArr?.sort((a, b) => b.qtyCheck - a.qtyCheck); //sort array
+        const findQty = qtySort
+          ?.map((qtyArrSort) => qtyArrSort)
+          ?.find((q) => qty >= q.qtyCheck);
 
-      if (productData?.qtyRate.length !== 0) {
-        if (findDistance === undefined) {
-          return "ขออภัยไม่อยู่ในพื้นที่จัดส่ง";
+        // ADD ON RATE
+        const addOnArr = findQty?.addOnRate.map((addOnArr) => addOnArr); // map array
+        const addSort = addOnArr?.sort((a, b) => a.length - b.length); //sort array
+        const findDistance = addSort
+          ?.map((lengthArr) => lengthArr.length)
+          ?.find((length) => length > distanceKM);
+        const findAddOn = addSort
+          ?.map((lengthArr) => lengthArr)
+          ?.find((lengthArr) => lengthArr.length === findDistance);
+
+        // console.log("findAddOn", findAddOn);
+        // console.log("findDistance", findDistance);
+
+        if (findDistance !== undefined) {
+          return (constPrice + findAddOn?.addOn) * qty;
         }
-        setProductSumPrice((constPrice + findAddOn?.addOn) * qty);
-        return (
-          ((constPrice + findAddOn?.addOn) * qty).toLocaleString("en-US") +
-          " " +
-          "บาท"
-        );
+        return "ขออภัยไม่อยู่ในพื้นที่จัดส่ง";
       }
-      setProductSumPrice(constPrice * qty);
-      return (constPrice * qty).toLocaleString("en-US") + " " + "บาท";
+      return "กรุณาเลือกพื้นที่จัดส่ง";
     }
-    return "กรุณาเลือกพื้นที่จัดส่ง";
+    return constPrice * qty;
   };
 
   //SUBMIT DATA
   const handleAddToCart = async () => {
-    await addCart({
-      data: {
-        qty: productQty,
-        price: productSumPrice,
-        lat: mapStore?.lat,
-        lng: mapStore?.lng,
-        distance: mapStore?.distance,
-        productId: productData?.id,
-        cartId: session?.cartId,
-      },
-    });
+    if (session) {
+      if (
+        mapStore?.lat !== null &&
+        mapStore?.lng !== null &&
+        mapStore?.distance !== null
+      ) {
+        ///ADD TO CART
+      } else {
+        toast.error("กรุณาเลือกพื้นที่จัดส่ง", {
+          position: "top-center",
+          icon: "⚠️",
+          style: {
+            borderRadius: "10px",
+            border: "1px solid #F7594F",
+            padding: "10px",
+            color: "#333",
+            fontSize: "20px",
+          },
+        });
+      }
+    } else {
+      toast.error("กรุณาเข้าสู่ระบบก่อนสั่งซื้อสินค้า", {
+        position: "top-center",
+        icon: "⚠️",
+        style: {
+          borderRadius: "10px",
+          border: "1px solid #F7594F",
+          padding: "10px",
+          color: "#333",
+          fontSize: "20px",
+        },
+      });
+    }
   };
+
+  const handleClickToast = () => {
+    toast.success("Successfully toasted!");
+  };
+
+  useEffect(() => {
+    let result = priceRule(mapStore?.distance, productData?.price, +productQty);
+    setProductSumPrice(result);
+  }, [mapStore?.distance, productData?.price, productQty]);
 
   return (
     <>
+      <Toaster reverseOrder={true} />
       <Head>
         <title>{productData?.name}</title>
         <link rel="icon" href="/logo1.png" />
@@ -134,11 +167,11 @@ export default function ProductDetailPage() {
                       </span>
                     </span>
                   </div>
-                  <p className="leading-relaxed">
-                    <div
+                  <div className="leading-relaxed text-2xl ml-5">
+                    <p
                       dangerouslySetInnerHTML={{ __html: productData?.detail }}
                     />
-                  </p>
+                  </div>
                   <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5 justify-center lg:justify-start">
                     <div className="flex items-center">
                       <div className="lg:flex">
@@ -159,20 +192,16 @@ export default function ProductDetailPage() {
                       ระยะทาง {mapStore?.distance / 1000} กิโลเมตร
                     </span>
                     <span className="font-medium text-2xl text-gray-900">
-                      {priceRule(
-                        mapStore?.distance / 1000,
-                        productData?.price,
-                        +productQty
-                      )}
+                      {productSumPrice.toLocaleString("en-US")}
                     </span>
                     <div className="my-4">
                       <div className="block lg:flex">
-                        <span className="font-medium text-lg text-gray-800 my-auto lg:mr-4">
+                        <span className="font-semibold text-2xl text-gray-800 my-auto lg:mr-4">
                           จำนวนสินค้า
                         </span>
-                        <div className="flex justify-center my-4 lg:justify-start">
+                        <div className="flex justify-center my-4 lg:justify-start ">
                           <svg
-                            className="fill-current w-3 text-gray-900 hover:text-primary cursor-pointer"
+                            className="fill-current w-3 text-gray-900 hover:text-primary cursor-pointer "
                             viewBox="0 0 448 512"
                             onClick={() => {
                               if (productQty > 1) {
@@ -184,7 +213,7 @@ export default function ProductDetailPage() {
                           </svg>
 
                           <input
-                            className="mx-2 border text-center w-16 rounded-md text-gray-900 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
+                            className="mx-2 border text-2xl text-center w-16 rounded-md text-gray-900 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
                             type="number"
                             min={1}
                             value={parseInt(productQty)}
@@ -209,6 +238,12 @@ export default function ProductDetailPage() {
                         เพิ่มไปยังตะกร้า
                       </button>
                     </div>
+                    <button
+                      onClick={handleClickToast}
+                      className="text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded"
+                    >
+                      TOAST
+                    </button>
                   </div>
                 </div>
               </div>

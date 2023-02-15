@@ -126,9 +126,9 @@ export default function Navbar() {
                     onClick={(e) =>
                       handleClick(e, "/products/category", type?.name)
                     }
-                    className="font-bold text-[18px] flex items-center px-6 py-3 hover:bg-red-500 transition relative group/subType"
+                    className="font-bold text-[24px] flex items-center px-6 py-3 hover:bg-red-500 transition relative group/subType"
                   >
-                    <span className="ml-6 text-white text-[18px]">{type.name}</span>
+                    <span className="ml-6 text-white text-[24px]">{type.name}</span>
                   </div>
                 ))}
               </div>

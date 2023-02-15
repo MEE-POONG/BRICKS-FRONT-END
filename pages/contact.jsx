@@ -20,8 +20,8 @@ export default function ContactPage() {
       <div className="container pt-16 mx-auto font-fontTh2 p-4">
       {contactData?.map((contact, index) => (
         <section key={index} className="text-gray-700 body-font overflow-hidden bg-white rounded-lg shadow-xl p-3 lg:p-10">
-          <h1 className="text-[30px] lg:text-[50px] font-bold text-center text-primary ">ติดต่อ</h1>
-          <p className="text-center uppercase">contact us</p>
+          <h1 className=" text-5xl  lg:text-6xl font-bold text-center text-primary ">ติดต่อ</h1>
+          <p className=" text-4xl lg:text-5xl text-center uppercase">contact us</p>
           <div className="my-10">
             <iframe
               src={contact.linkMap}
@@ -32,9 +32,9 @@ export default function ContactPage() {
             ></iframe>
           </div>
 
-          <div className="m-5 grid grid-cols-1 lg:grid-cols-3 gap-8 lg:text-[18px]">
+          <div className="m-5 grid grid-cols-1 lg:grid-cols-3 gap-8 text-3xl">
             <div>
-              <p className="text-[24px] lg:text-[30px] ">ที่ตั้ง</p>
+              <p>ที่ตั้ง</p>
               <hr />
               <p className=" flex lg:py-2 mt-1 text-primary">
                 {" "}
@@ -42,7 +42,7 @@ export default function ContactPage() {
               </p>
             </div>
             <div>
-              <p className="text-[24px] lg:text-[30px]">ช่องทางติดต่อ</p>
+              <p>ช่องทางติดต่อ</p>
               <hr />
                 {" "}
                 <a
@@ -73,7 +73,7 @@ export default function ContactPage() {
               
             </div>
             <div>
-              <p className="text-[24px] lg:text-[30px]">ติดตามข่าวสาร</p>
+              <p>ติดตามข่าวสาร</p>
               <hr />
               <a
                 href={contact.linkFacebook}

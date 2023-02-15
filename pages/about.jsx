@@ -2,6 +2,7 @@
 import useAxios from "axios-hooks";
 import Head from "next/head";
 import React, { useRef } from "react";
+import { useState } from "react";
 
 export default function AboutPage() {
   const [{ data: aboutData, loading, error }, getAbout] = useAxios({
@@ -14,6 +15,12 @@ export default function AboutPage() {
     url: "/api/about/policy",
   });
 
+  const [textSize] = useState({
+    textSubHead:" text-5xl  lg:text-6xl",
+    textSubEn:" text-4xl lg:text-5xl",
+    textDetail:" text-2xl lg:text-3xl",
+  })
+
   return (
     <>
       <Head>
@@ -24,16 +31,16 @@ export default function AboutPage() {
         <section className="text-gray-700 body-font overflow-hidden bg-white rounded-lg shadow-lg">
           {aboutData?.map((about, index) => (
             <div key={index} className="container p-16 mx-auto">
-              <h1 className=" text-[30px]  lg:text-[50px] text-center text-primary font-semibold">
+              <h1 className=" text-7xl text-center text-primary font-semibold">
                 {about.headtitle}
               </h1>
-              <h2 className=" text-[12px]  lg:text-[20px] text-center ">
+              <h2 className=" text-5xl text-center ">
                 About
               </h2>
-              <h4 className=" mt-4 text-[16px]  lg:text-[35px] text-left font-semibold">
+              <h4 className={` ${textSize.textSubHead} mt-4 text-left font-semibold"`}>
                 {about.history}
               </h4>
-              <h4 className=" text-[12px] lg:text-[20px] text-left  text-primary">
+              <h4 className={` ${textSize.textSubEn}  text-left  text-primary`}>
                 History
               </h4>
               <div className="py-2 lg:py-4 ">
@@ -46,20 +53,20 @@ export default function AboutPage() {
           /> */}
                 <div
                   dangerouslySetInnerHTML={{ __html: about?.subhistory }}
-                  className="lg:mt-4 text-[14px] lg:text-[20px] text-left lg:text-left  "
+                  className={` ${textSize.textDetail} lg:mt-4 text-left`}
                 ></div>
               </div>
               <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
                 <div className="font-light ">
-                  <h4 className=" mt-2 text-[18px]  lg:text-[35px] text-left font-semibold">
+                  <h4 className={` ${textSize.textSubHead}   mt-2 text-left font-semibold`}>
                     {about.portfolio}
                   </h4>
-                  <h4 className=" text-[12px] lg:text-[20px] text-left  text-primary">
+                  <h4 className={` ${textSize.textSubEn} text-left  text-primary`}>
                     Portfolio
                   </h4>
                   <div
                     dangerouslySetInnerHTML={{ __html: about?.subportfolio }}
-                    className="mb-4 text-[14px] lg:text-[20px] "
+                    className={` ${textSize.textDetail} mb-4`}
                   ></div>
                 </div>
                 <div className="lg:grid lg:grid-cols-2 gap-4 mt-8">
@@ -90,33 +97,31 @@ export default function AboutPage() {
                 ></iframe>
               
               </div>
-              <h4 className=" mt-4 lg:mt-10 text-[16px]  lg:text-[35px] text-left font-semibold">
+                <h4 className={`"  ${textSize.textSubHead}  mt-4 lg:mt-10 text-left font-semibold"`}>
                 {about.headpolicy}
               </h4>
-              <h4 className=" text-[12px] lg:text-[20px] text-left  text-primary">
+              <h4 className={`" ${textSize.textSubEn} text-left  text-primary"`}>
                 Policy
               </h4>
               <div
                 dangerouslySetInnerHTML={{ __html: about?.subpolicy }}
-                className="py-2 lg:py-4 text-[14px] lg:text-[20px] text-left lg:text-left"
+                className={`" ${textSize.textDetail} py-2 lg:py-4 text-left lg:text-left"`}
               ></div>
             </div>
           ))}
 
-          <div className=" py-3  grid lg:grid grid-cols-1 lg:grid-cols-3 gap-4 text-center lg:mx-20   ">
+          <div className=" py-3  grid  grid-cols-1 lg:grid-cols-3 gap-4 text-center items-center lg:mx-20   ">
             {policyData?.map((item, index) => (
-              <div key={index}>
-                <div className="p-5 max-w-sm bg-white border-2 border-primary rounded-lg shadow-lg  ">
+                <div key={index} className="p-5 max-w-sm bg-white border-2 border-primary rounded-lg shadow-lg  ">
                   <div
                     dangerouslySetInnerHTML={{ __html: item?.headpolicy }}
-                    className="mb-2 text-[18px] lg:text-[25px]  tracking-tight  "
+                    className="mb-2 text-2xl lg:text-4xl  tracking-tight  "
                   ></div>
                   <div
                     dangerouslySetInnerHTML={{ __html: item?.subpolicy }}
-                    className="mb-3 text-[12px] lg:text-[20px]"
+                    className="mb-3 text-1xl lg:text-3xl"
                   ></div>
                 </div>
-              </div>
             ))}
           </div>
         </section>

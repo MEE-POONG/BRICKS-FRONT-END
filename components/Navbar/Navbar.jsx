@@ -118,22 +118,22 @@ export default function Navbar() {
               <span className="text-white">
                 <FaBars />
               </span>
-              <span className="ml-2 text-white">ประเภทสินค้า</span>
-              <div className="absolute w-full z-40 left-0 top-full bg-primary rounded-b-lg shadow-md py-3 divide-y divide-white divide-solid  opacity-0 group-hover/type:opacity-100 transition duration-300 invisible group-hover/type:visible">
+              <span className="ml-2 font-bold text-white">ประเภทสินค้า</span>
+              <div className="absolute w-full z-40 left-0 top-full  bg-primary rounded-b-lg shadow-md py-3 divide-y divide-white divide-solid  opacity-0 group-hover/type:opacity-100 transition duration-300 invisible group-hover/type:visible">
                 {arrSortTypeName?.map((type, index) => (
                   <div
                     key={index}
                     onClick={(e) =>
                       handleClick(e, "/products/category", type?.name)
                     }
-                    className="flex items-center px-6 py-3 hover:bg-red-500 transition relative group/subType"
+                    className="font-bold text-[18px] flex items-center px-6 py-3 hover:bg-red-500 transition relative group/subType"
                   >
-                    <span className="ml-6 text-white text-sm">{type.name}</span>
+                    <span className="ml-6 text-white text-[18px]">{type.name}</span>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="hidden items-center justify-between flex-grow pl-12 lg:flex">
+            <div className="hidden items-center justify-between flex-grow pl-12 lg:flex font-bold">
               <div className="flex items-center space-x-6 capitalize">
                 <Link
                   href="/products"

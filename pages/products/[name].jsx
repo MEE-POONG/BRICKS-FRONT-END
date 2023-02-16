@@ -6,9 +6,10 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Loading from "../../components/Loading/Loading";
 import MapComponent from "../../components/Map/MapComponent";
+import { priceRule } from "../../utils/priceRule";
 
 export default function ProductDetailPage() {
   const router = useRouter();
@@ -17,7 +18,6 @@ export default function ProductDetailPage() {
   let [isOpen, setIsOpen] = useState(false);
   const [productQty, setProductQty] = useState(1);
   const [productSumPrice, setProductSumPrice] = useState("");
-  const dispatch = useDispatch();
   const [
     { data: productData, loading: productLoading, error: productError },
     getProduct,
@@ -31,41 +31,6 @@ export default function ProductDetailPage() {
     },
     { manual: true }
   );
-
-  //เช็คระยะทางเพื่อบวกราคา
-  const priceRule = (distance = 0, constPrice = 0, qty = 1) => {
-    const distanceKM = distance / 1000;
-    if (productData?.qtyRate.length !== 0) {
-      if (distanceKM !== 0) {
-        //QTY RATE
-        const qtyArr = productData?.qtyRate.map((qtyArr) => qtyArr); // map array
-        const qtySort = qtyArr?.sort((a, b) => b.qtyCheck - a.qtyCheck); //sort array
-        const findQty = qtySort
-          ?.map((qtyArrSort) => qtyArrSort)
-          ?.find((q) => qty >= q.qtyCheck);
-
-        // ADD ON RATE
-        const addOnArr = findQty?.addOnRate.map((addOnArr) => addOnArr); // map array
-        const addSort = addOnArr?.sort((a, b) => a.length - b.length); //sort array
-        const findDistance = addSort
-          ?.map((lengthArr) => lengthArr.length)
-          ?.find((length) => length > distanceKM);
-        const findAddOn = addSort
-          ?.map((lengthArr) => lengthArr)
-          ?.find((lengthArr) => lengthArr.length === findDistance);
-
-        // console.log("findAddOn", findAddOn);
-        // console.log("findDistance", findDistance);
-
-        if (findDistance !== undefined) {
-          return (constPrice + findAddOn?.addOn) * qty;
-        }
-        return "ขออภัยไม่อยู่ในพื้นที่จัดส่ง";
-      }
-      return "กรุณาเลือกพื้นที่จัดส่ง";
-    }
-    return constPrice * qty;
-  };
 
   //SUBMIT DATA
   const handleAddToCart = async () => {
@@ -109,7 +74,12 @@ export default function ProductDetailPage() {
   };
 
   useEffect(() => {
-    let result = priceRule(mapStore?.distance, productData?.price, +productQty);
+    let result = priceRule(
+      mapStore?.distance,
+      productData?.price,
+      +productQty,
+      productData?.qtyRate
+    );
     setProductSumPrice(result);
   }, [mapStore?.distance, productData?.price, productQty]);
 

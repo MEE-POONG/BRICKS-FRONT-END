@@ -13,7 +13,7 @@ export default async function handler(req, res) {
             }
             break
         default:
-            res.setHeader('Allow', ['GET', 'PUT'])
+            res.setHeader('Allow', ['GET'])
             res.status(405).end(`Method ${method} Not Allowed`)
     }
 }

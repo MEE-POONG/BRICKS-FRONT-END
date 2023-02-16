@@ -1,9 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
+import {useSession} from "next-auth/react";
 import React from "react";
 import PurchaseHistory from "../../components/Users/PurchaseHistory";
 import UserEditProFile from "../../components/Users/UserEditProFile";
 
 const Tabs = ({ color }) => {
+  const { data: session } = useSession();
+  console.log(session?.user);
   const [openTab, setOpenTab] = React.useState(1);
   return (
     <>
@@ -61,7 +64,7 @@ const Tabs = ({ color }) => {
             <div className="px-4 flex-auto">
               <div className="tab-content tab-space">
                 <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                  <UserEditProFile />
+                  <UserEditProFile userData={session?.user}/>
                 </div>
                 <div className={openTab === 2 ? "block" : "hidden"} id="link2">
                   <PurchaseHistory />

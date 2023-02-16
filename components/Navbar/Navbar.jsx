@@ -78,7 +78,8 @@ export default function Navbar() {
                   </div>
                 </Link>
                 
-                  {session ? (
+                {session ? (
+                  <Link href={"/users"} className="lg:mx-10">
                     <div className="space-x-2 flex items-center">
                       <img
                         className="w-8 h-8 rounded-full mx-auto cursor-pointer"
@@ -94,21 +95,23 @@ export default function Navbar() {
                         logout
                       </button>
                     </div>
-                  ) : (
-                    <Link
-                      href={"/login"}
-                      className="text-center text-gray-700 hover:text-primary transition relative"
-                    >
-                      <div className="text-lg flex justify-center lg:text-2xl">
-                        <FaRegUser />
-                      </div>
-                      <div className=" leading-3 text-2xl">เข้าสู่ระบบ</div>
-                    </Link>
-                  )}
-                </div>
-              </div>
+              </Link>
+              ) : (
+                <Link
+                  href={"/login"}
+                  className="text-center text-gray-700 hover:text-primary transition relative"
+                >
+                  <div className="text-lg flex justify-center lg:text-2xl">
+                    <FaRegUser />
+                  </div>
+                  <div className=" leading-3 text-2xl">เข้าสู่ระบบ</div>
+                </Link>
+              )}
             </div>
           </div>
+        </div>
+      </div>
+                 
 
 
         <nav className="mt-2 bg-gray-800">

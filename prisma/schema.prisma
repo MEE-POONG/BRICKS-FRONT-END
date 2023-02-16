@@ -259,6 +259,7 @@ model User {
   sessions      Session[]
   orders        Orders[]
   cart          Cart[]
+  address       Address[]
 }
 
 model VerificationToken {
@@ -268,4 +269,15 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Address {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  address     String?
+  district    String?
+  subDistrict String?
+  province    String?
+  postalCode  String?
+  userId      String? @db.ObjectId
+  user        User?   @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

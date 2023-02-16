@@ -1,8 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
+import useAxios from "axios-hooks";
 import React from "react";
 import SectionComponent from "../headtop";
 
 export default function UserEditProFile() {
+  const [
+    { data: userData, loading: userLoading, error: userError },
+    getUser,
+  ] = useAxios({
+    url: `/api/user`,
+  });
+
   return (
     <>
       <SectionComponent title="ข้อมูลของฉัน" detail="My Profile">

@@ -17,7 +17,7 @@ export default function UserEditProFile(props) {
               <form className="sm:w-1/3  text-center py-3">
                 <div className="w-20 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
                   <img
-                    src={props.userData.image}
+                    src={props.userData?.image}
                     alt=""
                     className="h-16 w-16 object-cover rounded-full"
                   />

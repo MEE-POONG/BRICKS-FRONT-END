@@ -52,7 +52,7 @@ export default function UserEditProFile(props) {
                     ชื่อ : 
                     <input
                       type="text"
-                      value={props.userData.name}
+                      value={props.userData?.name}
                       id=""
                       className="block rounded-t-lg px-2.5 w-full text-gray-900 bg-gray-50 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-red-600 peer"
                       placeholder=" "
@@ -63,7 +63,7 @@ export default function UserEditProFile(props) {
                   <label htmlFor="">เบอร์โทร : &nbsp;</label>
                   <input
                     type="text"
-                    value={props.userData.tal}
+                    value={props.userData?.tal}
                     id=""
                     className="block rounded-t-lg px-2.5 w-full text-gray-900 bg-gray-50 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-red-600 peer"
                     placeholder=" "
@@ -73,7 +73,7 @@ export default function UserEditProFile(props) {
                   <label htmlFor="">อีเมล : &nbsp;</label>
                   <input
                     type="email"
-                    value={props.userData.email}
+                    value={props.userData?.email}
                     id=""
                     className="block rounded-t-lg px-2.5 w-full text-gray-900 bg-gray-50 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-red-600 peer"
                     placeholder=""

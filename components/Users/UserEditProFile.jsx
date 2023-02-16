@@ -3,13 +3,7 @@ import useAxios from "axios-hooks";
 import React from "react";
 import SectionComponent from "../headtop";
 
-export default function UserEditProFile() {
-  const [
-    { data: userData, loading: userLoading, error: userError },
-    getUser,
-  ] = useAxios({
-    url: `/api/user`,
-  });
+export default function UserEditProFile(props) {
 
   return (
     <>
@@ -23,7 +17,7 @@ export default function UserEditProFile() {
               <form className="sm:w-1/3  text-center py-3">
                 <div className="w-20 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
                   <img
-                    src="/logo.png"
+                    src={props.userData.image}
                     alt=""
                     className="h-16 w-16 object-cover rounded-full"
                   />
@@ -55,9 +49,10 @@ export default function UserEditProFile() {
               <form className=" font-semibold text-3xl sm:w-2/4 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-left">
                 <div className="">
                   <label htmlFor="">
-                    ชื่อ :
+                    ชื่อ : 
                     <input
                       type="text"
+                      value={props.userData.name}
                       id=""
                       className="block rounded-t-lg px-2.5 w-full text-gray-900 bg-gray-50 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-red-600 peer"
                       placeholder=" "
@@ -68,6 +63,7 @@ export default function UserEditProFile() {
                   <label htmlFor="">เบอร์โทร : &nbsp;</label>
                   <input
                     type="text"
+                    value={props.userData.tal}
                     id=""
                     className="block rounded-t-lg px-2.5 w-full text-gray-900 bg-gray-50 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-red-600 peer"
                     placeholder=" "
@@ -77,7 +73,7 @@ export default function UserEditProFile() {
                   <label htmlFor="">อีเมล : &nbsp;</label>
                   <input
                     type="email"
-                    name=""
+                    value={props.userData.email}
                     id=""
                     className="block rounded-t-lg px-2.5 w-full text-gray-900 bg-gray-50 border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-red-600 peer"
                     placeholder=""

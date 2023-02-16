@@ -7,131 +7,114 @@ import { FaBars, FaRegUser, FaShoppingBasket, FaSistrix } from "react-icons/fa";
 import SectionComponent from "../headtop";
 
 export default function PurchaseHistory() {
-
   return (
     <>
       <SectionComponent title="ประวัติการซื้อของฉัน" detail="">
         <main>
           <section>
-            <div className="bg-gray-100 sm:grid grid-cols-5 grid-rows-2 px-4 py-6 min-h-full lg:min-h-screen space-y-4 sm:space-y-0 sm:gap-4">
-              <div className="h-56 col-span-4 flex items-center container mx-auto sm:-mx-8  sm:px-8 text-2xl ">
-                <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
-                  <table className="min-w-full leading-normal px-5 border-b-2 border-gray-200 bg-[#1f2937] text-center  font-semibold text-white uppercase tracking-wider ">
-                    <thead >
-                      <tr className="">
-                        <th className=" ">ลำดับ</th>
-                        <th className="p-2 ">สินค้า</th>
-                        <th className="">จำนวน</th>
-                        <th className="">ราคา/ชิ้น</th>
-                        <th className="">ราคารวม</th>
-                        <th className="">สถานะ</th>
-                        <th className="">สั่งซื้อเมื่อ</th>
-                        <th className="">รายละเอียด</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                      <td className="px-5 py-5 border-b border-gray-200 bg-white text-2xl  hover:bg-gray-100">
-                          <p className="text-gray-900 whitespace-no-wrap text-center">
+            <div className="grid grid-cols-5 ">
+              <div className="overflow-x-auto sm:-mx-6 lg:-mx-8 col-span-4 ">
+                <div className="py-4 inline-block min-w-full sm:px-6 lg:px-8 ">
+                  <div className="overflow-hidden rounded-md">
+                    <table className="min-w-full text-center text-2xl font-bold ">
+                      <thead className="border-b bg-gray-800 ">
+                        <tr>
+                          <th scope="col" className="  text-white px-6 py-4">
+                            ลำดับ
+                          </th>
+                          <th scope="col" className=" text-white px-6 py-4">
+                            หมายเลขคำสั่งซื้อ
+                          </th>
+                          <th scope="col" className=" text-white px-6 py-4">
+                            สินค้า
+                          </th>
+                          <th scope="col" className=" text-white px-6 py-4">
+                            ราคา
+                          </th>
+                          <th scope="col" className="  text-white px-6 py-4">
+                            วันที่สั่งซื้อ
+                          </th>
+                          <th scope="col" className="  text-white px-6 py-4">
+                            สถานะ
+                          </th>
+                          <th scope="col" className="  text-white px-6 py-4">
+                            รายละเอียด
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr className="bg-white border-b">
+                          <td className="px-6 py-4 whitespace-nowrap  text-gray-900  border-l">
                             1
-                          </p>
-                        </td>
-                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-2xl w-2/6 hover:bg-gray-100">
-                        <p className="text-gray-900 whitespace-no-wrap text-center">
-                            แมว เหมียว
-                          </p>
-                        </td>
-                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-2xl  hover:bg-gray-100">
-                          <p className="text-gray-900 whitespace-no-wrap text-center">
-                            0333
-                          </p>
-                        </td>
-                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-2xl  hover:bg-gray-100">
-                          <p className="text-gray-900 whitespace-no-wrap text-center">
-                            3333
-                          </p>
-                        </td>
-                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-2xl  hover:bg-gray-100">
-                          <p className="text-gray-900 whitespace-no-wrap text-center">
-                            3333
-                          </p>
-                        </td>
-                        <td className=" whitespace-no-wrap border-bpx-5 py-5 border-b border-gray-200 bg-white hover:bg-gray-100 ">
-                          <span className="relative inline-block px-10 py-1 font-semibold text-green-900 leading-tight">
-                            <span
-                              aria-hidden
-                              className="absolute inset-0 bg-green-200 opacity-50 rounded-md  "
-                            ></span>
-                            <span className="relative text-xl">
-                                อิอิ
-                                </span>
-                          </span>
-                        </td>
-                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-xl  hover:bg-gray-100">
-                          <p className="py-3 px-3 focus:outline-none leading-none text-red-700 bg-red-100 rounded">
+                          </td>
+                          <td className=" text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            Mark
+                          </td>
+                          <td className=" text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            Otto
+                          </td>
+                          <td className=" text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            @mdo
+                          </td>
+                          <td className=" text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          <p className="py-3 px-3 focus:outline-none leading-none  bg-gray-100 rounded">
                             15/2/2565 เมื่อ 18:00
                           </p>
-                        </td>
-                        <td className=" px-5 py-5 border-b border-gray-200 bg-white text-xl  hover:bg-gray-100">
-                          <button className="px-5 py-2 border-blue-500 border text-blue-500 rounded-md transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
-                            ดูรายละเอียด
-                          </button>
-                        </td>
-                      </tr>
-
-                      <tr>
-                      <td className="px-5 py-5 border-b-3 border-gray-200 bg-white text-2xl  hover:bg-gray-100">
-                          <p className="text-gray-900 whitespace-no-wrap text-center">
-                            1
-                          </p>
-                        </td>
-                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-2xl w-2/6 hover:bg-gray-100">
-                        <p className="text-gray-900 whitespace-no-wrap text-center">
-                            แมว เหมียว
-                          </p>
-                        </td>
-                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-2xl  hover:bg-gray-100">
-                          <p className="text-gray-900 whitespace-no-wrap text-center">
-                            0333
-                          </p>
-                        </td>
-                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-2xl  hover:bg-gray-100">
-                          <p className="text-gray-900 whitespace-no-wrap text-center">
-                            3333
-                          </p>
-                        </td>
-                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-2xl  hover:bg-gray-100">
-                          <p className="text-gray-900 whitespace-no-wrap text-center">
-                            3333
-                          </p>
-                        </td>
-                        <td className=" whitespace-no-wrap border-bpx-5 py-5 border-b border-gray-200 bg-white hover:bg-gray-100 ">
-                          <span className="relative inline-block px-10 py-1 font-semibold text-green-900 leading-tight">
-                            <span
-                              aria-hidden
-                              className="absolute inset-0 bg-green-200 opacity-50 rounded-md  "
-                            ></span>
-                            <span className="relative text-xl">
-                                อิอิ
-                                </span>
-                          </span>
-                        </td>
-                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-xl  hover:bg-gray-100">
-                          <p className="py-3 px-3 focus:outline-none leading-none text-red-700 bg-red-100 rounded">
+                          </td>
+                          <td className=" text-gray-900 font-light px-6 py-4 whitespace-nowrap ">
+                            <span className="relative inline-block px-10 py-1 font-semibold text-green-900 leading-tight">
+                              <span
+                                aria-hidden
+                                className="absolute inset-0 bg-green-200 opacity-50 rounded-md  "
+                              ></span>
+                              <span className="relative inline-block py-1 text-xl">กำลังดำเนินการจัดส่ง</span>
+                            </span>
+                          </td>
+                          <td className=" text-gray-900 font-light px-6 py-4 whitespace-nowrap  border-r">
+                            <button className="relative inline-block px-4 py-1  border-blue-500 border text-blue-500 rounded-md transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
+                              ดูรายละเอียด
+                            </button>
+                          </td>
+                        </tr>
+                        <tr className="bg-white border-b">
+                          <td className="px-6 py-4 whitespace-nowrap text-gray-900 border-l">
+                            2
+                          </td>
+                          <td className=" text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            Jacob
+                          </td>
+                          <td className=" text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            Thornton
+                          </td>
+                          <td className=" text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            @fat
+                          </td>
+                          <td className=" text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          <p className="py-3 px-3 focus:outline-none leading-none  bg-gray-100 rounded">
                             15/2/2565 เมื่อ 18:00
                           </p>
-                        </td>
-                        <td className=" px-5 py-5 border-b border-gray-200 bg-white text-xl  hover:bg-gray-100">
-                          <button className="px-5 py-2 border-blue-500 border text-blue-500 rounded-md transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
-                            ดูรายละเอียด
-                          </button>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                          </td>
+                          <td className=" text-gray-900 font-light px-6 py-4 whitespace-nowrap ">
+                            <span className="relative inline-block px-10 py-1 font-semibold text-red-900 leading-tight">
+                              <span
+                                aria-hidden
+                                className="absolute inset-0 bg-red-200 opacity-50 rounded-md  "
+                              ></span>
+                              <span className="relative inline-block py-1 text-xl">การจัดส่งเสร็จสิ้น</span>
+                            </span>
+                          </td>
+                          <td className=" text-gray-900 font-light px-6 py-4 whitespace-nowrap  border-r">
+                            <button className="relative inline-block px-4 py-1  border-blue-500 border text-blue-500 rounded-md transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
+                              ดูรายละเอียด
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
-              <div className="h-96 col-span-1 ">
+              <div className=" col-span-1 ml-4 mt-4">
                 <div className="bg-white  rounded-md border-primary border text-2xl ">
                   <h1 className="text-center my-4  bg-white py-2 rounded-md border-b-2  text-gray-600">
                     Service

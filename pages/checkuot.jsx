@@ -1,15 +1,12 @@
 import useAxios from "axios-hooks";
-import { useFormik } from "formik";
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import AddressForm from "../components/AddressForm/AddressForm";
 import Basket from "../components/Basket/Basket";
 import CheckBill from "../components/CheckBill/CheckBill";
 import Loading from "../components/Loading";
 import Successfully from "../components/Stepper/Successfully";
 import Stepper from "../components/Stepper/Stepper";
 import StepperControl from "../components/Stepper/StepperControl";
-import { fromSchema } from "../schemas";
+import AddressSelect from "../components/Address/AddressSelect";
 
 export default function Checkout() {
   //REDUX
@@ -91,30 +88,6 @@ export default function Checkout() {
   };
   //END SUBMIT ORDERS
 
-  //FORM VALIDATION
-  const {
-    values,
-    errors,
-    touched,
-    isValid,
-    handleBlur,
-    handleChange,
-    handleSubmit,
-  } = useFormik({
-    initialValues: {
-      //   firstname: allCart.firstname,
-      //   lastname: allCart.lastname,
-      //   tel: allCart.tel,
-      //   email: allCart.email,
-      //   province: allCart.province,
-      //   district: allCart.district,
-      //   subDistrict: allCart.subDistrict,
-      //   postalCode: allCart.postalCode,
-      //   address: allCart.address,
-    },
-    validationSchema: fromSchema,
-  });
-  //END FORM VALIDATION
 
   //STEP PAGES FUNCTION
   const handleClick = (direction) => {
@@ -130,14 +103,7 @@ export default function Checkout() {
         return <Basket />;
       case 2:
         return (
-          <AddressForm
-            values={values}
-            errors={errors}
-            touched={touched}
-            handleBlur={handleBlur}
-            handleChange={handleChange}
-            handleSubmit={handleSubmit}
-          />
+          <AddressSelect/>
         );
       case 3:
         return (
@@ -159,7 +125,7 @@ export default function Checkout() {
 
   return (
     <>
-      <div className="mx-auto shadow-xl rounded-3xl pb-2 bg-white m-10 mt-28 lg:w-4/5">
+      <div className="mx-auto shadow-xl rounded-3xl pb-2 bg-white m-10 lg:w-4/5">
         {/* Stepper */}
         <div className="container horizontal my-8 mx-auto">
           <Stepper steps={steps} currentStep={currentStep} />
@@ -172,8 +138,6 @@ export default function Checkout() {
           <StepperControl
             handleClick={handleClick}
             handleExec={handleExec}
-            handleSubmit={handleSubmit}
-            isValid={isValid}
             currentStep={currentStep}
             steps={steps}
             ImageCheck={ImageCheck}

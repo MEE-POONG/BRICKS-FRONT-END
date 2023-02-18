@@ -26,6 +26,10 @@ export default function Checkout() {
   //   ] = useAxios({ url: "/api/orders", method: "POST" }, { manual: true });
   //END ORDER EXECUTE
 
+  //ADDRESS SELECTED
+  const [addressSelected, setAddressSelected] = useState();
+  //END ADDRESS SELECTED
+
   // UPLOAD IMAGE
   const [{ loading: imgLoading, error: imgError }, uploadImage] = useAxios(
     { url: "/api/uploads", method: "POST" },
@@ -88,7 +92,6 @@ export default function Checkout() {
   };
   //END SUBMIT ORDERS
 
-
   //STEP PAGES FUNCTION
   const handleClick = (direction) => {
     let newStep = currentStep;
@@ -103,7 +106,10 @@ export default function Checkout() {
         return <Basket />;
       case 2:
         return (
-          <AddressSelect/>
+          <AddressSelect
+            addressSelected={addressSelected}
+            setAddressSelected={setAddressSelected}
+          />
         );
       case 3:
         return (

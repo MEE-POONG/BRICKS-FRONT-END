@@ -273,6 +273,9 @@ model VerificationToken {
 
 model Address {
   id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  firstname   String?
+  lastname    String?
+  tel         String?
   address     String?
   district    String?
   subDistrict String?

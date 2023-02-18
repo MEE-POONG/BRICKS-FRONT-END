@@ -7,9 +7,29 @@ export default async function handler(req, res) {
     case "GET":
       try {
         const data = await prisma.address.findMany({
-            where: {
-                userId: req.query.userId
-            }
+          where: {
+            userId: req.query.userId,
+          },
+        });
+        res.status(200).json(data);
+      } catch (err) {
+        res.status(400).json({ success: false });
+      }
+      break;
+    case "POST":
+      try {
+        const data = await prisma.address.create({
+          data: {
+            firstname: req.body.firstname,
+            lastname: req.body.lastname,
+            tel: req.body.tel,
+            province: req.body.province,
+            district: req.body.district,
+            subDistrict: req.body.subDistrict,
+            postalCode: req.body.postalCode,
+            address: req.body.address,
+            userId: req.body.userId,
+          },
         });
         res.status(200).json(data);
       } catch (err) {

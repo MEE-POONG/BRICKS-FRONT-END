@@ -6,17 +6,26 @@ import { useFormik } from "formik";
 import useAxios from "axios-hooks";
 import { useSession } from "next-auth/react";
 
-export default function AddressSelect() {
+export default function AddressSelect({ addressSelected, setAddressSelected }) {
   const { data: session } = useSession();
   let [isOpen, setIsOpen] = useState(false);
 
+  //ADDRESS GET DATA
   const [
     { data: addressData, loading: addressLoading, error: addressError },
     getAddress,
   ] = useAxios({
     url: "/api/address",
     params: { userId: session?.user.id },
+    method: "GET",
   });
+
+  //ADDRESS POST DATA
+  const [{ loading: addressExcLoading, error: addressExcError }, excAddress] =
+    useAxios({
+      url: "/api/address",
+      method: "POST",
+    });
 
   //FORM VALIDATION
   const {
@@ -29,19 +38,41 @@ export default function AddressSelect() {
     handleSubmit,
   } = useFormik({
     initialValues: {
-      //   firstname: allCart.firstname,
-      //   lastname: allCart.lastname,
-      //   tel: allCart.tel,
-      //   email: allCart.email,
-      //   province: allCart.province,
-      //   district: allCart.district,
-      //   subDistrict: allCart.subDistrict,
-      //   postalCode: allCart.postalCode,
-      //   address: allCart.address,
+      firstname: "",
+      lastname: "",
+      tel: "",
+      province: "",
+      district: "",
+      subDistrict: "",
+      postalCode: "",
+      address: "",
     },
     validationSchema: fromSchema,
+    onSubmit: async (values) => {
+      try {
+        await excAddress({
+          data: {
+            firstname: values.firstname,
+            lastname: values.lastname,
+            tel: values.tel,
+            province: values.province,
+            district: values.district,
+            subDistrict: values.subDistrict,
+            postalCode: values.postalCode,
+            address: values.address,
+            userId: session?.user.id,
+          },
+        }).then(() => {
+          setIsOpen(false);
+          getAddress();
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    },
   });
   //END FORM VALIDATION
+
   return (
     <>
       <div className="flex justify-around mt-10">
@@ -77,17 +108,48 @@ export default function AddressSelect() {
         <button
           type="button"
           onClick={() => setIsOpen(true)}
-          className="rounded-xl bg-primary px-4 py-2 text-xl font-semibold text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+          className="rounded-xl bg-primary px-4 py-2 text-xl font-semibold text-white hover:bg-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
         >
           เพิ่มที่อยู่
         </button>
       </div>
 
       {addressData?.length !== 0 ? (
-        ""
+        <div className="w-2/3 mx-auto">
+          {addressData?.map((address, index) => (
+            <div
+              key={index}
+              className={`${
+                addressSelected?.id === address.id
+                  ? "border-primary"
+                  : "border-gray-400"
+              } p-10 my-4 rounded-lg border-2 hover:border-primary`}
+              onClick={() => {
+                setAddressSelected(address);
+              }}
+            >
+              <div className="flex justify-around">
+                <span>ชื่อจริง: {address.firstname}</span>
+                <span>นามสกุล: {address.lastname}</span>
+                <span>เบอร์โทร: {address.tel}</span>
+              </div>
+              <div className="flex justify-around">
+                <span>จังหวัด: {address.province}</span>
+                <span>อำเภอ: {address.district}</span>
+                <span>ตำบล: {address.subDistrict}</span>
+                <span>รหัสไปรษณีย์: {address.postalCode}</span>
+              </div>
+              <div className="flex justify-around">
+                <span>รายละเอียด: {address.address}</span>
+              </div>
+            </div>
+          ))}
+        </div>
       ) : (
         <div className="flex justify-center my-20">
-          <span className="text-4xl font-bold">ไม่มีที่อยู่จัดส่งกรุณาเพิ่มที่อยู่</span>
+          <span className="text-4xl font-bold">
+            ไม่มีที่อยู่จัดส่งกรุณาเพิ่มที่อยู่
+          </span>
         </div>
       )}
 

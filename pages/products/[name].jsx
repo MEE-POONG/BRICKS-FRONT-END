@@ -12,7 +12,19 @@ import MapComponent from "../../components/Map/MapComponent";
 import { postCart } from "../../store/cart/cartSlice";
 import { priceRule } from "../../utils/priceRule";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
+
+import { FreeMode, Navigation, Thumbs } from "swiper";
+
 export default function ProductDetailPage() {
+
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+
   const router = useRouter();
   const { data: session } = useSession();
   const dispatch = useDispatch();
@@ -118,15 +130,50 @@ export default function ProductDetailPage() {
             <div className="container px-5 py-8 mx-auto">
               <div className="lg:w-4/5 mx-auto flex flex-wrap">
                 <div className="relative w-screen h-80 object-center border border-gray-200 rounded-lg lg:w-1/2 lg:h-auto">
-                  <Image
-                    fill
-                    sizes="100vw"
-                    style={{
-                      objectFit: "contain",
-                    }}
-                    src={productData?.image}
-                    alt="productImage"
-                  />
+
+                <Swiper
+        style={{
+          "--swiper-navigation-color": "#000",
+          "--swiper-pagination-color": "#000",
+        }}
+        loop={true}
+        spaceBetween={10}
+        navigation={true}
+        modules={[FreeMode, Navigation, Thumbs]}
+        thumbs={{swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null}}
+        className="mySwiper2"
+      >
+        {console.log(productData.imageProduct)}
+     <SwiperSlide>
+          <img src={productData?.image} />
+        </SwiperSlide>
+        {productData?.imageProduct.map((img , index) =>(
+          <SwiperSlide key={index}>
+          <img src={img.image} />
+        </SwiperSlide>
+        ))}
+        
+      </Swiper>
+      <Swiper
+        onSwiper={setThumbsSwiper}
+        spaceBetween={10}
+        slidesPerView={4}
+        watchSlidesProgress={true}
+        modules={[FreeMode, Navigation, Thumbs]}
+        className="mySwiper"
+      >
+        <SwiperSlide>
+          <img src={productData?.image} />
+        </SwiperSlide>
+        {productData?.imageProduct.map((img , index) =>(
+          <SwiperSlide key={index}>
+          <img src={img.image} />
+        </SwiperSlide>
+        ))}
+      </Swiper>
+
+
+          
                 </div>
                 <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                   <h2 className="text-sm title-font text-gray-500 tracking-widest">

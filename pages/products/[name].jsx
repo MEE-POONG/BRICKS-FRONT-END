@@ -132,14 +132,15 @@ export default function ProductDetailPage() {
                 <div className="relative w-screen h-80 object-center border border-gray-200 rounded-lg lg:w-1/2 lg:h-auto">
 
                 <Swiper
-        // style={{
-        //   "--swiper-navigation-color": "#000",
-        //   "--swiper-pagination-color": "#000",
-        // }}
+        style={{
+          "--swiper-navigation-color": "#000",
+          "--swiper-pagination-color": "#000",
+        }}
         loop={true}
         spaceBetween={10}
-        modules={[FreeMode]}
-        // thumbs={{swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null}}
+        navigation={true}
+        modules={[FreeMode, Navigation, Thumbs]}
+        thumbs={{swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null}}
         className="mySwiper2"
       >
         {console.log(productData.imageProduct)}
@@ -158,7 +159,7 @@ export default function ProductDetailPage() {
         spaceBetween={10}
         slidesPerView={4}
         watchSlidesProgress={true}
-        modules={[FreeMode]}
+        modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper"
       >
         <SwiperSlide>

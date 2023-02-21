@@ -136,7 +136,7 @@ export default function ProductDetailPage() {
                       "--swiper-pagination-color": "#000",
                     }}
                     loop={true}
-                    spaceBetween={10}
+                    // spaceBetween={10}
                     navigation={true}
                     modules={[Navigation]}
                     // thumbs={{

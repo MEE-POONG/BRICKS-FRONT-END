@@ -1,8 +1,15 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 import React from "react";
 import { FaTrashAlt } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteCart } from "../../store/cart/cartSlice";
 import BasketEmpty from "./BasketEmpty";
 export default function Basket() {
+  const cartItems = useSelector((state) => state.cartStore.cart);
+  const dispatch = useDispatch();
+  const handleDeleteCartItem = async (cartItemId) => {
+    dispatch(deleteCart(cartItemId));
+  };
   return (
     <>
       <div className="container lg:mt-10 lg:px-20">
@@ -22,36 +29,40 @@ export default function Basket() {
                 ราคา
               </h3>
             </div>
-
-            <div className="flex items-center hover:bg-gray-100 py-6 px-2 lg:px-6">
-              <div className="flex w-2/4">
-                <div className="w-20">
-                  <img className="h-24" src={""} alt="product" />
+            {cartItems?.map((item, index) => (
+              <div
+                key={index}
+                className="flex items-center hover:bg-gray-100 py-6 px-2 lg:px-6"
+              >
+                <div className="flex w-2/4">
+                  <div className="w-20">
+                    <img className="h-24" src={item.image} alt="product" />
+                  </div>
+                  <div className="flex flex-col justify-between ml-4 flex-grow">
+                    <span className="font-bold text-nd text-primary">
+                      {item.name}
+                    </span>
+                    <div
+                      className="w-fit cursor-pointer font-semibold hover:text-red-500 text-gray-500 text-xs"
+                      onClick={() => handleDeleteCartItem(item.id)}
+                    >
+                      <FaTrashAlt />
+                    </div>
+                  </div>
                 </div>
-                <div className="flex flex-col justify-between ml-4 flex-grow">
-                  <span className="font-bold text-nd text-primary">
-                    {"product.name"}
-                  </span>
-                  <a
-                    href="#"
-                    className="font-semibold hover:text-red-500 text-gray-500 text-xs"
-                  >
-                    <FaTrashAlt />
-                  </a>
+                <div className="flex justify-center w-1/4">
+                  <input
+                    className="mx-2 border text-center w-8 rounded-md"
+                    type="text"
+                    disabled
+                    value={item.qty}
+                  />
                 </div>
+                <span className="text-right w-1/4 font-semibold text-sm">
+                  {item.price}
+                </span>
               </div>
-              <div className="flex justify-center w-1/4">
-                <input
-                  className="mx-2 border text-center w-8 rounded-md"
-                  type="text"
-                  disabled
-                  value={""}
-                />
-              </div>
-              <span className="text-right w-1/4 font-semibold text-sm">
-                {"product.sumPrice"}
-              </span>
-            </div>
+            ))}
           </div>
           <div className="relative w-full bg-white lg:px-8 py-10 lg:w-1/4">
             <h1 className="font-semibold text-2xl border-b pb-8 text-center">

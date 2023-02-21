@@ -204,11 +204,13 @@ model Cart {
 
 model CartItems {
   id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  name      String?
   qty       Int?
   price     Float?
   lat       Float?
   lng       Float?
   distance  Float?
+  image     String?
   productId String?   @db.ObjectId
   cartId    String?   @db.ObjectId
   products  Products? @relation(fields: [productId], references: [id])

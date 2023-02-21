@@ -22,10 +22,13 @@ export default function AddressSelect({ addressSelected, setAddressSelected }) {
 
   //ADDRESS POST DATA
   const [{ loading: addressExcLoading, error: addressExcError }, excAddress] =
-    useAxios({
-      url: "/api/address",
-      method: "POST",
-    });
+    useAxios(
+      {
+        url: "/api/address",
+        method: "POST",
+      },
+      { manual: true }
+    );
 
   //FORM VALIDATION
   const {

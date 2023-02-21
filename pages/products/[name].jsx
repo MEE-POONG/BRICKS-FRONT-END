@@ -6,14 +6,16 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Loading from "../../components/Loading/Loading";
 import MapComponent from "../../components/Map/MapComponent";
+import { postCart } from "../../store/cart/cartSlice";
 import { priceRule } from "../../utils/priceRule";
 
 export default function ProductDetailPage() {
   const router = useRouter();
   const { data: session } = useSession();
+  const dispatch = useDispatch();
   const { mapStore } = useSelector((state) => state);
   let [isOpen, setIsOpen] = useState(false);
   const [productQty, setProductQty] = useState(1);
@@ -23,15 +25,6 @@ export default function ProductDetailPage() {
     getProduct,
   ] = useAxios({ url: `/api/products/${router.query.name}`, method: "GET" });
 
-  //ADD CART ITEMS
-  const [{ loading: addCartLoading, error: addCartError }, addCart] = useAxios(
-    {
-      url: "/api/cart",
-      method: "POST",
-    },
-    { manual: true }
-  );
-
   //SUBMIT DATA
   const handleAddToCart = async () => {
     if (session) {
@@ -40,7 +33,19 @@ export default function ProductDetailPage() {
         mapStore?.lng !== null &&
         mapStore?.distance !== null
       ) {
-        ///ADD TO CART
+        dispatch(
+          postCart({
+            cartId: session?.user.cartId,
+            productId: productData?.id,
+            name: productData?.name,
+            price: productSumPrice,
+            qty: productQty,
+            lat: mapStore?.lat,
+            lng: mapStore?.lng,
+            distance: mapStore?.distance,
+            image: productData?.image,
+          })
+        );
       } else {
         toast.error("กรุณาเลือกพื้นที่จัดส่ง", {
           position: "top-center",

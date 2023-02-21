@@ -1,6 +1,6 @@
 import { DefaultSeo } from "next-seo";
 import { GoogleAnalytics } from "nextjs-google-analytics";
-import { Provider } from "react-redux";
+import { Provider, useDispatch } from "react-redux";
 import Layout from "../Layout/Layout";
 import "../styles/globals.css";
 import { store } from "/store/store";
@@ -10,6 +10,8 @@ export default function App({
   Component,
   pageProps: { session, ...pageProps },
 }) {
+
+
   return (
     <SessionProvider session={session}>
       <Provider store={store}>

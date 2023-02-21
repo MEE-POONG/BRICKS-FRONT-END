@@ -2,9 +2,9 @@ import GoogleProvider from "next-auth/providers/google";
 import { PrismaClient } from "@prisma/client";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import NextAuth from "next-auth/next";
+import { store } from "../../../store/store";
 
 const prisma = new PrismaClient();
-
 export default NextAuth({
   secret: process.env.NEXT_PUBLIC_NEXT_AUTH_SECRET,
   adapter: PrismaAdapter(prisma),
@@ -47,6 +47,7 @@ export default NextAuth({
         },
       });
       if (session?.user) {
+        //เซ็ตค่าให้ session
         (session.user.id = token.uid), (session.user.cartId = data?.id);
       }
       return session;

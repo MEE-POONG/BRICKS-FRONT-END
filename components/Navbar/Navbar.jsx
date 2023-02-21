@@ -6,10 +6,12 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import { FaBars, FaRegUser, FaShoppingBasket, FaSistrix } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 export default function Navbar() {
   const { data: session } = useSession();
-  console.log("session", session);
+  const cartLength = useSelector((state) => state.cartStore.cart.length);
+  console.log(cartLength)
 
   const [{ data: typeData, loading: typeLoading, error: typeError }, getType] =
     useAxios({ url: "/api/category", method: "GET" });
@@ -74,10 +76,10 @@ export default function Navbar() {
                   </div>
                   <div className="text-l leading-3">ตะกร้า</div>
                   <div className="absolute -right-2 -top-1 w-4 h-4 rounded-full flex items-center justify-center bg-primary text-white text-xs lg:w-5 lg:h-5 lg:-right-2">
-                    0
+                    {cartLength}
                   </div>
                 </Link>
-                
+
                 {session ? (
                   <Link href={"/users"} className="lg:mx-10">
                     <div className="space-x-2 flex items-center">
@@ -95,24 +97,22 @@ export default function Navbar() {
                         logout
                       </button>
                     </div>
-              </Link>
-              ) : (
-                <Link
-                  href={"/login"}
-                  className="text-center text-gray-700 hover:text-primary transition relative"
-                >
-                  <div className="text-lg flex justify-center lg:text-2xl">
-                    <FaRegUser />
-                  </div>
-                  <div className=" leading-3 text-2xl">เข้าสู่ระบบ</div>
-                </Link>
-              )}
+                  </Link>
+                ) : (
+                  <Link
+                    href={"/login"}
+                    className="text-center text-gray-700 hover:text-primary transition relative"
+                  >
+                    <div className="text-lg flex justify-center lg:text-2xl">
+                      <FaRegUser />
+                    </div>
+                    <div className=" leading-3 text-2xl">เข้าสู่ระบบ</div>
+                  </Link>
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-                 
-
 
         <nav className="mt-2 bg-gray-800">
           {/* Full Display */}
@@ -131,7 +131,9 @@ export default function Navbar() {
                     }
                     className="font-bold text-[24px] flex items-center px-6 py-3 hover:bg-red-500 transition relative group/subType"
                   >
-                    <span className="ml-6 text-white text-[24px]">{type.name}</span>
+                    <span className="ml-6 text-white text-[24px]">
+                      {type.name}
+                    </span>
                   </div>
                 ))}
               </div>

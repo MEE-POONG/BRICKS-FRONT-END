@@ -12,7 +12,7 @@ export default function Showpurchase() {
             <h4 className="text-3xl lg:text-3xl font-bold text-primary text-left ">
               ข้อมูลการสั่งซื้อสินค้า
             </h4>
-            <div className="m-2 grid grid-cols-1 lg:grid-cols-2 gap-4 text-3xl">
+            <div className="m-2 grid grid-cols-1 lg:grid-cols-2 gap-4 text-3xl xs:text-xl">
               <div className="flex">
                 <span className=" font-bold">ชื่อ - นามสกุล : &nbsp;</span>
                 <hr />

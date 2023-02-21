@@ -81,7 +81,7 @@ export default function Showpurchase() {
                     src="/Gong_Yoo.png"
                     alt="office content 1"
                   />
-                        &nbsp; &nbsp; &nbsp; Apple MacBook Pro 17"
+                        &nbsp; &nbsp; &nbsp; Apple MacBook Pro 17&quot;
                     </th>
                     <td className="px-6 py-4 text-right">Silver</td>
                     <td className="px-6 py-4 text-right">Laptop</td>
@@ -97,7 +97,7 @@ export default function Showpurchase() {
                     src="/Gong_Yoo.png"
                     alt="office content 1"
                   />
-                        &nbsp; &nbsp; &nbsp; Apple MacBook Pro 17"
+                        &nbsp; &nbsp; &nbsp; Apple MacBook Pro 17&quot;
                     </th>
                     <td className="px-6 py-4 text-right">White</td>
                     <td className="px-6 py-4 text-right">Laptop PC</td>
@@ -113,7 +113,7 @@ export default function Showpurchase() {
                     src="/Gong_Yoo.png"
                     alt="office content 1"
                   />
-                        &nbsp; &nbsp; &nbsp; Apple MacBook Pro 17"
+                        &nbsp; &nbsp; &nbsp; Apple MacBook Pro 17&quot;
                     </th>
                     <td className="px-6 py-4 text-right">Black</td>
                     <td className="px-6 py-4 text-right">Accessories</td>

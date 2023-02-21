@@ -29,10 +29,10 @@ export default function Showproducts() {
                   />
                 </div>
                 <div className="cardp-info">
-                  <p className="text-title lg:text-3xl font-fontTh1">
+                  <p className="text-title text-2xl lg:text-3xl font-fontTh1">
                     {productsHome.name}
                   </p>
-                  <p className="text-body lg:text-2xl font-fontTh1 f text-gray-400 font-bold">
+                  <p className="text-body text-xl lg:text-2xl font-fontTh1  text-gray-400 font-bold">
                     ใช้สำหรับก่องานโครงสร้าง หรือตกแต่งทำเป็นกำแพงในสวน
                   </p>
                 </div>
@@ -40,7 +40,7 @@ export default function Showproducts() {
                   <Link href={`/products/category/${productsHome.type.name}`}>
                     <button
                       type="button"
-                      className=" svg-icon lg:text-[18px] animate-bounce  text-white bg-primary hover:bg-red-700 focus:ring-primary rounded-full  px-16 lg:px-16 py-2 mt-4 text-center mr-2 mb-2  ml-10"
+                      className=" svg-icon text-[18px] lg:text-[18px]  animate-bounce  text-white bg-primary hover:bg-red-700 focus:ring-primary rounded-full  px-16 lg:px-16 py-2 mt-2 text-center mr-2 mb-2  ml-10"
                     >
                       ช็อปเลย
                     </button>

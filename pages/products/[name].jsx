@@ -138,13 +138,13 @@ export default function ProductDetailPage() {
                     loop={true}
                     spaceBetween={10}
                     navigation={true}
-                    modules={[FreeMode, Navigation, Thumbs]}
-                    thumbs={{
-                      swiper:
-                        thumbsSwiper && !thumbsSwiper.destroyed
-                          ? thumbsSwiper
-                          : null,
-                    }}
+                    modules={[Navigation]}
+                    // thumbs={{
+                    //   swiper:
+                    //     thumbsSwiper && !thumbsSwiper.destroyed
+                    //       ? thumbsSwiper
+                    //       : null,
+                    // }}
                     className="mySwiper2"
                   >
                     {console.log(productData.imageProduct)}
@@ -157,7 +157,7 @@ export default function ProductDetailPage() {
                       </SwiperSlide>
                     ))}
                   </Swiper>
-                  <Swiper
+                  {/* <Swiper
                     onSwiper={setThumbsSwiper}
                     spaceBetween={10}
                     slidesPerView={4}
@@ -173,7 +173,7 @@ export default function ProductDetailPage() {
                         <img src={img.image} />
                       </SwiperSlide>
                     ))}
-                  </Swiper>
+                  </Swiper> */}
                 </div>
                 <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                   <h2 className="text-2xl font-bold title-font text-gray-500 tracking-widest">

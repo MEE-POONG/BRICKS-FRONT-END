@@ -139,8 +139,8 @@ export default function ProductDetailPage() {
         loop={true}
         spaceBetween={10}
         navigation={true}
-        modules={[FreeMode, Navigation, Thumbs]}
-        thumbs={{swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null}}
+        modules={[FreeMode, Navigation]}
+        // thumbs={{swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null}}
         className="mySwiper2"
       >
         {console.log(productData.imageProduct)}
@@ -159,7 +159,7 @@ export default function ProductDetailPage() {
         spaceBetween={10}
         slidesPerView={4}
         watchSlidesProgress={true}
-        modules={[FreeMode, Navigation, Thumbs]}
+        modules={[FreeMode, Navigation]}
         className="mySwiper"
       >
         <SwiperSlide>

@@ -22,7 +22,6 @@ import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 
 export default function ProductDetailPage() {
-
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   const router = useRouter();
@@ -36,58 +35,37 @@ export default function ProductDetailPage() {
     { data: productData, loading: productLoading, error: productError },
     getProduct,
   ] = useAxios({ url: `/api/products/${router.query.name}`, method: "GET" });
-
   //SUBMIT DATA
   const handleAddToCart = async () => {
-    if (session) {
-      if (
-        mapStore?.lat !== null &&
-        mapStore?.lng !== null &&
-        mapStore?.distance !== null
-      ) {
-        dispatch(
-          postCart({
-            cartId: session?.user.cartId,
-            productId: productData?.id,
-            name: productData?.name,
-            price: productSumPrice,
-            qty: productQty,
-            lat: mapStore?.lat,
-            lng: mapStore?.lng,
-            distance: mapStore?.distance,
-            image: productData?.image,
-          })
-        );
+    try {
+      if (session) {
+        if (
+          mapStore?.lat !== null &&
+          mapStore?.lng !== null &&
+          mapStore?.distance !== null
+        ) {
+          dispatch(
+            postCart({
+              cartId: session?.user.cartId,
+              productId: productData?.id,
+              name: productData?.name,
+              price: productSumPrice,
+              qty: productQty,
+              lat: mapStore?.lat,
+              lng: mapStore?.lng,
+              distance: mapStore?.distance,
+              image: productData?.image,
+            })
+          ).then(toast.success("เพื่อไปยังตระกล้าสินค้าแล้ว"));
+        } else {
+          toast.error("กรุณาเลือกพื้นที่จัดส่ง");
+        }
       } else {
-        toast.error("กรุณาเลือกพื้นที่จัดส่ง", {
-          position: "top-center",
-          icon: "⚠️",
-          style: {
-            borderRadius: "10px",
-            border: "1px solid #F7594F",
-            padding: "10px",
-            color: "#333",
-            fontSize: "20px",
-          },
-        });
+        toast.error("กรุณาเข้าสู่ระบบก่อนสั่งซื้อสินค้า");
       }
-    } else {
-      toast.error("กรุณาเข้าสู่ระบบก่อนสั่งซื้อสินค้า", {
-        position: "top-center",
-        icon: "⚠️",
-        style: {
-          borderRadius: "10px",
-          border: "1px solid #F7594F",
-          padding: "10px",
-          color: "#333",
-          fontSize: "20px",
-        },
-      });
+    } catch (error) {
+      console.log(error);
     }
-  };
-
-  const handleClickToast = () => {
-    toast.success("Successfully toasted!");
   };
 
   useEffect(() => {
@@ -102,7 +80,29 @@ export default function ProductDetailPage() {
 
   return (
     <>
-      <Toaster reverseOrder={true} />
+      <Toaster
+        reverseOrder={true}
+        position={"bottom-center"}
+        gutter={8}
+        toastOptions={{
+          success: {
+            style: {
+              background: "#0a8f2d",
+              color: "white",
+              fontSize: "2rem",
+              borderRadius: "2rem"
+            },
+          },
+          error: {
+            style: {
+              background: "#e02424",
+              color: "white",
+              fontSize: "2rem",
+              borderRadius: "2rem"
+            },
+          },
+        }}
+      />
       <Head>
         <title>{productData?.name}</title>
         <link rel="icon" href="/logo1.png" />
@@ -111,7 +111,7 @@ export default function ProductDetailPage() {
         <Loading />
       ) : (
         <div className="flex flex-col min-h-screen bg-gray-100 text-gray-800 lg:p-10">
-          <div>
+          <div className="text-2xl font-bold">
             <Link
               href={`/products/category/${productData?.subType?.type?.name}`}
               className="hover:text-primary"
@@ -130,66 +130,66 @@ export default function ProductDetailPage() {
             <div className="container px-5 py-8 mx-auto">
               <div className="lg:w-4/5 mx-auto flex flex-wrap">
                 <div className="relative w-screen h-80 object-center border border-gray-200 rounded-lg lg:w-1/2 lg:h-auto">
-
-                <Swiper
-        style={{
-          "--swiper-navigation-color": "#000",
-          "--swiper-pagination-color": "#000",
-        }}
-        loop={true}
-        spaceBetween={10}
-        navigation={true}
-        modules={[Navigation]}
-        // thumbs={{swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null}}
-        className="mySwiper2"
-      >
-        {console.log(productData.imageProduct)}
-     <SwiperSlide>
-          <img src={productData?.image} />
-        </SwiperSlide>
-        {productData?.imageProduct.map((img , index) =>(
-          <SwiperSlide key={index}>
-          <img src={img.image} />
-        </SwiperSlide>
-        ))}
-        
-      </Swiper>
-      {/* <Swiper
-        onSwiper={setThumbsSwiper}
-        spaceBetween={10}
-        slidesPerView={4}
-        watchSlidesProgress={true}
-        modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper"
-      >
-        <SwiperSlide>
-          <img src={productData?.image} />
-        </SwiperSlide>
-        {productData?.imageProduct.map((img , index) =>(
-          <SwiperSlide key={index}>
-          <img src={img.image} />
-        </SwiperSlide>
-        ))}
-      </Swiper> */}
-
-
-          
+                  <Swiper
+                    style={{
+                      "--swiper-navigation-color": "#000",
+                      "--swiper-pagination-color": "#000",
+                    }}
+                    loop={true}
+                    spaceBetween={10}
+                    navigation={true}
+                    modules={[FreeMode, Navigation, Thumbs]}
+                    thumbs={{
+                      swiper:
+                        thumbsSwiper && !thumbsSwiper.destroyed
+                          ? thumbsSwiper
+                          : null,
+                    }}
+                    className="mySwiper2"
+                  >
+                    {console.log(productData.imageProduct)}
+                    <SwiperSlide>
+                      <img src={productData?.image} />
+                    </SwiperSlide>
+                    {productData?.imageProduct.map((img, index) => (
+                      <SwiperSlide key={index}>
+                        <img src={img.image} />
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                  <Swiper
+                    onSwiper={setThumbsSwiper}
+                    spaceBetween={10}
+                    slidesPerView={4}
+                    watchSlidesProgress={true}
+                    modules={[FreeMode, Navigation, Thumbs]}
+                    className="mySwiper"
+                  >
+                    <SwiperSlide>
+                      <img src={productData?.image} />
+                    </SwiperSlide>
+                    {productData?.imageProduct.map((img, index) => (
+                      <SwiperSlide key={index}>
+                        <img src={img.image} />
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
                 </div>
                 <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-                  <h2 className="text-sm title-font text-gray-500 tracking-widest">
-                    {productData?.Type?.name}
+                  <h2 className="text-2xl font-bold title-font text-gray-500 tracking-widest">
+                    {productData?.subType?.name}
                   </h2>
-                  <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
+                  <h1 className="text-gray-900 text-4xl font-bold title-font mb-1">
                     {productData?.name}
                   </h1>
                   <div className="flex mb-4">
                     <span className="flex items-center">
-                      <span className="text-gray-600 ml-3">
+                      <span className="text-gray-600 text-xl font-bold ml-3">
                         รายละเอียดสินค้า
                       </span>
                     </span>
                   </div>
-                  <div className="leading-relaxed text-2xl ml-5">
+                  <div className="leading-relaxed text-2xl font-bold ml-5">
                     <p
                       dangerouslySetInnerHTML={{ __html: productData?.detail }}
                     />
@@ -197,7 +197,7 @@ export default function ProductDetailPage() {
                   <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5 justify-center lg:justify-start">
                     <div className="flex items-center">
                       <div className="lg:flex">
-                        <span className="my-auto text-xl font-bold lg:mr-4">
+                        <span className="my-auto text-2xl font-bold lg:mr-4">
                           เลือกพื้นที่จัดส่ง
                         </span>
                         <div className="flex justify-center my-2">
@@ -210,18 +210,20 @@ export default function ProductDetailPage() {
                     </div>
                   </div>
                   <div className="block text-center lg:text-left">
-                    <span className="font-medium text-2xl text-gray-900 block">
+                    <span className="text-2xl font-bold text-gray-900 block">
                       ระยะทาง {mapStore?.distance / 1000} กิโลเมตร
                     </span>
-                    <span className="font-medium text-2xl text-gray-900">
-                      {productSumPrice.toLocaleString("en-US")}
+                    <span className="text-2xl font-bold text-gray-900">
+                      {typeof productSumPrice === "number"
+                        ? productSumPrice.toLocaleString("en-US") + " " + "บาท"
+                        : productSumPrice}
                     </span>
                     <div className="my-4">
                       <div className="block lg:flex">
-                        <span className="font-semibold text-2xl text-gray-800 my-auto lg:mr-4">
+                        <span className="text-2xl font-bold text-gray-800 my-auto lg:mr-4">
                           จำนวนสินค้า
                         </span>
-                        <div className="flex justify-center my-4 lg:justify-start ">
+                        <div className="flex justify-center items-center my-4 lg:justify-start ">
                           <svg
                             className="fill-current w-3 text-gray-900 hover:text-primary cursor-pointer "
                             viewBox="0 0 448 512"
@@ -254,18 +256,12 @@ export default function ProductDetailPage() {
                       </div>
 
                       <button
-                        className="text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded"
+                        className="text-white text-2xl font-bold bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded"
                         onClick={handleAddToCart}
                       >
                         เพิ่มไปยังตะกร้า
                       </button>
                     </div>
-                    <button
-                      onClick={handleClickToast}
-                      className="text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded"
-                    >
-                      TOAST
-                    </button>
                   </div>
                 </div>
               </div>

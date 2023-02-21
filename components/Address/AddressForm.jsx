@@ -1,11 +1,4 @@
 import React from "react";
-// import {
-//   Email,
-//   Home,
-//   MarkunreadMailbox,
-//   Person,
-//   Smartphone,
-// } from "@mui/icons-material";
 
 export default function AddressForm({
   values,
@@ -15,11 +8,10 @@ export default function AddressForm({
   handleChange,
   handleSubmit,
 }) {
-
   return (
     <>
       <form onSubmit={handleSubmit} id="formSubmit">
-        <div className="mt-20 mx-auto bg-white rounded-lg lg:w-3/4">
+        <div className="mx-auto bg-white rounded-lg lg:w-3/4">
           <div className="flex">
             <div className="flex-1 py-5 pl-5 overflow-hidden">
               <svg
@@ -64,7 +56,7 @@ export default function AddressForm({
                       ? "border-red-500 focus:border-red-500"
                       : "border-gray-300 focus:border-secondary"
                   } flex items-center pl-16 w-full px-4 py-2.5 h-full transition duration-500 rounded-lg bg-gray-50 border focus:bg-gray-100 focus:outline-none focus:shadow-outline ring-offset-current ring-offset-2 ring-secondary`}
-                  value={""}
+                  value={values.firstname}
                   onChange={(event) => {
                     event.preventDefault();
                     handleChange(event);
@@ -90,10 +82,10 @@ export default function AddressForm({
                       ? "border-red-500 focus:border-red-500"
                       : "border-gray-300 focus:border-secondary"
                   } flex items-center pl-16 w-full px-4 py-2.5 h-full transition duration-500 rounded-lg bg-gray-50 border focus:bg-gray-100 focus:outline-none focus:shadow-outline ring-offset-current ring-offset-2 ring-secondary`}
-                  value={""}
+                  value={values.lastname}
                   onChange={(event) => {
                     event.preventDefault();
-                    handleChange(event);;
+                    handleChange(event);
                   }}
                   onBlur={handleBlur}
                 />
@@ -118,7 +110,7 @@ export default function AddressForm({
                       ? "border-red-500 focus:border-red-500"
                       : "border-gray-300 focus:border-secondary"
                   } flex items-center pl-16 w-full px-4 py-2.5 h-full transition duration-500 rounded-lg bg-gray-50 border focus:bg-gray-100 focus:outline-none focus:shadow-outline ring-offset-current ring-offset-2 ring-secondary`}
-                  value={""}
+                  value={values.tel}
                   onChange={(event) => {
                     event.preventDefault();
                     handleChange(event);
@@ -127,32 +119,6 @@ export default function AddressForm({
                 />
                 {errors.tel && touched.tel && (
                   <p className="absolute text-red-500 text-sm">{errors.tel}</p>
-                )}
-              </div>
-              <div className="relative flex-grow px-2 my-4">
-                <div className="absolute text-gray-600 flex items-center px-2 border-r h-full">
-                  {/* <Email /> */}
-                </div>
-                <input
-                  id="email"
-                  type="email"
-                  placeholder="อีเมล"
-                  className={`${
-                    errors.email && touched.email
-                      ? "border-red-500 focus:border-red-500"
-                      : "border-gray-300 focus:border-secondary"
-                  } flex items-center pl-16 w-full px-4 py-2.5 h-full transition duration-500 rounded-lg bg-gray-50 border focus:bg-gray-100 focus:outline-none focus:shadow-outline ring-offset-current ring-offset-2 ring-secondary`}
-                  value={""}
-                  onChange={(event) => {
-                    event.preventDefault();
-                    handleChange(event);
-                  }}
-                  onBlur={handleBlur}
-                />
-                {errors.email && touched.email && (
-                  <p className="absolute text-red-500 text-sm">
-                    {errors.email}
-                  </p>
                 )}
               </div>
             </div>
@@ -167,7 +133,7 @@ export default function AddressForm({
                       ? "border-red-500 focus:border-red-500"
                       : "border-gray-300 focus:border-secondary"
                   } flex items-center w-full px-4 py-2.5 h-full transition duration-500 rounded-lg bg-gray-50 border focus:bg-gray-100 focus:outline-none focus:shadow-outline ring-offset-current ring-offset-2 ring-secondary`}
-                  value={""}
+                  value={values.province}
                   onChange={(event) => {
                     event.preventDefault();
                     handleChange(event);
@@ -190,7 +156,7 @@ export default function AddressForm({
                       ? "border-red-500 focus:border-red-500"
                       : "border-gray-300 focus:border-secondary"
                   } flex items-center w-full px-4 py-2.5 h-full transition duration-500 rounded-lg bg-gray-50 border focus:bg-gray-100 focus:outline-none focus:shadow-outline ring-offset-current ring-offset-2 ring-secondary`}
-                  value={""}
+                  value={values.district}
                   onChange={(event) => {
                     event.preventDefault();
                     handleChange(event);
@@ -213,7 +179,7 @@ export default function AddressForm({
                       ? "border-red-500 focus:border-red-500"
                       : "border-gray-300 focus:border-secondary"
                   } flex items-center w-full px-4 py-2.5 h-full transition duration-500 rounded-lg bg-gray-50 border focus:bg-gray-100 focus:outline-none focus:shadow-outline ring-offset-current ring-offset-2 ring-secondary`}
-                  value={""}
+                  value={values.subDistrict}
                   onChange={(event) => {
                     event.preventDefault();
                     handleChange(event);
@@ -240,7 +206,7 @@ export default function AddressForm({
                     ? "border-red-500 focus:border-red-500"
                     : "border-gray-300 focus:border-secondary"
                 } flex items-center pl-16 w-full px-4 py-2.5 h-full transition duration-500 rounded-lg bg-gray-50 border focus:bg-gray-100 focus:outline-none focus:shadow-outline ring-offset-current ring-offset-2 ring-secondary`}
-                value={""}
+                value={values.postalCode}
                 onChange={(event) => {
                   event.preventDefault();
                   handleChange(event);
@@ -266,7 +232,7 @@ export default function AddressForm({
                     ? "border-red-500 focus:border-red-500"
                     : "border-gray-300 focus:border-secondary"
                 } flex items-center pl-16 w-full px-4 py-2.5 h-full transition duration-500 rounded-lg bg-gray-50 border focus:bg-gray-100 focus:outline-none focus:shadow-outline ring-offset-current ring-offset-2 ring-secondary`}
-                value={""}
+                value={values.address}
                 onChange={(event) => {
                   event.preventDefault();
                   handleChange(event);
@@ -280,6 +246,14 @@ export default function AddressForm({
               )}
             </div>
           </div>
+        </div>
+        <div className="flex justify-center my-4">
+          <button
+            type="submit"
+            className="rounded-xl bg-primary px-4 py-2 text-xl font-semibold text-white hover:bg-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+          >
+            บันทึก
+          </button>
         </div>
       </form>
     </>

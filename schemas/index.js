@@ -6,10 +6,6 @@ const phoneRegExp =
 export const fromSchema = yup.object().shape({
   firstname: yup.string().required("กรุณากรอกชื่อจริง"),
   lastname: yup.string().required("กรุณากรอกนามสกุล"),
-  email: yup
-    .string()
-    .email("กรุณากรอก อีเมลให้ถูกต้อง")
-    .required("กรุณากรอกอีเมล"),
   tel: yup
     .string()
     .matches(phoneRegExp, "กรุณากรอกเบอร์โทรให้ถูกต้อง")

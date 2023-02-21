@@ -6,8 +6,6 @@ export default function StepperControl({
   currentStep,
   steps,
   handleExec,
-  handleSubmit,
-  isValid,
   ImageCheck,
 }) {
   return (
@@ -47,10 +45,8 @@ export default function StepperControl({
         <button
           type="submit"
           form="formSubmit"
-          disabled={!isValid}
           className="bg-primary disabled:opacity-50 disabled:cursor-not-allowed text-white py-2 px-4 rounded-xl font-semibold cursor-pointer border-2 border-primary hover:bg-primary hover:text-white transition duration-200 ease-in-out"
           onClick={async () => {
-            await handleSubmit();
             await handleClick("next");
           }}
         >

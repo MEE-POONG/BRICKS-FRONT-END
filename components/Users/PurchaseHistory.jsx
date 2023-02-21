@@ -1,9 +1,6 @@
-import { useSession, signOut } from "next-auth/react";
-import useAxios from "axios-hooks";
 import _ from "lodash";
-import { useRouter } from "next/router";
 import React from "react";
-import { FaBars, FaRegUser, FaShoppingBasket, FaSistrix } from "react-icons/fa";
+import Link from "next/link";
 import SectionComponent from "../headtop";
 
 export default function PurchaseHistory() {
@@ -57,9 +54,9 @@ export default function PurchaseHistory() {
                             @mdo
                           </td>
                           <td className=" text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          <p className="py-3 px-3 focus:outline-none leading-none  bg-gray-100 rounded">
-                            15/2/2565 เมื่อ 18:00
-                          </p>
+                            <p className="py-3 px-3 focus:outline-none leading-none  bg-gray-100 rounded">
+                              15/2/2565 เมื่อ 18:00
+                            </p>
                           </td>
                           <td className=" text-gray-900 font-light px-6 py-4 whitespace-nowrap ">
                             <span className="relative inline-block px-10 py-1 font-semibold text-green-900 leading-tight">
@@ -67,7 +64,9 @@ export default function PurchaseHistory() {
                                 aria-hidden
                                 className="absolute inset-0 bg-green-200 opacity-50 rounded-md  "
                               ></span>
-                              <span className="relative inline-block py-1 text-xl">กำลังดำเนินการจัดส่ง</span>
+                              <span className="relative inline-block py-1 text-xl">
+                                กำลังดำเนินการจัดส่ง
+                              </span>
                             </span>
                           </td>
                           <td className=" text-gray-900 font-light px-6 py-4 whitespace-nowrap  border-r">
@@ -90,9 +89,9 @@ export default function PurchaseHistory() {
                             @fat
                           </td>
                           <td className=" text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                          <p className="py-3 px-3 focus:outline-none leading-none  bg-gray-100 rounded">
-                            15/2/2565 เมื่อ 18:00
-                          </p>
+                            <p className="py-3 px-3 focus:outline-none leading-none  bg-gray-100 rounded">
+                              15/2/2565 เมื่อ 18:00
+                            </p>
                           </td>
                           <td className=" text-gray-900 font-light px-6 py-4 whitespace-nowrap ">
                             <span className="relative inline-block px-10 py-1 font-semibold text-red-900 leading-tight">
@@ -100,14 +99,19 @@ export default function PurchaseHistory() {
                                 aria-hidden
                                 className="absolute inset-0 bg-red-200 opacity-50 rounded-md  "
                               ></span>
-                              <span className="relative inline-block py-1 text-xl">การจัดส่งเสร็จสิ้น</span>
+                              <span className="relative inline-block py-1 text-xl">
+                                การจัดส่งเสร็จสิ้น
+                              </span>
                             </span>
                           </td>
-                          <td className=" text-gray-900 font-light px-6 py-4 whitespace-nowrap  border-r">
-                            <button className="relative inline-block px-4 py-1  border-blue-500 border text-blue-500 rounded-md transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
-                              ดูรายละเอียด
-                            </button>
-                          </td>
+                          <Link
+                            href="/Showpurchase" >
+                            <td className=" text-gray-900 font-light px-6 py-4 whitespace-nowrap  border-r">
+                              <button className="relative inline-block px-4 py-1  border-blue-500 border text-blue-500 rounded-md transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
+                                ดูรายละเอียด
+                              </button>
+                            </td>
+                          </Link>
                         </tr>
                       </tbody>
                     </table>

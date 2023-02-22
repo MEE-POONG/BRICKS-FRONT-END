@@ -7,7 +7,7 @@ import {
 } from "@react-google-maps/api";
 import { Dialog, Transition } from "@headlessui/react";
 
-export default function MapBusket({ lat, lng, isOpen, setIsOpen }) {
+export default function MapBasket({ openMap, setOpenMap }) {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY,
     language: "thailand",
@@ -17,11 +17,11 @@ export default function MapBusket({ lat, lng, isOpen, setIsOpen }) {
   if (!isLoaded) return <div>กำลังโหลด...</div>;
   return (
     <>
-      <Transition appear show={isOpen} as={Fragment}>
+      <Transition appear show={openMap.isOpen} as={Fragment}>
         <Dialog
           as="div"
           className="relative z-50"
-          onClose={() => setIsOpen(false)}
+          onClose={() => setOpenMap({ isOpen: false })}
         >
           <Transition.Child
             as={Fragment}
@@ -38,12 +38,12 @@ export default function MapBusket({ lat, lng, isOpen, setIsOpen }) {
           <div className="fixed inset-0 overflow-y-auto">
             <div className="flex min-h-full items-center justify-center text-center">
               <Dialog.Panel className="w-full transform overflow-hidden rounded-2xl bg-white p-4 text-left align-middle shadow-xl transition-all lg:w-auto">
-                <Map lat={lat} lng={lng} />
+                <Map lat={openMap.lat} lng={openMap.lng} />
                 <div className="mt-4 flex justify-center">
                   <button
                     type="button"
                     className="rounded-md border border-transparent bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-red-500 focus:outline-none focus-visible:ring-red-500 focus-visible:ring-2 focus-visible:ring-offset-2"
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => setOpenMap({ isOpen: false })}
                   >
                     ยืนยัน
                   </button>

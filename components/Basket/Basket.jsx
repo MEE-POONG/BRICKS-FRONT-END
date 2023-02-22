@@ -5,11 +5,15 @@ import { toast, Toaster } from "react-hot-toast";
 import { FaTrashAlt } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteCart } from "../../store/cart/cartSlice";
-import MapBusket from "../Map/MapBusket";
+import MapBasket from "../Map/MapBasket";
 import BasketEmpty from "./BasketEmpty";
 export default function Basket() {
   const cartItems = useSelector((state) => state.cartStore.cart);
-  let [isOpen, setIsOpen] = useState(false);
+  let [openMap, setOpenMap] = useState({
+    isOpen: false,
+    lat: null,
+    lng: null,
+  });
   const dispatch = useDispatch();
   const handleDeleteCartItem = async (cartItemId) => {
     try {
@@ -19,15 +23,6 @@ export default function Basket() {
     } catch (error) {
       console.log(error);
     }
-  };
-
-  //MAP
-  const handleOpenMap = (lat, lng) => {
-    () => {
-      return (
-        <MapBusket lat={lat} lng={lng} isOpen={true} setIsOpen={setIsOpen} />
-      );
-    };
   };
 
   //SUM
@@ -104,13 +99,20 @@ export default function Basket() {
                     </div>
                   </div>
                 </div>
-                <div className="flex justify-center w-1/4 text-3xl font-bold cursor-pointer">
+                <div className="flex justify-center w-1/4 text-3xl font-bold">
                   <button
                     type="button"
-                    onClick={() => handleOpenMap(item.lat, item.lng)}
+                    onClick={() =>
+                      setOpenMap({
+                        isOpen: true,
+                        lat: item.lat,
+                        lng: item.lng,
+                      })
+                    }
                   >
                     <img className="w-14" src="/gmapLogo.png" />
                   </button>
+                  <MapBasket openMap={openMap} setOpenMap={setOpenMap} />
                 </div>
                 <div className="flex justify-center w-1/4 text-3xl font-bold">
                   <input

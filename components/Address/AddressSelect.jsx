@@ -5,11 +5,14 @@ import AddressForm from "./AddressForm";
 import { useFormik } from "formik";
 import useAxios from "axios-hooks";
 import { useSession } from "next-auth/react";
+import { toast, Toaster } from "react-hot-toast";
+import AddressFormEdit from "./AddressFormEdit";
 
 export default function AddressSelect({ addressSelected, setAddressSelected }) {
   const { data: session } = useSession();
   let [isOpen, setIsOpen] = useState(false);
-
+  let [addressEdit, setAddressEdit] = useState({ values: null, isOpen: false });
+  console.log(addressEdit);
   //ADDRESS GET DATA
   const [
     { data: addressData, loading: addressLoading, error: addressError },
@@ -30,6 +33,30 @@ export default function AddressSelect({ addressSelected, setAddressSelected }) {
       { manual: true }
     );
 
+  //ADDRESS UPDATE DATA
+  const [
+    { loading: addressPutLoading, error: addressPutExcError },
+    putAddress,
+  ] = useAxios(
+    {
+      url: "/api/address",
+      method: "PUT",
+    },
+    { manual: true }
+  );
+
+  //ADDRESS DELETE DATA
+  const [
+    { loading: addressDeleteLoading, error: addressDeleteError },
+    deleteAddress,
+  ] = useAxios(
+    {
+      url: "/api/address",
+      method: "DELETE",
+    },
+    { manual: true }
+  );
+
   //FORM VALIDATION
   const {
     values,
@@ -41,6 +68,7 @@ export default function AddressSelect({ addressSelected, setAddressSelected }) {
     handleSubmit,
   } = useFormik({
     initialValues: {
+      addressId: "",
       firstname: "",
       lastname: "",
       tel: "",
@@ -52,23 +80,44 @@ export default function AddressSelect({ addressSelected, setAddressSelected }) {
     },
     validationSchema: fromSchema,
     onSubmit: async (values) => {
+      console.log(values);
       try {
-        await excAddress({
-          data: {
-            firstname: values.firstname,
-            lastname: values.lastname,
-            tel: values.tel,
-            province: values.province,
-            district: values.district,
-            subDistrict: values.subDistrict,
-            postalCode: values.postalCode,
-            address: values.address,
-            userId: session?.user.id,
-          },
-        }).then(() => {
-          setIsOpen(false);
-          getAddress();
-        });
+        if (values.addressId === "") {
+          await excAddress({
+            data: {
+              firstname: values.firstname,
+              lastname: values.lastname,
+              tel: values.tel,
+              province: values.province,
+              district: values.district,
+              subDistrict: values.subDistrict,
+              postalCode: values.postalCode,
+              address: values.address,
+              userId: session?.user.id,
+            },
+          }).then(() => {
+            setIsOpen(false);
+            getAddress();
+          });
+        } else {
+          await putAddress({
+            params: { addressId: values.addressId },
+            data: {
+              firstname: values.firstname,
+              lastname: values.lastname,
+              tel: values.tel,
+              province: values.province,
+              district: values.district,
+              subDistrict: values.subDistrict,
+              postalCode: values.postalCode,
+              address: values.address,
+              userId: session?.user.id,
+            },
+          }).then(() => {
+            setIsOpen(false);
+            getAddress();
+          });
+        }
       } catch (error) {
         console.log(error);
       }
@@ -76,8 +125,42 @@ export default function AddressSelect({ addressSelected, setAddressSelected }) {
   });
   //END FORM VALIDATION
 
+  //ADDRESS DELETE
+  const handleAddressDelete = (addressId) => {
+    try {
+      deleteAddress({ params: { addressId: addressId } }).then(() =>
+        getAddress().then(() => toast.success("ลบที่อยู่เรียบร้อย"))
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
+      <Toaster
+        reverseOrder={true}
+        position={"bottom-center"}
+        gutter={8}
+        toastOptions={{
+          success: {
+            style: {
+              background: "#0a8f2d",
+              color: "white",
+              fontSize: "2rem",
+              borderRadius: "2rem",
+            },
+          },
+          error: {
+            style: {
+              background: "#e02424",
+              color: "white",
+              fontSize: "2rem",
+              borderRadius: "2rem",
+            },
+          },
+        }}
+      />
       <div className="flex justify-around mt-10">
         <div className="flex">
           <div className="flex-1 py-5 pl-5 overflow-hidden">
@@ -124,26 +207,43 @@ export default function AddressSelect({ addressSelected, setAddressSelected }) {
               key={index}
               className={`${
                 addressSelected?.id === address.id
-                  ? "border-primary"
+                  ? "border-primary bg-red-50"
                   : "border-gray-400"
-              } p-10 my-4 rounded-lg border-2 hover:border-primary`}
+              } p-6 my-4 rounded-lg border-2 hover:border-primary grid grid-cols-2`}
               onClick={() => {
                 setAddressSelected(address);
               }}
             >
-              <div className="flex justify-around">
-                <span>ชื่อจริง: {address.firstname}</span>
-                <span>นามสกุล: {address.lastname}</span>
-                <span>เบอร์โทร: {address.tel}</span>
+              <div className="">
+                <div className="text-4xl">
+                  <span className="mr-2 font-semibold">
+                    {address.firstname}
+                  </span>
+                  <span className="mr-2 font-semibold">{address.lastname}</span>
+                  <span className="mr-2">| {address.tel}</span>
+                </div>
+                <div className="text-4xl">
+                  <span className="mr-2">{address.address}</span>
+                </div>
+                <div className="text-4xl">
+                  <span className="mr-2">{address.province},</span>
+                  <span className="mr-2">{address.district},</span>
+                  <span className="mr-2">{address.subDistrict},</span>
+                  <span className="mr-2">{address.postalCode}</span>
+                </div>
+                <div className="border-2 mt-2 w-fit py-1 px-4 text-2xl">
+                  <span>ที่อยู่ในการนัดรับสินค้า</span>
+                </div>
               </div>
-              <div className="flex justify-around">
-                <span>จังหวัด: {address.province}</span>
-                <span>อำเภอ: {address.district}</span>
-                <span>ตำบล: {address.subDistrict}</span>
-                <span>รหัสไปรษณีย์: {address.postalCode}</span>
-              </div>
-              <div className="flex justify-around">
-                <span>รายละเอียด: {address.address}</span>
+              <div className="flex justify-end gap-4 text-2xl font-semibold cursor-pointer text-blue-500">
+                <div
+                  onClick={() =>
+                    setAddressEdit({ values: address, isOpen: true })
+                  }
+                >
+                  แก้ไข
+                </div>
+                <div onClick={() => handleAddressDelete(address.id)}>ลบ</div>
               </div>
             </div>
           ))}
@@ -156,6 +256,7 @@ export default function AddressSelect({ addressSelected, setAddressSelected }) {
         </div>
       )}
 
+      {/* MODAL INSERT */}
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog
           as="div"
@@ -188,6 +289,54 @@ export default function AddressSelect({ addressSelected, setAddressSelected }) {
                 <Dialog.Panel className="w-full mx-4 transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all">
                   <AddressForm
                     values={values}
+                    errors={errors}
+                    touched={touched}
+                    handleBlur={handleBlur}
+                    handleChange={handleChange}
+                    handleSubmit={handleSubmit}
+                  />
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition>
+
+      {/* MODAL EDIT */}
+      <Transition appear show={addressEdit.isOpen} as={Fragment}>
+        <Dialog
+          as="div"
+          className="relative z-50"
+          onClose={() =>
+            setAddressEdit({ values: addressEdit.values, isOpen: false })
+          }
+        >
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-black bg-opacity-50" />
+          </Transition.Child>
+
+          <div className="fixed inset-0 overflow-y-auto">
+            <div className="flex min-h-full items-center justify-center text-center">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+              >
+                <Dialog.Panel className="w-full mx-4 transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all">
+                  <AddressFormEdit
+                    values={addressEdit?.values}
                     errors={errors}
                     touched={touched}
                     handleBlur={handleBlur}

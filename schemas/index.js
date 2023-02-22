@@ -4,6 +4,7 @@ const phoneRegExp =
   /((\+66|0)(\d{1,2}\-?\d{3}\-?\d{3,4}))|((\+๖๖|๐)([๐-๙]{1,2}\-?[๐-๙]{3}\-?[๐-๙]{3,4}))/gm;
 
 export const fromSchema = yup.object().shape({
+  addressId: yup.string(),
   firstname: yup.string().required("กรุณากรอกชื่อจริง"),
   lastname: yup.string().required("กรุณากรอกนามสกุล"),
   tel: yup

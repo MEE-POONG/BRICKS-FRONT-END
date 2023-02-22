@@ -75,9 +75,9 @@ export default function PortfolioShowIndex() {
           spaceBetween={30}
           slidesPerView={3}
           modules={[Autoplay]}
-          // autoplay={{ delay: 2000 }}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
+          autoplay={{ delay: 2000 }}
+          // onSlideChange={() => console.log("slide change")}
+          // onSwiper={(swiper) => console.log(swiper)}
           breakpoints={{
             // when window width is >= 640px
             300: {
@@ -93,8 +93,7 @@ export default function PortfolioShowIndex() {
               <>
                 <div className="grid grid-cols-1 gap-x-6 gap-y-12 md:grid-cols-2 lg:grid-cols-3 ">
                   {posts?.map((id, index) => (
-                    <div key={index}>
-                      <SwiperSlide className=" max-w-sm rounded overflow-hidden mx-auto border bg-white">
+                      <SwiperSlide key={index} className=" max-w-sm rounded overflow-hidden mx-auto border bg-white">
                         <FacebookProvider appId={AppID}>
                           <EmbeddedPost
                             href={`https://www.facebook.com/sn4ppy/posts/${id}`}
@@ -102,7 +101,6 @@ export default function PortfolioShowIndex() {
                           />
                         </FacebookProvider>
                       </SwiperSlide>
-                    </div>
                   ))}
                 </div>
               </>

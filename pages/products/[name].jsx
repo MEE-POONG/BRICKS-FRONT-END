@@ -143,7 +143,6 @@ export default function ProductDetailPage() {
         thumbs={{swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null}}
         className="mySwiper2"
       >
-        {console.log(productData.imageProduct)}
      <SwiperSlide>
           <img src={productData?.image} />
         </SwiperSlide>

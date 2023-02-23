@@ -11,7 +11,7 @@ export default function Successfully() {
         <div class="flex flex-col items-center space-y-2 font-fontTh text-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="text-secondary w-28 h-28"
+            class="text-primary w-28 h-28"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -26,21 +26,10 @@ export default function Successfully() {
           <h1 class="text-4xl font-bold leading-normal">
             ขอบคุณสำหรับคำสั่งซื้อ
           </h1>
-          <p className="text-3xl">หมายเลขออเดอร์คือ</p>
-          <p className="text-3xl text-secondary">xxx</p>
-          <p className="text-xl">
-            โปรดเก็บหมายเลขออเดอร์ไว้เพื่อตรวจสอบที่ Facebook
-            <Link
-              className="text-3xl ml-3 text-secondary"
-              href="https://www.facebook.com/PigJungleShop"
-              target="_blank"
-            >
-              PigJungle
-            </Link>
-          </p>
-          <a class="inline-flex items-center px-4 py-2 text-white bg-secondary border border-primary rounded-full hover:bg-lime-800 focus:outline-none focus:ring">
-            <span class="text-sm font-medium">
-              <Link href="/">ไปยังหน้าแรก</Link>
+          <p className="text-3xl">คำสั่งซื้อของท่านอยู่ในระหว่างการตรวจสอบ</p>
+          <a class="inline-flex items-center px-4 py-2 text-white bg-primary border border-primary rounded-full hover:bg-lime-800 focus:outline-none focus:ring">
+            <span class="text-2xl font-medium">
+              <Link href="/">ดูคำสั่งซื้อของท่าน</Link>
             </span>
           </a>
         </div>

@@ -1,4 +1,5 @@
 import useAxios from "axios-hooks";
+import { useSession } from "next-auth/react";
 import React, { useEffect, useState } from "react";
 import Basket from "../components/Basket/Basket";
 import CheckBill from "../components/CheckBill/CheckBill";
@@ -7,12 +8,19 @@ import Successfully from "../components/Stepper/Successfully";
 import Stepper from "../components/Stepper/Stepper";
 import StepperControl from "../components/Stepper/StepperControl";
 import AddressSelect from "../components/Address/AddressSelect";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteAllCart } from "../store/cart/cartSlice";
 
 export default function Checkout() {
-  //REDUX
-  //   const { allCart } = useSelector((state) => state);
-  //   const dispatch = useDispatch();
-  //END REDUX
+  //SESSION
+  const { data: session } = useSession();
+  //END SESSION
+
+  // REDUX
+  const dispatch = useDispatch();
+  const cartData = useSelector((state) => state.cartStore);
+  // END REDUX
+  console.log("cartData", cartData);
 
   //STEP BUTTON
   const [currentStep, setCurrentStep] = useState(1);
@@ -20,10 +28,10 @@ export default function Checkout() {
   //END STEP BUTTON
 
   // ORDER EXECUTE
-  //   const [
-  //     { data: orderData, error: orderError, loading: orderLoading },
-  //     executeOrder,
-  //   ] = useAxios({ url: "/api/orders", method: "POST" }, { manual: true });
+  const [{ error: orderError, loading: orderLoading }, executeOrder] = useAxios(
+    { url: "/api/orders", method: "POST" },
+    { manual: true }
+  );
   //END ORDER EXECUTE
 
   //ADDRESS SELECTED
@@ -66,29 +74,22 @@ export default function Checkout() {
     const imageData = await uploadImage({ data: data });
     const id = imageData.data.result.id;
 
-    // await executeOrder({
-    //   data: {
-    //     firstname: allCart.firstname,
-    //     lastname: allCart.lastname,
-    //     tel: allCart.tel,
-    //     image: `https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${id}/public`,
-    //     email: allCart.email,
-    //     subDistrict: allCart.subDistrict,
-    //     district: allCart.district,
-    //     province: allCart.province,
-    //     address: allCart.address,
-    //     postalCode: allCart.postalCode,
-    //     status: "รอการตรวจสอบ",
-    //     notes: allCart.notes,
-    //     totalPrice: allCart.totalPrice,
-    //     cart: allCart.cart,
-    //   },
-    // }).then(() => {
-    //   dispatch(AddressInput({ cart: [] }));
-    //   dispatch(AddressInput({ totalQty: 0 }));
-    //   dispatch(AddressInput({ totalPrice: 0 }));
-    //   dispatch(AddressInput({ notes: "" }));
-    // });
+    try {
+      await executeOrder({
+        data: {
+          totalPrice: cartData?.totalPrice,
+          image: `https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${id}/public`,
+          status: "กำลังดำเนินการ",
+          userId: session?.user.id,
+          addressId: cartData?.addressId,
+          cart: cartData?.cart,
+        },
+      }).then(() => {
+        dispatch(deleteAllCart(session?.user.cartId));
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
   //END SUBMIT ORDERS
 
@@ -109,6 +110,7 @@ export default function Checkout() {
           <AddressSelect
             addressSelected={addressSelected}
             setAddressSelected={setAddressSelected}
+            dispatch={dispatch}
           />
         );
       case 3:

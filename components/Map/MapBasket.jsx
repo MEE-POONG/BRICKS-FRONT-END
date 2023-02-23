@@ -1,4 +1,4 @@
-import React, { useMemo, Fragment } from "react";
+import React, { useMemo, Fragment, useState } from "react";
 import {
   GoogleMap,
   InfoWindowF,
@@ -7,21 +7,39 @@ import {
 } from "@react-google-maps/api";
 import { Dialog, Transition } from "@headlessui/react";
 
-export default function MapBasket({ openMap, setOpenMap }) {
+export default function MapBasket({item}) {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY,
     language: "thailand",
     region: "thailand",
   });
 
+  let [openMap, setOpenMap] = useState({
+    isOpen: false,
+    lat: null,
+    lng: null,
+  });
+
   if (!isLoaded) return <div>กำลังโหลด...</div>;
   return (
     <>
+      <button
+        type="button"
+        onClick={() =>
+          setOpenMap({
+            isOpen: true,
+            lat: item.lat,
+            lng: item.lng,
+          })
+        }
+      >
+        <img className="w-14" src="/gmapLogo.png" />
+      </button>
       <Transition appear show={openMap.isOpen} as={Fragment}>
         <Dialog
           as="div"
           className="relative z-50"
-          onClose={() => setOpenMap({ isOpen: false })}
+          onClose={() => setOpenMap({ isOpen: false, lat: null, lng: null })}
         >
           <Transition.Child
             as={Fragment}
@@ -43,7 +61,9 @@ export default function MapBasket({ openMap, setOpenMap }) {
                   <button
                     type="button"
                     className="rounded-md border border-transparent bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-red-500 focus:outline-none focus-visible:ring-red-500 focus-visible:ring-2 focus-visible:ring-offset-2"
-                    onClick={() => setOpenMap({ isOpen: false })}
+                    onClick={() =>
+                      setOpenMap({ isOpen: false, lat: null, lng: null })
+                    }
                   >
                     ยืนยัน
                   </button>

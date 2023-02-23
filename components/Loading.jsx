@@ -11,7 +11,7 @@ export default function Loading() {
 
       <div className="flex justify-center m-20">
         <div className="flex h-80 w-80 items-center justify-center rounded-full animate-bounce">
-          <img src="/images/logo.png" />
+          <img src="/logo02.png" />
         </div>
       </div>
     </>

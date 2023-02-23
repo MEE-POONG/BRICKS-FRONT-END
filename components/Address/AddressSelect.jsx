@@ -1,18 +1,21 @@
 import React, { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { fromSchema } from "../../schemas";
 import AddressForm from "./AddressForm";
-import { useFormik } from "formik";
 import useAxios from "axios-hooks";
 import { useSession } from "next-auth/react";
 import { toast, Toaster } from "react-hot-toast";
 import AddressFormEdit from "./AddressFormEdit";
+import { addAddress } from "../../store/cart/cartSlice";
 
-export default function AddressSelect({ addressSelected, setAddressSelected }) {
+export default function AddressSelect({
+  addressSelected,
+  setAddressSelected,
+  dispatch,
+}) {
   const { data: session } = useSession();
   let [isOpen, setIsOpen] = useState(false);
   let [addressEdit, setAddressEdit] = useState({ values: null, isOpen: false });
-  console.log(addressEdit);
+
   //ADDRESS GET DATA
   const [
     { data: addressData, loading: addressLoading, error: addressError },
@@ -56,74 +59,6 @@ export default function AddressSelect({ addressSelected, setAddressSelected }) {
     },
     { manual: true }
   );
-
-  //FORM VALIDATION
-  const {
-    values,
-    errors,
-    touched,
-    isValid,
-    handleBlur,
-    handleChange,
-    handleSubmit,
-  } = useFormik({
-    initialValues: {
-      addressId: "",
-      firstname: "",
-      lastname: "",
-      tel: "",
-      province: "",
-      district: "",
-      subDistrict: "",
-      postalCode: "",
-      address: "",
-    },
-    validationSchema: fromSchema,
-    onSubmit: async (values) => {
-      console.log(values);
-      try {
-        if (values.addressId === "") {
-          await excAddress({
-            data: {
-              firstname: values.firstname,
-              lastname: values.lastname,
-              tel: values.tel,
-              province: values.province,
-              district: values.district,
-              subDistrict: values.subDistrict,
-              postalCode: values.postalCode,
-              address: values.address,
-              userId: session?.user.id,
-            },
-          }).then(() => {
-            setIsOpen(false);
-            getAddress();
-          });
-        } else {
-          await putAddress({
-            params: { addressId: values.addressId },
-            data: {
-              firstname: values.firstname,
-              lastname: values.lastname,
-              tel: values.tel,
-              province: values.province,
-              district: values.district,
-              subDistrict: values.subDistrict,
-              postalCode: values.postalCode,
-              address: values.address,
-              userId: session?.user.id,
-            },
-          }).then(() => {
-            setIsOpen(false);
-            getAddress();
-          });
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    },
-  });
-  //END FORM VALIDATION
 
   //ADDRESS DELETE
   const handleAddressDelete = (addressId) => {
@@ -212,6 +147,7 @@ export default function AddressSelect({ addressSelected, setAddressSelected }) {
               } p-6 my-4 rounded-lg border-2 hover:border-primary grid grid-cols-2`}
               onClick={() => {
                 setAddressSelected(address);
+                dispatch(addAddress(address.id));
               }}
             >
               <div className="">
@@ -288,12 +224,10 @@ export default function AddressSelect({ addressSelected, setAddressSelected }) {
               >
                 <Dialog.Panel className="w-full mx-4 transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all">
                   <AddressForm
-                    values={values}
-                    errors={errors}
-                    touched={touched}
-                    handleBlur={handleBlur}
-                    handleChange={handleChange}
-                    handleSubmit={handleSubmit}
+                    excAddress={excAddress}
+                    setIsOpen={setIsOpen}
+                    getAddress={getAddress}
+                    session={session}
                   />
                 </Dialog.Panel>
               </Transition.Child>
@@ -336,12 +270,11 @@ export default function AddressSelect({ addressSelected, setAddressSelected }) {
               >
                 <Dialog.Panel className="w-full mx-4 transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all">
                   <AddressFormEdit
-                    values={addressEdit?.values}
-                    errors={errors}
-                    touched={touched}
-                    handleBlur={handleBlur}
-                    handleChange={handleChange}
-                    handleSubmit={handleSubmit}
+                    putAddress={putAddress}
+                    addressEdit={addressEdit}
+                    setAddressEdit={setAddressEdit}
+                    getAddress={getAddress}
+                    session={session}
                   />
                 </Dialog.Panel>
               </Transition.Child>

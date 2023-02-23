@@ -39,36 +39,38 @@ export default function ProductsCategory({ typeName }) {
 
   return (
     <>
-      <div
-        className={`${UrlCheck(
-          typeName
-        )} rounded-3xl p-1 px-4 shadow-md cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-transform duration-300`}
-        onClick={() =>
-          router.push({
-            pathname: `/products/category/${typeName}`,
-          })
-        }
-      >
-        <span className="text-[26px]">ทั้งหมด</span>
-      </div>
-      {categoryListData?.subType.map((subTypeData, index) => (
+      <div className="flex flex-wrap gap-4 justify-around">
         <div
-          key={index}
           className={`${UrlCheck(
-            subTypeData.name
+            typeName
           )} rounded-3xl p-1 px-4 shadow-md cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-transform duration-300`}
-          onClick={(e) =>
-            handleClick(
-              e,
-              `/products/category/${typeName}`,
-              typeName,
-              subTypeData.name
-            )
+          onClick={() =>
+            router.push({
+              pathname: `/products/category/${typeName}`,
+            })
           }
         >
-          <span className="text-[26px]">{subTypeData.name}</span>
+          <span className="text-[26px]">ทั้งหมด</span>
         </div>
-      ))}
+        {categoryListData?.subType.map((subTypeData, index) => (
+          <div
+            key={index}
+            className={`${UrlCheck(
+              subTypeData.name
+            )} rounded-3xl p-1 px-4 shadow-md cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-transform duration-300`}
+            onClick={(e) =>
+              handleClick(
+                e,
+                `/products/category/${typeName}`,
+                typeName,
+                subTypeData.name
+              )
+            }
+          >
+            <span className="grow text-[26px]">{subTypeData.name}</span>
+          </div>
+        ))}
+      </div>
     </>
   );
 }

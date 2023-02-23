@@ -31,14 +31,36 @@ export const deleteCart = createAsyncThunk(
   }
 );
 
+export const deleteAllCart = createAsyncThunk(
+  "cart/deleteAllCart",
+  async (cartId) => {
+    try {
+      await axios.delete(`/api/cart/cartItemsDelete?cartId=${cartId}`);
+      return cartId;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
 const cartInitialState = {
   cart: [],
   loading: true,
+  totalPrice: 0,
+  addressId: "",
 };
 
 export const cartSlice = createSlice({
   name: "cartStore",
   initialState: cartInitialState,
+  reducers: {
+    addSum: (state, action) => {
+      state.totalPrice = action.payload;
+    },
+    addAddress: (state, action) => {
+      state.addressId = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     //POST CART ITEMS
     builder
@@ -74,7 +96,6 @@ export const cartSlice = createSlice({
         state.loading = true;
       })
       .addCase(deleteCart.fulfilled, (state, action) => {
-        console.log("action.payload", action.payload);
         state.loading = false;
         if (action.payload !== undefined) {
           state.cart = state.cart.filter((item) => item.id !== action.payload);
@@ -84,9 +105,27 @@ export const cartSlice = createSlice({
         state.loading = false;
         state.error = true;
       });
+    //DELETE ALL CART ITEMS
+    builder
+      .addCase(deleteAllCart.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(deleteAllCart.fulfilled, (state, action) => {
+        console.log("action.payload", action.payload);
+        state.loading = false;
+        if (action.payload !== undefined) {
+          state.cart = state.cart.filter(
+            (item) => item.cartId !== action.payload
+          );
+        }
+      })
+      .addCase(deleteAllCart.rejected, (state) => {
+        state.loading = false;
+        state.error = true;
+      });
   },
 });
 
-// export const { addToCart } = cartSlice.actions;
+export const { addSum, addAddress } = cartSlice.actions;
 
 export default cartSlice.reducer;

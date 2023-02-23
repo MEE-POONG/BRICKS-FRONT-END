@@ -11,7 +11,6 @@ import { useSelector } from "react-redux";
 export default function Navbar() {
   const { data: session } = useSession();
   const cartLength = useSelector((state) => state.cartStore.cart.length);
-  console.log(cartLength)
 
   const [{ data: typeData, loading: typeLoading, error: typeError }, getType] =
     useAxios({ url: "/api/category", method: "GET" });
@@ -69,13 +68,13 @@ export default function Navbar() {
               <div className="space-x-8 justify-evenly flex mt-3">
                 <Link
                   href={"/checkuot"}
-                  className="text-center text-gray-700 hover:text-primary transition relative"
+                  className="relative text-center text-gray-700 hover:text-primary transition my-auto"
                 >
-                  <div className="text-lg flex justify-center lg:text-2xl">
-                    <FaShoppingBasket />
+                  <div className="text-2xl flex justify-center lg:text-4xl">
+                    <FaShoppingBasket/>
                   </div>
                   <div className="text-l leading-3">ตะกร้า</div>
-                  <div className="absolute -right-2 -top-1 w-4 h-4 rounded-full flex items-center justify-center bg-primary text-white text-xs lg:w-5 lg:h-5 lg:-right-2">
+                  <div className="absolute -right-2 -top-2 w-auto h-5 px-2 py-3 rounded-full flex items-center justify-center bg-primary text-white text-3xl lg:w-5 lg:h-5 lg:-right-2 lg:py-2">
                     {cartLength}
                   </div>
                 </Link>

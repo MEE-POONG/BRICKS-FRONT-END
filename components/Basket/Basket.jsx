@@ -1,19 +1,13 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 import React from "react";
-import { useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import { FaTrashAlt } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteCart } from "../../store/cart/cartSlice";
+import { addSum, deleteCart } from "../../store/cart/cartSlice";
 import MapBasket from "../Map/MapBasket";
 import BasketEmpty from "./BasketEmpty";
 export default function Basket() {
   const cartItems = useSelector((state) => state.cartStore.cart);
-  let [openMap, setOpenMap] = useState({
-    isOpen: false,
-    lat: null,
-    lng: null,
-  });
   const dispatch = useDispatch();
   const handleDeleteCartItem = async (cartItemId) => {
     try {
@@ -30,6 +24,7 @@ export default function Basket() {
     const sum = cartItems.reduce((accumulator, { price }) => {
       return accumulator + price;
     }, 0);
+    dispatch(addSum(+sum));
     return +sum;
   };
 
@@ -100,19 +95,7 @@ export default function Basket() {
                   </div>
                 </div>
                 <div className="flex justify-center w-1/4 text-3xl font-bold">
-                  <button
-                    type="button"
-                    onClick={() =>
-                      setOpenMap({
-                        isOpen: true,
-                        lat: item.lat,
-                        lng: item.lng,
-                      })
-                    }
-                  >
-                    <img className="w-14" src="/gmapLogo.png" />
-                  </button>
-                  <MapBasket openMap={openMap} setOpenMap={setOpenMap} />
+                  <MapBasket item={item} />
                 </div>
                 <div className="flex justify-center w-1/4 text-3xl font-bold">
                   <input
@@ -150,11 +133,11 @@ export default function Basket() {
                 rows={4}
                 value={""}
                 placeholder="กรอกรายละเอียดเพิ่มเติม (ไม่บังคับ)"
-                className="p-4 mb-8 text-2xl w-full rounded-lg bg-gray-200 resize-none outline-none focus-visible:shadow-none"
+                className="p-4 mb-8 text-2xl w-full rounded-lg bg-gray-200 resize-none outline-none focus-visible:shadow-none lg:mb-20"
               ></textarea>
             </div>
-            <div className="absolute flex justify-between mt-10 mb-5 mx-6 p-5 rounded-lg bg-primary text-white text-center inset-x-0 bottom-0">
-              <span className="font-semibold text-4xl">ราคารวม</span>
+            <div className="absolute flex justify-between mt-10 mb-5 mx-6 p-5 space-x-1 rounded-lg bg-primary text-white text-center items-center inset-x-0 bottom-0 lg:flex-wrap lg:justify-center">
+              <span className="font-semibold text-3xl">ราคารวม</span>
               <span className="font-semibold text-4xl">
                 {handleSUM(cartItems).toLocaleString("en-US")} บาท
               </span>

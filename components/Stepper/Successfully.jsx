@@ -29,7 +29,7 @@ export default function Successfully() {
           <p className="text-3xl">คำสั่งซื้อของท่านอยู่ในระหว่างการตรวจสอบ</p>
           <a class="inline-flex items-center px-4 py-2 text-white bg-primary border border-primary rounded-full hover:bg-lime-800 focus:outline-none focus:ring">
             <span class="text-2xl font-medium">
-              <Link href="/">ดูคำสั่งซื้อของท่าน</Link>
+              <Link href="/">คลิกที่นี่เพื่อดูคำสั่งซื้อของท่าน</Link>
             </span>
           </a>
         </div>

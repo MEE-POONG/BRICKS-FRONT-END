@@ -79,7 +79,7 @@ export default function Checkout() {
         data: {
           totalPrice: cartData?.totalPrice,
           image: `https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${id}/public`,
-          status: "กำลังดำเนินการ",
+          status: "รอการตรวจสอบ",
           userId: session?.user.id,
           addressId: cartData?.addressId,
           cart: cartData?.cart,

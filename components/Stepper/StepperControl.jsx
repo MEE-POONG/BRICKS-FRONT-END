@@ -11,6 +11,7 @@ export default function StepperControl({
   ImageCheck,
 }) {
   const { addressId } = useSelector((state) => state.cartStore);
+  const { cart } = useSelector((state) => state.cartStore);
   return (
     <>
       <Toaster
@@ -77,7 +78,13 @@ export default function StepperControl({
           </button>
         ) : (
           <button
-            onClick={async () => await handleClick("next")}
+            onClick={async () => {
+              if (cart.length !== 0) {
+                await handleClick("next");
+              } else {
+                toast.error("กรุณาเลือกซื้อสินค้าก่อนชำระเงิน");
+              }
+            }}
             className="bg-primary text-white py-2 px-4 rounded-xl font-semibold cursor-pointer border-2 border-primary hover:bg-primary hover:text-white transition duration-200 ease-in-out"
           >
             ถัดไป

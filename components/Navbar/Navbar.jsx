@@ -4,7 +4,7 @@ import _ from "lodash";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
 import { FaBars, FaRegUser, FaShoppingBasket, FaSistrix } from "react-icons/fa";
 import { useSelector } from "react-redux";
 
@@ -26,12 +26,13 @@ export default function Navbar() {
     }
   };
 
+  const [navbar, setNavbar] = useState(false);
   //sort arr ชื่อ "อื่นๆ" ให้เอาไปไว้ท้ายสุด
   const arrSortTypeName = _.sortBy(typeData, ({ name }) => name === "อื่นๆ");
 
   const handleSignOut = async () => {
     await signOut({
-      callbackUrl: "http://localhost:3000/",
+      callbackUrl: "/",
     });
   };
 
@@ -41,7 +42,7 @@ export default function Navbar() {
         <div className="min-w-full relative">
           <div className="lg:items-center lg:justify-between lg:flex">
             <div className="flex justify-around space-y-2">
-              <Link href={"/"} className="lg:mx-10">
+              <Link href={"/"} className="lg:mx-10 my-auto">
                 <img
                   src="/logo03.png"
                   className="flex h-auto mx-auto w-12 lg:w-20"
@@ -80,7 +81,7 @@ export default function Navbar() {
                 </Link>
 
                 {session ? (
-                  <Link href={"/users"} className="lg:mx-10">
+                  <Link href={"/profile"} className="lg:mx-10">
                     <div className="space-x-2 flex items-center">
                       <img
                         className="w-8 h-8 rounded-full mx-auto cursor-pointer"

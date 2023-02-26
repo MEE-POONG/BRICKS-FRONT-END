@@ -17,6 +17,13 @@ export default async function handler(req, res) {
           where: {
             userId: req.query.userId,
           },
+          include: {
+            orderDetail: {
+              include: {
+                products: true,
+              },
+            },
+          },
         });
         res.status(200).json(data);
       } catch (error) {

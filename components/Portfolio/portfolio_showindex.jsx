@@ -4,7 +4,7 @@ import React from "react";
 import { FacebookProvider, EmbeddedPost } from "react-facebook";
 import Loading from "../Loading/Loading";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper";
+import { Autoplay, Navigation, Pagination } from "swiper";
 import "swiper/css/autoplay";
 
 // Import Swiper styles

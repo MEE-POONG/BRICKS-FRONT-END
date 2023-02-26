@@ -104,8 +104,7 @@ export default function PurchaseHistory() {
                               </span>
                             </span>
                           </td>
-                          <Link
-                            href="/Showpurchase" >
+                          <Link href="/Showpurchase">
                             <td className=" text-gray-900 font-light px-6 py-4 whitespace-nowrap  border-r">
                               <button className="relative inline-block px-4 py-1  border-blue-500 border text-blue-500 rounded-md transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">
                                 ดูรายละเอียด

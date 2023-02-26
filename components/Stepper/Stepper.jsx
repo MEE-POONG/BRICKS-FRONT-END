@@ -87,7 +87,7 @@ export default function Stepper({ steps, currentStep }) {
           <div
             className={`${
               step.highlighted ? "text-gray-900" : "text-gray-400"
-            } absolute top-0 text-center mt-16 w-32 text-sm font-fontTh font-bold uppercase`}
+            } absolute top-0 text-center mt-16 w-32 text-2xl font-fontTh font-bold uppercase`}
           >
             {/* Display description */}
             {step.description}

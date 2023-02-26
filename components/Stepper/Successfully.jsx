@@ -1,9 +1,30 @@
-import useAxios from "axios-hooks";
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 
 export default function Successfully() {
+  const router = useRouter();
+  // condition base redirecting
 
+  const [remainingTime, setRemainingTime] = useState(5);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRemainingTime((prevTime) => prevTime - 1);
+    }, 1000);
+
+    if (remainingTime === 0) {
+      redirectToOrder();
+    }
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    if (remainingTime === 0) {
+      router.push("/profile");
+    }
+  }, [remainingTime]);
 
   return (
     <div class="flex items-center justify-center h-fit m-40">
@@ -27,11 +48,15 @@ export default function Successfully() {
             ขอบคุณสำหรับคำสั่งซื้อ
           </h1>
           <p className="text-3xl">คำสั่งซื้อของท่านอยู่ในระหว่างการตรวจสอบ</p>
-          <a class="inline-flex items-center px-4 py-2 text-white bg-primary border border-primary rounded-full hover:bg-lime-800 focus:outline-none focus:ring">
+          <a class="inline-flex items-center px-4 py-2 text-white bg-primary border border-primary rounded-full hover:bg-red-500 focus:outline-none focus:ring">
             <span class="text-2xl font-medium">
               <Link href="/">คลิกที่นี่เพื่อดูคำสั่งซื้อของท่าน</Link>
             </span>
           </a>
+          <p className="text-3xl">
+            นับถอยหลัง {remainingTime}
+            {" วินาที"} เพื่อไปยังหน้าคำสั่งซื้อ
+          </p>
         </div>
       </div>
     </div>

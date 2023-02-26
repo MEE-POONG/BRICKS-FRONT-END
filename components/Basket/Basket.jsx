@@ -122,7 +122,7 @@ export default function Basket() {
               </span>
             </div>
             <div className="px-6 mt-10 mb-20 lg:mb-5 lg:px-2">
-              <label
+              {/* <label
                 htmlFor="note"
                 className="font-semibold inline-block mb-3 text-2xl"
               >
@@ -134,7 +134,7 @@ export default function Basket() {
                 value={""}
                 placeholder="กรอกรายละเอียดเพิ่มเติม (ไม่บังคับ)"
                 className="p-4 mb-8 text-2xl w-full rounded-lg bg-gray-200 resize-none outline-none focus-visible:shadow-none lg:mb-20"
-              ></textarea>
+              ></textarea> */}
             </div>
             <div className="absolute flex justify-between mt-10 mb-5 mx-6 p-5 space-x-1 rounded-lg bg-primary text-white text-center items-center inset-x-0 bottom-0 lg:flex-wrap lg:justify-center">
               <span className="font-semibold text-3xl">ราคารวม</span>

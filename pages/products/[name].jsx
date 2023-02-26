@@ -44,19 +44,23 @@ export default function ProductDetailPage() {
           mapStore?.lng !== null &&
           mapStore?.distance !== null
         ) {
-          dispatch(
-            postCart({
-              cartId: session?.user.cartId,
-              productId: productData?.id,
-              name: productData?.name,
-              price: productSumPrice,
-              qty: productQty,
-              lat: mapStore?.lat,
-              lng: mapStore?.lng,
-              distance: mapStore?.distance,
-              image: productData?.image,
-            })
-          ).then(toast.success("เพื่อไปยังตระกล้าสินค้าแล้ว"));
+          if (typeof productSumPrice !== "string") {
+            dispatch(
+              postCart({
+                cartId: session?.user.cartId,
+                productId: productData?.id,
+                name: productData?.name,
+                price: productSumPrice,
+                qty: productQty,
+                lat: mapStore?.lat,
+                lng: mapStore?.lng,
+                distance: mapStore?.distance,
+                image: productData?.image,
+              })
+            ).then(toast.success("เพื่อไปยังตระกล้าสินค้าแล้ว"));
+          } else {
+            toast.error("ขออภัยคุณไม่อยู่ในพื้นที่จัดส่ง");
+          }
         } else {
           toast.error("กรุณาเลือกพื้นที่จัดส่ง");
         }
@@ -148,11 +152,11 @@ export default function ProductDetailPage() {
                     className="mySwiper2"
                   >
                     <SwiperSlide>
-                      <img src={productData?.image} className="mx-auto"/>
+                      <img src={productData?.image} className="mx-auto" />
                     </SwiperSlide>
                     {productData?.imageProduct.map((img, index) => (
                       <SwiperSlide key={index}>
-                        <img src={img.image} className="mx-auto"/>
+                        <img src={img.image} className="mx-auto" />
                       </SwiperSlide>
                     ))}
                   </Swiper>

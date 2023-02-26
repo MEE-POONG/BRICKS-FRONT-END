@@ -43,14 +43,6 @@ export default function Basket() {
               borderRadius: "2rem",
             },
           },
-          error: {
-            style: {
-              background: "#e02424",
-              color: "white",
-              fontSize: "2rem",
-              borderRadius: "2rem",
-            },
-          },
         }}
       />
       <div className="container lg:mt-10 lg:px-20">

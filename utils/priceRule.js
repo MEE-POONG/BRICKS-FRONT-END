@@ -2,7 +2,7 @@
 
 export const priceRule = (distance = 0, constPrice = 0, qty = 1, qtyRate) => {
   const distanceKM = distance / 1000;
-  console.log("qtyRate",qtyRate)
+  console.log("qtyRate", qtyRate);
   if (qtyRate?.length !== 0) {
     if (distanceKM !== 0) {
       //QTY RATE

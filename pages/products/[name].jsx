@@ -149,7 +149,6 @@ export default function ProductDetailPage() {
                           ? thumbsSwiper
                           : null,
                     }}
-                    className="mySwiper2"
                   >
                     <SwiperSlide>
                       <img src={productData?.image} className="mx-auto" />

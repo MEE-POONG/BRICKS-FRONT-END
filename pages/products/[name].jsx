@@ -83,7 +83,12 @@ export default function ProductDetailPage() {
       productData?.qtyRate
     );
     setProductSumPrice(result);
-  }, [mapStore?.distance, productData?.price, productQty]);
+  }, [
+    mapStore?.distance,
+    productData?.price,
+    productQty,
+    productData?.qtyRate,
+  ]);
 
   return (
     <>

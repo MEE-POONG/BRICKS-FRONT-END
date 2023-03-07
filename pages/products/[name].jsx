@@ -34,7 +34,10 @@ export default function ProductDetailPage() {
   const [
     { data: productData, loading: productLoading, error: productError },
     getProduct,
-  ] = useAxios({ url: `/api/products/${router.query.name}`, method: "GET" });
+  ] = useAxios({
+    url: `/api/products/name?name=${router.query.name}`,
+    method: "GET",
+  });
   //SUBMIT DATA
   const handleAddToCart = async () => {
     try {

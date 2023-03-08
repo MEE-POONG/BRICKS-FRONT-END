@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Link from "next/link";
 import React, { useRef } from "react";
 import { BiUserCircle } from "react-icons/bi";
 
@@ -124,12 +125,12 @@ export default function SignUpPage() {
                   </button>
                   <p className=" font-light text-gray-500 ">
                     คุณมีบัญชีแล้วใช่หรือไม่?{" "}
-                    <a
+                    <Link
                       href="/login"
                       className="font-semibold text-blue-600 hover:underline "
                     >
                       Sign in
-                    </a>
+                    </Link>
                   </p>
                 </form>
               </div>

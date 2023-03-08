@@ -81,7 +81,7 @@ export default function Footer() {
                     <li>
                       <a
                         className="flex font-semibold  pb-2  hover:underline"
-                        href="https://creative-tim.com/privacy?ref=njs-profile"
+                        href="https://www.facebook.com/DreamBlock9"
                       >
                         <BsLine /> &nbsp; plingkratoke
                       </a>

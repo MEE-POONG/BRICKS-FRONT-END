@@ -5,14 +5,14 @@ import React, { useRef } from "react";
 export default function LoginPage() {
   const handleSignInGmail = async () => {
     await signIn("google", {
-      callbackUrl: "/",
+      callbackUrl: window.location.origin,
     });
   };
   const handleSignInEmail = async () => {
     await signIn("credentials", {
       email: document.getElementById("email").value,
       password: document.getElementById("password").value,
-      callbackUrl: '/',
+      callbackUrl: window.location.origin,
     });
   };
   return (

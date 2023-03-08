@@ -8,28 +8,29 @@ import HomeTop from "../components/home/top";
 import Brandblock from "../components/article/brandblock";
 import Prebrick from "../components/article/prebrick";
 
+
 export default function Home() {
 
   return (
     <>
       <Head>
         <title>ช่างพองอิฐประสาน</title>
-          <link rel="icon" href="/logo1.png" />
+        <link rel="icon" href="/logo1.png" />
       </Head>
       <div>
-        <HomeTop/>
+        <HomeTop />
       </div>
       <div>
-      <Showproducts/>
+        <Showproducts />
       </div>
       <div>
-      <PortfolioShowIndex/>
+        <PortfolioShowIndex />
       </div>
       <div>
-        <Prebrick/>
+        <Prebrick />
       </div>
       <div>
-      <Brandblock/>
+        <Brandblock />
       </div>
 
     </>

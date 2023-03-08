@@ -6,7 +6,6 @@ import UserEditProFile from "../../components/Users/UserEditProFile";
 
 const Tabs = ({ color }) => {
   const { data: session } = useSession();
-  console.log(session?.user);
   const [openTab, setOpenTab] = React.useState(1);
   return (
     <>

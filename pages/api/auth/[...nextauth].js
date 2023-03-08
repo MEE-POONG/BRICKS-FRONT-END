@@ -1,13 +1,17 @@
 import GoogleProvider from "next-auth/providers/google";
+import CredentialsProvider from 'next-auth/providers/credentials';
 import { PrismaClient } from "@prisma/client";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import NextAuth from "next-auth/next";
-import { store } from "../../../store/store";
-
 const prisma = new PrismaClient();
+
+
 export default NextAuth({
   secret: process.env.NEXT_PUBLIC_NEXT_AUTH_SECRET,
   adapter: PrismaAdapter(prisma),
+  pages: {
+    signIn: '/login',
+  },
   providers: [
     GoogleProvider({
       clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
@@ -18,6 +22,36 @@ export default NextAuth({
           access_type: "offline",
           response_type: "code",
         },
+      },
+    }),
+    CredentialsProvider({
+      name: 'credentials',
+      credentials: {
+        email: {
+          label: 'email',
+          type: 'email',
+          placeholder: 'email'
+        },
+        password: { label: 'Password', type: 'password' }
+      },
+      async authorize(credentials) {
+
+        const { email, password } = credentials;
+
+        try {
+          const data = await prisma.user.findFirstOrThrow({
+            where: {
+              email: email,
+              password: password
+            }
+          });
+
+          return data
+        } catch (error) {
+          console.log(error);
+          return null;
+        }
+
       },
     }),
   ],
@@ -51,6 +85,18 @@ export default NextAuth({
         (session.user.id = token.uid), (session.user.cartId = data?.id);
       }
       return session;
+    },
+  },
+  cookies: {
+    sessionToken: {
+      name: `__Secure-next-auth.session-token`,
+      options: {
+        httpOnly: true,
+        sameSite: 'lax',
+        path: '/',
+        domain: '.dreamblock.org',
+        secure: true,
+      },
     },
   },
 });

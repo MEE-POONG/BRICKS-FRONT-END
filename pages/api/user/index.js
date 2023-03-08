@@ -12,6 +12,27 @@ export default async function handler(req, res) {
         res.status(400).json({ success: false });
       }
       break;
+    case 'POST':
+      try {
+        await prisma.user.create({
+          where: {
+            id: req.query.id
+          },
+          data: {
+            name: req.body.name,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            tel: req.body.tel,
+            email: req.body.email,
+
+          }
+        })
+
+        res.status(201).json({ success: true })
+      } catch (error) {
+        res.status(400).json({ success: false })
+      }
+      break
     default:
       res.setHeader("Allow", ["GET"]);
       res.status(405).end(`Method ${method} Not Allowed`);

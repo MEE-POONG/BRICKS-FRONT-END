@@ -2,20 +2,32 @@
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 import React from "react";
+import Swal from "sweetalert2";
 
 export default function LoginPage() {
   const route = useRouter()
   const handleSignInGmail = async () => {
     await signIn("google", {
-      callbackUrl: '/',
+      callbackUrl: `${window.location.origin}/`,
     });
   };
   const handleSignInEmail = async () => {
-    await signIn("credentials", {
+    const res = await signIn("credentials", {
       email: document.getElementById("email").value,
       password: document.getElementById("password").value,
-      callbackUrl: '/',
+      callbackUrl: `${window.location.origin}/`,
+      redirect: false,
     });
+    if (res.ok) {
+      route.push("/")
+    }
+    if (res.error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'ชื่อผู้ใช้งาน หรือรหัสผ่านไม่ถูกต้อง!',
+      })
+    }
   };
   return (
     <>

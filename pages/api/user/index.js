@@ -15,7 +15,10 @@ export default async function handler(req, res) {
     case 'POST':
       try {
         await prisma.user.create({
-          data: req.body
+          data: {
+            ...req.body,
+            image: 'https://cdn-icons-png.flaticon.com/512/7452/7452962.png'
+          }
         })
 
         res.status(201).json({ success: true })

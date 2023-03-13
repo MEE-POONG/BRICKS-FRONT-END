@@ -29,7 +29,7 @@ export default NextAuth({
       credentials: {
         email: {
           label: 'email',
-          type: 'email',
+          type: 'text',
           placeholder: 'email'
         },
         password: { label: 'Password', type: 'password' }
@@ -41,8 +41,17 @@ export default NextAuth({
         try {
           const data = await prisma.user.findFirstOrThrow({
             where: {
-              email: email,
-              password: password
+              AND: {
+                OR: [
+                  {
+                    email: email
+                  },
+                  {
+                    username: email
+                  }
+                ],
+                password: password,
+              }
             }
           });
 
@@ -71,6 +80,7 @@ export default NextAuth({
       }
       if (user) {
         token.uid = user.id;
+        token.user = user;
       }
       return token;
     },
@@ -82,7 +92,10 @@ export default NextAuth({
       });
       if (session?.user) {
         //เซ็ตค่าให้ session
+        session.user = token.user;
+        session.user.image = token?.user?.image || 'https://cdn.pixabay.com/photo/2019/08/11/18/59/icon-4399701_1280.png';
         (session.user.id = token.uid), (session.user.cartId = data?.id);
+
       }
       return session;
     },

@@ -88,7 +88,7 @@ export default function Navbar() {
                         src={session?.user.image}
                       />
                       <span className="cursor-pointer">
-                        {session?.user.name}
+                        {session?.user?.firstName} {session?.user?.lastName}
                       </span>
                       <button
                         onClick={handleSignOut}

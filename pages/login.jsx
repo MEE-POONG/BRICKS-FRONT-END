@@ -1,8 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import { signIn } from "next-auth/react";
-import React, { useRef } from "react";
+import { useRouter } from "next/router";
+import React from "react";
 
 export default function LoginPage() {
+  const route = useRouter()
   const handleSignInGmail = async () => {
     await signIn("google", {
       callbackUrl: window.location.origin,
@@ -79,14 +81,14 @@ export default function LoginPage() {
         <div className="my-6">
           <button
             className="w-full text-center text-4xl py-3 my-3 border flex space-x-2 items-center justify-center border-slate-200 rounded-lg text-slate-700 hover:border-slate-400 hover:text-slate-900 hover:shadow transition duration-150"
-            onClick={handleSignInGmail}
+            onClick={() => route.push("/register")}
           >
             <img
-              src="https://www.svgrepo.com/show/355037/google.svg"
+              src="https://cdn-icons-png.flaticon.com/512/3033/3033143.png"
               className="w-6 h-6"
               alt=""
             />
-            <span>เข้าสู่ระบบด้วย Google</span>
+            <span>สมัครสมาชิก</span>
           </button>
         </div>
       </div>

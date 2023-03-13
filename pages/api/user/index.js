@@ -15,17 +15,7 @@ export default async function handler(req, res) {
     case 'POST':
       try {
         await prisma.user.create({
-          where: {
-            id: req.query.id
-          },
-          data: {
-            name: req.body.name,
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            tel: req.body.tel,
-            email: req.body.email,
-
-          }
+          data: req.body
         })
 
         res.status(201).json({ success: true })

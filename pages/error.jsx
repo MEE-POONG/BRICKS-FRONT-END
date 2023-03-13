@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const error = () => {
+export const Error = () => {
     return (
         <div>
             <section class="bg-white dark:bg-gray-900 ">

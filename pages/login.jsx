@@ -7,14 +7,14 @@ export default function LoginPage() {
   const route = useRouter()
   const handleSignInGmail = async () => {
     await signIn("google", {
-      callbackUrl: window.location.origin,
+      callbackUrl: '/',
     });
   };
   const handleSignInEmail = async () => {
     await signIn("credentials", {
       email: document.getElementById("email").value,
       password: document.getElementById("password").value,
-      callbackUrl: window.location.origin,
+      callbackUrl: '/',
     });
   };
   return (

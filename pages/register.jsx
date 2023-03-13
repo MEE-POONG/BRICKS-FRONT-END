@@ -45,7 +45,7 @@ export default function SignUpPage() {
                       await signIn("credentials", {
                         email: e.target.email.value,
                         password: e.target.password.value,
-                        callbackUrl: window.location.origin,
+                        callbackUrl: '/',
                       });
                     }
                   } catch (error) {

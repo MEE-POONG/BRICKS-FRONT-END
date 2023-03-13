@@ -100,15 +100,8 @@ export default NextAuth({
       }
       return session;
     },
-    /**
-     * @param  {string} url      URL provided as callback URL by the client
-     * @param  {string} baseUrl  Default base URL of site (can be used as fallback)
-     * @return {string}          URL the client will be redirect to
-     */
-    redirect: async (url, baseUrl) => {
-      return url.startsWith(baseUrl)
-        ? Promise.resolve(url)
-        : Promise.resolve(baseUrl)
+    redirect({ url }) {
+      return Promise.resolve(url)
     }
   },
   // cookies: {

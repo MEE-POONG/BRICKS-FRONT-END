@@ -5,7 +5,6 @@ import Layout from "../Layout/Layout";
 import "../styles/globals.css";
 import { store } from "/store/store";
 import { SessionProvider } from "next-auth/react";
-
 export default function App({
   Component,
   pageProps: { session, ...pageProps },

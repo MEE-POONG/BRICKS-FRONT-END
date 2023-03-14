@@ -38,6 +38,13 @@ body {
   padding: 0.8em;
   background: #fff;
 }
+.slick-prev {
+  display: none !important;
+}
+.slick-next {
+  right: 0 !important;
+  display: none !important;
+}
 //  .cardp{
 //   display: grid;
 //   grid-template-columns: repeat(auto-fit, minmax(8rem,1fr));

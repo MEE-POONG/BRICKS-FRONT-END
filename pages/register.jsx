@@ -45,8 +45,12 @@ export default function SignUpPage() {
                       await signIn("credentials", {
                         email: e.target.email.value,
                         password: e.target.password.value,
-                        callbackUrl: '/',
+                        callbackUrl: `${window.location.origin}/`,
+                        redirect: false,
                       });
+                      if (res.ok) {
+                        routes.push("/")
+                      }
                     }
                   } catch (error) {
                     await Swal.fire({

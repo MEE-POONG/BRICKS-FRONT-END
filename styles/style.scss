@@ -2,12 +2,12 @@
 //     width: 100%;
 //     height: 100%;
 //   }
-  
+
 //   .swiper-slide {
 //     text-align: center;
 //     font-size: 18px;
 //     background: #fff;
-  
+
 //     /* Center slide text vertically */
 //     display: -webkit-box;
 //     display: -ms-flexbox;
@@ -22,7 +22,7 @@
 //     -webkit-align-items: center;
 //     align-items: center;
 //   }
-  
+
 //   .swiper-slide img {
 //     display: block;
 //     width: 100%;
@@ -30,5 +30,15 @@
 //     object-fit: cover;
 //   }
 .sticky {
-    position: sticky;
-  }
+  position: sticky;
+}
+
+
+.swal2-title {
+  font-size: 2.25rem !important;
+  line-height: 2.5rem !important;
+}
+.swal2-html-container {
+  font-size: 2.25rem !important;
+  line-height: 2.5rem !important;
+}

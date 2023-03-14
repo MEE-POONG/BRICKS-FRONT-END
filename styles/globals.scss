@@ -17,7 +17,6 @@ body {
 }
 
 @layer base {
-
   html,
   * {
     font-family: fontTh1, RSU, sans-serif;
@@ -27,28 +26,30 @@ body {
 .cardp {
   width: 270px;
   height: 410px;
-  padding: .8em;
+  padding: 0.8em;
   background: #ffffff;
   // position: relative;
   // overflow: visible;
   margin-top: 15%;
   margin-left: 55px;
-
 }
-
+.card-est {
+  height: 410px;
+  padding: 0.8em;
+  background: #fff;
+}
 //  .cardp{
 //   display: grid;
 //   grid-template-columns: repeat(auto-fit, minmax(8rem,1fr));
 //   grid-auto-rows: 6rem;
 //  }
 
-
 .cardp-img {
   // background-color: #f7594f;
   height: 60%;
   width: 100%;
   // border-radius: .5rem;
-  transition: .3s ease;
+  transition: 0.3s ease;
 }
 
 .cardp-info {
@@ -93,10 +94,7 @@ svg {
 .cardp-img {
   transform: translateY(-25%);
   // box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px, rgba(180, 71, 71, 0.3) 0px 8px 16px -8px;
-
 }
-
-
 
 .swal2-title {
   font-size: 2.25rem !important;

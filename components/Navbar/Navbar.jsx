@@ -141,17 +141,23 @@ export default function Navbar() {
             <div className="hidden items-center justify-between flex-grow lg:flex font-bold">
               <div className="flex items-center capitalize  h-full">
                 <Link
+                  href="/"
+                  className="text-gray-200 flex items-center px-4 hover:text-white transition h-full hover:bg-[#a5522a]"
+                >
+                  หน้าหลัก
+                </Link>
+                <Link
                   href="/products"
                   className="text-gray-200 flex items-center px-4 hover:text-white transition h-full hover:bg-[#a5522a]"
                 >
                   สินค้า
                 </Link>
-                <Link
+                {/* <Link
                   href="/portfolio"
                   className="text-gray-200 flex items-center px-4 hover:text-white transition h-full hover:bg-[#a5522a]"
                 >
                   ผลงานของเรา
-                </Link>
+                </Link> */}
                 <Link
                   href="/about"
                   className="text-gray-200 flex items-center px-4 hover:text-white transition h-full hover:bg-[#a5522a]"

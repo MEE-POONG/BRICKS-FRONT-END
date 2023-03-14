@@ -66,7 +66,7 @@ export default function Navbar() {
               </div>
             </div>
             <div className="lg:mx-10">
-              <div className="space-x-8 justify-evenly flex mt-3">
+              <div className="space-x-8 justify-evenly flex">
                 <Link
                   href={"/checkuot"}
                   className="relative text-center text-gray-700 hover:text-[#c94413] transition my-auto"
@@ -75,7 +75,7 @@ export default function Navbar() {
                     <FaShoppingBasket />
                   </div>
                   <div className="text-l leading-3">ตะกร้า</div>
-                  <div className="absolute  inset-0 -right-2 -top-2 w-auto h-5 px-2  rounded-full flex items-center justify-center bg-[#a5522a] text-white text-3xl lg:w-5 lg:h-5 lg:-right-2 lg:py-2">
+                  <div className="absolute -right-2 -top-2 w-auto h-5 px-2  rounded-full flex items-center justify-center bg-[#a5522a] text-white text-3xl lg:w-5 lg:h-5 lg:-right-2 lg:py-2">
                     {cartLength}
                   </div>
                 </Link>

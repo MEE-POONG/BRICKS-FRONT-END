@@ -83,7 +83,7 @@ export default function CheckBill({ imageURL, onImageSlipChange }) {
                   ))}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="w-10 h-10 text-primary group-hover:text-secondary"
+                    className="w-10 h-10 text-[#c94413] group-hover:text-secondary"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"

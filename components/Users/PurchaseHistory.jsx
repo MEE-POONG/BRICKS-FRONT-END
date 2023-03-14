@@ -118,7 +118,7 @@ export default function PurchaseHistory() {
                 </div>
               </div>
               <div className=" col-span-1 ml-4 mt-4">
-                <div className="bg-white  rounded-md border-primary border text-2xl ">
+                <div className="bg-white  rounded-md border-[#b96800] border text-2xl ">
                   <h1 className="text-center my-4  bg-white py-2 rounded-md border-b-2  text-gray-600">
                     Service
                   </h1>

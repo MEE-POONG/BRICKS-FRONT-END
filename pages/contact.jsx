@@ -20,7 +20,7 @@ export default function ContactPage() {
       <div className="container pt-16 mx-auto font-fontTh2 p-4">
       {contactData?.map((contact, index) => (
         <section key={index} className="text-gray-700 body-font overflow-hidden bg-white rounded-lg shadow-xl p-3 lg:p-10">
-          <h1 className=" text-5xl  lg:text-6xl font-bold text-center text-primary ">ติดต่อ</h1>
+          <h1 className=" text-5xl  lg:text-6xl font-bold text-center text-[#c94413] ">ติดต่อ</h1>
           <p className=" text-4xl lg:text-5xl text-center uppercase">contact us</p>
           <div className="my-10">
             <iframe
@@ -36,7 +36,7 @@ export default function ContactPage() {
             <div>
               <p>ที่ตั้ง</p>
               <hr />
-              <p className=" flex lg:py-2 mt-1 text-primary">
+              <p className=" flex lg:py-2 mt-1 text-[#c94413]">
                 {" "}
                 <FaHome /> &nbsp; {contact.address}
               </p>
@@ -47,7 +47,7 @@ export default function ContactPage() {
                 {" "}
                 <a
                   href="tel:+"
-                  className=" flex lg:py-2 text-primary hover:underline mt-1"
+                  className=" flex lg:py-2 text-[#c94413] hover:underline mt-1"
                 >
                   <BsTelephoneFill /> &nbsp; {contact.tel}
                 </a>
@@ -55,7 +55,7 @@ export default function ContactPage() {
               
               <a
                 href={contact.linkLine}
-                className=" flex lg:py-2 text-primary hover:underline"
+                className=" flex lg:py-2 text-[#c94413] hover:underline"
               >
                 {" "}
                 <BsLine /> &nbsp;{contact.line}{" "}
@@ -65,7 +65,7 @@ export default function ContactPage() {
                 {" "}
                 <a
                   href="mailto:"
-                  className=" flex lg:py-2 text-primary hover:underline"
+                  className=" flex lg:py-2 text-[#c94413] hover:underline"
                 >
                   <GrMail /> &nbsp;{contact.email}
                 </a>
@@ -77,7 +77,7 @@ export default function ContactPage() {
               <hr />
               <a
                 href={contact.linkFacebook}
-                className=" flex lg:py-2 text-primary hover:underline mt-1"
+                className=" flex lg:py-2 text-[#c94413] hover:underline mt-1"
               >
                 {" "}
                 <BsFacebook /> &nbsp;{contact.facebook}{" "}

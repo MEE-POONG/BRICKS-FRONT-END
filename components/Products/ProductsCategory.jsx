@@ -32,7 +32,7 @@ export default function ProductsCategory({ typeName }) {
     const LastArray = pathSplit[pathSplit.length - 1]; // เอาอาเรย์ตัวสุดท้าย
 
     if (LastArray === pathType) {
-      return "bg-primary text-white";
+      return "bg-[#a5522a] text-white";
     }
     return "bg-white text-gray-600";
   };

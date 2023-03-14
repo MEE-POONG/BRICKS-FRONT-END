@@ -63,7 +63,7 @@ export default function Showproducts() {
                       >
                         <button
                           type="button"
-                          className=" svg-icon text-[18px] lg:text-[18px]  animate-bounce  text-white bg-primary hover:bg-red-700 focus:ring-primary rounded-full  px-16 lg:px-16 py-2 mt-2 text-center mr-2 mb-2  ml-10"
+                          className=" svg-icon text-[18px] lg:text-[18px]  animate-bounce  text-white bg-[#a5522a] hover:bg-red-700 focus:ring-primary rounded-full  px-16 lg:px-16 py-2 mt-2 text-center mr-2 mb-2  ml-10"
                         >
                           ช็อปเลย
                         </button>

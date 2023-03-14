@@ -50,7 +50,7 @@ export default function PortfolioShowIndex() {
       <div className="px-6 pb-2  text-right">
         <Link
           href="/portfolio "
-          className="inline-flex items-center px-3 py-2 text-3xl font-bold text-center text-primary hover:underline  "
+          className="inline-flex items-center px-3 py-2 text-3xl font-bold text-center text-[#c94413] hover:underline  "
         >
           อ่านเพิ่มเติม
           <svg

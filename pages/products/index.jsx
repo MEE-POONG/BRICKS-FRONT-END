@@ -71,7 +71,7 @@ export default function ProductsPage() {
                       </div>
                     </div>
                     <div className="p-4">
-                      <div className="bg-primary rounded-xl p-1 px-2 w-fit">
+                      <div className="bg-[#a5522a] rounded-xl p-1 px-2 w-fit">
                         <span className="block text-xl text-white font-semibold">
                           {product.subType?.name}
                         </span>

@@ -75,7 +75,7 @@ export default function Basket() {
                     <img className="h-24" src={item.image} alt="product" />
                   </div>
                   <div className="flex flex-col justify-between text-3xl font-bold ml-4 flex-grow">
-                    <span className="font-bold text-nd text-primary">
+                    <span className="font-bold text-nd text-[#c94413]">
                       {item.name}
                     </span>
                     <div
@@ -128,7 +128,7 @@ export default function Basket() {
                 className="p-4 mb-8 text-2xl w-full rounded-lg bg-gray-200 resize-none outline-none focus-visible:shadow-none lg:mb-20"
               ></textarea> */}
             </div>
-            <div className="absolute flex justify-between mt-10 mb-5 mx-6 p-5 space-x-1 rounded-lg bg-primary text-white text-center items-center inset-x-0 bottom-0 lg:flex-wrap lg:justify-center">
+            <div className="absolute flex justify-between mt-10 mb-5 mx-6 p-5 space-x-1 rounded-lg bg-[#a5522a] text-white text-center items-center inset-x-0 bottom-0 lg:flex-wrap lg:justify-center">
               <span className="font-semibold text-3xl">ราคารวม</span>
               <span className="font-semibold text-4xl">
                 {handleSUM(cartItems).toLocaleString("en-US")} บาท

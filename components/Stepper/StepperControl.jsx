@@ -35,14 +35,14 @@ export default function StepperControl({
           <Link
             href="/"
             onClick={() => handleClick()}
-            className="text-primary bg-white cursor-pointer py-2 px-4 rounded-xl font-semibold border-2 border-primary hover:bg-primary hover:text-white transition duration-200 ease-in-out"
+            className="text-[#c94413] bg-white cursor-pointer py-2 px-4 rounded-xl font-semibold border-2 border-[#b96800] hover:bg-[#a5522a] hover:text-white transition duration-200 ease-in-out"
           >
             ย้อนกลับ
           </Link>
         ) : (
           <button
             onClick={() => handleClick()}
-            className="text-primary bg-white cursor-pointer py-2 px-4 rounded-xl font-semibold border-2 border-primary hover:bg-primary hover:text-white transition duration-200 ease-in-out"
+            className="text-[#c94413] bg-white cursor-pointer py-2 px-4 rounded-xl font-semibold border-2 border-[#b96800] hover:bg-[#a5522a] hover:text-white transition duration-200 ease-in-out"
           >
             ย้อนกลับ
           </button>
@@ -53,7 +53,7 @@ export default function StepperControl({
             disabled={ImageCheck()}
             className={`${
               ImageCheck() ? "opacity-50 cursor-not-allowed" : "cursor-pointer"
-            }  bg-primary text-white py-2 px-4 rounded-xl font-semibold border-2 border-secondary hover:primary hover:text-white transition duration-200 ease-in-out`}
+            }  bg-[#a5522a] text-white py-2 px-4 rounded-xl font-semibold border-2 border-secondary hover:primary hover:text-white transition duration-200 ease-in-out`}
             onClick={async () => {
               await handleClick("next");
               await handleExec();
@@ -65,7 +65,7 @@ export default function StepperControl({
           <button
             type="submit"
             form="formSubmit"
-            className="bg-primary disabled:opacity-50 disabled:cursor-not-allowed text-white py-2 px-4 rounded-xl font-semibold cursor-pointer border-2 border-primary hover:bg-primary hover:text-white transition duration-200 ease-in-out"
+            className="bg-[#a5522a] disabled:opacity-50 disabled:cursor-not-allowed text-white py-2 px-4 rounded-xl font-semibold cursor-pointer border-2 border-[#b96800] hover:bg-[#a5522a] hover:text-white transition duration-200 ease-in-out"
             onClick={async () => {
               if (addressId !== "") {
                 await handleClick("next");
@@ -85,7 +85,7 @@ export default function StepperControl({
                 toast.error("กรุณาเลือกซื้อสินค้าก่อนชำระเงิน");
               }
             }}
-            className="bg-primary text-white py-2 px-4 rounded-xl font-semibold cursor-pointer border-2 border-primary hover:bg-primary hover:text-white transition duration-200 ease-in-out"
+            className="bg-[#a5522a] text-white py-2 px-4 rounded-xl font-semibold cursor-pointer border-2 border-[#b96800] hover:bg-[#a5522a] hover:text-white transition duration-200 ease-in-out"
           >
             ถัดไป
           </button>

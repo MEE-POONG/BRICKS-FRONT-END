@@ -129,7 +129,7 @@ export default function AddressSelect({
         <button
           type="button"
           onClick={() => setIsOpen(true)}
-          className="rounded-xl bg-primary px-4 py-2 text-xl font-semibold text-white hover:bg-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+          className="rounded-xl bg-[#a5522a] px-4 py-2 text-xl font-semibold text-white hover:bg-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
         >
           เพิ่มที่อยู่
         </button>
@@ -142,9 +142,9 @@ export default function AddressSelect({
               key={index}
               className={`${
                 addressSelected?.id === address.id
-                  ? "border-primary bg-red-50"
+                  ? "border-[#b96800] bg-red-50"
                   : "border-gray-400"
-              } p-6 my-4 rounded-lg border-2 hover:border-primary grid grid-cols-2`}
+              } p-6 my-4 rounded-lg border-2 hover:border-[#b96800] grid grid-cols-2`}
               onClick={() => {
                 setAddressSelected(address);
                 dispatch(addAddress(address.id));

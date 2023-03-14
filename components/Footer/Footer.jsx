@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="container mx-auto px-4 text-white">
           <div className="flex flex-wrap text-left lg:text-left">
             <div className="w-full lg:w-6/12 px-4">
-              <h4 className="text-3xl lg:text-5xl text-primary font-semibold ">
+              <h4 className="text-3xl lg:text-5xl text-[#c94413] font-semibold ">
                 ช่างพอง อิฐประสาน
               </h4>
               <h5 className="text-2xl lg:text-3xl mt-0 mb-2 text-blueGray-600">
@@ -19,7 +19,7 @@ export default function Footer() {
             <div className="w-full lg:w-6/12 px-4 text-2xl lg:text-3xl ">
               <div className="flex flex-wrap items-top mb-6">
                 <div className="w-full lg:w-4/12 px-4 ml-auto">
-                  <span className="block uppercase font-semibold mb-2 text-primary">
+                  <span className="block uppercase font-semibold mb-2 text-[#c94413]">
                     pages
                   </span>
                   <ul className="list-unstyled">
@@ -58,7 +58,7 @@ export default function Footer() {
                   </ul>
                 </div>
                 <div className="w-full lg:w-4/12 px-4 text-2xl lg:text-3xl">
-                  <span className="block uppercase  font-semibold mb-2 text-primary">
+                  <span className="block uppercase  font-semibold mb-2 text-[#c94413]">
                     ติดต่อด่วน
                   </span>
                   <ul className="list-unstyled">
@@ -94,7 +94,7 @@ export default function Footer() {
           <hr className="my-6 border-blueGray-300" />
           {/* <div className="flex flex-wrap items-center md:justify-between justify-center">
             <div className="w-full px-4 mx-auto text-center">
-              <div className="text-sm text-primary font-semibold py-1">
+              <div className="text-sm text-[#c94413] font-semibold py-1">
                 Copyright © 2023 All rights Reserved. &nbsp;
                 <span>
                   Design by &nbsp;
@@ -108,7 +108,7 @@ export default function Footer() {
               </div>
             </div>
           </div> */}
-          <div className="grid grid-cols-1 md:grid-cols-2 text-primary text-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 text-[#c94413] text-center">
             <div className="text-xl lg:text-3xl md:text-left">
               Copyright 2023 © All rights Reserved.
             </div>

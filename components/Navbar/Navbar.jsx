@@ -50,17 +50,17 @@ export default function Navbar() {
                 />
               </Link>
               <div className="w-3/4 relative flex lg:w-full">
-                <span className="absolute left-4 my-4 text-lg text-gray-400">
+                <span className="absolute top-0 translate-y-[50%] left-4 text-lg text-gray-400">
                   <FaSistrix />
                 </span>
                 <input
                   type="text"
                   name="search"
                   id="search"
-                  className="w-full border border-primary border-r-0 pl-12 py-3 pr-3 rounded-l-md focus:outline-none"
+                  className="w-full border border-[#b96800] border-r-0 pl-12  pr-3 rounded-l-md focus:outline-none"
                   placeholder="ต้องการค้นหา..."
                 />
-                <button className="bg-primary border border-primary text-white px-8 rounded-r-md hover:bg-transparent hover:text-primary transition">
+                <button className="bg-[#a5522a] border border-[#b96800] text-white px-8 rounded-r-md hover:bg-transparent hover:text-[#c94413] font-bold transition">
                   ค้นหา
                 </button>
               </div>
@@ -69,13 +69,13 @@ export default function Navbar() {
               <div className="space-x-8 justify-evenly flex mt-3">
                 <Link
                   href={"/checkuot"}
-                  className="relative text-center text-gray-700 hover:text-primary transition my-auto"
+                  className="relative text-center text-gray-700 hover:text-[#c94413] transition my-auto"
                 >
                   <div className="text-2xl flex justify-center lg:text-4xl">
-                    <FaShoppingBasket/>
+                    <FaShoppingBasket />
                   </div>
                   <div className="text-l leading-3">ตะกร้า</div>
-                  <div className="absolute -right-2 -top-2 w-auto h-5 px-2 py-3 rounded-full flex items-center justify-center bg-primary text-white text-3xl lg:w-5 lg:h-5 lg:-right-2 lg:py-2">
+                  <div className="absolute  inset-0 -right-2 -top-2 w-auto h-5 px-2  rounded-full flex items-center justify-center bg-[#a5522a] text-white text-3xl lg:w-5 lg:h-5 lg:-right-2 lg:py-2">
                     {cartLength}
                   </div>
                 </Link>
@@ -92,7 +92,7 @@ export default function Navbar() {
                       </span>
                       <button
                         onClick={handleSignOut}
-                        className="p-2 bg-primary rounded-md text-white "
+                        className="p-2 bg-[#a5522a] rounded-md text-white "
                       >
                         logout
                       </button>
@@ -101,7 +101,7 @@ export default function Navbar() {
                 ) : (
                   <Link
                     href={"/login"}
-                    className="text-center text-gray-700 hover:text-primary transition relative"
+                    className="text-center text-gray-700 hover:text-[#c94413] transition relative"
                   >
                     <div className="text-lg flex justify-center lg:text-2xl">
                       <FaRegUser />
@@ -117,12 +117,12 @@ export default function Navbar() {
         <nav className="mt-2 bg-gray-800">
           {/* Full Display */}
           <div className=" container flex font-fontTh2">
-            <div className="px-8 py-4 ml-10 lg:ml-24 bg-primary flex items-center cursor-pointer relative group/type">
+            <div className="px-8 py-4 ml-10 lg:ml-24 bg-[#a5522a] flex items-center cursor-pointer relative group/type">
               <span className="text-white">
                 <FaBars />
               </span>
               <span className="ml-2 font-bold text-white">ประเภทสินค้า</span>
-              <div className="absolute w-full z-40 left-0 top-full  bg-primary rounded-b-lg shadow-md py-3 divide-y divide-white divide-solid  opacity-0 group-hover/type:opacity-100 transition duration-300 invisible group-hover/type:visible">
+              <div className="absolute w-full z-40 left-0 top-full  bg-[#a5522a] rounded-b-lg shadow-md py-3 divide-y divide-white divide-solid  opacity-0 group-hover/type:opacity-100 transition duration-300 invisible group-hover/type:visible">
                 {arrSortTypeName?.map((type, index) => (
                   <div
                     key={index}

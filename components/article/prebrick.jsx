@@ -12,7 +12,7 @@ export default function Prebrick() {
               <div className=" flex flex-col justify-center lg:pr-4  mx-4 my-4">
                 <a
                   href="#"
-                  className="text-black text-3xl font-semibold mb-2 hover:text-primary text-center "
+                  className="text-black text-3xl font-semibold mb-2 hover:text-[#c94413] text-center "
                 >
                   ข้อดี
                 </a>
@@ -36,7 +36,7 @@ export default function Prebrick() {
               <div className=" flex flex-col justify-center lg:pr-4 mx-4 my-4">
                 <a
                   href="#"
-                  className="text-black text-3xl font-semibold mb-2 hover:text-primary text-center "
+                  className="text-black text-3xl font-semibold mb-2 hover:text-[#c94413] text-center "
                 >
                   ข้อจำกัด
                 </a>

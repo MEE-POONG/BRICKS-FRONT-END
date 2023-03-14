@@ -126,14 +126,14 @@ export default function ProductDetailPage() {
           <div className="text-2xl font-bold">
             <Link
               href={`/products/category/${productData?.subType?.type?.name}`}
-              className="hover:text-primary"
+              className="hover:text-[#c94413]"
             >
               {productData?.subType?.type?.name}
             </Link>
             <span> / </span>
             <Link
               href={`/products/category/${productData?.subType?.type?.name}/${productData?.subType?.name}`}
-              className="hover:text-primary"
+              className="hover:text-[#c94413]"
             >
               {productData?.subType?.name}
             </Link>
@@ -237,7 +237,7 @@ export default function ProductDetailPage() {
                         </span>
                         <div className="flex justify-center items-center my-4 lg:justify-start ">
                           <svg
-                            className="fill-current w-3 text-gray-900 hover:text-primary cursor-pointer "
+                            className="fill-current w-3 text-gray-900 hover:text-[#c94413] cursor-pointer "
                             viewBox="0 0 448 512"
                             onClick={() => {
                               if (productQty > 1) {
@@ -249,7 +249,7 @@ export default function ProductDetailPage() {
                           </svg>
 
                           <input
-                            className="mx-2 border text-2xl text-center w-16 rounded-md text-gray-900 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
+                            className="mx-2 border text-2xl text-center w-16 rounded-md text-gray-900 focus:outline-none focus:border-[#b96800] focus:ring-1 focus:ring-primary [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
                             type="number"
                             min={1}
                             value={parseInt(productQty)}
@@ -258,7 +258,7 @@ export default function ProductDetailPage() {
                             }
                           />
                           <svg
-                            className="fill-current w-3 text-gray-900 hover:text-primary cursor-pointer"
+                            className="fill-current w-3 text-gray-900 hover:text-[#c94413] cursor-pointer"
                             viewBox="0 0 448 512"
                             onClick={() => setProductQty(productQty + 1)}
                           >

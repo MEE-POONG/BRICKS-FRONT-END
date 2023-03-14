@@ -20,13 +20,14 @@ export default function Showproducts() {
   const settings = {
     dots: false,
     infinite: true,
-    autoplay: true,
+    autoplay: false,
     speed: 2000,
     autoplaySpeed: 2000,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,
+    swipeToSlide: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -80,13 +81,8 @@ export default function Showproducts() {
                       <p className="text-body text-xl lg:text-2xl font-fontTh1  text-gray-400 font-bold" dangerouslySetInnerHTML={{ __html: productsHome?.products[0]?.detail }} />
                     </div>
                     <div className="cardp-footer">
-                      <Link
-                        href={`/products/category/${productsHome?.type.name}`}
-                      >
-                        <button
-                          type="button"
-                          className=" svg-icon text-[18px] lg:text-[18px]  animate-bounce  text-white bg-primary hover:bg-red-700 focus:ring-primary rounded-full  px-16 lg:px-16 py-2 mt-2 text-center mr-2 mb-2  ml-10"
-                        >
+                      <Link href={`/products/category/${productsHome?.type.name}`} className="w-full pt-5">
+                        <button type="button" className="svg-icon animate-bounce rounded-full text-[20px] font-bold text-white bg-primary px-16 py-2">
                           ช็อปเลย
                         </button>
                       </Link>

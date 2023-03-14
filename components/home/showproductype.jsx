@@ -82,7 +82,7 @@ export default function Showproducts() {
                     </div>
                     <div className="cardp-footer">
                       <Link href={`/products/category/${productsHome?.type.name}`} className="w-full pt-5">
-                        <button type="button" className="svg-icon animate-bounce rounded-full text-[20px] font-bold text-white bg-primary px-16 py-2">
+                        <button type="button" className="border border-[#b96800] animate-bounce rounded-full text-[20px] font-bold text-white bg-[#a5522a] px-16 py-2 hover:bg-transparent hover:text-[#c94413] ">
                           ช็อปเลย
                         </button>
                       </Link>

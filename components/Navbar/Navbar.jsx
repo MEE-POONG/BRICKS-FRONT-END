@@ -43,27 +43,16 @@ export default function Navbar() {
           <div className="lg:items-center lg:justify-between lg:flex">
             <div className="flex justify-around">
               <Link href={"/"} className="lg:mx-10 my-auto">
-                <img
-                  src="/logo03.png"
-                  className="flex h-auto mx-auto w-12 lg:w-20"
-                  alt="logo"
-                />
+                <div className="lg:items-center lg:justify-between lg:flex text-[#c94413] font-bold">
+                  <img
+                    src="/logo03.png"
+                    className="flex h-auto mx-auto w-12 lg:w-18"
+                    alt="logo"
+                  />
+                  <h1>ช่างฟอง อิฐประสาน</h1>
+                </div>
               </Link>
-              <div className="w-3/4 relative flex lg:w-full">
-                <span className="absolute top-0 translate-y-[50%] left-4 text-lg text-gray-400">
-                  <FaSistrix />
-                </span>
-                <input
-                  type="text"
-                  name="search"
-                  id="search"
-                  className="w-full border border-[#b96800] border-r-0 pl-12  pr-3 rounded-l-md focus:outline-none"
-                  placeholder="ต้องการค้นหา..."
-                />
-                <button className="bg-[#a5522a] border border-[#b96800] text-white px-8 rounded-r-md hover:bg-transparent hover:text-[#c94413] font-bold transition">
-                  ค้นหา
-                </button>
-              </div>
+
             </div>
             <div className="lg:mx-10">
               <div className="space-x-8 justify-evenly flex">

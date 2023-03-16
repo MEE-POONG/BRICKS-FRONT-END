@@ -43,7 +43,7 @@ export default function Navbar() {
           <div className="lg:items-center lg:justify-between lg:flex">
             <div className="flex justify-around">
               <Link href={"/"} className="lg:mx-10 my-auto">
-                <div className="lg:items-center lg:justify-between lg:flex text-[#c94413] font-bold">
+                <div className="items-center justify-between flex text-[#c94413] font-bold">
                   <img
                     src="/logo03.png"
                     className="flex h-auto mx-auto w-12 lg:w-18"

@@ -47,21 +47,21 @@ export default function Basket() {
       />
       <div className="container lg:mt-10 lg:px-20">
         <div className="block my-10 rounded-xl lg:flex">
-          <div className="w-full bg-white lg:px-10 lg:py-10">
+          <div className="w-full bg-white lg:p-4">
             <div className="flex justify-between border-b pb-8">
               <h1 className="font-bold text-3xl mx-auto">ตระกร้าสินค้า</h1>
             </div>
             <div className="flex mt-10 mb-5 px-2 lg:px-6">
-              <h3 className="font-semibold text-left text-gray-600 text-xl w-2/4">
+              <h3 className="font-semibold text-2xl w-2/4">
                 รายละเอียดสินค้า
               </h3>
-              <h3 className="font-semibold text-center text-gray-600 text-xl w-1/4">
+              <h3 className="font-semibold text-center text-2xl w-1/4">
                 ที่จัดส่ง
               </h3>
-              <h3 className="font-semibold text-center text-gray-600 text-xl w-1/4">
+              <h3 className="font-semibold text-center text-2xl w-1/4">
                 จำนวน
               </h3>
-              <h3 className="font-semibold text-right text-gray-600 text-xl w-1/4">
+              <h3 className="font-semibold text-right text-2xl w-1/4">
                 ราคา
               </h3>
             </div>
@@ -103,32 +103,17 @@ export default function Basket() {
               </div>
             ))}
           </div>
-          <div className="relative w-full bg-white lg:px-8 py-10 lg:w-1/4">
-            <h1 className="font-semibold text-2xl border-b pb-8 text-center">
-              สรุปออเดอร์
-            </h1>
+          <div className="relative w-full bg-white lg:p-4 lg:w-1/4">
+            <div className="flex justify-between border-b pb-8">
+              <h1 className="font-bold text-3xl mx-auto"> สรุปออเดอร์</h1>
+            </div>
             <div className="flex justify-between px-6 mt-10 lg:mb-5 lg:px-2">
               <span className="font-semibold text-2xl">จำนวนสินค้า</span>
               <span className="font-semibold text-2xl">
                 {cartItems.length} รายการ
               </span>
             </div>
-            <div className="px-6 mt-10 mb-20 lg:mb-5 lg:px-2">
-              {/* <label
-                htmlFor="note"
-                className="font-semibold inline-block mb-3 text-2xl"
-              >
-                รายละเอียดเพิ่มเติม
-              </label>
-              <textarea
-                type="text"
-                rows={4}
-                value={""}
-                placeholder="กรอกรายละเอียดเพิ่มเติม (ไม่บังคับ)"
-                className="p-4 mb-8 text-2xl w-full rounded-lg bg-gray-200 resize-none outline-none focus-visible:shadow-none lg:mb-20"
-              ></textarea> */}
-            </div>
-            <div className="absolute flex justify-between mt-10 mb-5 mx-6 p-5 space-x-1 rounded-lg bg-[#a5522a] text-white text-center items-center inset-x-0 bottom-0 lg:flex-wrap lg:justify-center">
+            <div className=" flex justify-between p-5 space-x-1 rounded-lg bg-[#a5522a] text-white text-center items-center inset-x-0 bottom-0 lg:flex-wrap lg:justify-center">
               <span className="font-semibold text-3xl">ราคารวม</span>
               <span className="font-semibold text-4xl">
                 {handleSUM(cartItems).toLocaleString("en-US")} บาท

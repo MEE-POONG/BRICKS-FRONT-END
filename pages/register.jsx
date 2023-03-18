@@ -42,7 +42,7 @@ export default function SignUpPage() {
                       confirmButtonText: 'ตกลง',
                     })
                     if (isConfirmed) {
-                      await signIn("credentials", {
+                      const res = await signIn("credentials", {
                         email: e.target.email.value,
                         password: e.target.password.value,
                         callbackUrl: `${window.location.origin}/`,

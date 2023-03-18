@@ -63,30 +63,6 @@ export default function Showproducts() {
               ?.filter((fltProduct) => fltProduct.products.length !== 0)
               .map((productsHome, index) => (
                 <div key={index} className="mb-2 mt-16">
-                  {/* <div className="card-est shadow-lg rounded-lg mx-5">
-                    <div className="cardp-img">
-                      <Image
-                        fill
-                        sizes="100%"
-                        src={productsHome?.products[0]?.image}
-                        alt="productImage"
-                        className="rounded-xl shadow-lg"
-                      />
-                    </div>
-                    <div className="cardp-info">
-                      <p className="text-title text-2xl lg:text-3xl font-fontTh1">
-                        {productsHome?.name}
-                      </p>
-                      <p className="text-body text-xl lg:text-2xl font-fontTh1  text-gray-400 font-bold" dangerouslySetInnerHTML={{ __html: productsHome?.products[0]?.detail }} />
-                    </div>
-                    <div className="cardp-footer">
-                      <Link href={`/products/category/${productsHome?.type.name}`} className="w-full pt-5">
-                        <button type="button" className="border border-[#b96800] animate-bounce rounded-full text-[20px] font-bold text-white bg-[#a5522a] px-16 py-2 hover:bg-transparent hover:text-[#f9632c] ">
-                          ช็อปเลย
-                        </button>
-                      </Link>
-                    </div>
-                  </div> */}
                   <div className="card-est relative shadow-lg rounded-lg  mx-5">
                     <div className="cardp-img">
                       <Image
@@ -94,16 +70,11 @@ export default function Showproducts() {
                         sizes="100%"
                         src={productsHome?.products[0]?.image}
                         alt="productImage"
-                        className="rounded-xl shadow-lg"
+                        className="object-contain rounded-xl shadow-lg"
                       />
                     </div>
                     <div className="cardp-info">
-                      <div className=" rounded-xl w-fit">
-                        {/* <span className="block text-xl font-semibold text-[#a5522a]">
-                          # {product.subType?.name}
-                        </span> */}
-                      </div>
-                      <p className="text-title text-2xl lg:text-3xl font-fontTh1">
+                      <p className="text-title text-2xl lg:text-3xl font-fontTh1 text-[#f9632c]">
                         {productsHome?.name}
                       </p>
                       <p className="text-body text-xl lg:text-2xl font-fontTh1  text-gray-400 font-bold" dangerouslySetInnerHTML={{ __html: productsHome?.products[0]?.detail }} />

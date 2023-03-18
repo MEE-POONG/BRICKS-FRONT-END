@@ -12,7 +12,7 @@ export default function Footer() {
               <h4 className="text-3xl lg:text-5xl text-[#f9632c] font-semibold ">
                 ช่างพอง อิฐประสาน
               </h4>
-              <h5 className="text-2xl lg:text-3xl mt-0 mb-2 text-blueGray-600">
+              <h5 className="text-2xl lg:text-3xl mt-0 mb-2 text-blueGray-600 font-semibold">
                 อิฐประสาน จัดสวน สร้างบ้าน ราคาโรงงาน
               </h5>
             </div>

@@ -93,7 +93,7 @@ export default function ProductsPage() {
                         sizes="100%"
                         src={product?.image}
                         alt="productImage"
-                        className="rounded-xl shadow-lg"
+                        className="object-contain rounded-xl shadow-lg"
                       />
                     </div>
                     <div className="cardp-info">

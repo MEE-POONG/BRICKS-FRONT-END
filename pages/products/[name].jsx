@@ -201,19 +201,19 @@ export default function ProductDetailPage() {
                       </span>
                     </span>
                   </div>
-                  <div className="leading-relaxed text-2xl font-bold ml-5">
+                  <div className="leading-relaxed text-2xl font-bold ml-5 border-b-2">
                     <p
                       dangerouslySetInnerHTML={{ __html: productData?.detail }}
                     />
                   </div>
-                  <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5 justify-center lg:justify-start">
+                  <div className="flex mt-6 items-center pb-5 border-gray-200 mb-5 justify-center lg:justify-start">
                     <div className="flex items-center">
                       <div className="lg:flex">
-                        <span className="my-auto text-2xl font-bold lg:mr-4">
+                        <span className="my-auto text-2xl font-bold lg:mr-4 text-red ">
                           เลือกพื้นที่จัดส่ง
                         </span>
                         <div className="flex justify-center my-2">
-                          <button type="button" onClick={() => setIsOpen(true)}>
+                          <button type="button" onClick={() => setIsOpen(true)} className={mapStore?.distance == null ? "animate-bounce select-map" : "animate-bounce select-map active"}>
                             <img className="w-14" src="/gmapLogo.png" />
                           </button>
                           <MapComponent isOpen={isOpen} setIsOpen={setIsOpen} />

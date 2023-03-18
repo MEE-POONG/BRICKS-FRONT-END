@@ -12,9 +12,25 @@ export default function LoginPage() {
     });
   };
   const handleSignInEmail = async () => {
+    const email = document.getElementById("email").value
+    const password = document.getElementById("password").value
+    if (!email) {
+      return Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'กรุณากรอกอีเมล!',
+      })
+    }
+    if (!password) {
+      return Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'กรุณากรอกรหัสผ่าน!',
+      })
+    }
     const res = await signIn("credentials", {
-      email: document.getElementById("email").value,
-      password: document.getElementById("password").value,
+      email: email,
+      password: password,
       callbackUrl: `${window.location.origin}/`,
       redirect: false,
     });

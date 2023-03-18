@@ -61,6 +61,7 @@ body {
 
 .cardp-info {
   // padding-top: 10%;
+  transform: translateY(-25%);
 }
 
 svg {
@@ -71,8 +72,8 @@ svg {
 .cardp-footer {
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  margin-left: -0.8rem;
+  margin-right: -0.8rem;
 }
 
 /*Text*/

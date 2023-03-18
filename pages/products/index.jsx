@@ -86,7 +86,7 @@ export default function ProductsPage() {
               {productsData?.data.map((product, index) => (
 
                 <div key={index} className="mb-2 mt-16" >
-                  <div className="card-est shadow-lg rounded-lg ">
+                  <div className="card-est relative shadow-lg rounded-lg ">
                     <div className="cardp-img">
                       <Image
                         fill
@@ -99,7 +99,7 @@ export default function ProductsPage() {
                     <div className="cardp-info">
                       <div className=" rounded-xl w-fit">
                         <span className="block text-xl font-semibold text-[#a5522a]">
-                         # {product.subType?.name}
+                          # {product.subType?.name}
                         </span>
                       </div>
                       <p className="text-title text-2xl lg:text-3xl font-fontTh1">
@@ -107,12 +107,10 @@ export default function ProductsPage() {
                       </p>
                       <p className="text-body text-xl lg:text-2xl font-fontTh1  text-gray-400 font-bold" dangerouslySetInnerHTML={{ __html: product?.detail }} />
                     </div>
-                    <div className="cardp-footer">
-                      <div className="w-full text-center">
-                        <button type="button" className="border border-[#b96800] animate-bounce rounded-full text-[20px] font-bold text-white bg-[#a5522a] px-16 py-2 hover:bg-transparent hover:text-[#c94413] " onClick={(e) => handleClick(e, "/products", product?.name)}>
-                          เลือก
-                        </button>
-                      </div>
+                    <div className="cardp-footer absolute bottom-0">
+                      <button type="button" className="m-auto border border-[#b96800] animate-bounce rounded-full text-[20px] font-bold text-white bg-[#a5522a] px-16 py-2 hover:bg-transparent hover:text-[#c94413] " onClick={(e) => handleClick(e, "/products", product?.name)}>
+                        เลือก
+                      </button>
                     </div>
                   </div>
                 </div>

@@ -31,7 +31,7 @@ export default function AboutPage() {
         <section className="text-gray-700 body-font overflow-hidden bg-white rounded-lg shadow-lg">
           {aboutData?.map((about, index) => (
             <div key={index} className="container p-16 mx-auto">
-              <h1 className=" text-7xl text-center text-[#c94413] font-semibold">
+              <h1 className=" text-7xl text-center text-[#f9632c] font-semibold">
                 {about.headtitle}
               </h1>
               <h2 className=" text-5xl text-center ">
@@ -40,7 +40,7 @@ export default function AboutPage() {
               <h4 className={` ${textSize.textSubHead} mt-4 text-left font-semibold"`}>
                 {about.history}
               </h4>
-              <h4 className={` ${textSize.textSubEn}  text-left  text-[#c94413]`}>
+              <h4 className={` ${textSize.textSubEn}  text-left  text-[#f9632c]`}>
                 History
               </h4>
               <div className="py-2 lg:py-4 ">
@@ -61,7 +61,7 @@ export default function AboutPage() {
                   <h4 className={` ${textSize.textSubHead}   mt-2 text-left font-semibold`}>
                     {about.portfolio}
                   </h4>
-                  <h4 className={` ${textSize.textSubEn} text-left  text-[#c94413]`}>
+                  <h4 className={` ${textSize.textSubEn} text-left  text-[#f9632c]`}>
                     Portfolio
                   </h4>
                   <div
@@ -100,7 +100,7 @@ export default function AboutPage() {
                 <h4 className={`"  ${textSize.textSubHead}  mt-4 lg:mt-10 text-left font-semibold"`}>
                 {about.headpolicy}
               </h4>
-              <h4 className={`" ${textSize.textSubEn} text-left  text-[#c94413]"`}>
+              <h4 className={`" ${textSize.textSubEn} text-left  text-[#f9632c]"`}>
                 Policy
               </h4>
               <div

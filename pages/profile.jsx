@@ -30,7 +30,7 @@ export default function Profile() {
           </h2>
           <h3 className="mt-1 text-gray-900 text-4xl">{session?.user.email}</h3>
           <div className="w-12 h-1 bg-red-500 rounded mt-2 mb-4"></div>
-          <div className="text-5xl font-bold px-3 py-1 leading-normal text-[#c94413] rounded-lg">
+          <div className="text-5xl font-bold px-3 py-1 leading-normal text-[#f9632c] rounded-lg">
             คำสั่งซื้อของฉัน
           </div>
           <div className="px-4 flex-auto w-full">

@@ -32,7 +32,7 @@ export default function Successfully() {
         <div class="flex flex-col items-center space-y-2 font-fontTh text-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="text-[#c94413] w-28 h-28"
+            class="text-[#f9632c] w-28 h-28"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

@@ -126,14 +126,14 @@ export default function ProductDetailPage() {
           <div className="text-2xl font-bold">
             <Link
               href={`/products/category/${productData?.subType?.type?.name}`}
-              className="hover:text-[#c94413]"
+              className="hover:text-[#f9632c]"
             >
               {productData?.subType?.type?.name}
             </Link>
             <span> / </span>
             <Link
               href={`/products/category/${productData?.subType?.type?.name}/${productData?.subType?.name}`}
-              className="hover:text-[#c94413]"
+              className="hover:text-[#f9632c]"
             >
               {productData?.subType?.name}
             </Link>
@@ -237,7 +237,7 @@ export default function ProductDetailPage() {
                         </span>
                         <div className="flex justify-center items-center my-4 lg:justify-start ">
                           <svg
-                            className="fill-current w-3 text-gray-900 hover:text-[#c94413] cursor-pointer "
+                            className="fill-current w-3 text-gray-900 hover:text-[#f9632c] cursor-pointer "
                             viewBox="0 0 448 512"
                             onClick={() => {
                               if (productQty > 1) {
@@ -258,7 +258,7 @@ export default function ProductDetailPage() {
                             }
                           />
                           <svg
-                            className="fill-current w-3 text-gray-900 hover:text-[#c94413] cursor-pointer"
+                            className="fill-current w-3 text-gray-900 hover:text-[#f9632c] cursor-pointer"
                             viewBox="0 0 448 512"
                             onClick={() => setProductQty(productQty + 1)}
                           >

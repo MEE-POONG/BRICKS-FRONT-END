@@ -35,14 +35,14 @@ export default function StepperControl({
           <Link
             href="/"
             onClick={() => handleClick()}
-            className="text-[#c94413] bg-white cursor-pointer py-2 px-4 rounded-xl font-semibold border-2 border-[#b96800] hover:bg-[#a5522a] hover:text-white transition duration-200 ease-in-out"
+            className="text-[#f9632c] bg-white cursor-pointer py-2 px-4 rounded-xl font-semibold border-2 border-[#b96800] hover:bg-[#a5522a] hover:text-white transition duration-200 ease-in-out"
           >
             ย้อนกลับ
           </Link>
         ) : (
           <button
             onClick={() => handleClick()}
-            className="text-[#c94413] bg-white cursor-pointer py-2 px-4 rounded-xl font-semibold border-2 border-[#b96800] hover:bg-[#a5522a] hover:text-white transition duration-200 ease-in-out"
+            className="text-[#f9632c] bg-white cursor-pointer py-2 px-4 rounded-xl font-semibold border-2 border-[#b96800] hover:bg-[#a5522a] hover:text-white transition duration-200 ease-in-out"
           >
             ย้อนกลับ
           </button>

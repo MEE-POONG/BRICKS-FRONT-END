@@ -81,7 +81,7 @@ export default function Showproducts() {
                     </div>
                     <div className="cardp-footer">
                       <Link href={`/products/category/${productsHome?.type.name}`} className="w-full pt-5">
-                        <button type="button" className="border border-[#b96800] animate-bounce rounded-full text-[20px] font-bold text-white bg-[#a5522a] px-16 py-2 hover:bg-transparent hover:text-[#c94413] ">
+                        <button type="button" className="border border-[#b96800] animate-bounce rounded-full text-[20px] font-bold text-white bg-[#a5522a] px-16 py-2 hover:bg-transparent hover:text-[#f9632c] ">
                           ช็อปเลย
                         </button>
                       </Link>
@@ -110,7 +110,7 @@ export default function Showproducts() {
                     </div>
                     <div className="cardp-footer absolute bottom-0">
                       <Link href={`/products/category/${productsHome?.type.name}`} className="w-full pt-5">
-                        <button type="button" className="border border-[#b96800] animate-bounce rounded-full text-[20px] font-bold text-white bg-[#a5522a] px-16 py-2 hover:bg-transparent hover:text-[#c94413] ">
+                        <button type="button" className="border border-[#b96800] animate-bounce rounded-full text-[20px] font-bold text-white bg-[#a5522a] px-16 py-2 hover:bg-transparent hover:text-[#f9632c] ">
                           ช็อปเลย
                         </button>
                       </Link>

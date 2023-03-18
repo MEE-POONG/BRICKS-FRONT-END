@@ -43,7 +43,7 @@ export default function Navbar() {
           <div className="lg:items-center lg:justify-between lg:flex">
             <div className="flex justify-around">
               <Link href={"/"} className="lg:mx-10 my-auto">
-                <div className="items-center justify-between flex text-[#c94413] font-bold">
+                <div className="items-center justify-between flex text-[#f9632c] font-bold">
                   <img
                     src="/logo03.png"
                     className="flex h-auto mx-auto w-12 lg:w-18"
@@ -58,7 +58,7 @@ export default function Navbar() {
               <div className="space-x-8 justify-evenly flex">
                 <Link
                   href={"/checkuot"}
-                  className="relative text-center text-gray-700 hover:text-[#c94413] transition my-auto"
+                  className="relative text-center text-gray-700 hover:text-[#f9632c] transition my-auto"
                 >
                   <div className="text-2xl flex justify-center lg:text-4xl">
                     <FaShoppingBasket />
@@ -90,7 +90,7 @@ export default function Navbar() {
                 ) : (
                   <Link
                     href={"/login"}
-                    className="text-center text-gray-700 hover:text-[#c94413] transition relative"
+                    className="text-center text-gray-700 hover:text-[#f9632c] transition relative"
                   >
                     <div className="text-lg flex justify-center lg:text-2xl">
                       <FaRegUser />

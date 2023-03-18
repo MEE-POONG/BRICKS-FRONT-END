@@ -108,7 +108,7 @@ export default function ProductsPage() {
                       <p className="text-body text-xl lg:text-2xl font-fontTh1  text-gray-400 font-bold" dangerouslySetInnerHTML={{ __html: product?.detail }} />
                     </div>
                     <div className="cardp-footer absolute bottom-0">
-                      <button type="button" className="m-auto border border-[#b96800] animate-bounce rounded-full text-[20px] font-bold text-white bg-[#a5522a] px-16 py-2 hover:bg-transparent hover:text-[#c94413] " onClick={(e) => handleClick(e, "/products", product?.name)}>
+                      <button type="button" className="m-auto border border-[#b96800] animate-bounce rounded-full text-[20px] font-bold text-white bg-[#a5522a] px-16 py-2 hover:bg-transparent hover:text-[#f9632c] " onClick={(e) => handleClick(e, "/products", product?.name)}>
                         เลือก
                       </button>
                     </div>

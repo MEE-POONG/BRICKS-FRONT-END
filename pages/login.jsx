@@ -19,10 +19,10 @@ export default function LoginPage() {
       redirect: false,
     });
     if (res.ok) {
-      route.push("/")
+      return route.push("/")
     }
     if (res.error) {
-      Swal.fire({
+      return Swal.fire({
         icon: 'error',
         title: 'Oops...',
         text: 'ชื่อผู้ใช้งาน หรือรหัสผ่านไม่ถูกต้อง!',

@@ -154,7 +154,7 @@ export default function ProductDetailPage() {
                   <Swiper
                     style={{
                       "--swiper-navigation-color": "#000",
-                      "--swiper-pagination-color": "#000",
+                      "--swiper-pagination-color": "#000"
                     }}
                     loop={true}
                     spaceBetween={10}
@@ -167,13 +167,14 @@ export default function ProductDetailPage() {
                           : null,
                     }}
                   >
-                    <SwiperSlide>
+                    <SwiperSlide className="h-full">
                       <div
-                        className="zoom"
+                        className="zoom h-auto"
                         style={{ backgroundImage: `url(${productData?.image})`, backgroundPosition: `${position.x}% ${position.y}%` }}
                         onMouseMove={handleZoom}
                       >
-                        <img src={productData?.image} className="mx-auto" />
+                        <img src='https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/106e9571-ee2f-40c1-05b0-f914121edc00/170' className={productData?.subType?.name === 'ช่องลม' ? "logo" : "hidden"} />
+                        <img src={productData?.image} className="product h-auto" />
                       </div>
                     </SwiperSlide>
                     {productData?.imageProduct.map((img, index) => (
@@ -183,46 +184,29 @@ export default function ProductDetailPage() {
                           style={{ backgroundImage: `url(${productData?.image})`, backgroundPosition: `${position.x}% ${position.y}%` }}
                           onMouseMove={handleZoom}
                         >
-                          <img src={productData?.image} className="mx-auto" />
+
+                          <img src='https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/106e9571-ee2f-40c1-05b0-f914121edc00/170' className={productData?.subType?.name === 'ช่องลม' ? "logo" : "hidden"} />
+                          <img src={productData?.image} className="product" />
                         </div>
                       </SwiperSlide>
                     ))}
                   </Swiper>
-                  {/* <div>
-                    <Swiper
-                      onSwiper={setThumbsSwiper}
-                      spaceBetween={10}
-                      slidesPerView={4}
-                      watchSlidesProgress={true}
-                      modules={[FreeMode, Navigation, Thumbs]}
-                      className="mySwiper"
-                    >
-                      <SwiperSlide>
-                        <img src={productData?.image} />
-                      </SwiperSlide>
-                      {productData?.imageProduct.map((img, index) => (
-                        <SwiperSlide key={index}>
-                          <img src={img.image} />
-                        </SwiperSlide>
-                      ))}
-                    </Swiper>
-                  </div> */}
                 </div>
                 <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-                  <h2 className="text-2xl font-bold title-font text-gray-500 tracking-widest">
+                  <h2 className="text-2xl font-bold title-font text-[#a5522a] tracking-widest">
                     {productData?.subType?.name}
                   </h2>
-                  <h1 className="text-gray-900 text-4xl font-bold title-font mb-1">
+                  <h1 className="text-[#f9632c] text-4xl font-bold title-font mb-1">
                     {productData?.name}
                   </h1>
-                  <div className="flex mb-4">
+                  <div className="flex ">
                     <span className="flex items-center">
                       <span className="text-gray-600 text-xl font-bold ml-3">
                         รายละเอียดสินค้า
                       </span>
                     </span>
                   </div>
-                  <div className="leading-relaxed text-2xl font-bold ml-5 border-b-2">
+                  <div className="leading-relaxed text-2xl font-bold ml-3 border-b-2">
                     <p
                       dangerouslySetInnerHTML={{ __html: productData?.detail }}
                     />

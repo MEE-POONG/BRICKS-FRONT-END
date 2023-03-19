@@ -123,3 +123,23 @@ svg {
     filter: drop-shadow(0 0.2rem 0.25rem #00ff4c);
   }
 }
+div.zoom {
+  background-position: 50% 50%;
+  position: relative;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: 125%;
+  cursor: zoom-in;
+  object-fit: contain;
+  img {
+    transition: opacity 0.1s;
+    display: block;
+    width: 100%;
+    height: 450px;
+    object-fit: contain;
+    background-color: #ffffff;
+  }
+  & img:hover {
+    opacity: 0;
+  }
+}

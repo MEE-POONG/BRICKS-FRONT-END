@@ -23,7 +23,16 @@ import { FreeMode, Navigation, Thumbs } from "swiper";
 
 export default function ProductDetailPage() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const handleZoom = e => {
+    const zoomer = e.currentTarget;
+    const rect = zoomer.getBoundingClientRect();
+    const offsetX = e.clientX - rect.left;
+    const offsetY = e.clientY - rect.top;
+    const x = (offsetX / zoomer.offsetWidth) * 100;
+    const y = (offsetY / zoomer.offsetHeight) * 100;
+    setPosition({ x, y });
+  };
   const router = useRouter();
   const { data: session } = useSession();
   const dispatch = useDispatch();
@@ -159,11 +168,23 @@ export default function ProductDetailPage() {
                     }}
                   >
                     <SwiperSlide>
-                      <img src={productData?.image} className="mx-auto" />
+                      <div
+                        className="zoom"
+                        style={{ backgroundImage: `url(${productData?.image})`, backgroundPosition: `${position.x}% ${position.y}%` }}
+                        onMouseMove={handleZoom}
+                      >
+                        <img src={productData?.image} className="mx-auto" />
+                      </div>
                     </SwiperSlide>
                     {productData?.imageProduct.map((img, index) => (
                       <SwiperSlide key={index}>
-                        <img src={img.image} className="mx-auto" />
+                        <div
+                          className="zoom"
+                          style={{ backgroundImage: `url(${productData?.image})`, backgroundPosition: `${position.x}% ${position.y}%` }}
+                          onMouseMove={handleZoom}
+                        >
+                          <img src={productData?.image} className="mx-auto" />
+                        </div>
                       </SwiperSlide>
                     ))}
                   </Swiper>

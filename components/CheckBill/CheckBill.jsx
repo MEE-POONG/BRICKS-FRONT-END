@@ -13,6 +13,17 @@ export default function CheckBill({ imageURL, onImageSlipChange }) {
     onImageSlipChange(file);
   };
 
+  console.log(totalPrice);
+
+  let price = 300;
+  if (totalPrice > 100000) {
+    price = 30000;
+  } else if (totalPrice > 10000) {
+    price = 3000;
+  } else if (totalPrice > 1000) {
+    price = 300;
+  }
+
   return (
     <>
       <Toaster
@@ -58,9 +69,9 @@ export default function CheckBill({ imageURL, onImageSlipChange }) {
             </CopyToClipboard>
           </div>
           <div className="text-center mt-4">
-            <p className="text-4xl">จำนวนที่ต้องโอน</p>
+            <p className="text-4xl">จำนวนที่ต้องโอนมัดจำ</p>
             <p className="text-3xl font-bold my-2">
-              {totalPrice.toLocaleString("en-US")} บาท
+              {price.toLocaleString("en-US")} บาท
             </p>
           </div>
         </div>

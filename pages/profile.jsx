@@ -47,9 +47,13 @@ export default function Profile() {
                     <div className="text-3xl">
                       <span className="mr-2">วันที่สั่งซื้อ</span>
                       <span>{dayjs(order.createdAt).format("DD-MM-YYYY")}</span>
+                      <div className="divide-x-2 divide-gray-400"></div>
+
+                      <span className="mr-2">วันที่จัดส่ง</span>
+                      <span>{order.deliveryAt ? dayjs(order.deliveryAt).format("DD-MM-YYYY") : ' รอวันจัดส่ง'}</span>
                     </div>
                   </div>
-                  <div className="bg-yellow-500">
+                  <div className={order.status === 'จัดส่งเสร็จสิ้น' ? "bg-green-500" :"bg-yellow-500"}>
                     <div className="w-full text-white text-3xl">
                       {order.status}
                     </div>

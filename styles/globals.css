@@ -20,8 +20,36 @@ body {
 
     html,
     * {
-        font-family: fontTh1, RSU, sans-serif
+        font-family: fontTh1, RSU, sans-serif;
     }
+}
+
+.pac-item-query {
+    font-size: 1.875rem;
+    /* 30px */
+    line-height: 2.25rem;
+    /* 36px */
+}
+
+.pac-matched {
+    font-size: 1.875rem;
+    /* 30px */
+    line-height: 2.25rem;
+    /* 36px */
+}
+
+.pac-item {
+    font-size: 1.875rem;
+    /* 30px */
+    line-height: 2.25rem;
+    /* 36px */
+}
+
+.pac-container {
+    font-size: 1.875rem;
+    /* 30px */
+    line-height: 2.25rem;
+    /* 36px */
 }
 
 .cardp {
@@ -67,8 +95,9 @@ svg {
 .swal2-title {
     font-size: 2.25rem !important;
     line-height: 2.5rem !important;
-  }
-  .swal2-html-container {
+}
+
+.swal2-html-container {
     font-size: 2.25rem !important;
     line-height: 2.5rem !important;
-  }
+}

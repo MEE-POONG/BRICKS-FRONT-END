@@ -49,7 +49,7 @@ export default function MapComponent({ isOpen, setIsOpen }) {
                 <div className="mt-4 flex justify-center">
                   <button
                     type="button"
-                    className="rounded-md border border-transparent bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-red-500 focus:outline-none focus-visible:ring-red-500 focus-visible:ring-2 focus-visible:ring-offset-2"
+                    className="rounded-md border border-transparent bg-primary px-4 py-2 text-3xl font-medium text-white hover:bg-red-500 focus:outline-none focus-visible:ring-red-500 focus-visible:ring-2 focus-visible:ring-offset-2"
                     onClick={() => setIsOpen(false)}
                   >
                     ยืนยัน
@@ -107,7 +107,7 @@ function Map() {
   return (
     <>
       <Autocomplete onPlaceChanged={onPlaceChanged} onLoad={onLoad}>
-        <div className="w-full mx-auto mb-3 lg:max-w-md">
+        <div className="w-full mx-auto mb-3 lg:max-w-md text-3xl">
           <div className="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-white">
             <div className="grid place-items-center h-full w-12 text-gray-800 rounded-l-lg border-y-2 border-l-2 border-primary">
               <svg
@@ -127,7 +127,7 @@ function Map() {
             </div>
 
             <input
-              className="peer h-full w-full outline-none rounded-r-lg text-sm text-gray-700 px-2 border-y-2 border-r-2 border-primary"
+              className="peer h-full w-full outline-none rounded-r-lg text-3xl text-gray-700 px-2 border-y-2 border-r-2 border-primary"
               type="text"
               id="search"
               placeholder="ค้นหาสถานที่"

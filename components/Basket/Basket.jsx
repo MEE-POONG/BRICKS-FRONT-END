@@ -52,16 +52,16 @@ export default function Basket() {
               <h1 className="font-bold text-3xl mx-auto">ตระกร้าสินค้า</h1>
             </div>
             <div className="flex mt-10 mb-5 px-2 lg:px-6">
-              <h3 className="font-semibold text-left text-gray-600 text-xl w-2/4">
+              <h3 className="font-semibold text-left text-gray-600 text-xl w-3/4">
                 รายละเอียดสินค้า
               </h3>
-              <h3 className="font-semibold text-center text-gray-600 text-xl w-1/4">
+              {/* <h3 className="font-semibold text-center text-gray-600 text-xl w-1/4">
                 ที่จัดส่ง
-              </h3>
+              </h3> */}
               <h3 className="font-semibold text-center text-gray-600 text-xl w-1/4">
                 จำนวน
               </h3>
-              <h3 className="font-semibold text-right text-gray-600 text-xl w-1/4">
+              <h3 className="font-semibold text-right text-gray-600 text-xl w-1/4 hidden">
                 ราคา
               </h3>
             </div>
@@ -70,40 +70,35 @@ export default function Basket() {
                 key={index}
                 className="flex items-center hover:bg-gray-100 py-6 px-2 lg:px-6"
               >
-                <div className="flex w-2/4">
+                <div className="flex w-3/4">
                   <div className="w-20">
                     <img className="h-24" src={item.image} alt="product" />
                   </div>
-                  <div className="flex flex-col justify-between text-3xl font-bold ml-4 flex-grow">
+                  <div className="flex justify-start text-3xl font-bold ml-4 flex-grow">
                     <span className="font-bold text-nd text-primary">
                       {item.name}
                     </span>
                     <div
-                      className="w-fit cursor-pointer font-semibold hover:text-red-500 text-gray-500 text-xl"
+                      className="w-fit cursor-pointer font-semibold hover:text-red-500 text-gray-500 text-xl pt-2 pl-5"
                       onClick={() => handleDeleteCartItem(item.id)}
                     >
                       <FaTrashAlt />
                     </div>
                   </div>
                 </div>
-                <div className="flex justify-center w-1/4 text-3xl font-bold">
+                {/* <div className="flex justify-center w-1/4 text-3xl font-bold">
                   <MapBasket item={item} />
-                </div>
+                </div> */}
                 <div className="flex justify-center w-1/4 text-3xl font-bold">
-                  <input
-                    className="mx-2 border text-center w-8 rounded-md"
-                    type="text"
-                    disabled
-                    value={item.qty.toLocaleString("en-US")}
-                  />
+                {item.qty.toLocaleString("en-US")}
                 </div>
-                <span className="text-right w-1/4 text-3xl font-bold">
+                <span className="text-right w-1/4 text-3xl font-bold hidden">
                   {item.price.toLocaleString("en-US") + " " + "บาท"}
                 </span>
               </div>
             ))}
           </div>
-          <div className="relative w-full bg-white lg:px-8 py-10 lg:w-1/4">
+          <div className="relative w-full bg-white lg:px-8 py-10 lg:w-1/4 hidden">
             <h1 className="font-semibold text-2xl border-b pb-8 text-center">
               สรุปออเดอร์
             </h1>
@@ -114,7 +109,7 @@ export default function Basket() {
               </span>
             </div>
             <div className="px-6 mt-10 mb-20 lg:mb-5 lg:px-2">
-              {/* <label
+              <label
                 htmlFor="note"
                 className="font-semibold inline-block mb-3 text-2xl"
               >
@@ -126,7 +121,7 @@ export default function Basket() {
                 value={""}
                 placeholder="กรอกรายละเอียดเพิ่มเติม (ไม่บังคับ)"
                 className="p-4 mb-8 text-2xl w-full rounded-lg bg-gray-200 resize-none outline-none focus-visible:shadow-none lg:mb-20"
-              ></textarea> */}
+              ></textarea>
             </div>
             <div className="absolute flex justify-between mt-10 mb-5 mx-6 p-5 space-x-1 rounded-lg bg-primary text-white text-center items-center inset-x-0 bottom-0 lg:flex-wrap lg:justify-center">
               <span className="font-semibold text-3xl">ราคารวม</span>

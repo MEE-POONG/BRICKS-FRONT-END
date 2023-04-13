@@ -41,7 +41,7 @@ export default function ProductsList({ productsData }) {
                     </div>
                   </div>
                   <div className="p-4">
-                    <div className="bg-primary rounded-xl p-0.5 px-2 w-fit">
+                    <div className="bg-[#a5522a] rounded-xl p-0.5 px-2 w-fit">
                       <span className="block text-[20px] text-white font-semibold">
                         {subTypes?.name}
                       </span>

@@ -60,7 +60,7 @@ export default function MapBasket({item}) {
                 <div className="mt-4 flex justify-center">
                   <button
                     type="button"
-                    className="rounded-md border border-transparent bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-red-500 focus:outline-none focus-visible:ring-red-500 focus-visible:ring-2 focus-visible:ring-offset-2"
+                    className="rounded-md border border-transparent bg-[#a5522a] px-4 py-2 text-sm font-medium text-white hover:bg-red-500 focus:outline-none focus-visible:ring-red-500 focus-visible:ring-2 focus-visible:ring-offset-2"
                     onClick={() =>
                       setOpenMap({ isOpen: false, lat: null, lng: null })
                     }

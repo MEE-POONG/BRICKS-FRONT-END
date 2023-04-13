@@ -170,7 +170,7 @@ export default function AddressForm({
           <div className="flex justify-center my-4">
             <button
               type="submit"
-              className="rounded-xl bg-primary px-4 py-2 text-xl font-semibold text-white hover:bg-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+              className="rounded-xl bg-[#a5522a] px-4 py-2 text-xl font-semibold text-white hover:bg-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
             >
               บันทึก
             </button>

@@ -10,7 +10,7 @@ export default function Pagination({ page, totalPage, handleSelectPage }) {
         className={`${
           page === 1
             ? "bg-gray-300 border-gray-300"
-            : "hover:bg-primary hover:text-white hover:border-primary"
+            : "hover:bg-[#a5522a] hover:text-white hover:border-[#b96800]"
         } inline-flex border items-center justify-center w-10 h-10 py-0 rounded-md shadow-md`}
         disabled={page === 1}
         onClick={() => handleSelectPage(page - 1)}
@@ -34,8 +34,8 @@ export default function Pagination({ page, totalPage, handleSelectPage }) {
             key={index}
             type="button"
             className={`${
-              page === index + 1 ? "bg-primary text-white border-primary" : ""
-            } inline-flex border items-center justify-center w-10 h-10 text-lg rounded shadow-md hover:bg-primary hover:text-white hover:border-primary`}
+              page === index + 1 ? "bg-[#a5522a] text-white border-[#b96800]" : ""
+            } inline-flex border items-center justify-center w-10 h-10 text-lg rounded shadow-md hover:bg-[#a5522a] hover:text-white hover:border-[#b96800]`}
             onClick={() => handleSelectPage(index + 1)}
           >
             {index + 1}
@@ -47,7 +47,7 @@ export default function Pagination({ page, totalPage, handleSelectPage }) {
         className={`${
           page === totalPage
             ? "bg-gray-300 border-gray-300"
-            : "hover:bg-primary hover:text-white hover:border-primary"
+            : "hover:bg-[#a5522a] hover:text-white hover:border-[#b96800]"
         } inline-flex border items-center justify-center w-10 h-10 py-0 rounded-md shadow-md`}
         disabled={page === totalPage}
         onClick={() => handleSelectPage(page + 1)}

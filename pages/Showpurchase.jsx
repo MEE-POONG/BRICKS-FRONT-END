@@ -9,7 +9,7 @@ export default function Showpurchase() {
       <SectionComponent title="รายละเอียดประวัติการซื้อของฉัน" detail="">
         <div className="container  mx-auto font-fontTh2 p-4">
           <section className="text-gray-700 body-font overflow-hidden bg-white border rounded-lg shadow-xl p-3 lg:p-10">
-            <h4 className="text-3xl lg:text-3xl font-bold text-primary text-left ">
+            <h4 className="text-3xl lg:text-3xl font-bold text-[#f9632c] text-left ">
               ข้อมูลการสั่งซื้อสินค้า
             </h4>
             <div className="m-2 grid grid-cols-1 lg:grid-cols-2 gap-4 text-3xl xs:text-xl">
@@ -49,7 +49,7 @@ export default function Showpurchase() {
               </div>
             </div>
 
-            <h4 className="text-3xl lg:text-3xl text-primary text-left font-bold ">
+            <h4 className="text-3xl lg:text-3xl text-[#f9632c] text-left font-bold ">
               รายการสั่งซื้อ
             </h4>
             <div className="relative overflow-x-auto mt-4 ">

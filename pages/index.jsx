@@ -17,22 +17,13 @@ export default function Home() {
         <title>ช่างพองอิฐประสาน</title>
         <link rel="icon" href="/logo1.png" />
       </Head>
-      <div>
+      <div className="home-page">
         <HomeTop />
-      </div>
-      <div>
         <Showproducts />
-      </div>
-      <div>
         <PortfolioShowIndex />
-      </div>
-      <div>
         <Prebrick />
-      </div>
-      <div>
         <Brandblock />
       </div>
-
     </>
   );
 }

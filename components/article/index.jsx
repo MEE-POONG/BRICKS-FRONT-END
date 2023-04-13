@@ -15,7 +15,7 @@ export default function ArticlePage() {
       </Head>
       <div className="container pt-16 mx-auto font-fontTh2 p-4">
         {/* <section className="text-gray-700 body-font overflow-hidden bg-white rounded-lg shadow-xl p-3 lg:p-10"> */}
-        <h1 className="text-[24px] lg:text-[40px] font-bold text-center text-primary ">
+        <h1 className="text-[24px] lg:text-[40px] font-bold text-center text-[#f9632c] ">
           บทความ / สาระน่ารู้
         </h1>
         <p className="text-center uppercase">article</p>
@@ -33,7 +33,7 @@ export default function ArticlePage() {
             <div className="px-4 pb-2 ">
                   <a
                     href="/article/block_detail"
-                    className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-primary hover:underline  "
+                    className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-[#f9632c] hover:underline  "
                   >
                     Read more
                     <svg
@@ -66,7 +66,7 @@ export default function ArticlePage() {
             <div className="px-4 pb-2 ">
                   <a
                     href="/block/block_detail"
-                    className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-primary hover:underline  "
+                    className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-[#f9632c] hover:underline  "
                   >
                     Read more
                     <svg
@@ -99,7 +99,7 @@ export default function ArticlePage() {
             <div className="px-4 pb-2 ">
                   <a
                     href="/block/block_detail"
-                    className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-primary hover:underline  "
+                    className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-[#f9632c] hover:underline  "
                   >
                     Read more
                     <svg

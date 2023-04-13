@@ -50,7 +50,7 @@ export default function ProductsPage() {
         <>
           <div className="flex flex-col p-3 bg-gray-100 text-gray-800 lg:p-10">
             <div className="grid grid-cols-2 gap-x-4  gap-y-12 w-full mt-6 lg:grid-cols-5 lg:gap-x-12">
-              {productsData?.data.map((product, index) => (
+              {/* {productsData?.data.map((product, index) => (
                 <div
                   key={index}
                   className="w-full cursor-pointer"
@@ -71,7 +71,7 @@ export default function ProductsPage() {
                       </div>
                     </div>
                     <div className="p-4">
-                      <div className="bg-primary rounded-xl p-1 px-2 w-fit">
+                      <div className="bg-[#a5522a] rounded-xl p-1 px-2 w-fit">
                         <span className="block text-xl text-white font-semibold">
                           {product.subType?.name}
                         </span>
@@ -82,7 +82,40 @@ export default function ProductsPage() {
                     </div>
                   </div>
                 </div>
+              ))} */}
+              {productsData?.data.map((product, index) => (
+
+                <div key={index} className="mb-2 mt-16" >
+                  <div className="card-est relative shadow-lg rounded-lg ">
+                    <div className="cardp-img">
+                      <Image
+                        fill
+                        sizes="100%"
+                        src={product?.image}
+                        alt="productImage"
+                        className="object-contain rounded-xl shadow-lg"
+                      />
+                    </div>
+                    <div className="cardp-info">
+                      <div className=" rounded-xl w-fit">
+                        <span className="block text-xl font-semibold text-[#a5522a]">
+                          # {product.subType?.name}
+                        </span>
+                      </div>
+                      <p className="text-title text-2xl lg:text-3xl font-fontTh1">
+                        {product?.name}
+                      </p>
+                      <p className="text-body text-xl lg:text-2xl font-fontTh1  text-gray-400 font-bold" dangerouslySetInnerHTML={{ __html: product?.detail }} />
+                    </div>
+                    <div className="cardp-footer absolute bottom-0">
+                      <button type="button" className="m-auto border border-[#b96800] animate-bounce rounded-full text-[20px] font-bold text-white bg-[#a5522a] px-16 py-2 hover:bg-transparent hover:text-[#f9632c] " onClick={(e) => handleClick(e, "/products", product?.name)}>
+                        เลือก
+                      </button>
+                    </div>
+                  </div>
+                </div>
               ))}
+
             </div>
           </div>
           <div className="py-10 bg-gray-100">

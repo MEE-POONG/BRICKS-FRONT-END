@@ -73,7 +73,7 @@ export default function Stepper({ steps, currentStep }) {
           <div
             className={` ${
               step.selected
-                ? "bg-primary text-white font-bold border border-primary"
+                ? "bg-[#a5522a] text-white font-bold border border-[#b96800]"
                 : ""
             } rounded-full transition duration-500 ease-in-out border-2 border-gray-300 h-12 w-12 flex items-center justify-center py-3`}
           >
@@ -95,7 +95,7 @@ export default function Stepper({ steps, currentStep }) {
         </div>
         <div
           className={`${
-            step.completed ? "border-primary" : "border-gray-200"
+            step.completed ? "border-[#b96800]" : "border-gray-200"
           } flex-auto border-t-2 transition duration-500 ease-in-out`}
         >
           {/* Display line */}

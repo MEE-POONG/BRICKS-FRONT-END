@@ -31,7 +31,7 @@ export default function AboutPage() {
         <section className="text-gray-700 body-font overflow-hidden bg-white rounded-lg shadow-lg">
           {aboutData?.map((about, index) => (
             <div key={index} className="container p-16 mx-auto">
-              <h1 className=" text-7xl text-center text-primary font-semibold">
+              <h1 className=" text-7xl text-center text-[#f9632c] font-semibold">
                 {about.headtitle}
               </h1>
               <h2 className=" text-5xl text-center ">
@@ -40,7 +40,7 @@ export default function AboutPage() {
               <h4 className={` ${textSize.textSubHead} mt-4 text-left font-semibold"`}>
                 {about.history}
               </h4>
-              <h4 className={` ${textSize.textSubEn}  text-left  text-primary`}>
+              <h4 className={` ${textSize.textSubEn}  text-left  text-[#f9632c]`}>
                 History
               </h4>
               <div className="py-2 lg:py-4 ">
@@ -61,7 +61,7 @@ export default function AboutPage() {
                   <h4 className={` ${textSize.textSubHead}   mt-2 text-left font-semibold`}>
                     {about.portfolio}
                   </h4>
-                  <h4 className={` ${textSize.textSubEn} text-left  text-primary`}>
+                  <h4 className={` ${textSize.textSubEn} text-left  text-[#f9632c]`}>
                     Portfolio
                   </h4>
                   <div
@@ -100,7 +100,7 @@ export default function AboutPage() {
                 <h4 className={`"  ${textSize.textSubHead}  mt-4 lg:mt-10 text-left font-semibold"`}>
                 {about.headpolicy}
               </h4>
-              <h4 className={`" ${textSize.textSubEn} text-left  text-primary"`}>
+              <h4 className={`" ${textSize.textSubEn} text-left  text-[#f9632c]"`}>
                 Policy
               </h4>
               <div
@@ -112,7 +112,7 @@ export default function AboutPage() {
 
           <div className=" py-3  grid  grid-cols-1 lg:grid-cols-3 gap-4 text-center items-center lg:mx-20   ">
             {policyData?.map((item, index) => (
-                <div key={index} className="p-5 max-w-sm bg-white border-2 border-primary rounded-lg shadow-lg  ">
+                <div key={index} className="p-5 max-w-sm bg-white border-2 border-[#b96800] rounded-lg shadow-lg  ">
                   <div
                     dangerouslySetInnerHTML={{ __html: item?.headpolicy }}
                     className="mb-2 text-2xl lg:text-4xl  tracking-tight  "

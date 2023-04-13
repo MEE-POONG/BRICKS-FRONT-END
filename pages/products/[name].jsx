@@ -23,7 +23,16 @@ import { FreeMode, Navigation, Thumbs } from "swiper";
 
 export default function ProductDetailPage() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const handleZoom = e => {
+    const zoomer = e.currentTarget;
+    const rect = zoomer.getBoundingClientRect();
+    const offsetX = e.clientX - rect.left;
+    const offsetY = e.clientY - rect.top;
+    const x = (offsetX / zoomer.offsetWidth) * 100;
+    const y = (offsetY / zoomer.offsetHeight) * 100;
+    setPosition({ x, y });
+  };
   const router = useRouter();
   const { data: session } = useSession();
   const dispatch = useDispatch();
@@ -126,14 +135,14 @@ export default function ProductDetailPage() {
           <div className="text-2xl font-bold">
             <Link
               href={`/products/category/${productData?.subType?.type?.name}`}
-              className="hover:text-primary"
+              className="hover:text-[#f9632c]"
             >
               {productData?.subType?.type?.name}
             </Link>
             <span> / </span>
             <Link
               href={`/products/category/${productData?.subType?.type?.name}/${productData?.subType?.name}`}
-              className="hover:text-primary"
+              className="hover:text-[#f9632c]"
             >
               {productData?.subType?.name}
             </Link>
@@ -145,7 +154,7 @@ export default function ProductDetailPage() {
                   <Swiper
                     style={{
                       "--swiper-navigation-color": "#000",
-                      "--swiper-pagination-color": "#000",
+                      "--swiper-pagination-color": "#000"
                     }}
                     loop={true}
                     spaceBetween={10}
@@ -158,63 +167,59 @@ export default function ProductDetailPage() {
                           : null,
                     }}
                   >
-                    <SwiperSlide>
-                      <img src={productData?.image} className="mx-auto" />
+                    <SwiperSlide className="h-full">
+                      <div
+                        className="zoom h-auto"
+                        style={{ backgroundImage: `url(${productData?.image})`, backgroundPosition: `${position.x}% ${position.y}%` }}
+                        onMouseMove={handleZoom}
+                      >
+                        <img src='https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/106e9571-ee2f-40c1-05b0-f914121edc00/170' className={productData?.subType?.name === 'ช่องลม' ? "logo" : "hidden"} />
+                        <img src={productData?.image} className="product h-auto" />
+                      </div>
                     </SwiperSlide>
                     {productData?.imageProduct.map((img, index) => (
                       <SwiperSlide key={index}>
-                        <img src={img.image} className="mx-auto" />
+                        <div
+                          className="zoom"
+                          style={{ backgroundImage: `url(${productData?.image})`, backgroundPosition: `${position.x}% ${position.y}%` }}
+                          onMouseMove={handleZoom}
+                        >
+
+                          <img src='https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/106e9571-ee2f-40c1-05b0-f914121edc00/170' className={productData?.subType?.name === 'ช่องลม' ? "logo" : "hidden"} />
+                          <img src={productData?.image} className="product" />
+                        </div>
                       </SwiperSlide>
                     ))}
                   </Swiper>
-                  {/* <div>
-                    <Swiper
-                      onSwiper={setThumbsSwiper}
-                      spaceBetween={10}
-                      slidesPerView={4}
-                      watchSlidesProgress={true}
-                      modules={[FreeMode, Navigation, Thumbs]}
-                      className="mySwiper"
-                    >
-                      <SwiperSlide>
-                        <img src={productData?.image} />
-                      </SwiperSlide>
-                      {productData?.imageProduct.map((img, index) => (
-                        <SwiperSlide key={index}>
-                          <img src={img.image} />
-                        </SwiperSlide>
-                      ))}
-                    </Swiper>
-                  </div> */}
                 </div>
                 <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-                  <h2 className="text-2xl font-bold title-font text-gray-500 tracking-widest">
+                  <h2 className="text-2xl font-bold title-font text-[#a5522a] tracking-widest">
                     {productData?.subType?.name}
                   </h2>
-                  <h1 className="text-gray-900 text-4xl font-bold title-font mb-1">
+                  <h1 className="text-[#f9632c] text-4xl font-bold title-font mb-1">
                     {productData?.name}
                   </h1>
-                  <div className="flex mb-4">
+                  <div className="flex ">
                     <span className="flex items-center">
                       <span className="text-gray-600 text-xl font-bold ml-3">
                         รายละเอียดสินค้า
                       </span>
                     </span>
                   </div>
-                  <div className="leading-relaxed text-2xl font-bold ml-5">
+                  <div className="leading-relaxed text-2xl font-bold ml-3 border-b-2">
                     <p
                       dangerouslySetInnerHTML={{ __html: productData?.detail }}
                     />
                   </div>
-                  <div onClick={() => setIsOpen(true)} className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5 justify-center lg:justify-start cursor-pointer">
+                  <div onClick={() => setIsOpen(true)}  className="flex mt-6 items-center pb-5 border-gray-200 mb-5 justify-center lg:justify-start cursor-pointer">
                     <div className="flex items-center">
                       <div className="lg:flex">
-                        <span className="my-auto text-2xl font-bold lg:mr-4">
+                        <span className="my-auto text-2xl font-bold lg:mr-4 text-red ">
                           เลือกพื้นที่จัดส่ง
                         </span>
                         <div className="flex justify-center my-2">
-                          <button type="button" onClick={() => setIsOpen(true)}>
-                            <img className="w-24" src="/gmapLogo.png" />
+                          <button type="button" onClick={() => setIsOpen(true)} className={mapStore?.distance == null ? "animate-bounce select-map" : "animate-bounce select-map active"}>
+                            <img className="w-14" src="/gmapLogo.png" />
                           </button>
                           <MapComponent isOpen={isOpen} setIsOpen={setIsOpen} />
                         </div>
@@ -237,7 +242,7 @@ export default function ProductDetailPage() {
                         </span>
                         <div className="flex justify-center items-center my-4 lg:justify-start ">
                           <svg
-                            className="fill-current w-3 text-gray-900 hover:text-primary cursor-pointer "
+                            className="fill-current w-3 text-gray-900 hover:text-[#f9632c] cursor-pointer "
                             viewBox="0 0 448 512"
                             onClick={() => {
                               if (productQty > 1) {
@@ -249,7 +254,7 @@ export default function ProductDetailPage() {
                           </svg>
 
                           <input
-                            className="mx-2 border text-2xl text-center w-16 rounded-md text-gray-900 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
+                            className="mx-2 border text-2xl text-center w-16 rounded-md text-gray-900 focus:outline-none focus:border-[#b96800] focus:ring-1 focus:ring-primary [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
                             type="number"
                             min={1}
                             value={parseInt(productQty)}
@@ -258,7 +263,7 @@ export default function ProductDetailPage() {
                             }
                           />
                           <svg
-                            className="fill-current w-3 text-gray-900 hover:text-primary cursor-pointer"
+                            className="fill-current w-3 text-gray-900 hover:text-[#f9632c] cursor-pointer"
                             viewBox="0 0 448 512"
                             onClick={() => setProductQty(productQty + 1)}
                           >

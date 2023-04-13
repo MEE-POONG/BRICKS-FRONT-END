@@ -8,7 +8,7 @@ export default function BlockDetail() {
         {/* <div className="px-6 pb-2 mb-10 md:mb-24 ">
           <a
             href="../"
-            className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-primary hover:underline  "
+            className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-[#f9632c] hover:underline  "
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +55,7 @@ export default function BlockDetail() {
         </div>
         <div className="flex mx-5 md:mx-10 flex-wrap-reverse mt-10">
           <div className="flex-auto w-96 md:mr-10 my-10 indent-8 ">
-            <h4 className="text-lg text-primary font-semibold mb-5">
+            <h4 className="text-lg text-[#f9632c] font-semibold mb-5">
               หัวข้อย่อย
             </h4>
             <p>
@@ -74,7 +74,7 @@ export default function BlockDetail() {
           </div>
         </div>
 
-        <div className="mx-10 mt-24 text-end text-primary hover:underline">
+        <div className="mx-10 mt-24 text-end text-[#f9632c] hover:underline">
             <i>
                 แหล่งที่มา :<a href="#">ร้านช่างพอง</a>
             </i>

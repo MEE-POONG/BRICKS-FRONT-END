@@ -74,7 +74,7 @@ export default function Basket() {
                   <div className="w-20">
                     <img className="h-24" src={item.image} alt="product" />
                   </div>
-                  <div className="flex flex-col justify-between text-3xl font-bold ml-4 flex-grow">
+                  <div className="flex justify-start text-3xl font-bold ml-4 flex-grow">
                     <span className="font-bold text-nd text-[#f9632c]">
                       {item.name}
                     </span>

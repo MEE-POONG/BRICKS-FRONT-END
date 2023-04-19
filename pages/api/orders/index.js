@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import axios from "axios";
 const prisma = new PrismaClient();
 
 export default async function handler(req, res) {
@@ -24,7 +25,7 @@ export default async function handler(req, res) {
               },
             },
           },
-          orderBy:{
+          orderBy: {
             createdAt: 'desc'
           }
         });
@@ -56,9 +57,26 @@ export default async function handler(req, res) {
             },
           },
         });
+
+        let notify = new FormData();
+        notify.append('message', 'มีรายการสั่งซื้อใหม่!\n' + 'รหัสสั่งซื้อ: ' + oderCode + '\n' + 'ราคารวม: ' + req.body.totalPrice.toLocaleString("en-US") + ' บาท');
+        notify.append('imageThumbnail', req.body.image);
+        notify.append('imageFullsize', req.body.image);
+
+        let config = {
+          method: 'post',
+          url: 'https://notify-api.line.me/api/notify',
+          headers: {
+            'Authorization': 'Bearer CDhLcADRAVBuDpVleoqIClIXAQXQUkms7hBe6FpWNhb'
+          },
+          data: notify
+        };
+
+        axios.request(config)
+
         res.status(200).json(data);
       } catch (error) {
-        res.status(400).json({ success: false });
+        res.status(400).json({ success: false, error });
       }
       break;
     default:

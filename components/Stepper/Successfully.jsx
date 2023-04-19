@@ -22,7 +22,7 @@ export default function Successfully() {
 
   useEffect(() => {
     if (remainingTime === 0) {
-      router.push("/profile");
+      router.push("/profile").finally(() => router.reload());
     }
   }, [remainingTime]);
 

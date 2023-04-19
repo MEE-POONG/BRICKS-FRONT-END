@@ -211,7 +211,7 @@ export default function ProductDetailPage() {
                       dangerouslySetInnerHTML={{ __html: productData?.detail }}
                     />
                   </div>
-                  <div className="flex mt-6 items-center pb-5 border-gray-200 mb-5 justify-center lg:justify-start">
+                  <div onClick={() => setIsOpen(true)}  className="flex mt-6 items-center pb-5 border-gray-200 mb-5 justify-center lg:justify-start cursor-pointer">
                     <div className="flex items-center">
                       <div className="lg:flex">
                         <span className="my-auto text-2xl font-bold lg:mr-4 text-red ">
@@ -230,11 +230,11 @@ export default function ProductDetailPage() {
                     <span className="text-2xl font-bold text-gray-900 block">
                       ระยะทาง {mapStore?.distance / 1000} กิโลเมตร
                     </span>
-                    <span className="text-2xl font-bold text-gray-900">
+                    {/* <span className="text-2xl font-bold text-gray-900">
                       {typeof productSumPrice === "number"
                         ? productSumPrice.toLocaleString("en-US") + " " + "บาท"
                         : productSumPrice}
-                    </span>
+                    </span> */}
                     <div className="my-4">
                       <div className="block lg:flex">
                         <span className="text-2xl font-bold text-gray-800 my-auto lg:mr-4">

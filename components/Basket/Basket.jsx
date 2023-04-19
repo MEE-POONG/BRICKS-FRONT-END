@@ -52,58 +52,53 @@ export default function Basket() {
               <h1 className="font-bold text-3xl mx-auto">ตระกร้าสินค้า</h1>
             </div>
             <div className="flex mt-10 mb-5 px-2 lg:px-6">
-              <h3 className="font-semibold text-2xl w-2/4">
+              <h3 className="font-semibold text-2xl w-3/4">
                 รายละเอียดสินค้า
               </h3>
-              <h3 className="font-semibold text-center text-2xl w-1/4">
+              {/* <h3 className="font-semibold text-center text-2xl w-1/4">
                 ที่จัดส่ง
-              </h3>
+              </h3> */}
               <h3 className="font-semibold text-center text-2xl w-1/4">
                 จำนวน
               </h3>
-              <h3 className="font-semibold text-right text-2xl w-1/4">
-                ราคา
-              </h3>
+              {/* <h3 className="font-semibold text-right text-2xl w-1/4">
+                ราคามัดจำ
+              </h3> */}
             </div>
             {cartItems?.map((item, index) => (
               <div
                 key={index}
                 className="flex items-center hover:bg-gray-100 py-6 px-2 lg:px-6"
               >
-                <div className="flex w-2/4">
+                <div className="flex w-3/4">
                   <div className="w-20">
                     <img className="h-24" src={item.image} alt="product" />
                   </div>
-                  <div className="flex flex-col justify-between text-3xl font-bold ml-4 flex-grow">
+                  <div className="flex justify-start text-3xl font-bold ml-4 flex-grow">
                     <span className="font-bold text-nd text-[#f9632c]">
                       {item.name}
                     </span>
                     <div
-                      className="w-fit cursor-pointer font-semibold hover:text-red-500 text-gray-500 text-xl"
+                      className="w-fit cursor-pointer font-semibold hover:text-red-500 text-gray-500 text-xl pt-2 pl-5"
                       onClick={() => handleDeleteCartItem(item.id)}
                     >
                       <FaTrashAlt />
                     </div>
                   </div>
                 </div>
-                <div className="flex justify-center w-1/4 text-3xl font-bold">
+                {/* <div className="flex justify-center w-1/4 text-3xl font-bold">
                   <MapBasket item={item} />
-                </div>
+                </div> */}
                 <div className="flex justify-center w-1/4 text-3xl font-bold">
-                  <input
-                    className="mx-2 border text-center w-8 rounded-md"
-                    type="text"
-                    disabled
-                    value={item.qty.toLocaleString("en-US")}
-                  />
+                {item.qty.toLocaleString("en-US")}
                 </div>
-                <span className="text-right w-1/4 text-3xl font-bold">
+                <span className="text-right w-1/4 text-3xl font-bold hidden">
                   {item.price.toLocaleString("en-US") + " " + "บาท"}
                 </span>
               </div>
             ))}
           </div>
-          <div className="relative w-full bg-white lg:p-4 lg:w-1/4">
+          <div className="relative w-full bg-white lg:p-4 lg:w-1/4 hidden">
             <div className="flex justify-between border-b pb-8">
               <h1 className="font-bold text-3xl mx-auto"> สรุปออเดอร์</h1>
             </div>

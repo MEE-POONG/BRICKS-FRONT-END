@@ -52,7 +52,7 @@ export default function Basket() {
               <h1 className="font-bold text-3xl mx-auto">ตระกร้าสินค้า</h1>
             </div>
             <div className="flex mt-10 mb-5 px-2 lg:px-6">
-              <h3 className="font-semibold text-2xl w-2/4">
+              <h3 className="font-semibold text-2xl w-3/4">
                 รายละเอียดสินค้า
               </h3>
               {/* <h3 className="font-semibold text-center text-2xl w-1/4">
@@ -61,16 +61,16 @@ export default function Basket() {
               <h3 className="font-semibold text-center text-2xl w-1/4">
                 จำนวน
               </h3>
-              <h3 className="font-semibold text-right text-2xl w-1/4">
-                ราคา
-              </h3>
+              {/* <h3 className="font-semibold text-right text-2xl w-1/4">
+                ราคามัดจำ
+              </h3> */}
             </div>
             {cartItems?.map((item, index) => (
               <div
                 key={index}
                 className="flex items-center hover:bg-gray-100 py-6 px-2 lg:px-6"
               >
-                <div className="flex w-2/4">
+                <div className="flex w-3/4">
                   <div className="w-20">
                     <img className="h-24" src={item.image} alt="product" />
                   </div>

@@ -74,6 +74,7 @@ export default function CheckBill({ imageURL, onImageSlipChange }) {
               {price.toLocaleString("en-US")} บาท
             </p>
           </div>
+          <i className="text-xl text-red-500">**กรุณาโอนเงินค่ามัดจำ เพื่อยืนยันการสั่งซื้อสินค้า**</i>
         </div>
         <div className="grid grid-cols-1 space-y-2 mt-4">
           <label className="text-2xl font-bold text-gray-500 tracking-wide text-center">

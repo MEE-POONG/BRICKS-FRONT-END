@@ -70,7 +70,7 @@ export default function Basket() {
                 key={index}
                 className="flex items-center hover:bg-gray-100 py-6 px-2 lg:px-6"
               >
-                <div className="flex w-3/4">
+                <div className="flex w-2/4">
                   <div className="w-20">
                     <img className="h-24" src={item.image} alt="product" />
                   </div>

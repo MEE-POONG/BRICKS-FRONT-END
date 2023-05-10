@@ -28,6 +28,8 @@ export default function Basket() {
     return +sum;
   };
 
+  ;
+
   return (
     <>
       <Toaster
@@ -61,9 +63,9 @@ export default function Basket() {
               <h3 className="font-semibold text-center text-2xl w-1/4">
                 จำนวน
               </h3>
-              {/* <h3 className="font-semibold text-right text-2xl w-1/4">
-                ราคามัดจำ
-              </h3> */}
+              <h3 className="font-semibold text-right text-2xl w-1/4">
+                ประเภทรถที่เลือก
+              </h3>
             </div>
             {cartItems?.map((item, index) => (
               <div
@@ -95,6 +97,9 @@ export default function Basket() {
                 <span className="text-right w-1/4 text-3xl font-bold hidden">
                   {item.price.toLocaleString("en-US") + " " + "บาท"}
                 </span>
+                <div className="flex justify-center w-1/4 text-3xl font-bold">
+                    
+                </div>
               </div>
             ))}
           </div>
@@ -120,3 +125,4 @@ export default function Basket() {
     </>
   );
 }
+

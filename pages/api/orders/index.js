@@ -53,6 +53,7 @@ export default async function handler(req, res) {
                 lng: parseFloat(product.lng),
                 distance: parseFloat(product.distance),
                 productId: product.productId,
+                cartypeId: cartype.cartypeId,
               })),
             },
           },

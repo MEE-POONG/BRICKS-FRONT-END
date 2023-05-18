@@ -104,7 +104,9 @@ export default function LoginPage() {
             </button>
           </div>
         </div>
-        <div className="mb-6"></div>
+        <div className="mb-2">
+          <a href="/checkmail-resetpass" className=" text-2xl text-red-400">ลืมรหัสผ่านใช่ไหม?</a>
+        </div>
         <hr />
         <div className="my-6">
           <button

@@ -28,8 +28,20 @@ export default function Profile() {
           <h2 className="font-bold mt-1 text-gray-900 text-4xl">
             {session?.user.name}
           </h2>
-          <h3 className="mt-1 text-gray-900 text-4xl">{session?.user.email}</h3>
-          <div className="w-12 h-1 bg-red-500 rounded mt-2 mb-4"></div>
+          <h3 className="mt-1 text-gray-900 text-4xl">
+            {session?.user.firstName} {session?.user.lastName}
+          </h3>
+          <a href="/resetpassword">
+            <button
+              type="button"
+              className="text-blue-400 text-2xl hover:text-blue-800"
+            >
+              แก้ไขรหัสผ่าน
+            </button>
+          </a>
+
+          <div className="w-12 h-1 bg-red-500 rounded mt-2 mb-4"> </div>
+
           <div className="text-5xl font-bold px-3 py-1 leading-normal text-[#f9632c] rounded-lg">
             คำสั่งซื้อของฉัน
           </div>
@@ -50,10 +62,20 @@ export default function Profile() {
                       <div className="divide-x-2 divide-gray-400"></div>
 
                       <span className="mr-2">วันที่จัดส่ง</span>
-                      <span>{order.deliveryAt ? dayjs(order.deliveryAt).format("DD-MM-YYYY") : ' รอวันจัดส่ง'}</span>
+                      <span>
+                        {order.deliveryAt
+                          ? dayjs(order.deliveryAt).format("DD-MM-YYYY")
+                          : " รอวันจัดส่ง"}
+                      </span>
                     </div>
                   </div>
-                  <div className={order.status === 'จัดส่งเสร็จสิ้น' ? "bg-green-500" :"bg-yellow-500"}>
+                  <div
+                    className={
+                      order.status === "จัดส่งเสร็จสิ้น"
+                        ? "bg-green-500"
+                        : "bg-yellow-500"
+                    }
+                  >
                     <div className="w-full text-white text-3xl">
                       {order.status}
                     </div>

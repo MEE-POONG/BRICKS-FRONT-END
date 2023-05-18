@@ -32,6 +32,7 @@ export default async function handler(req, res) {
             productId: req.body.productId,
             name: req.body.name,
             cartId: req.body.cartId,
+            catypeId: req.body.catypeId,
           },
         });
         res.status(200).json(data);

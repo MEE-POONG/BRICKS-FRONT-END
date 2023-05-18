@@ -72,12 +72,12 @@ export default function AboutPage() {
                 <div className="lg:grid lg:grid-cols-2 gap-4 mt-8">
                   <img
                     className="w-full rounded-lg"
-                    src="/Gong_Yoo.png"
+                    src="/images/105852.jpg"
                     alt="office content 1"
                   />
                   <img
                     className="mt-4 w-full lg:mt-10 rounded-lg"
-                    src="/Gong_Yoo.png"
+                    src="/images/105853.jpg"
                     alt="office content 2"
                   />
                 </div>

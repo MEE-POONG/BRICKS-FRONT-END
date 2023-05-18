@@ -24,7 +24,7 @@ import { FreeMode, Navigation, Thumbs } from "swiper";
 export default function ProductDetailPage() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const handleZoom = e => {
+  const handleZoom = (e) => {
     const zoomer = e.currentTarget;
     const rect = zoomer.getBoundingClientRect();
     const offsetX = e.clientX - rect.left;
@@ -69,7 +69,7 @@ export default function ProductDetailPage() {
                 distance: mapStore?.distance,
                 image: productData?.image,
               })
-            ).then(toast.success("เพื่อไปยังตระกล้าสินค้าแล้ว"));
+            ).then(toast.success("เพิ่มไปยังตระกล้าสินค้าแล้ว"));
           } else {
             toast.error("ขออภัยคุณไม่อยู่ในพื้นที่จัดส่ง");
           }
@@ -89,7 +89,8 @@ export default function ProductDetailPage() {
       mapStore?.distance,
       productData?.price,
       +productQty,
-      productData?.qtyRate
+      productData?.qtyRate,
+
     );
     setProductSumPrice(result);
   }, [
@@ -98,6 +99,8 @@ export default function ProductDetailPage() {
     productQty,
     productData?.qtyRate,
   ]);
+
+  const [type, setType] = useState('');
 
   return (
     <>
@@ -154,7 +157,7 @@ export default function ProductDetailPage() {
                   <Swiper
                     style={{
                       "--swiper-navigation-color": "#000",
-                      "--swiper-pagination-color": "#000"
+                      "--swiper-pagination-color": "#000",
                     }}
                     loop={true}
                     spaceBetween={10}
@@ -170,22 +173,44 @@ export default function ProductDetailPage() {
                     <SwiperSlide className="h-full">
                       <div
                         className="zoom h-auto"
-                        style={{ backgroundImage: `url(${productData?.image})`, backgroundPosition: `${position.x}% ${position.y}%` }}
+                        style={{
+                          backgroundImage: `url(${productData?.image})`,
+                          backgroundPosition: `${position.x}% ${position.y}%`,
+                        }}
                         onMouseMove={handleZoom}
                       >
-                        <img src='https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/106e9571-ee2f-40c1-05b0-f914121edc00/170' className={productData?.subType?.name === 'ช่องลม' ? "logo" : "hidden"} />
-                        <img src={productData?.image} className="product h-auto" />
+                        <img
+                          src="https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/106e9571-ee2f-40c1-05b0-f914121edc00/170"
+                          className={
+                            productData?.subType?.name === "ช่องลม"
+                              ? "logo"
+                              : "hidden"
+                          }
+                        />
+                        <img
+                          src={productData?.image}
+                          className="product h-auto"
+                        />
                       </div>
                     </SwiperSlide>
                     {productData?.imageProduct.map((img, index) => (
                       <SwiperSlide key={index}>
                         <div
                           className="zoom"
-                          style={{ backgroundImage: `url(${productData?.image})`, backgroundPosition: `${position.x}% ${position.y}%` }}
+                          style={{
+                            backgroundImage: `url(${productData?.image})`,
+                            backgroundPosition: `${position.x}% ${position.y}%`,
+                          }}
                           onMouseMove={handleZoom}
                         >
-
-                          <img src='https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/106e9571-ee2f-40c1-05b0-f914121edc00/170' className={productData?.subType?.name === 'ช่องลม' ? "logo" : "hidden"} />
+                          <img
+                            src="https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/106e9571-ee2f-40c1-05b0-f914121edc00/170"
+                            className={
+                              productData?.subType?.name === "ช่องลม"
+                                ? "logo"
+                                : "hidden"
+                            }
+                          />
                           <img src={productData?.image} className="product" />
                         </div>
                       </SwiperSlide>
@@ -211,14 +236,25 @@ export default function ProductDetailPage() {
                       dangerouslySetInnerHTML={{ __html: productData?.detail }}
                     />
                   </div>
-                  <div onClick={() => setIsOpen(true)}  className="flex mt-6 items-center pb-5 border-gray-200 mb-5 justify-center lg:justify-start cursor-pointer">
+                  <div
+                    onClick={() => setIsOpen(true)}
+                    className="flex mt-6 items-center pb-5 border-gray-200 mb-5 justify-center lg:justify-start cursor-pointer"
+                  >
                     <div className="flex items-center">
                       <div className="lg:flex">
                         <span className="my-auto text-2xl font-bold lg:mr-4 text-red ">
                           เลือกพื้นที่จัดส่ง
                         </span>
                         <div className="flex justify-center my-2">
-                          <button type="button" onClick={() => setIsOpen(true)} className={mapStore?.distance == null ? "animate-bounce select-map" : "animate-bounce select-map active"}>
+                          <button
+                            type="button"
+                            onClick={() => setIsOpen(true)}
+                            className={
+                              mapStore?.distance == null
+                                ? "animate-bounce select-map"
+                                : "animate-bounce select-map active"
+                            }
+                          >
                             <img className="w-14" src="/gmapLogo.png" />
                           </button>
                           <MapComponent isOpen={isOpen} setIsOpen={setIsOpen} />
@@ -226,6 +262,29 @@ export default function ProductDetailPage() {
                       </div>
                     </div>
                   </div>
+
+                  <div className="flex mt-6 items-center pb-1 border-gray-200 mb-5 justify-center lg:justify-start cursor-pointer">
+                    <div className="flex items-center">
+                      <div className="lg:flex">
+                        <span className="my-auto text-2xl font-bold lg:mr-4 text-red ">
+                          เลือกประเภทรถ
+                        </span>
+
+                        <div className="flex justify-center my-2 ">
+                          <select name="" id="deliverBy"
+                          className="text-2xl font-bold"
+                          onChange={(e) => { setType(e.target.value) }}
+                          value={type} autoComplete="off"
+                           >
+                            <option value="" >--เลือก--</option>
+                            <option value="1">รถกระบะ</option>
+                            <option value="2">รถบรรทุก</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                   <div className="block text-center lg:text-left">
                     <span className="text-2xl font-bold text-gray-900 block">
                       ระยะทาง {mapStore?.distance / 1000} กิโลเมตร

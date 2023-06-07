@@ -1,10 +1,41 @@
 /* eslint-disable @next/next/no-img-element */
+import axios from "axios";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 import React from "react";
 import Swal from "sweetalert2";
 
 export default function ResetPasswordPage() {
+  const handleSignInEmail = async () => {
+    Swal.fire({
+      title: 'กรุณารอสักครู่...',
+      didOpen: () => {
+        Swal.showLoading()
+      },
+    })
+    try {
+      await axios({
+        method: "post",
+        url: "/api/forget-password",
+        data: {
+          email: document.getElementById("email").value,
+        },
+      })
+      Swal.close()
+      return Swal.fire({
+        icon: 'success',
+        title: 'สำเร็จ',
+        text: 'กรุณาตรวจสอบอีเมลของท่าน!',
+      })
+    } catch (error) {
+      Swal.close()
+      return Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: error.response.data.message,
+      })
+    }
+  }
   return (
     <>
       <div className="max-w-lg mx-auto my-10 bg-white p-8 rounded-xl shadow-lg shadow-slate-300">
@@ -33,12 +64,12 @@ export default function ResetPasswordPage() {
             />
           </div>
 
-       
+
           <div className="my-6">
             <button
               type="button"
               className="w-full text-center text-4xl py-3 my-3 border flex space-x-2 items-center justify-center border-red-200 rounded-lg text-red-700 hover:border-red-400 hover:text-red-900 hover:shadow transition duration-150"
-              
+              onClick={handleSignInEmail}
             >
               <span>Sent Reset Code</span>
             </button>

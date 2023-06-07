@@ -3,6 +3,7 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 import React from "react";
 import Swal from "sweetalert2";
+import Link from "next/link";
 
 export default function LoginPage() {
   const route = useRouter()
@@ -105,7 +106,7 @@ export default function LoginPage() {
           </div>
         </div>
         <div className="mb-2">
-          <a href="/checkmail-resetpass" className=" text-2xl text-red-400">ลืมรหัสผ่านใช่ไหม?</a>
+          <Link href="/checkmail-resetpass" className=" text-2xl text-red-400">ลืมรหัสผ่านใช่ไหม?</Link>
         </div>
         <hr />
         <div className="my-6">

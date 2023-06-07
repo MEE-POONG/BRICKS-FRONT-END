@@ -31,14 +31,14 @@ export default function Profile() {
           <h3 className="mt-1 text-gray-900 text-4xl">
             {session?.user.firstName} {session?.user.lastName}
           </h3>
-          <a href="/resetpassword">
+          <Link href="/resetpassword">
             <button
               type="button"
               className="text-blue-400 text-2xl hover:text-blue-800"
             >
               แก้ไขรหัสผ่าน
             </button>
-          </a>
+          </Link>
 
           <div className="w-12 h-1 bg-red-500 rounded mt-2 mb-4"> </div>
 

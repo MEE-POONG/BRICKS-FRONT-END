@@ -70,7 +70,7 @@ export default function Showproducts() {
                         sizes="100%"
                         src={productsHome?.products[0]?.image}
                         alt="productImage"
-                        className="object-contain rounded-xl shadow-lg"
+                        className="object-contain rounded-xl shadow-lg bg-orange-200"
                       />
                     </div>
                     <div className="cardp-info">

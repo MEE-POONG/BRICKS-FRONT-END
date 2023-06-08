@@ -9,6 +9,7 @@ export default function FacebookPost() {
   const PageId = process.env.NEXT_PUBLIC_FB_PAGE_ID;
   const Limit = "12";
 
+  console.log("AppID", AppID, "AccessToken", AccessToken, "PageId", PageId);
   const [
     {
       data: facebookFeeds,

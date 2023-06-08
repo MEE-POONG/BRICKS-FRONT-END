@@ -7,7 +7,7 @@ export default function FacebookPost() {
   const AppID = process.env.NEXT_PUBLIC_FB_APP_ID;
   const AccessToken = process.env.NEXT_PUBLIC_FB_ACCESS_TOKEN;
   const PageId = process.env.NEXT_PUBLIC_FB_PAGE_ID;
-  const Limit = "12";
+  const Limit = "30";
 
   console.log("AppID", AppID, "AccessToken", AccessToken, "PageId", PageId);
   const [

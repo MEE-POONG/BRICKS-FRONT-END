@@ -17,7 +17,7 @@ import SectionComponent from "../headtop";
 const AppID = process.env.NEXT_PUBLIC_FB_APP_ID;
 const AccessToken = process.env.NEXT_PUBLIC_FB_ACCESS_TOKEN;
 const PageId = process.env.NEXT_PUBLIC_FB_PAGE_ID;
-const Limit = "12";
+const Limit = "30";
 
 export default function PortfolioShowIndex() {
   const [

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build-push": "docker build --platform linux/amd64 -t chunwarayut/bricks-front-end:latest . && docker push chunwarayut/bricks-front-end:latest"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.8",

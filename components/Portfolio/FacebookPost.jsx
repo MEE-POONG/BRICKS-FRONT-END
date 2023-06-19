@@ -44,8 +44,8 @@ export default function FacebookPost() {
               {posts?.map((id, index) => (
                 <div key={index} className="w-auto">
                   <iframe
-                    src={`https://www.facebook.com/plugins/post.php?href=https://www.facebook.com/sn4ppy/posts/${id}&show_text=true&appId=${AppID}&width=600`}
-                    data-href={`https://www.facebook.com/plugins/post.php?href=https://www.facebook.com/sn4ppy/posts/${id}`}
+                    src={`https://www.facebook.com/plugins/post.php?href=https://www.facebook.com/DreamBlock9/posts/${id}&show_text=true&appId=${AppID}&width=600`}
+                    data-href={`https://www.facebook.com/plugins/post.php?href=https://www.facebook.com/DreamBlock9/posts/${id}`}
                     frameborder="0"
                     data-lazy={true}
                     allowfullscreen="true"

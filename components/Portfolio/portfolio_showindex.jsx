@@ -96,7 +96,7 @@ export default function PortfolioShowIndex() {
                       <SwiperSlide key={index} className=" max-w-sm rounded overflow-hidden mx-auto border bg-white">
                         <FacebookProvider appId={AppID}>
                           <EmbeddedPost
-                            href={`https://www.facebook.com/sn4ppy/posts/${id}`}
+                            href={`https://www.facebook.com/DreamBlock9/posts/${id}`}
                             lazy={true}
                           />
                         </FacebookProvider>

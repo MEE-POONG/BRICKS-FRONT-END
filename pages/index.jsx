@@ -19,8 +19,8 @@ export default function Home() {
       </Head>
       <div className="home-page">
         <HomeTop />
-        <Showproducts />
         <PortfolioShowIndex />
+        <Showproducts />
         <Prebrick />
         <Brandblock />
       </div>

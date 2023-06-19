@@ -120,7 +120,7 @@ export default function Profile() {
                           {order?.orderDetail?.map((product, index) => {
 
                             return (
-                              <div class="w-full p-4 text-3xl min-w-full">
+                              <div key={index} class="w-full p-4 text-3xl min-w-full">
                                 <a href="" class="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-x-auto">
                                   <div class="relative pb-48 overflow-hidden">
                                     <img class="absolute inset-0 h-full w-full object-cover" src={product.products.image} alt="" />

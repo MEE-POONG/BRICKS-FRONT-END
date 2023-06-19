@@ -10,6 +10,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Loading from "../../components/Loading/Loading";
 import MapComponent from "../../components/Map/MapComponent";
 import { postCart } from "../../store/cart/cartSlice";
+import { RadioGroup } from '@headlessui/react'
+
 import { priceRule } from "../../utils/priceRule";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -21,9 +23,22 @@ import "swiper/css/thumbs";
 
 import { FreeMode, Navigation, Thumbs } from "swiper";
 
+const plans = [
+  {
+    name: 'รถกระบะ',
+    ram: 'เหมาะสำหรับขนของขนาดเล็ก',
+  },
+  {
+    name: 'รถบรรทุก',
+    ram: 'เหมาะสำหรับขนของขนาดใหญ่',
+  }
+]
+
 export default function ProductDetailPage() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  const [selected, setSelected] = useState(plans[0])
   const handleZoom = (e) => {
     const zoomer = e.currentTarget;
     const rect = zoomer.getBoundingClientRect();
@@ -68,10 +83,11 @@ export default function ProductDetailPage() {
                 lng: mapStore?.lng,
                 distance: mapStore?.distance,
                 image: productData?.image,
+                type: selected.name,
               })
             ).then(toast.success("เพิ่มไปยังตระกล้าสินค้าแล้ว"));
           } else {
-            toast.error("ขออภัยคุณไม่อยู่ในพื้นที่จัดส่ง");
+            toast.error("ขออภัยคุณคสั่งน้อยกว่าขั้นต่ำ");
           }
         } else {
           toast.error("กรุณาเลือกพื้นที่จัดส่ง");
@@ -245,7 +261,7 @@ export default function ProductDetailPage() {
                         <span className="my-auto text-2xl font-bold lg:mr-4 text-red ">
                           เลือกพื้นที่จัดส่ง
                         </span>
-                        <div className="flex justify-center my-2">
+                        <div className="flex justify-center items-center my-2">
                           <button
                             type="button"
                             onClick={() => setIsOpen(true)}
@@ -258,37 +274,87 @@ export default function ProductDetailPage() {
                             <img className="w-14" src="/gmapLogo.png" />
                           </button>
                           <MapComponent isOpen={isOpen} setIsOpen={setIsOpen} />
+                          <span className="pl-5 text-2xl font-bold text-gray-900 block">
+                            ระยะทาง {mapStore?.distance / 1000} กิโลเมตร
+                          </span>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex mt-6 items-center pb-1 border-gray-200 mb-5 justify-center lg:justify-start cursor-pointer">
+                  {mapStore?.distance === null ? '' : <div className="flex mt-6 items-center pb-1 border-gray-200 mb-5 justify-center lg:justify-start">
                     <div className="flex items-center">
                       <div className="lg:flex">
                         <span className="my-auto text-2xl font-bold lg:mr-4 text-red ">
                           เลือกประเภทรถ
                         </span>
-
-                        <div className="flex justify-center my-2 ">
-                          <select name="" id="deliverBy"
-                          className="text-2xl font-bold"
-                          onChange={(e) => { setType(e.target.value) }}
-                          value={type} autoComplete="off"
-                           >
-                            <option value="" >--เลือก--</option>
-                            <option value="1">รถกระบะ</option>
-                            <option value="2">รถบรรทุก</option>
-                          </select>
-                        </div>
                       </div>
                     </div>
                   </div>
+                  }
 
-                  <div className="block text-center lg:text-left">
-                    <span className="text-2xl font-bold text-gray-900 block">
-                      ระยะทาง {mapStore?.distance / 1000} กิโลเมตร
-                    </span>
+
+                  {mapStore?.distance === null ? '' : <div className="w-full px-4">
+                    <div className="mx-auto w-full max-w-md">
+                      <RadioGroup value={selected} onChange={setSelected}>
+                        <RadioGroup.Label className="sr-only">Server size</RadioGroup.Label>
+                        <div className="space-y-2">
+                          {plans.map((plan) => (
+                            <RadioGroup.Option
+                              key={plan.name}
+                              value={plan}
+                              className={({ active, checked }) =>
+                                `${active
+                                  ? 'ring-2 ring-white ring-opacity-60 ring-offset-2 ring-offset-sky-300'
+                                  : ''
+                                }
+                  ${checked ? 'bg-sky-900 bg-opacity-75 text-white' : 'bg-white'
+                                }
+                    relative flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none`
+                              }
+                            >
+                              {({ active, checked }) => (
+                                <>
+                                  <div className="flex w-full items-center justify-between">
+                                    <div className="flex items-center">
+                                      <div className="text-xl">
+                                        <RadioGroup.Label
+                                          as="p"
+                                          className={`font-medium  ${checked ? 'text-white' : 'text-gray-900'
+                                            }`}
+                                        >
+                                          {plan.name}
+                                        </RadioGroup.Label>
+                                        <RadioGroup.Description
+                                          as="span"
+                                          className={`inline ${checked ? 'text-sky-100' : 'text-gray-500'
+                                            }`}
+                                        >
+                                          <span>
+                                            {plan.ram}
+                                          </span>
+                                        </RadioGroup.Description>
+                                      </div>
+                                    </div>
+                                    {checked && (
+                                      <div className="shrink-0 text-white">
+                                        <CheckIcon className="h-6 w-6" />
+                                      </div>
+                                    )}
+                                  </div>
+                                </>
+                              )}
+                            </RadioGroup.Option>
+                          ))}
+                        </div>
+                      </RadioGroup>
+                    </div>
+                  </div>}
+
+
+
+                  {mapStore?.distance === null ? '' : <div className="block text-center lg:text-left">
+
                     {/* <span className="text-2xl font-bold text-gray-900">
                       {typeof productSumPrice === "number"
                         ? productSumPrice.toLocaleString("en-US") + " " + "บาท"
@@ -338,7 +404,7 @@ export default function ProductDetailPage() {
                         เพิ่มไปยังตะกร้า
                       </button>
                     </div>
-                  </div>
+                  </div>}
                 </div>
               </div>
             </div>
@@ -347,4 +413,20 @@ export default function ProductDetailPage() {
       )}
     </>
   );
+}
+
+
+function CheckIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" {...props}>
+      <circle cx={12} cy={12} r={12} fill="#fff" opacity="0.2" />
+      <path
+        d="M7 13l3 3 7-7"
+        stroke="#fff"
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
 }

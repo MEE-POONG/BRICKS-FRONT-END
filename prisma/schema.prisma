@@ -217,6 +217,7 @@ model CartItems {
   lng       Float?
   distance  Float?
   image     String?
+  type      String?
   productId String?   @db.ObjectId
   cartId    String?   @db.ObjectId
   products  Products? @relation(fields: [productId], references: [id])

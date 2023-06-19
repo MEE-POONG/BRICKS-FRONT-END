@@ -98,7 +98,7 @@ export default function Basket() {
                   {item.price.toLocaleString("en-US") + " " + "บาท"}
                 </span>
                 <div className="flex justify-center w-1/4 text-3xl font-bold">
-                    
+                    {item.type}
                 </div>
               </div>
             ))}

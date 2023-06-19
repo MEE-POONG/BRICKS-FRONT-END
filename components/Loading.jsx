@@ -1,6 +1,28 @@
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useEffect } from "react";
+import Swal from "sweetalert2";
 
 export default function Loading() {
+  const router = useRouter();
+
+  useEffect(() => {
+    
+    Swal.fire({
+      title: "กำลังโหลด",
+      html: "กรุณารอสักครู่",
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading();
+      },
+    });
+
+  
+    return () => {
+      Swal.close();
+      router.push("/profile").finally(() => router.reload());
+    }
+  }, [])
+  
   return (
     <>
       {/* <div className="flex justify-center">

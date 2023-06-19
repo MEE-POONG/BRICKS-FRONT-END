@@ -37,6 +37,7 @@ export default async function handler(req, res) {
     case "POST":
       try {
         const oderCode = pad();
+        console.log(oderCode);
         const data = await prisma.orders.create({
           data: {
             orderCode: oderCode,
@@ -52,8 +53,7 @@ export default async function handler(req, res) {
                 lat: parseFloat(product.lat),
                 lng: parseFloat(product.lng),
                 distance: parseFloat(product.distance),
-                productId: product.productId,
-                cartypeId: cartype.cartypeId,
+                productId: product.productId
               })),
             },
           },
@@ -77,6 +77,7 @@ export default async function handler(req, res) {
 
         res.status(200).json(data);
       } catch (error) {
+        console.log(error);
         res.status(400).json({ success: false, error });
       }
       break;

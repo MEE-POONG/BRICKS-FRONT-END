@@ -45,10 +45,10 @@ export default function Profile() {
           <div className="text-5xl font-bold px-3 py-1 leading-normal text-[#f9632c] rounded-lg">
             คำสั่งซื้อของฉัน
           </div>
-          <div className="flex flex-wrap -mx-4 w-full justify-center ">
+          <div className="flex flex-wrap -mx-4 w-full justify-start ">
             {orderData?.map((order, index) => (
-              <section key={index} className="mb-8 bg-white shadow-lg w-full lg:w-1/2 xl:w-1/2">
-                <div className="border-2 border-gray-300 rounded-lg min-w-full">
+              <section key={index} className="px-4 mb-8  w-full lg:w-1/2 xl:w-1/3">
+                <div className="shadow-lg rounded-lg min-w-full">
                   <div className="flex my-2 mx-6">
                     <div>
                       <span className="text-3xl">หมายเลขคำสั่งซื้อ </span>
